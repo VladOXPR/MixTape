@@ -12,7 +12,7 @@ def home(request):
     user_profile = Profile.objects.get(user=request.user)
 
     profiles = Profile.objects.all()
-    return render(request, 'home.html', {'user_profile': user_profile, 'profiles': profiles})
+    return render(request, 'create.html', {'user_profile': user_profile, 'profiles': profiles})
 
 
 @login_required(login_url='signin')
@@ -42,6 +42,15 @@ def setting(request):
 
         return redirect('setting')
     return render(request, 'setting.html', {'user_profile': user_profile})
+
+@login_required(login_url='signin')
+def drop(request):
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=request.user)
+
+    profiles = Profile.objects.all()
+    return render(request, 'drop.html', {'user_profile': user_profile, 'profiles': profiles})
+
 
 
 @login_required(login_url='signin')
