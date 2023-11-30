@@ -4,67 +4,12 @@
 <html>
 
 <head>
+    <title>Create Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        header {
-            background: linear-gradient(180deg, #FFF 0%, #FFF 0.01%, rgba(255, 254, 254, 0.00) 100%);
-            backdrop-filter: blur(10px);
-            padding: 23px;
-            color: #000;
-            position: fixed;
-            width: 100%;
-            top: 0;
-        }
+<!--    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 
-        .box {
-            margin: 10px;
-            float: left;
-            align-items: center;
-            display: flex;
-        }
-
-        .container {
-            overflow: auto;
-            align-items: center;
-            display: flex;
-        }
-
-        .post-card {
-            border-radius: 0.3125rem;
-        }
-
-        .post-head {
-            height: 60%;
-            flex-shrink: 0;
-            background: rgba(255, 255, 255, 0.00);
-            border-radius: 0.3125rem;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            padding-top: 85px;
-        }
-
-        .scroll-margins {
-            scroll-margin: 20px;
-            padding: 30px;
-            background-color: #FFFFFF;
-        }
-
-        .scroll-container {
-            overflow-y: scroll;
-            height: 200px;
-        }
-
-
-    </style>
-    <link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
-    <title>Home</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
 </head>
 
 <body>
@@ -72,20 +17,17 @@
 <header>
     <nav>
         <ul>
-            <div class="container">
+            <div class="nav-container">
                 <div class="box">
-                    <li><a href="/" class="Browse"
-                           style="width: 100%; height: 100%; color: #585858; font-size: 20px; font-family: Inter; font-weight: 900; word-wrap: break-word">BROWSE</a>
+                    <li><a href="/" class="navbar-text" >BROWSE</a>
                     </li>
                 </div>
                 <div class="box">
-                    <li><a href="setting" class="Create"
-                           style="width: 100%; height: 100%; color: black; font-size: 30px; font-family: Inter; font-weight: 900; word-wrap: break-word;">CREATE</a>
+                    <li><a href="setting" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
                     </li>
                 </div>
                 <div class="box">
-                    <li><a href="#" class="Prop"
-                           style="width: 100%; height: 100%; color: #585858; font-size: 20px; font-family: Inter; font-weight: 900; word-wrap: break-word">DROP</a>
+                    <li><a href="#" class="navbar-text">DROP</a>
                     </li>
                 </div>
             </div>
@@ -96,28 +38,35 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <div class="scroll-margins">
-        <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">
-            <div class="space-y-5 flex-shrink-0 lg:w-7/12 mx-auto">
-                <div class="post-card" style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 400px;">
+    <div class="parent-block">
+<!--        <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">-->
+<!--            <div class="space-y-5 flex-shrink-0 lg:w-7/12 mx-auto">-->
+                <div class="profile-block">
                     <div>
-                        <img width="100" height="100" src="{{user_profile.profileimg.url}}"/>
-                        <input type="file" name="image" value="" class="shadow-none bg-gray-100">
+                        <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
+                        <!-- Custom file input container -->
+                        <div class="custom-file-input">
+                            <!-- Actual file input (hidden) -->
+                            <input type="file" id="upload" />
+                            <!-- Custom label -->
+                            <label for="upload">Edit Profile Pic</label>
                     </div>
+                        </div>
                     <div>
-                        <label for=""> Name</label>
-                        <input type="text" name="name" value="{{user_profile.name}}"
-                               class="shadow-none bg-gray-100">
+                        <div>
+                            <label for=""> Name</label>
+                            <input type="text" name="name" value="{{user_profile.name}}"
+                                   class="shadow-none bg-gray-20">
+                        </div>
+                        <div>
+                            <label for="about">Bio</label>
+                            <textarea id="about" name="bio" rows="4"
+                                      class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>
+                        </div>
+                        <button type="submit">Save Changes</button>
                     </div>
-                    <div>
-                        <label for="about">Bio</label>
-                        <textarea id="about" name="bio" rows="3"
-                                  class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
-                    </div>
-                    <button type="submit">Save Changes</button>
-                </div>
-            </div>
-        </div>
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </form>
 

@@ -41,7 +41,7 @@ def setting(request):
             user_profile.save()
 
         return redirect('setting')
-    return render(request, 'setting.html', {'user_profile': user_profile})
+    return render(request, 'create.html', {'user_profile': user_profile})
 
 
 @login_required(login_url='signin')
