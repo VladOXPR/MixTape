@@ -16,7 +16,7 @@ def home(request):
 
 
 @login_required(login_url='signin')
-def setting(request):
+def create(request):
     user_profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
 
@@ -40,7 +40,7 @@ def setting(request):
             user_profile.name = name
             user_profile.save()
 
-        return redirect('setting')
+        return redirect('create')
     return render(request, 'create.html', {'user_profile': user_profile})
 
 
@@ -72,7 +72,7 @@ def signup(request):
             user = User.objects.create_user(email=email, username=username, password=password)
             user.save()
 
-            # Log user in and redirect to settings page
+            # Log user in and redirect to creates page
             user_login = auth.authenticate(username=username, password=password)
             auth.login(request, user_login)
 

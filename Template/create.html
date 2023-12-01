@@ -6,67 +6,88 @@
 <head>
     <title>Create Page</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 <!--    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 
 </head>
-
 <body>
+    <header>
+        <nav>
+            <ul>
+                <div class="nav-container">
 
-<header>
-    <nav>
-        <ul>
-            <div class="nav-container">
-                <div class="box">
-                    <li><a href="/" class="navbar-text" >BROWSE</a>
-                    </li>
+                    <div class="box">
+                        <li><a href="/" class="navbar-text">BROWSE</a>
+                        </li>
+                    </div>
+
+                    <div class="box">
+                        <li><a href="create" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
+                        </li>
+                    </div>
+
+                    <div class="box">
+                        <li><a href="#" class="navbar-text">DROP</a>
+                        </li>
+                    </div>
+
                 </div>
-                <div class="box">
-                    <li><a href="setting" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
-                    </li>
-                </div>
-                <div class="box">
-                    <li><a href="#" class="navbar-text">DROP</a>
-                    </li>
-                </div>
-            </div>
-        </ul>
-    </nav>
-</header>
+            </ul>
+        </nav>
+    </header>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <div class="parent-block">
-<!--        <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">-->
-<!--            <div class="space-y-5 flex-shrink-0 lg:w-7/12 mx-auto">-->
-                <div class="profile-block">
-                    <div>
-                        <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
-                        <!-- Custom file input container -->
-                        <div class="custom-file-input">
-                            <!-- Actual file input (hidden) -->
-                            <input type="file" id="upload" />
-                            <!-- Custom label -->
-                            <label for="upload">Edit Profile Pic</label>
-                    </div>
-                        </div>
-                    <div>
-                        <div>
-                            <label for=""> Name</label>
-                            <input type="text" name="name" value="{{user_profile.name}}"
-                                   class="shadow-none bg-gray-20">
-                        </div>
-                        <div>
-                            <label for="about">Bio</label>
-                            <textarea id="about" name="bio" rows="4"
-                                      class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>
-                        </div>
-                        <button type="submit">Save Changes</button>
-                    </div>
-<!--            </div>-->
-<!--        </div>-->
+    <div class="dashboard">
+
+        <div class="profile-block">
+
+            <div class="container">
+                <div class="left">
+
+            <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
+                <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
+                <!-- Custom file input container -->
+                <div class="custom-file-input">
+                    <!-- Actual file input (hidden) -->
+                    <input type="file" name="image" value="" id="upload" />
+                    <!-- Custom label -->
+                    <label for="upload">Edit Profile Pic</label>
+                </div>
+            </div>
+            </div>
+            <div class="right">
+                    <label for=""> Name</label>
+                    <input type="text" name="name" value="{{user_profile.name}}"
+                           class="shadow-none bg-gray-20">
+
+                    <label for="about">Bio</label>
+                    <textarea id="about" name="bio" rows="4"
+                              class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>
+
+                <button class="submit" type="submit">Save Changes</button>
+            </div>
+            </div>
+            </div>
+
+        <div class="container">
+        <div class="projects-block">
+            <div class="project">
+            </div>
+
+            <div class="project">
+                </div>
+        </div>
+            <div class="projects-block">
+            <div class="project">
+            </div>
+
+            <div class="project">
+                </div>
+        </div>
+    </div>
     </div>
 </form>
 

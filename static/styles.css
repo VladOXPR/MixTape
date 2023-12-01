@@ -19,7 +19,7 @@ nav{
     float: left;
     align-items: center;
     display: flex;
-    length: 500px;
+    height: 100%;
 }
 
 .nav-container {
@@ -70,9 +70,19 @@ nav{
 
 /* Profile block on dashboard*/
 .profile-block {
+    margin-bottom: 5px;
     display: flex;
-    width: 96%;
-    height: 10%;
+    width: 99%;
+    height: 100%;
+    border-radius: 0.3125rem;
+    border: 3px solid #000;
+    background: #FFF;
+}
+
+.projects-block{
+    display: flex;
+    width: 98%;
+    height: 100px;
     border-radius: 0.3125rem;
     border: 3px solid #000;
     background: #FFF;
@@ -100,14 +110,10 @@ nav{
 }
 
 /* Parent block for profile, projects, and published*/
-.parent-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    scroll-margin: 20px;
-    padding: 10px;
+.dashboard {
     background-color: #FFFFFF;
     height: 100%;
+    margin: 8px;
 }
 
 .scroll-container {
@@ -149,14 +155,37 @@ nav{
 /* Style for the label */
 .custom-file-input label {
     background-color: #000000;
-    font-family: Inter;
     font-size: 15px;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
+}
+
+.submit {
+    background-color: #000000;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.project {
+    width: 95%;
+    height: 20px;
+    border: 2px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    justify-content: center;
+    gap: 5px;
 }
 
 a {
@@ -165,3 +194,7 @@ a {
 ul {
     list-style-type: none;
         }
+
+label {
+    font-family: Inter;
+ }
