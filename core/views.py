@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Profile
+from .models import Profile, Project
 from django.contrib.auth.decorators import login_required
 
 
@@ -18,6 +18,8 @@ def browse(request):
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
+    projects = user_profile.projects.all()
+
     if request.method == 'POST':
 
         if request.FILES.get('image') == None:
@@ -41,7 +43,8 @@ def create(request):
             user_profile.save()
 
         return redirect('create')
-    return render(request, 'create.html', {'user_profile': user_profile})
+
+    return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
 
 @login_required(login_url='signin')
 def drop(request):
@@ -76,12 +79,14 @@ def drop(request):
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
+    projects = user_profile.projects.all()
+
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
     }
 
-    return render(request, 'profile.html', context)
+    return render(request, 'profile.html', {'user_profile': user_profile, 'projects': projects})
 
 
 def signup(request):

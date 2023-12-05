@@ -68,11 +68,17 @@
             </div>
 
         <div class="projects-block">
+            {% for project in projects %}
             <div class="project">
-            </div>
-
-            <div class="project">
+                    <p>{{project.title}}</p>
                 </div>
+            {% empty %}
+            <p>No current projects.</p>
+            {% endfor %}
+
+        </div>
+        <div style="display: flex; align-items: center;">
+            <button class="attention-button">New Project</button>
         </div>
     </div>
 </form>
