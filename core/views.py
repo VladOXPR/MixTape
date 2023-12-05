@@ -7,12 +7,12 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required(login_url='signin')
-def home(request):
+def browse(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=request.user)
 
     profiles = Profile.objects.all()
-    return render(request, 'home.html', {'user_profile': user_profile, 'profiles': profiles})
+    return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles})
 
 
 @login_required(login_url='signin')
@@ -42,6 +42,34 @@ def create(request):
 
         return redirect('create')
     return render(request, 'create.html', {'user_profile': user_profile})
+
+@login_required(login_url='signin')
+def drop(request):
+    user_profile = Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+
+        if request.FILES.get('image') == None:
+            image = user_profile.profileimg
+            bio = request.POST['bio']
+            name = request.POST['name']
+
+            user_profile.profileimg = image
+            user_profile.bio = bio
+            user_profile.name = name
+            user_profile.save()
+
+        if request.FILES.get('image') != None:
+            image = request.FILES.get('image')
+            bio = request.POST['bio']
+            name = request.POST['name']
+
+            user_profile.profileimg = image
+            user_profile.bio = bio
+            user_profile.name = name
+            user_profile.save()
+
+        return redirect('drop')
+    return render(request, 'drop.html', {'user_profile': user_profile})
 
 
 @login_required(login_url='signin')

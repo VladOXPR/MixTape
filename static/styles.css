@@ -8,26 +8,29 @@
     position: fixed;
     width: 100%;
     top: 0;
-        }
+}
 
 nav{
     display: flex;
     justify-content: center;
 }
-.box {
-    margin: 10px;
-    float: left;
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Two columns with equal width */
+    justify-content: center;
     align-items: center;
+    overflow: auto;
+    width: 100%
+}
+
+.box {
     display: flex;
+    justify-items: center;
+    align-items: center;
     height: 100%;
 }
 
-.nav-container {
-    overflow: auto;
-    align-items: center;
-    display: flex;
-}
-        }
 .header-font-big {
     width: 9.8125rem;
     height: 2.375rem;
@@ -129,8 +132,9 @@ nav{
 
 /* Browse, Create, Drop navbar text format*/
 .navbar-text {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 100%;
     color: #585858;
     font-size: 20px;
     font-family: Inter;
@@ -197,7 +201,7 @@ nav{
 a {
     text-decoration: none;
     }
-ul {
+li {
     list-style-type: none;
         }
 
