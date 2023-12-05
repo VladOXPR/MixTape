@@ -15,3 +15,15 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Project(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_model = models.IntegerField()
+    title = models.CharField(max_length=35, blank=True)
+    vocal = models.FileField(upload_to='vocal_files')
+    instru = models.FileField(upload_to='instru_files')
+    final = models.FileField(upload_to='final_files')
+    coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
+
+    def __str__(self):
+        return self.user.username
