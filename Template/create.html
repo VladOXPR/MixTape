@@ -7,30 +7,30 @@
     <title>Create Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-<!--  ? do we even need tailwind  <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
+    <!--  ? do we even need tailwind  <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 
 </head>
 <body>
-    <header>
-        <nav>
-                <div class="nav-container">
+<header>
+    <nav>
+        <div class="nav-container">
 
-                    <div class="box">
-                        <a href="/" class="navbar-text">BROWSE</a>
-                    </div>
+            <div class="box">
+                <a href="/" class="navbar-text" style="font-size: 18px;">BROWSE</a>
+            </div>
 
-                    <div class="box">
-                         <a href="create" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
-                    </div>
+            <div class="box">
+                <a href="create" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
+            </div>
 
-                    <div class="box">
-                        <a href="drop" class="navbar-text">DROP</a>
-                    </div>
+            <div class="box">
+                <a href="drop" class="navbar-text">DROP</a>
+            </div>
 
-                </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -39,41 +39,36 @@
 
         <div class="profile-block">
 
-            <div class="container">
-                <div class="left">
-
             <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
                 <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
                 <!-- Custom file input container -->
-                <div class="custom-file-input">
-                    <!-- Actual file input (hidden) -->
-                    <input type="file" name="image" value="" id="upload" />
-                    <!-- Custom label -->
-                    <label for="upload">Edit Profile Pic</label>
-                </div>
+                <button>
+                    <a href="settings" class="navbar-text">Edit Profile</a>
+                </button>
             </div>
-            </div>
-            <div class="right">
-                    <label for=""> Name</label>
-                    <input type="text" name="name" value="{{user_profile.name}}"
-                           class="shadow-none bg-gray-20">
+            <!--            <div class="right">-->
+            <!--                    <label for=""> Name</label>-->
+            <!--                    <input type="text" name="name" value="{{user_profile.name}}"-->
+            <!--                           class="shadow-none bg-gray-20">-->
 
-                    <label for="about">Bio</label>
-                    <textarea id="about" name="bio" rows="4"
-                              class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>
+            <!--                    <label for="about">Bio</label>-->
+            <!--                    <textarea id="about" name="bio" rows="4"-->
+            <!--                              class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>-->
 
-                <button class="submit" type="submit">Save Changes</button>
-            </div>
-            </div>
-            </div>
+            <!--                <button class="submit" type="submit">Save Changes</button>-->
+            <!--            </div>-->
+        </div>
 
         <div class="projects-block">
+
             {% for project in projects %}
-            <div class="project">
-                    <p>{{project.title}}</p>
-                </div>
+            <a href="workspace/{{project.title}}" class="project">
+                <p>{{project.title}}</p>
+            </a>
+
             {% empty %}
             <p>No current projects.</p>
+
             {% endfor %}
 
         </div>

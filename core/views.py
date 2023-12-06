@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Profile, Project
+from .models import Profile, Project, Published
 from django.contrib.auth.decorators import login_required
 
 
@@ -19,6 +19,37 @@ def browse(request):
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
     projects = user_profile.projects.all()
+
+    # if request.method == 'POST':
+    #
+    #     if request.FILES.get('image') == None:
+    #         image = user_profile.profileimg
+    #         bio = request.POST['bio']
+    #         name = request.POST['name']
+    #
+    #         user_profile.profileimg = image
+    #         user_profile.bio = bio
+    #         user_profile.name = name
+    #         user_profile.save()
+    #
+    #     if request.FILES.get('image') != None:
+    #         image = request.FILES.get('image')
+    #         bio = request.POST['bio']
+    #         name = request.POST['name']
+    #
+    #         user_profile.profileimg = image
+    #         user_profile.bio = bio
+    #         user_profile.name = name
+    #         user_profile.save()
+    #
+    #     return redirect('create')
+
+    return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
+
+
+@login_required(login_url='signin')
+def settings(request):
+    user_profile = Profile.objects.get(user=request.user)
 
     if request.method == 'POST':
 
@@ -44,36 +75,33 @@ def create(request):
 
         return redirect('create')
 
-    return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
+    return render(request, 'settings.html', {'user_profile': user_profile})
+
 
 @login_required(login_url='signin')
 def drop(request):
     user_profile = Profile.objects.get(user=request.user)
-    if request.method == 'POST':
 
-        if request.FILES.get('image') == None:
-            image = user_profile.profileimg
-            bio = request.POST['bio']
-            name = request.POST['name']
-
-            user_profile.profileimg = image
-            user_profile.bio = bio
-            user_profile.name = name
-            user_profile.save()
-
-        if request.FILES.get('image') != None:
-            image = request.FILES.get('image')
-            bio = request.POST['bio']
-            name = request.POST['name']
-
-            user_profile.profileimg = image
-            user_profile.bio = bio
-            user_profile.name = name
-            user_profile.save()
-
-        return redirect('drop')
     return render(request, 'drop.html', {'user_profile': user_profile})
 
+
+@login_required(login_url='signin')
+def publish(request):
+    user_profile = Profile.objects.get(user=request.user)
+
+    return render(request, 'publish.html', {'user_profile': user_profile})
+
+@login_required(login_url='signin')
+def message(request, pk):
+    user_object = User.objects.get(username=pk)
+    user_profile = Profile.objects.get(user=request.user)
+
+    context = {
+        'user_object': user_object,
+        'user_profile': user_profile,
+    }
+
+    return render(request, 'message.html', {'user_profile': user_profile})
 
 @login_required(login_url='signin')
 def profile(request, pk):
@@ -87,6 +115,17 @@ def profile(request, pk):
     }
 
     return render(request, 'profile.html', {'user_profile': user_profile, 'projects': projects})
+
+
+@login_required(login_url='signin')
+def workspace(request, pk):
+    user_project = Project.objects.get(title=pk)
+
+    context = {
+        'user_project': user_project,
+    }
+
+    return render(request, 'workspace.html', {'user_project': user_project})
 
 
 def signup(request):

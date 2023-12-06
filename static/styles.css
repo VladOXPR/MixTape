@@ -115,7 +115,6 @@ nav{
 /* Profile block on dashboard*/
 .profile-block {
     margin-bottom: 5px;
-    display: flex;
     width: 100%;
     border-radius: 0.3125rem;
     border: 3px solid #000;
@@ -123,6 +122,9 @@ nav{
 }
 
 .projects-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     border-radius: 0.3125rem;
     border: 3px solid #000;
@@ -223,9 +225,12 @@ a {
     text-decoration: none;
     font-family: Inter;
     }
+
 p {
     font-family: Inter;
+    text-decoration: none;
 }
+
 li {
     list-style-type: none;
         }

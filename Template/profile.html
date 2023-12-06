@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-        <!--<i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>--></h5>
+<!--<i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>--></h5>
 
 <head>
     <title>Profile</title>
@@ -15,45 +15,45 @@
 
 <body>
 <header>
-        <nav>
-                <div class="nav-container">
+    <nav>
+        <div class="nav-container">
 
-                    <div class="box">
-                        <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">BROWSE</a>
-                    </div>
+            <div class="box">
+                <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">BROWSE</a>
+            </div>
 
-                </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <!-- Display the user's profile  -->
 <div class="dashboard">
-<div class="stranger-profile-block">
-    <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
-                <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
-    </div>
-    <div>
-    <p><strong>Username:</strong> {{user_profile.user.username}}</p>
-
-    <textarea id="about" name="bio" rows="3"  class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
-    </div>
-
-</div>
-<div class="projects-block">
-
-    {% for project in projects %}
-    <div class="project">
-        <p>{{project.title}}</p>
-    </div>
-    {% empty %}
-    <p>No published projects.</p>
-
-    {% endfor %}
-
-</div>
-    <div style="display: flex; align-items: center;">
-            <button class="attention-button">Connect</button>
+    <div class="stranger-profile-block">
+        <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
+            <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
         </div>
+        <div>
+            <p><strong>Username:</strong> {{user_profile.user.username}}</p>
+
+            <textarea id="about" name="bio" rows="3" class="shadow-none bg-gray-100">{{user_profile.bio}}</textarea>
+        </div>
+
+    </div>
+    <div class="projects-block">
+
+        {% for project in projects %}
+        <div class="project">
+            <p>{{project.title}}</p>
+        </div>
+        {% empty %}
+        <p>No published projects.</p>
+
+        {% endfor %}
+
+    </div>
+    <div style="display: flex; align-items: center;">
+        <a href="/message/{{profile.user}}" class="attention-button">Connect</a>
+    </div>
 </div>
 <!-- Add more user profile information as needed -->
 </body>

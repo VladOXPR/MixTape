@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-container">
+
+            <div class="box" style="display: flex; align-items: center;">
+                <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">CREATE</a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<div class="profile-block">
+
+    <div class="container">
+        <div class="left">
+
+            <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
+                <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
+                <!-- Custom file input container -->
+                <div class="custom-file-input">
+                    <!-- Actual file input (hidden) -->
+                    <input type="file" name="image" value="" id="upload"/>
+                    <!-- Custom label -->
+                    <label for="upload">Edit Profile Pic</label>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <label for=""> Name</label>
+            <input type="text" name="name" value="{{user_profile.name}}"
+                   class="shadow-none bg-gray-20">
+
+            <label for="about">Bio</label>
+            <textarea id="about" name="bio" rows="4"
+                      class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>
+
+            <button class="submit" type="submit">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
