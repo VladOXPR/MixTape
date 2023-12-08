@@ -7,7 +7,6 @@
     <title>Create Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <!--  ? do we even need tailwind  <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 
 </head>
@@ -37,33 +36,20 @@
 
     <div class="dashboard">
 
-        <div class="profile-block">
-
-            <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
-                <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
-                <!-- Custom file input container -->
-                <button>
-                    <a href="settings" class="navbar-text">Edit Profile</a>
-                </button>
+        <a href="settings" class="profile-block" style="background: url({{user_profile.profileimg.url}}) center/cover no-repeat;">
+            <div>
+                <p style="font-size: 20px">{{user_profile.user.username}}</p>
             </div>
-            <!--            <div class="right">-->
-            <!--                    <label for=""> Name</label>-->
-            <!--                    <input type="text" name="name" value="{{user_profile.name}}"-->
-            <!--                           class="shadow-none bg-gray-20">-->
-
-            <!--                    <label for="about">Bio</label>-->
-            <!--                    <textarea id="about" name="bio" rows="4"-->
-            <!--                              class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>-->
-
-            <!--                <button class="submit" type="submit">Save Changes</button>-->
-            <!--            </div>-->
-        </div>
+        </a>
 
         <div class="projects-block">
 
             {% for project in projects %}
             <a href="workspace/{{project.title}}" class="project">
-                <p>{{project.title}}</p>
+                <div style="background: url({{project.coverimg.url}}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">
+                    <img src="{{project.coverimg}}"/>
+                </div>
+                <h4>{{project.title}}</h4>
             </a>
 
             {% empty %}
@@ -76,6 +62,7 @@
             <button class="attention-button">New Project</button>
         </div>
     </div>
+    <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px;">Logout</a>
 </form>
 
 </html>

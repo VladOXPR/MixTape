@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Added drop page">
-      <change afterPath="$PROJECT_DIR$/Template/message.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template/publish.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Template/settings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MixTape.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MixTape.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/browse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Template/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Template/drop.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/drop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Template/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Template/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Template/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/workspace.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,16 +54,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;temp-j&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jovanplavsic/Desktop/MIXTAPE/MixTape/Template&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "temp-j",
+    "last_opened_file_path": "/Users/jovanplavsic/Desktop/MIXTAPE/MixTape/Template",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Template" />
@@ -70,6 +72,13 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-67fca87a943a-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.259" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

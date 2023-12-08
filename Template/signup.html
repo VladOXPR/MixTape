@@ -1,24 +1,25 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+    <title>Sign In</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
+
 <body>
-  <h1>Sign Up</h1>
-  <form action="" method="POST">
+<h1>Sign Up</h1>
+<form action="" method="POST">
     {% csrf_token %}
     <input type="username" name="username" placeholder="Username">
     <input type="email" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
     <input type="submit" value="Sign Up">
-  </form>
+</form>
 </body>
-<head>
-    <title>Redirect Button</title>
-</head>
-<body>
-    <a href='signin' class="redirect-button">Click to Redirect</a>
-</body>
-</html>
+
+<a href='signin' class="redirect-button">Sign In</a>
 
 </html>
