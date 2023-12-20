@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Profile, Project, Published
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 
 
 @login_required(login_url='signin')
@@ -18,7 +19,7 @@ def browse(request):
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
-    projects = user_profile.projects.all()
+    projects = Project.objects.filter(user=request.user)
 
     return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
 
@@ -119,19 +120,33 @@ def workspace(request, pk):
 
     return render(request, 'workspace.html', {'user_project': user_project})
 
+@login_required(login_url='signin')
+def setup(request):
+    if request.method == 'POST':
+        user = User.objects.get(username=request.user)
+        title = request.POST['title']
+
+        new_project = Project.objects.create(user=user, title=title)
+        new_project.save()
+
+        return redirect(f'/workspace/{slugify(title)}')
+
+    return render(request, 'setup.html')
 
 def signup(request):
     if request.method == 'POST':
-        username = request.POST['username']
         email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
 
         if User.objects.filter(email=email).exists():
             messages.info(request, 'Email Taken')
             return redirect('signup')
+
         elif User.objects.filter(username=username).exists():
             messages.info(request, 'Username Taken')
             return redirect('signup')
+
         else:
             user = User.objects.create_user(email=email, username=username, password=password)
             user.save()

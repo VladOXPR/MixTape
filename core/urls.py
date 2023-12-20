@@ -8,6 +8,7 @@ urlpatterns = [
     path('drop', views.drop, name='drop'),
     path('settings', views.settings, name='settings'),
     path('publish', views.publish, name='publish'),
+    path('setup', views.setup, name='setup'),
     path('message/<str:pk>', views.message, name='message'),
     path('workspace/<str:pk>', views.workspace, name='workspace'),
     path('profile/<str:pk>', views.profile, name='profile'), # ? what is the /<str:pk>

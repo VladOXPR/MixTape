@@ -36,7 +36,8 @@
 
     <div class="dashboard">
 
-        <a href="settings" class="profile-block" style="background: url({{user_profile.profileimg.url}}) center/cover no-repeat;">
+        <a href="settings" class="profile-block"
+           style="background: url({{user_profile.profileimg.url}}) center/cover no-repeat;">
             <div>
                 <p style="font-size: 20px">{{user_profile.user.username}}</p>
             </div>
@@ -59,8 +60,9 @@
 
         </div>
         <div style="display: flex; align-items: center;">
-            <button class="attention-button">New Project</button>
+            <a href="setup" class="attention-button">New Project</a>
         </div>
+
     </div>
     <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px;">Logout</a>
 </form>
