@@ -20,30 +20,6 @@ def create(request):
     user_profile = Profile.objects.get(user=request.user)
     projects = user_profile.projects.all()
 
-    # if request.method == 'POST':
-    #
-    #     if request.FILES.get('image') == None:
-    #         image = user_profile.profileimg
-    #         bio = request.POST['bio']
-    #         name = request.POST['name']
-    #
-    #         user_profile.profileimg = image
-    #         user_profile.bio = bio
-    #         user_profile.name = name
-    #         user_profile.save()
-    #
-    #     if request.FILES.get('image') != None:
-    #         image = request.FILES.get('image')
-    #         bio = request.POST['bio']
-    #         name = request.POST['name']
-    #
-    #         user_profile.profileimg = image
-    #         user_profile.bio = bio
-    #         user_profile.name = name
-    #         user_profile.save()
-    #
-    #     return redirect('create')
-
     return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
 
 
@@ -91,6 +67,7 @@ def publish(request):
 
     return render(request, 'publish.html', {'user_profile': user_profile})
 
+
 @login_required(login_url='signin')
 def message(request, pk):
     user_object = User.objects.get(username=pk)
@@ -102,6 +79,7 @@ def message(request, pk):
     }
 
     return render(request, 'message.html', {'user_profile': user_profile})
+
 
 @login_required(login_url='signin')
 def profile(request, pk):
@@ -126,6 +104,21 @@ def workspace(request, pk):
     }
 
     return render(request, 'workspace.html', {'user_project': user_project})
+
+
+@login_required(login_url='signin')
+def setup(request):
+    if request.method == 'POST':
+        user = request.user.username
+        coverimg = request.FILES.get('image_upload')
+        title = request.POST['title']
+
+        new_proj = Project.objects.create(coverimg=coverimg, title=title, user=user, )
+        new_proj.save()
+
+        return redirect('/workspace')
+
+    return render(request, 'setup.html')
 
 
 def signup(request):

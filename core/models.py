@@ -7,21 +7,21 @@ User = get_user_model()
 
 
 class Project(models.Model):
+    user = models.CharField(max_length=100, blank=True)
     title = models.CharField(max_length=35, blank=True)
+    coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
     vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
     instru = models.FileField(upload_to='instru_files', blank=True, null=True)
     final = models.FileField(upload_to='final_files', blank=True, null=True)
-    coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
 
     def __str__(self):
         return self.title
 
 class Published(models.Model):
     title = models.CharField(max_length=35, blank=True)
-    vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
-    instru = models.FileField(upload_to='instru_files', blank=True, null=True)
     final = models.FileField(upload_to='final_files', blank=True, null=True)
     coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
+    artists = models.CharField(max_length=35, blank=True)
     listens = models.IntegerField()
 
     def __str__(self):
