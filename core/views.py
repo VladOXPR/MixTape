@@ -68,6 +68,7 @@ def publish(request):
 
     return render(request, 'publish.html', {'user_profile': user_profile})
 
+
 @login_required(login_url='signin')
 def message(request, pk):
     user_object = User.objects.get(username=pk)
@@ -79,6 +80,7 @@ def message(request, pk):
     }
 
     return render(request, 'message.html', {'user_profile': user_profile})
+
 
 @login_required(login_url='signin')
 def profile(request, pk):
@@ -132,6 +134,21 @@ def setup(request):
         return redirect(f'/workspace/{slugify(title)}')
 
     return render(request, 'setup.html')
+
+@login_required(login_url='signin')
+def setup(request):
+    if request.method == 'POST':
+        user = request.user.username
+        coverimg = request.FILES.get('image_upload')
+        title = request.POST['title']
+
+        new_proj = Project.objects.create(coverimg=coverimg, title=title, user=user, )
+        new_proj.save()
+
+        return redirect('/workspace')
+
+    return render(request, 'setup.html')
+
 
 def signup(request):
     if request.method == 'POST':
