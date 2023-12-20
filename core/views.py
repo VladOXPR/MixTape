@@ -22,6 +22,13 @@ def create(request):
 
     return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
 
+@login_required(login_url='signin')
+def drop(request):
+    user_profile = Profile.objects.get(user=request.user)
+    published = user_profile.published.all()
+
+    return render(request, 'drop.html', {'user_profile': user_profile, 'published': published})
+
 
 @login_required(login_url='signin')
 def settings(request):
@@ -55,13 +62,6 @@ def settings(request):
 
 
 @login_required(login_url='signin')
-def drop(request):
-    user_profile = Profile.objects.get(user=request.user)
-
-    return render(request, 'drop.html', {'user_profile': user_profile})
-
-
-@login_required(login_url='signin')
 def publish(request):
     user_profile = Profile.objects.get(user=request.user)
 
@@ -92,16 +92,32 @@ def profile(request, pk):
         'user_profile': user_profile,
     }
 
-    return render(request, 'profile.html', {'user_profile': user_profile, 'projects': projects})
+    return render(request, 'profile.html', {'user_profile': user_profile, 'user_object': user_object, 'projects': projects})
 
 
 @login_required(login_url='signin')
 def workspace(request, pk):
     user_project = Project.objects.get(title=pk)
 
-    context = {
-        'user_project': user_project,
-    }
+    if request.method == 'POST':
+
+        if request.FILES.get('image') == None:
+            image = user_project.coverimg
+            title = request.POST['title']
+
+            user_profile.coverimg = image
+            user_profile.title = title
+            user_profile.save()
+
+        if request.FILES.get('image') != None:
+            image = user_project.coverimg
+            title = request.POST['title']
+
+            user_profile.coverimg = image
+            user_profile.title = title
+            user_profile.save()
+
+        return redirect('create')
 
     return render(request, 'workspace.html', {'user_project': user_project})
 
