@@ -1,0 +1,88 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7a75e420-e72f-4d20-97bc-b3dfb3c80f67\" name=\"Changes\" comment=\"Added drop page\">\n      <change afterPath=\"$PROJECT_DIR$/Template/message.html\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Template/publish.html\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/Template/settings.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Template/browse.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Template/browse.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Template/create.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Template/create.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Template/drop.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Template/drop.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Template/profile.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Template/profile.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Template/signin.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Template/signin.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Template/workspace.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Template/workspace.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/core/models.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/core/models.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/core/urls.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/core/urls.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/core/views.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/core/views.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/static/styles.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/static/styles.css\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n        <option value=\"HTML File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\n      <list>\n        <option value=\"jovanplavsic &lt;jovanplavsic05@gmail.com&gt;\" />\n      </list>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 5\n}</component>\n  <component name=\"ProjectId\" id=\"2YsarSxXxy3Ah5INCUCkb9EwZQ7\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;temp-j&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/jovanplavsic/Desktop/MIXTAPE/MixTape/Template&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/Template\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/static\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7a75e420-e72f-4d20-97bc-b3dfb3c80f67\" name=\"Changes\" comment=\"\" />\n      <created>1701316941427</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1701316941427</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Added drop page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701319888305</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701319888305</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Added drop page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701320055781</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701320055781</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Added drop page\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701320071734</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701320071734</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Added drop page\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added drop page\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b52d1bee954bf1986a87158548f1f64c918218d0)
++++ b/.idea/workspace.xml	(date 1701886872955)
+@@ -4,22 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Added drop page">
+-      <change afterPath="$PROJECT_DIR$/Template/message.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Template/publish.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Template/settings.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Template/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/browse.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Template/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/create.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Template/drop.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/drop.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Template/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/profile.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Template/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/signin.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Template/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/workspace.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+-    </list>
++    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="merge process" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -53,16 +38,16 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;temp-j&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/jovanplavsic/Desktop/MIXTAPE/MixTape/Template&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "DefaultHtmlFileTemplate": "HTML File",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "main",
++    "last_opened_file_path": "/Users/jovanplavsic/Desktop/MIXTAPE/MixTape/Template",
++    "settings.editor.selected.configurable": "preferences.lookFeel"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/Template" />
+@@ -104,7 +89,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1701320071734</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="merge process">
++      <option name="closed" value="true" />
++      <created>1701886011246</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1701886011246</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -120,6 +113,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Added drop page" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Added drop page" />
++    <MESSAGE value="beep beep boop boop" />
++    <MESSAGE value="merge process" />
++    <option name="LAST_COMMIT_MESSAGE" value="merge process" />
+   </component>
+ </project>
+\ No newline at end of file
