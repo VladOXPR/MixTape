@@ -7,7 +7,7 @@ User = get_user_model()
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # projects = models.ManyToManyField(Project, blank=True)
+    projects = models.ManyToManyField('Project', blank=True, related_name='user_projects')
 
     id_user = models.IntegerField()
     bio = models.TextField(blank=True)
@@ -18,8 +18,11 @@ class Profile(models.Model):
         return self.user.username
 
 class Project(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    title = models.CharField(max_length=35, blank=True)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    users = models.ManyToManyField(Profile, blank=True)
+    id = models.AutoField(primary_key=True)
+
+    title = models.CharField(max_length=35, default='untitled')
 
     # vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
     # instru = models.FileField(upload_to='instru_files', blank=True, null=True)

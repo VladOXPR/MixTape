@@ -19,9 +19,18 @@ def browse(request):
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
-    projects = Project.objects.filter(user=request.user)
+    user_name = user_profile.name
+    user_projects = user_profile.projects.filter()
 
-    return render(request, 'create.html', {'user_profile': user_profile, 'projects': projects})
+
+    print("User:", request.user)
+    print("User name", user_name)
+    print("User Profile:", user_profile)
+    print("User Projects:", user_projects)
+    print('Projects Query', user_projects.query)
+    print("Number of projects:", user_projects.count())
+
+    return render(request, 'create.html', {'user_profile': user_profile, 'user_projects': user_projects})
 
 @login_required(login_url='signin')
 def drop(request):
@@ -86,14 +95,14 @@ def message(request, pk):
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
-    projects = user_profile.projects.all()
+    user_projects = user_profile.projects.all()
 
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
     }
 
-    return render(request, 'profile.html', {'user_profile': user_profile, 'user_object': user_object, 'projects': projects})
+    return render(request, 'profile.html', {'user_profile': user_profile, 'user_object': user_object, 'projects': user_projects})
 
 
 @login_required(login_url='signin')
@@ -125,29 +134,18 @@ def workspace(request, pk):
 @login_required(login_url='signin')
 def setup(request):
     if request.method == 'POST':
-        user = User.objects.get(username=request.user)
+        user_profile = Profile.objects.get(user=request.user)
         title = request.POST['title']
 
-        new_project = Project.objects.create(user=user, title=title)
+        new_project = Project.objects.create(title=title)
+        new_project.users.set([user_profile])
+
         new_project.save()
 
         return redirect(f'/workspace/{slugify(title)}')
 
     return render(request, 'setup.html')
 
-@login_required(login_url='signin')
-def setup(request):
-    if request.method == 'POST':
-        user = request.user.username
-        coverimg = request.FILES.get('image_upload')
-        title = request.POST['title']
-
-        new_proj = Project.objects.create(coverimg=coverimg, title=title, user=user, )
-        new_proj.save()
-
-        return redirect('/workspace')
-
-    return render(request, 'setup.html')
 
 
 def signup(request):
