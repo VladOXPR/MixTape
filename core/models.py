@@ -7,7 +7,7 @@ User = get_user_model()
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    projects = models.ManyToManyField('Project', blank=True, related_name='user_projects')
+    projects = models.ManyToManyField('Project', related_name='user_projects')
 
     id_user = models.IntegerField()
     bio = models.TextField(blank=True)
@@ -19,31 +19,39 @@ class Profile(models.Model):
 
 class Project(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    users = models.ManyToManyField(Profile, blank=True)
     id = models.AutoField(primary_key=True)
 
     title = models.CharField(max_length=35, default='untitled')
+    coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
 
     # vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
     # instru = models.FileField(upload_to='instru_files', blank=True, null=True)
     # final = models.FileField(upload_to='final_files', blank=True, null=True)
-    # coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
 
     def __str__(self):
         return self.title
 
 
+class Thread(models.Model):
+    participants = models.ManyToManyField(User, related_name='threads')
+    last_updated = models.DateTimeField(auto_now=True)
 
-class Published(models.Model):
-    title = models.CharField(max_length=35, blank=True)
-    vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
-    instru = models.FileField(upload_to='instru_files', blank=True, null=True)
-    final = models.FileField(upload_to='final_files', blank=True, null=True)
-    coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
-    listens = models.IntegerField()
+class Message(models.Model):
+    thread = models.ForeignKey(Thread, on_delete=models.CASCADE)
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.title
+# class Published(models.Model):
+#     title = models.CharField(max_length=35, blank=True)
+#     vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
+#     instru = models.FileField(upload_to='instru_files', blank=True, null=True)
+#     final = models.FileField(upload_to='final_files', blank=True, null=True)
+#     coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
+#     listens = models.IntegerField()
+#
+#     def __str__(self):
+#         return self.title
 
 
 

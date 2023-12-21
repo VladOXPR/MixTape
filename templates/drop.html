@@ -33,23 +33,23 @@
         </div>
     </nav>
 </header>
+<p>No current projects.</p>
+<!--<div class="projects-block">-->
 
-<div class="projects-block">
+<!--    {% for project in published %}-->
+<!--    <a href="workspace/{{project.title}}" class="project">-->
+<!--        <div style="background: url({{project.coverimg.url}}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">-->
+<!--            <img src="{{project.coverimg}}"/>-->
+<!--        </div>-->
+<!--        <h4>{{project.title}}</h4>-->
+<!--    </a>-->
 
-    {% for project in published %}
-    <a href="workspace/{{project.title}}" class="project">
-        <div style="background: url({{project.coverimg.url}}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">
-            <img src="{{project.coverimg}}"/>
-        </div>
-        <h4>{{project.title}}</h4>
-    </a>
+<!--    {% empty %}-->
+<!--    <p>No current projects.</p>-->
 
-    {% empty %}
-    <p>No current projects.</p>
+<!--    {% endfor %}-->
 
-    {% endfor %}
-
-</div>
+<!--</div>-->
 
 
 <!-- Scripts

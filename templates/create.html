@@ -45,8 +45,9 @@
 
         <div class="projects-block">
 
-            {% for project in projects %}
-            <a href="workspace/{{project.title}}" class="project">
+            {% for project in user_projects %}
+            <input type="hidden" name="id" value="{{project.id}}">
+            <a href="workspace/{{project.id}}" class="project">
                 <div style="background: url({{project.coverimg.url}}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">
                     <img src="{{project.coverimg}}"/>
                 </div>

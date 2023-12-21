@@ -25,30 +25,33 @@
         </div>
     </nav>
 </header>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="background: url({{user_project.coverimg.url}}) center/cover no-repeat; height: 20vh; margin: 5px">
+        <!-- Custom file input container -->
 
-<div style="background: url({{user_project.coverimg.url}}) center/cover no-repeat; height: 20vh; margin: 5px">
-<!--                <img width="40%" src="{{user_project.coverimg.url}}"/>-->
-                <!-- Custom file input container -->
-                <button type="submit" class="custom-file-input">
-                    <!-- Actual file input (hidden) -->
-                    <input type="file" name="image" value="" id="upload"/>
-                    <!-- Custom label -->
-                    <label for="upload">Edit Cover Image</label>
-                </button>
-            </div>
+        <!-- Actual file input (hidden) -->
+        <label for="upload">Edit Cover Image</label>
+        <input type="file" name="image" value="" id="upload"/>
+        <!-- Custom label -->
+        <button type="submit" class="custom-file-input">Submit</button>
+    </div>
+<label for="">Title</label>
+            <input type="text" name="title" value="{{user_project.title}}"
+                   class="shadow-none bg-gray-20">
 
-<div class="project">
-    <p>play</p>
-</div>
-<div class="project">
-    <p>record</p>
-</div>
+    <div class="project">
+        <p>play</p>
+    </div>
+    <div class="project">
+        <p>record</p>
+    </div>
 
-<div style="display: flex; align-items: center;">
-    <a href="/publish">
-        <button class="attention-button">Drop</button>
-    </a>
-</div>
-<p>workspace for project goes here</p>
+    <div style="display: flex; align-items: center;">
+        <a href="/publish">
+            <button class="attention-button">Drop</button>
+        </a>
+    </div>
+    <p>workspace for project goes here</p>
 </body>
 </html>

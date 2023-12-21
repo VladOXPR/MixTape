@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Profile, Project, Published
+from .models import Profile, Project #, Published
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 
@@ -15,29 +15,31 @@ def browse(request):
     profiles = Profile.objects.all()
     return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles})
 
+def test(request):
+    profiles = Profile.objects.all()
+    user_profile = Profile.objects.get(user=2)
+    user_projects = user_profile.projects1.all()
+    all_projects = Project.objects.all()
+    x = Project.objects.get(id=30)
+    some_project = x.users.all()
+
+    return render(request, 'test.html', {'profiles': profiles, 'user_profile': user_profile, 'user_projects':user_projects, 'all_projects': all_projects, 'some_projects': some_project})
+
 
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
     user_name = user_profile.name
-    user_projects = user_profile.projects.filter()
-
-
-    print("User:", request.user)
-    print("User name", user_name)
-    print("User Profile:", user_profile)
-    print("User Projects:", user_projects)
-    print('Projects Query', user_projects.query)
-    print("Number of projects:", user_projects.count())
+    user_projects = user_profile.projects.all()
 
     return render(request, 'create.html', {'user_profile': user_profile, 'user_projects': user_projects})
 
 @login_required(login_url='signin')
 def drop(request):
-    user_profile = Profile.objects.get(user=request.user)
-    published = user_profile.published.all()
+    # user_profile = Profile.objects.get(user=request.user)
+    # published = user_profile.published.all()
 
-    return render(request, 'drop.html', {'user_profile': user_profile, 'published': published})
+    return render(request, 'drop.html', {})
 
 
 @login_required(login_url='signin')
@@ -107,7 +109,8 @@ def profile(request, pk):
 
 @login_required(login_url='signin')
 def workspace(request, pk):
-    user_project = Project.objects.get(title=pk)
+    # user_object = User.objects.get(username=request.user)
+    user_project = Project.objects.get(id=pk)
 
     if request.method == 'POST':
 
@@ -115,17 +118,17 @@ def workspace(request, pk):
             image = user_project.coverimg
             title = request.POST['title']
 
-            user_profile.coverimg = image
-            user_profile.title = title
-            user_profile.save()
+            user_project.coverimg = image
+            user_project.title = title
+            user_project.save()
 
         if request.FILES.get('image') != None:
-            image = user_project.coverimg
+            image = request.FILES['image']
             title = request.POST['title']
 
-            user_profile.coverimg = image
-            user_profile.title = title
-            user_profile.save()
+            user_project.coverimg = image
+            user_project.title = title
+            user_project.save()
 
         return redirect('create')
 
@@ -138,11 +141,11 @@ def setup(request):
         title = request.POST['title']
 
         new_project = Project.objects.create(title=title)
-        new_project.users.set([user_profile])
-
         new_project.save()
 
-        return redirect(f'/workspace/{slugify(title)}')
+        user_profile.projects.add(new_project)
+
+        return redirect(f'/workspace/{slugify(new_project.id)}')
 
     return render(request, 'setup.html')
 
