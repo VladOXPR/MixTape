@@ -7,9 +7,11 @@ User = get_user_model()
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    projects = models.ManyToManyField('Project', related_name='user_projects')
-
     id_user = models.IntegerField()
+
+    projects = models.ManyToManyField('Project', related_name='user_projects')
+    friends = models.ManyToManyField('Friend', related_name='user_friends')
+
     bio = models.TextField(blank=True)
     profileimg = models.ImageField(upload_to='profile_images', default='blank-profile-picture.png')
     name = models.CharField(max_length=100, blank=True)
@@ -18,29 +20,29 @@ class Profile(models.Model):
         return self.user.username
 
 class Project(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     id = models.AutoField(primary_key=True)
 
     title = models.CharField(max_length=35, default='untitled')
     coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
 
-    # vocal = models.FileField(upload_to='vocal_files', blank=True, null=True)
-    # instru = models.FileField(upload_to='instru_files', blank=True, null=True)
-    # final = models.FileField(upload_to='final_files', blank=True, null=True)
-
     def __str__(self):
         return self.title
 
+class Friend(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
-class Thread(models.Model):
-    participants = models.ManyToManyField(User, related_name='threads')
-    last_updated = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.profile.user.username
 
 class Message(models.Model):
-    thread = models.ForeignKey(Thread, on_delete=models.CASCADE)
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')
-    content = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+    body = models.TextField()
+    sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sender')
+    recipient = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='recipient')
+    seen = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.body
+
 
 # class Published(models.Model):
 #     title = models.CharField(max_length=35, blank=True)

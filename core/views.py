@@ -1,10 +1,14 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
-from django.http import HttpResponse
-from django.contrib import messages
-from .models import Profile, Project #, Published
+from .models import Profile, Project, Friend, Message
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+import json
 from django.utils.text import slugify
+from core.forms import ChatMessageForm
+from django.contrib import messages
+from django.db.models import Q
 
 
 @login_required(login_url='signin')
@@ -15,6 +19,7 @@ def browse(request):
     profiles = Profile.objects.all()
     return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles})
 
+
 def test(request):
     profiles = Profile.objects.all()
     user_profile = Profile.objects.get(user=2)
@@ -23,7 +28,9 @@ def test(request):
     x = Project.objects.get(id=30)
     some_project = x.users.all()
 
-    return render(request, 'test.html', {'profiles': profiles, 'user_profile': user_profile, 'user_projects':user_projects, 'all_projects': all_projects, 'some_projects': some_project})
+    return render(request, 'test.html',
+                  {'profiles': profiles, 'user_profile': user_profile, 'user_projects': user_projects,
+                   'all_projects': all_projects, 'some_projects': some_project})
 
 
 @login_required(login_url='signin')
@@ -33,6 +40,7 @@ def create(request):
     user_projects = user_profile.projects.all()
 
     return render(request, 'create.html', {'user_profile': user_profile, 'user_projects': user_projects})
+
 
 @login_required(login_url='signin')
 def drop(request):
@@ -81,16 +89,40 @@ def publish(request):
 
 
 @login_required(login_url='signin')
-def message(request, pk):
-    user_object = User.objects.get(username=pk)
-    user_profile = Profile.objects.get(user=request.user)
+def chat(request, pk):
+    friend_object = User.objects.get(username=pk)
+    friend_profile = Profile.objects.get(user=friend_object)
+    user_object = Profile.objects.get(user=request.user)
+    chats = Message.objects.filter(
+        Q(sender=user_object, recipient=friend_profile) | Q(sender=friend_profile, recipient=user_object))
+    form = ChatMessageForm()
+
+    if request.method == 'POST':
+        form = ChatMessageForm(request.POST)
+        if form.is_valid():
+            chat_message = form.save(commit=False)
+            chat_message.sender = user_object
+            chat_message.recipient = friend_profile
+            chat_message.save()
+
+            return redirect('chat', pk=friend_object.username)
 
     context = {
+        'friend_object': friend_object,
+        'friend_profile': friend_profile,
         'user_object': user_object,
-        'user_profile': user_profile,
+        'chats': chats,
+        'form': form
     }
+    return render(request, 'chat.html', context)
 
-    return render(request, 'message.html', {'user_profile': user_profile})
+
+@login_required(login_url='signin')
+def friends(request):
+    user_object = Profile.objects.get(user=request.user)
+    user_friends = Friend.objects.filter(profile=user_object)
+
+    return render(request, 'friends.html', {'user_friends': user_friends})
 
 
 @login_required(login_url='signin')
@@ -104,7 +136,8 @@ def profile(request, pk):
         'user_profile': user_profile,
     }
 
-    return render(request, 'profile.html', {'user_profile': user_profile, 'user_object': user_object, 'projects': user_projects})
+    return render(request, 'profile.html',
+                  {'user_profile': user_profile, 'user_object': user_object, 'projects': user_projects})
 
 
 @login_required(login_url='signin')
@@ -134,6 +167,7 @@ def workspace(request, pk):
 
     return render(request, 'workspace.html', {'user_project': user_project})
 
+
 @login_required(login_url='signin')
 def setup(request):
     if request.method == 'POST':
@@ -148,7 +182,6 @@ def setup(request):
         return redirect(f'/workspace/{slugify(new_project.id)}')
 
     return render(request, 'setup.html')
-
 
 
 def signup(request):
@@ -198,3 +231,9 @@ def signin(request):
             return redirect('')
     else:
         return render(request, 'signin.html')
+
+
+def sentMessage(request, pk):
+    data = json.loads(request.body)
+    new_chat = data['message']
+    return JsonResponse("is it working?", safe=False)

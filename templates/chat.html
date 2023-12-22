@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Messages</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+<header>
+    <nav>
+        <div class="nav-container">
+
+            <div class="box">
+                <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">BROWSE</a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<h2>{{ user_object.user }} - > {{ friend_profile.user }}</h2>
+<div class="chat-container" id="chat_body">
+
+    {% for chat in chats %}
+
+        {% if  chat.sender == user_object and chat.recipient == friend_profile %}
+            <div></div>
+            <div class="message-sent"> {{ chat }} </div>
+
+        {% elif chat.recipient == user_object and chat.sender == friend_profile %}
+            <div class="message-received"> {{ chat }} </div>
+
+
+        {% endif %}
+
+    {% empty %}<p>No messages yet.</p>
+
+    {% endfor %}
+</div>
+
+<form method="post" enctype="multipart/form-data" id="myform">
+    {% csrf_token %}
+
+    {{ form.body }}
+
+    <button type="submit" class="send-button">Send</button>
+</form>
+
+<script>
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+            }
+        }
+    return cookieValue;
+    }
+
+const csrftoken = getCookie('csrftoken');
+
+let form = document.getElementById("myform")
+form.addEventListener("submit", sendChat)
+
+function sendChat(e) {
+    e.preventDefault()
+    let chatMessage = document.getElementById("id_body").value
+    console.log(chatMessage)
+
+    const data = {msg: chatMessage};
+
+    let url = "{% url 'sent_msg' friend_object.username %}"
+
+    async function postJSON(data) {
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    'X-CSRFToken': csrftoken
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            console.log("Success:", result);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+
+    postJSON(data);
+}
+
+</script>
+
+</body>
+
+</html>

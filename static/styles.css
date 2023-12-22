@@ -10,7 +10,7 @@
     top: 0;
 }
 
-nav{
+nav {
     display: flex;
     justify-content: center;
 }
@@ -42,6 +42,7 @@ nav{
     font-weight: 900;
     line-height: normal;
 }
+
 .header-font-small {
     width: 5.9375rem;
     height: 1.5625rem;
@@ -105,7 +106,7 @@ nav{
 .dashboard {
     display: flex;
     flex-direction: column; /* Stack divs vertically */
-    height: 88vh;          /* 90% of viewport height */
+    height: 88vh; /* 90% of viewport height */
     align-items: center;
     background-color: #FFFFFF;
     margin: 8px;
@@ -230,10 +231,68 @@ nav{
     gap: 5px;
 }
 
+.forms {
+    border: 1px solid slateblue;
+    border-radius: 5px;
+    width: 95%;
+    padding: 10px 10px;
+    font-size: 10px;
+}
+
+.chat-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 95%;
+    height: 90%;
+    border: 1px solid slateblue;
+    border-radius: 5px;
+    padding: 10px 10px;
+
+}
+
+.message-received {
+    grid-column: 1;  /* Position messages on the right side */
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 15px 15px 15px 0; /* Rounded corners on the right */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message-sent {
+    grid-column: 2;  /* Position messages on the left side */
+    background-color: #d0d0d0; /* Slightly darker gray background */
+    border-radius: 15px 15px 0 15px; /* Rounded corners on the left */
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 10px;
+
+}
+
+/* Common styles for both types of messages */
+.message-sent, .message-received {
+    max-width: 50%; /* Limit message width to prevent overflow */
+    clear: both; /* Ensure messages start on a new line */
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.send-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
     font-family: Inter;
-    }
+}
 
 p {
     font-family: Inter;
@@ -242,8 +301,8 @@ p {
 
 li {
     list-style-type: none;
-        }
+}
 
 label {
     font-family: Inter;
- }
+}
