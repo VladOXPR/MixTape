@@ -125,6 +125,10 @@ def sentMessage(request, pk):
     return JsonResponse(new_message.body, safe=False)
 
 
+def receivedMessage(request, pk):
+    pass
+
+
 @login_required(login_url='signin')
 def profile(request, pk):
     user_object = User.objects.get(username=pk)

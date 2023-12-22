@@ -5,6 +5,7 @@ from datetime import datetime
 
 User = get_user_model()
 
+
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
@@ -19,6 +20,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Project(models.Model):
     id = models.AutoField(primary_key=True)
 
@@ -28,11 +30,13 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+
 class Friend(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.profile.user.username
+
 
 class Message(models.Model):
     body = models.TextField()
@@ -42,7 +46,6 @@ class Message(models.Model):
 
     def __str__(self):
         return self.body
-
 
 # class Published(models.Model):
 #     title = models.CharField(max_length=35, blank=True)
@@ -54,8 +57,3 @@ class Message(models.Model):
 #
 #     def __str__(self):
 #         return self.title
-
-
-
-
-
