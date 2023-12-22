@@ -37,7 +37,7 @@ class Friend(models.Model):
 class Message(models.Model):
     body = models.TextField()
     sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sender')
-    recipient = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='recipient')
+    receiver = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='recipient')
     seen = models.BooleanField(default=False)
 
     def __str__(self):

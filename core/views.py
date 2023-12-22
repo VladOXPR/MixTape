@@ -20,19 +20,6 @@ def browse(request):
     return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles})
 
 
-def test(request):
-    profiles = Profile.objects.all()
-    user_profile = Profile.objects.get(user=2)
-    user_projects = user_profile.projects1.all()
-    all_projects = Project.objects.all()
-    x = Project.objects.get(id=30)
-    some_project = x.users.all()
-
-    return render(request, 'test.html',
-                  {'profiles': profiles, 'user_profile': user_profile, 'user_projects': user_projects,
-                   'all_projects': all_projects, 'some_projects': some_project})
-
-
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
@@ -89,20 +76,28 @@ def publish(request):
 
 
 @login_required(login_url='signin')
+def friends(request):
+    user_profile = Profile.objects.get(user=request.user)
+    user_friends = Friend.objects.filter(profile=user_profile)
+
+    return render(request, 'friends.html', {'user_friends': user_friends})
+
+
+@login_required(login_url='signin')
 def chat(request, pk):
     friend_object = User.objects.get(username=pk)
     friend_profile = Profile.objects.get(user=friend_object)
-    user_object = Profile.objects.get(user=request.user)
+    user_profile = Profile.objects.get(user=request.user)
     chats = Message.objects.filter(
-        Q(sender=user_object, recipient=friend_profile) | Q(sender=friend_profile, recipient=user_object))
+        Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
     form = ChatMessageForm()
 
     if request.method == 'POST':
         form = ChatMessageForm(request.POST)
         if form.is_valid():
             chat_message = form.save(commit=False)
-            chat_message.sender = user_object
-            chat_message.recipient = friend_profile
+            chat_message.sender = user_profile
+            chat_message.receiver = friend_profile
             chat_message.save()
 
             return redirect('chat', pk=friend_object.username)
@@ -110,19 +105,24 @@ def chat(request, pk):
     context = {
         'friend_object': friend_object,
         'friend_profile': friend_profile,
-        'user_object': user_object,
+        'user_profile': user_profile,
         'chats': chats,
         'form': form
     }
     return render(request, 'chat.html', context)
 
 
-@login_required(login_url='signin')
-def friends(request):
-    user_object = Profile.objects.get(user=request.user)
-    user_friends = Friend.objects.filter(profile=user_object)
+def sentMessage(request, pk):
+    friend_object = User.objects.get(username=pk)
+    friend_profile = Profile.objects.get(user=friend_object)
+    user_profile = Profile.objects.get(user=request.user)
+    data = json.loads(request.body)
+    body = data["msg"]
 
-    return render(request, 'friends.html', {'user_friends': user_friends})
+    new_message = Message.objects.create(body=body, sender=user_profile, receiver=friend_profile, seen=False)
+    new_message.save()
+
+    return JsonResponse(new_message.body, safe=False)
 
 
 @login_required(login_url='signin')
@@ -142,7 +142,6 @@ def profile(request, pk):
 
 @login_required(login_url='signin')
 def workspace(request, pk):
-    # user_object = User.objects.get(username=request.user)
     user_project = Project.objects.get(id=pk)
 
     if request.method == 'POST':
@@ -233,7 +232,14 @@ def signin(request):
         return render(request, 'signin.html')
 
 
-def sentMessage(request, pk):
-    data = json.loads(request.body)
-    new_chat = data['message']
-    return JsonResponse("is it working?", safe=False)
+def test(request):
+    profiles = Profile.objects.all()
+    user_profile = Profile.objects.get(user=2)
+    user_projects = user_profile.projects1.all()
+    all_projects = Project.objects.all()
+    x = Project.objects.get(id=30)
+    some_project = x.users.all()
+
+    return render(request, 'test.html',
+                  {'profiles': profiles, 'user_profile': user_profile, 'user_projects': user_projects,
+                   'all_projects': all_projects, 'some_projects': some_project})

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'CustomInter';
+    src: url('static/fonts/Inter/static/Inter-Medium.ttf') format('truetype')
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -36,7 +41,7 @@ nav {
     height: 2.375rem;
     flex-shrink: 0;
     color: #000;
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
     font-size: 2.14844rem;
     font-style: normal;
     font-weight: 900;
@@ -48,7 +53,7 @@ nav {
     height: 1.5625rem;
     flex-shrink: 0;
     color: #585858;
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
     font-size: 1.41344rem;
     font-style: normal;
     font-weight: 900;
@@ -95,7 +100,7 @@ nav {
     height: 1.5625rem;
     flex-shrink: 0;
     color: #000;
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
     font-size: 1.16763rem;
     font-style: normal;
     font-weight: 900;
@@ -163,7 +168,7 @@ nav {
     width: 100%;
     color: #585858;
     font-size: 20px;
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
     font-weight: 900;
     word-wrap: break-word;
     text-decoration: none;
@@ -291,11 +296,11 @@ nav {
 
 a {
     text-decoration: none;
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
 }
 
 p {
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
     text-decoration: none;
 }
 
@@ -304,5 +309,5 @@ li {
 }
 
 label {
-    font-family: Inter;
+    font-family: 'CustomInter', sans-serif;
 }
