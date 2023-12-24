@@ -1,13 +1,14 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Messages</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chatstyles.css' %}">
 </head>
 
 <body>
@@ -23,16 +24,17 @@
     </nav>
 </header>
 <h2>{{ user_profile.user }} - > {{ friend_profile.user }}</h2>
-<div class="chat-container" id="chat-body">
+<div>
+<div class="chatbox" id="chat-body">
 
     {% for chat in chats %}
 
         {% if  chat.sender == user_profile %}
             <div></div>
-            <div class="message-sent"> {{ chat }} </div>
+            <div class="sender-chats"> {{ chat }} </div>
 
         {% elif chat.receiver == user_profile %}
-            <div class="message-received"> {{ chat }} </div>
+            <div class="receiver-chats"> {{ chat }} </div>
 
 
         {% endif %}
@@ -49,7 +51,7 @@
 
     <button type="submit" class="send-button">Send</button>
 </form>
-
+</div>
  <script>
         let sent_url = "{% url 'sent_msg' friend_object.username %}"
         let rec_url = "{% url 'rec_msg' friend_object.username %}"

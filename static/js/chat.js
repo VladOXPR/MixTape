@@ -43,7 +43,7 @@ function sendChat(e) {
 
             let chatBody = document.getElementById("chat-body")
             let chatMessageBubble = document.createElement("div")
-            chatMessageBubble.classList.add("message-sent")
+            chatMessageBubble.classList.add("sender-chats")
             chatMessageBubble.innerText = data.msg
             chatBody.append(chatMessageBubble)
             document.getElementById("id_body").value = ""
@@ -57,11 +57,11 @@ function sendChat(e) {
     postJSON(data);
 }
 
-setInterval(recieveMessage, 2000);
+setInterval(receiveMessage, 2000);
 
 let counter = 0
 
-function recieveMessage() {
+function receiveMessage() {
 
     fetch(rec_url)
         .then(response => response.json())
@@ -78,7 +78,7 @@ function recieveMessage() {
                 } else {
                     let chatBody = document.getElementById("chat-body")
                     let chatMessageBubble = document.createElement("div")
-                    chatMessageBubble.classList.add("message-received")
+                    chatMessageBubble.classList.add("receiver-chats")
                     chatMessageBubble.innerText = lastMsg
                     chatBody.append(chatMessageBubble)
                     document.getElementById("id_body").value = ""

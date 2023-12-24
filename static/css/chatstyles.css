@@ -1,0 +1,659 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/*body{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    height: 100vh;*/
+/*    background-color: #E6E6FA;*/
+/*}*/
+
+
+/*img{*/
+/*    width: 100%;*/
+/*    height: 100;*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*.sub-div{*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 0px !important;*/
+/*    margin: 0px !important;*/
+/*}*/
+
+/*.hide{*/
+/*    display: none;*/
+/*}*/
+
+/*a{*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*h4, p, small{*/
+/*    margin: 0px;*/
+/*}*/
+
+
+/*.disable{*/
+
+/*    pointer-events: none;*/
+/*    opacity: 0.7;*/
+/*    font-size: 14px;*/
+
+/*}*/
+
+
+/*.icons-container a{*/
+/*    color: black*/
+/*}*/
+
+.chatContainer{
+    width: 350px;
+    height: 550px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 15px;
+}
+
+.chatContainer .header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom: 2px solid silver;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+}
+
+.control-icons{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 2px solid silver;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+}
+
+.icons-container{
+    width: 40px;
+    height: 40px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* background-color: #662d91;
+    color: white; */
+}
+
+.icons-container .bg{
+    width: 25px;
+    height: 25px;
+    background-color: #662d91;
+    color: white;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10px;
+    right: 0px;
+}
+
+/*.bg{*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    background-color: #662d91;*/
+/*    color: white;*/
+/*    position: absolute;*/
+/*    border-radius: 50%;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    top: -10px;*/
+/*    right: 0px;*/
+/*}*/
+
+/*.icons-container i{*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*    !* color: gray; *!*/
+/*    !* color: #662d91;_ *!*/
+/*}*/
+
+/*.control-icons .user-profile{*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    border-radius: 50%;*/
+/*    border: 2px solid silver;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.control-icons .user-profile img{*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    border-radius: 50%;*/
+/*}*/
+
+.chatbody{
+    width: 100%;
+    height: 410px;
+    /* border: 2px solid black; */
+    padding: 10px 10px 10px 10px;
+}
+
+.chatbody .innerchatbody{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 340px;
+    padding: 0px 5px 0px 5px;
+    overflow: auto;
+   
+}
+
+
+
+.chatbody .para{
+    margin-top: 10px;
+    color:gray;
+    font-weight: 12px;
+    font-size: 14px;
+}
+
+
+
+.chatbody .chatbox{
+    width: 100%;
+    border-radius: 15px;
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.chatbody .chatbox .pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid silver
+}
+
+.chatbody .chatbox .pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.chatbody .chatbox .name_msg{
+    width: 220px;
+    height: 50px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0px 0px 0px 10px;
+
+}
+
+.chatbody .chatbox .name_msg .name1{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-bottom: 5px; */
+}
+
+.chatbody .chatbox .name_msg .name2{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatbody .chatbox .name_msg small{
+    font-size: 14px;
+    /* margin-top: 5px; */
+}
+
+.chatbody .chatbox .name_msg h5{
+    font-weight: bold;
+}
+
+.chatbody .chatbox .time{
+    width: 60px;
+    height: 60px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.chatbody .chatbox .num_of_msg{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 13px;
+    background-color: #662d91;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbody .chatbox .time small{
+    font-weight: bold;
+    font-weight: 10px;
+}
+
+
+
+
+
+
+
+
+/* styles for notitcation page */
+
+.chatbody .notificationContainer{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 450px;
+    padding: 0px 5px 0px 5px;
+    overflow: auto;
+   
+}
+
+
+.chatbody .notificationContainer .notification{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid silver;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+}
+
+.chatbody .notificationContainer .notification .pic{
+    width: 50px;
+    height: 50px;
+    border: 1px solid silver;
+    border-radius: 50%;
+}
+
+
+.chatbody .notificationContainer .notification .pic img{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid silver; */
+    border-radius: 50%;
+}
+
+
+.chatbody .notificationContainer .notification .msg{
+    width: 270px;
+    height: auto;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 5px 5px 5px 5px;
+    font-size: 14px;
+}
+
+.chatbody .notificationContainer .notification .msg small{
+    align-self: flex-end;
+    margin-top: 10px;
+    color: gray;
+}
+
+
+
+
+
+
+
+/* styles for suggestion page */
+
+.chatbody .suggestionContainer{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 450px;
+    padding: 0px 5px 0px 5px;
+    overflow: auto;
+   
+}
+
+
+.chatbody .suggestionContainer .suggestion{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid silver;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding:  5px 10px 5px 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+}
+
+
+.chatbody .suggestionContainer .suggestion .pic{
+    width: 60px;
+    height: 60px;
+    border: 1px solid silver;
+    border-radius: 50%;
+}
+
+.chatbody .suggestionContainer .suggestion .pic img{
+    width: 100%;
+    height: 100;
+    border-radius: 50%;
+}
+
+.chatbody .suggestionContainer .suggestion .user-container{
+
+    margin-left: 5px;
+
+    /* border: 1px solid black; */
+}
+
+.chatbody .suggestionContainer .suggestion .user-container .n-btns{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatbody .suggestionContainer .suggestion .user-container .n-btns .confirm-btn,
+.chatbody .suggestionContainer .suggestion .user-container .n-btns .del-btn
+{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #662d91;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    
+
+}
+
+
+
+
+.chatbody .suggestionContainer .suggestion .user-container .n-btns .del-btn{
+    background-color: lightgray;
+    color: black;
+}
+
+
+.chatbody .suggestionContainer .suggestion .user-info{
+    width: 220px;
+    height: auto;
+    /* border: 1px solid silver; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    /* padding-left: 10px; */
+    
+}
+
+.chatbody .suggestionContainer .suggestion .user-info h5{
+    font-weight: bold;
+    margin: 0px;
+}
+
+.chatbody .suggestionContainer .suggestion .user-info p{
+    color: gray;
+    margin: 0px;
+    /* margin-top: 2px; */
+    font-size: 14px
+}
+
+/* .chatbody .suggestionContainer .suggestion .user-info small{
+    color: gray;
+    margin-top: 3px;
+    font-size: 12px
+} */
+
+/* detail page styles */
+
+.chatAreaContainer{
+
+    width: 350px;
+    height: 550px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 15px;
+    border: 1apx solid black;
+    
+}
+
+.chatAreaContainer .header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+    justify-content: space-evenly;
+    /* justify-content: center; */
+
+}
+
+.chatAreaContainer .header .user-pic{
+    width: 50px;
+    height: 50px;
+    border: 1px solid silver;
+    border-radius: 50%;
+}
+
+.chatAreaContainer .header .user-pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.chatAreaContainer .header .user-info{
+    width: 230px;
+    height: 60px;
+    /* border: 1px solid silver; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.chatAreaContainer .header .user-info p{
+    margin-top: 5px;
+    font-size: 14px;
+}
+/* .chatAreaContainer .header .user-info  */
+
+.chatAreaContainer .private-chats{
+    overflow: auto;
+    width: 100%;
+    height: 350px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+}
+
+/*.chatAreaContainer .private-chats .sender-chats{*/
+/*    width: 250px;*/
+/*    !* height: 80px; *!*/
+/*    padding: 10px 10px 10px 10px;*/
+/*    border-radius: 7px;*/
+/*    align-self: flex-end;*/
+/*    background-color: #D8BFD8;*/
+/*    display: flex;*/
+/*    font-size: 14px;*/
+/*    align-items: center;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.chatAreaContainer .private-chats .receiver-chats{*/
+/*    width: 250px;*/
+/*    !* height: 80px; *!*/
+/*    padding: 10px 10px 10px 10px;*/
+/*    border-radius: 7px;*/
+/*    align-self: flex-start;*/
+/*    background-color: #DDA0DD;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    font-size: 14px;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+
+/*.chatAreaContainer form{*/
+/*    width: 100%;*/
+/*    height: 60px;*/
+/*    !* border: 1px solid black; *!*/
+/*    margin-top: 20px;*/
+/*    padding: 0px 10px 0px 10px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    overflow: auto;*/
+
+/*}*/
+
+/*.chatAreaContainer form textarea{*/
+/*    width: 270px;*/
+/*    height: 45px;*/
+/*    border: 1px solid silver;*/
+/*    padding: 10px;*/
+/*    outline: none;*/
+/*    border-radius: 5px;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.chatAreaContainer form button{*/
+/*    width: 50px;*/
+/*    height: 40px;*/
+/*    !* background: purple; *!*/
+/*    border: none;*/
+/*}*/
+
+/*.chatAreaContainer form i{*/
+/*    font-size: 18px;*/
+/*}*/
+
+
+/*!* registration styles *!*/
+
+/*.registerFormContaier{*/
+/*    width: inherit;*/
+/*    height: inherit;*/
+/*    !* border: 2px solid black; *!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.registerForm{*/
+/*    width: 350px;*/
+/*    height: auto;*/
+/*    !* border: 1px solid blue; *!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    flex-direction: column;*/
+/*    !* padding: 10px 10px 10px 10px; *!*/
+/*}*/
+
+/*.registerForm h1{*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.registerForm p{*/
+/*    margin-bottom: 10px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.registerForm form{*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    !* border: 1px solid red; *!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    flex-direction: column;*/
+/*    padding: 10px 10px 10px 10px;*/
+
+/*}*/
+
+/*.registerForm form input{*/
+/*    width: 300px;*/
+/*    height: 45px;*/
+/*    border: 1px solid #662d91;*/
+/*    border-radius: 10px;*/
+/*    padding: 10px;*/
+/*    !* margin-bottom: 20px; *!*/
+/*    outline: #662d91;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.registerForm form small{*/
+/*    margin-bottom: 20px;*/
+/*    color: red;*/
+/*    list-style: none;*/
+/*}*/
+
+/*ul{*/
+/*    list-style-type: none;*/
+/*}*/
+
+/*.registerForm form button{*/
+/*    width: 300px;*/
+/*    height: 50px;*/
+/*    border: 1px solid #662d91;*/
+/*    border-radius: 10px;*/
+/*    padding: 10px;*/
+/*    margin-bottom: 10px;*/
+/*    outline: #662d91;*/
+/*    font-size: 16px;*/
+/*    border: none;*/
+/*    background: #662d91;*/
+/*    color: white;*/
+/*    cursor: pointer;*/
+/*    font-weight: bold;*/
+/*}*/

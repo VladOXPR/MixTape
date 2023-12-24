@@ -78,32 +78,29 @@ def publish(request):
 @login_required(login_url='signin')
 def friends(request):
     user_profile = Profile.objects.get(user=request.user)
-    user_friends = Friend.objects.filter(profile=user_profile)
+    users_friends = user_profile.friends.all()
 
-    return render(request, 'friends.html', {'user_friends': user_friends})
+    return render(request, 'friends.html', {'user_friends': users_friends})
 
 
 @login_required(login_url='signin')
 def chat(request, pk):
-    friend_object = User.objects.get(username=pk)
-    friend_profile = Profile.objects.get(user=friend_object)
+    friend_user_object = User.objects.get(username=pk)
+    friend_profile = Profile.objects.get(user=friend_user_object)
     user_profile = Profile.objects.get(user=request.user)
+    friend_object = Friend.objects.get(profile=friend_profile)
+
+    is_friend = user_profile.friends.filter(pk=friend_profile.pk).exists()
+    print(is_friend)
+    if not is_friend:
+        user_profile.friends.add(friend_object)
+
     chats = Message.objects.filter(
         Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
     form = ChatMessageForm()
 
-    # if request.method == 'POST':
-    #     form = ChatMessageForm(request.POST)
-    #     if form.is_valid():
-    #         chat_message = form.save(commit=False)
-    #         chat_message.sender = user_profile
-    #         chat_message.receiver = friend_profile
-    #         chat_message.save()
-    #
-    #         return redirect('chat', pk=friend_object.username)
-
     context = {
-        'friend_object': friend_object,
+        'friend_object': friend_user_object,
         'friend_profile': friend_profile,
         'user_profile': user_profile,
         'chats': chats,
@@ -221,6 +218,10 @@ def signup(request):
             user_model = User.objects.get(username=username)
             new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
             new_profile.save()
+
+            new_friend = Friend.objects.create(profile=new_profile)
+            new_friend.save()
+
             return redirect('')
 
 

@@ -313,3 +313,30 @@ li {
 label {
     font-family: 'CustomInter', sans-serif;
 }
+
+
+.sender-chats{
+    width: 250px;
+    /* height: 80px; */
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 0 15px; /* Rounded corners on the left */
+    align-self: flex-end;
+    background-color: #D8BFD8;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    margin: 20px 10px 5px 50%;
+}
+
+.receiver-chats{
+    width: 250px;
+    /* height: 80px; */
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 0; /* Rounded corners on the left */
+    align-self: flex-start;
+    background-color: #DDA0DD;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin: 20px 10px 5px 0;
+}

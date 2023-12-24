@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="organized code into javascript and css folders in static, added js code to file named chat.js,">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b0f786b8-5dd0-4221-9c67-86e8498b94c0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b0f786b8-5dd0-4221-9c67-86e8498b94c0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6d5ce19-17e5-4e31-ae40-fa0dce02140c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6d5ce19-17e5-4e31-ae40-fa0dce02140c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3db6cb7-de8c-4477-b950-520715cf819c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3db6cb7-de8c-4477-b950-520715cf819c.xml" afterDir="false" />
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="successfully connected chat.html to chat.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
     </list>
@@ -68,27 +67,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jovanplavsic/Desktop/MixTape&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jovanplavsic/Desktop/MixTape/static/css",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/Template" />
     </key>
@@ -117,7 +117,7 @@
       <workItem from="1703405547600" duration="428000" />
       <workItem from="1703429347850" duration="960000" />
       <workItem from="1703436772194" duration="383000" />
-      <workItem from="1703437170811" duration="1352000" />
+      <workItem from="1703437170811" duration="5474000" />
     </task>
     <task id="LOCAL-00001" summary="Added drop page">
       <option name="closed" value="true" />
@@ -207,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703405966070</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="successfully connected chat.html to chat.js">
+      <option name="closed" value="true" />
+      <created>1703438597027</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703438597027</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +244,7 @@
     <MESSAGE value="code cleanup" />
     <MESSAGE value="merge attempt 1" />
     <MESSAGE value="organized code into javascript and css folders in static, added js code to file named chat.js," />
-    <option name="LAST_COMMIT_MESSAGE" value="organized code into javascript and css folders in static, added js code to file named chat.js," />
+    <MESSAGE value="successfully connected chat.html to chat.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="successfully connected chat.html to chat.js" />
   </component>
 </project>

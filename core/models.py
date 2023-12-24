@@ -10,8 +10,8 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
 
-    projects = models.ManyToManyField('Project', related_name='user_projects')
-    friends = models.ManyToManyField('Friend', related_name='user_friends')
+    projects = models.ManyToManyField('Project', related_name='user_projects', blank=True)
+    friends = models.ManyToManyField('Friend', related_name='user_friends', blank=True)
 
     bio = models.TextField(blank=True)
     profileimg = models.ImageField(upload_to='profile_images', default='blank-profile-picture.png')
@@ -32,7 +32,7 @@ class Project(models.Model):
 
 
 class Friend(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.profile.user.username
