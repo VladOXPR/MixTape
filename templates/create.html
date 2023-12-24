@@ -7,7 +7,7 @@
     <title>Create Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
@@ -37,24 +37,24 @@
     <div class="dashboard">
 
         <a href="settings" class="profile-block"
-           style="background: url({{user_profile.profileimg.url}}) center/cover no-repeat;">
+           style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
             <div>
-                <p style="font-size: 20px">{{user_profile.user.username}}</p>
+                <p style="font-size: 20px">{{ user_profile.user.username }}</p>
             </div>
         </a>
 
         <div class="projects-block">
 
             {% for project in user_projects %}
-            <a href="workspace/{{project.id}}" class="project">
-                <div style="background: url({{project.coverimg.url}}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">
-                    <img src="{{project.coverimg}}"/>
-                </div>
-                <h4>{{project.title}}</h4>
-            </a>
+                <a href="workspace/{{ project.id }}" class="project">
+                    <div style="background: url({{ project.coverimg.url }}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">
+                        <img src="{{ project.coverimg }}"/>
+                    </div>
+                    <h4>{{ project.title }}</h4>
+                </a>
 
             {% empty %}
-            <p>No current projects.</p>
+                <p>No current projects.</p>
 
             {% endfor %}
 

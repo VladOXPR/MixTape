@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'CustomInter';
-    src: url('/Users/jovanplavsic/Desktop/MixTape/static/fonts/Inter/static/Inter-ExtraBold.ttf') format('ttf')
+    src: url('/static/css/fonts/Inter/static/Inter-ExtraBold.ttf') format('ttf')
 }
 
 .header {
