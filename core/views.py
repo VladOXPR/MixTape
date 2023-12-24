@@ -126,7 +126,16 @@ def sentMessage(request, pk):
 
 
 def receivedMessage(request, pk):
-    pass
+    friend_object = User.objects.get(username=pk)
+    friend_profile = Profile.objects.get(user=friend_object)
+    user_profile = Profile.objects.get(user=request.user)
+
+    arr = []
+    chats = Message.objects.filter(sender=friend_profile, receiver=user_profile)
+    for chat in chats:
+        arr.append(chat.body)
+
+    return JsonResponse(arr, safe=False)
 
 
 @login_required(login_url='signin')

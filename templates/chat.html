@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Messages</title>
@@ -112,6 +112,44 @@
         postJSON(data);
     }
 
+    setInterval(recieveMessage, 2000);
+
+    let counter = 0
+    function recieveMessage() {
+
+        let url = "{% url 'rec_msg' friend_object.username %}"
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Message Check:");
+
+                if (data.length === 0) {
+                } else {
+
+                    let lastMsg = data[data.length - 1]
+
+                    if (counter === data.length) {
+                        console.log("There is no new chat")
+                    } else {
+                        let chatBody = document.getElementById("chat-body")
+                        let chatMessageBubble = document.createElement("div")
+                        chatMessageBubble.classList.add("message-received")
+                        chatMessageBubble.innerText = lastMsg
+                        chatBody.append(chatMessageBubble)
+                        document.getElementById("id_body").value = ""
+
+                        console.log("Received Message:", lastMsg);
+
+                    }
+                }
+
+                counter = data.length
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
 </script>
 
 </body>

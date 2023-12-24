@@ -1,6 +1,8 @@
+{% load static %}
+
 @font-face {
     font-family: 'CustomInter';
-    src: url('static/fonts/Inter/static/Inter-Medium.ttf') format('truetype')
+    src: url('/Users/jovanplavsic/Desktop/MixTape/static/fonts/Inter/static/Inter-ExtraBold.ttf') format('ttf')
 }
 
 .header {
