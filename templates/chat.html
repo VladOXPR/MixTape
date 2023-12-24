@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style src ="{% static 'js/chat.js' %}"></style>
 </head>
 
 <body>
@@ -51,6 +50,11 @@
     <button type="submit" class="send-button">Send</button>
 </form>
 
+ <script>
+        let sent_url = "{% url 'sent_msg' friend_object.username %}"
+        let rec_url = "{% url 'rec_msg' friend_object.username %}"
+    </script>
+    <script src="{% static 'js/chat.js' %}"></script>
 </body>
 
 </html>

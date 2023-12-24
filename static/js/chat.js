@@ -1,3 +1,4 @@
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -26,11 +27,9 @@ function sendChat(e) {
 
     const data = {msg: chatMessage};
 
-    let url = "{% url 'sent_msg' friend_object.username %}"
-
     async function postJSON(data) {
         try {
-            const response = await fetch(url, {
+            const response = await fetch(sent_url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -64,9 +63,7 @@ let counter = 0
 
 function recieveMessage() {
 
-    let url = "{% url 'rec_msg' friend_object.username %}"
-
-    fetch(url)
+    fetch(rec_url)
         .then(response => response.json())
         .then(data => {
             console.log("Message Check:");

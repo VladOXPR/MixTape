@@ -92,15 +92,15 @@ def chat(request, pk):
         Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
     form = ChatMessageForm()
 
-    if request.method == 'POST':
-        form = ChatMessageForm(request.POST)
-        if form.is_valid():
-            chat_message = form.save(commit=False)
-            chat_message.sender = user_profile
-            chat_message.receiver = friend_profile
-            chat_message.save()
-
-            return redirect('chat', pk=friend_object.username)
+    # if request.method == 'POST':
+    #     form = ChatMessageForm(request.POST)
+    #     if form.is_valid():
+    #         chat_message = form.save(commit=False)
+    #         chat_message.sender = user_profile
+    #         chat_message.receiver = friend_profile
+    #         chat_message.save()
+    #
+    #         return redirect('chat', pk=friend_object.username)
 
     context = {
         'friend_object': friend_object,
