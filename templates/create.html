@@ -28,8 +28,8 @@
         <div class="header-text-container">
             <a href="drop" class="navbar-text">DROP</a>
         </div>
-        <div><img src="media/threelines.png" style="height: 30px"></div>
-
+        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
+                                                                                              style="height: 30px"></a>
     </nav>
 </header>
 <div class="dashboard">
@@ -37,12 +37,11 @@
     <a href="settings" class="profile-block"
        style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
         <div>
-{#            <p style="font-size: 20px">{{ user_profile.user.username }}</p>#}
+            {#            <p style="font-size: 20px">{{ user_profile.user.username }}</p>#}
         </div>
     </a>
-<div class="friends-block">
+    <a href="friends" class="friends-block" style="font-size: 30px; color: white;"></a>
 
-</div>
 
     <div class="projects-block">
 
@@ -58,10 +57,7 @@
 
         {% endfor %}
     </div>
-    <div>
-        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;">Logout</a>
-        <a href="friends" style="font-size: 30px; color: white;">Friends</a>
-    </div>
+
 </div>
 <footer>
     <a href="setup" class="create-button">CREATE</a>
