@@ -22,21 +22,6 @@ nav {
     justify-content: center;
 }
 
-.nav-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Two columns with equal width */
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    width: 100%;
-}
-
-.box {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    height: 100%;
-}
 
 .header-font-big {
     width: 9.8125rem;
@@ -109,15 +94,6 @@ nav {
     line-height: normal;
 }
 
-/* Parent block for profile, projects */
-.dashboard {
-    display: flex;
-    flex-direction: column; /* Stack divs vertically */
-    height: 88vh; /* 90% of viewport height */
-    align-items: center;
-    background-color: #FFFFFF;
-    margin: 8px;
-}
 
 .stranger-profile-block {
     margin-bottom: 5px;
@@ -130,22 +106,34 @@ nav {
 
 /* Profile block on dashboard*/
 .profile-block {
-    margin-bottom: 5px;
-    height: 25vh;
-    width: 100%;
-    border-radius: 0.3125rem;
-    border: 3px solid #000;
-    background: #FFF;
+    width: 332px;
+    height: 347px;
+    flex-shrink: 0;
+
+    border-radius: 4px;
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+    /*margin-bottom: 5px;*/
+    /*height: 25vh;*/
+    /*width: 100%;*/
+    /*border-radius: 0.3125rem;*/
+    /*border: 3px solid #000;*/
+    /*background: #FFF;*/
 }
 
 .projects-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border-radius: 0.3125rem;
-    border: 3px solid #000;
-    background: #FFF;
+    width: 333px;
+    height: 229px;
+    flex-shrink: 0;
+
+    border-radius: 5px;
+    background: #232323;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*width: 100%;*/
+    /*border-radius: 0.3125rem;*/
+    /*border: 3px solid #000;*/
+    /*background: #FFF;*/
 }
 
 .project {
@@ -163,18 +151,7 @@ nav {
     height: 100%;
 }
 
-/* Browse, Create, Drop navbar text format*/
-.navbar-text {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    color: #585858;
-    font-size: 20px;
-    font-family: 'CustomInter', sans-serif;
-    font-weight: 900;
-    word-wrap: break-word;
-    text-decoration: none;
-}
+
 
 /* Style for the custom file input container */
 .custom-file-input {
@@ -220,15 +197,14 @@ nav {
 
 /* Create, publish buttons, the ones that grab a users attention */
 .attention-button {
-    background-color: #000000;
+    width: 333px;
+    height: 50px;
+    flex-shrink: 0;
     font-size: 30px;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
+
+    border-radius: 10px;
+    background: linear-gradient(90deg, #B8FFF2 0.46%, #83BCFF 100.14%);
+
 }
 
 .container {

@@ -7,30 +7,29 @@
     <title>Browse Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  ? do we even need tailwind  <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
 
 </head>
 
 <body>
 
 <header>
-    <nav>
-        <div class="nav-container">
+    <nav class="nav-container">
 
-            <div class="box">
-                <a href="/" class="navbar-text">BROWSE</a>
-            </div>
-
-            <div class="box">
-                <a href="create" class="navbar-text">CREATE</a>
-            </div>
-
-            <div class="box">
-                <a href="drop" class="navbar-text" style="padding-left: 10px; font-size: 30px; color: #000000;">DROP</a>
-            </div>
-
+        <div class="header-text-container">
+            <a href="/" class="navbar-text" style="font-size: 18px;">BROWSE</a>
         </div>
+
+        <div class="header-text-container">
+            <a href="create" class="navbar-text" style="font-size: 18px;" >CREATE</a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="drop" class="navbar-text" style="font-size: 30px; color: #ffffff;">DROP</a>
+        </div>
+
     </nav>
 </header>
 <p>No current projects.</p>

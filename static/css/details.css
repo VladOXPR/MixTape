@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('/static/css/fonts/Inter/static/Inter-Bold.ttf') format('truetype')
+}
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('/static/css/fonts/Inter/static/Inter-Regular.ttf') format('truetype')
+}
+
+.attention-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 333px;
+    height: 50px;
+
+    font-size: 30px;
+    font-family: Inter-Bold, serif ;
+
+    border-radius: 10px;
+    background: linear-gradient(90deg, #B8FFF2 0.46%, #83BCFF 100.14%);
+
+}

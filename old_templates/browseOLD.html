@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Browse Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+</head>
+
+<body>
+
+<header>
+    <nav class="nav-container">
+
+        <div class="header-text-container">
+            <a href="/static" class="navbar-text" style="font-size: 30px; color: #ffffff;">BROWSE</a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="create" class="navbar-text" style="font-size: 20px;">CREATE</a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="drop" class="navbar-text">DROP</a>
+        </div>
+
+    </nav>
+</header>
+
+<div class="new-scroll-container">
+
+    {% for profile in profiles reversed %}
+        <a href="profile/{{ profile.id }}" class="project">
+                <img src="{{ project.coverimg.url }}" style="height: 100%"/>
+                <img src="/media/play.png"/>
+                <h4>{{ project.title }}</h4>
+            </a>
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

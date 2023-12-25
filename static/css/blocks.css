@@ -1,0 +1,56 @@
+.profile-block {
+    width: 96%;
+    height: 35%;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: url(<path-to-image>);
+    border-color: #9ca3af;
+
+
+    /*margin-bottom: 5px;*/
+    /*height: 25vh;*/
+    /*width: 100%;*/
+    /*border-radius: 0.3125rem;*/
+    /*border: 3px solid #000;*/
+    /*background: #FFF;*/
+}
+
+.projects-block {
+    width: 96%;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #232323;
+    border-color: #9ca3af;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*width: 100%;*/
+    /*border-radius: 0.3125rem;*/
+    /*border: 3px solid #000;*/
+    /*background: #FFF;*/
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 94%;
+    height: 50px;
+    border: 2px solid #000;
+    margin: 3%;
+    color: #b9b9b9;
+}
+
+.public-block {
+    width: 96%;
+    height: 35%;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: url(<path-to-image>);
+    border-color: #9ca3af;
+}
+
