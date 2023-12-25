@@ -1,35 +1,22 @@
-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three columns with equal width */
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    width: 100%;
-}
 
 /* Parent block for profile, projects */
 .dashboard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 11vh;
-    padding: 20px;
     align-items: center;
+    width: 87vw;
+    gap: 15px;
+    margin-top: 10vh;
+    padding: 0 20px 10vh 20px; /* top right bottom left */
     position: relative;
-    height: 90%;
     z-index: 0;
 }
 
-.button-container {
+.header-text-container {
     display: flex;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
-    height: 10%;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background-color: #232323;
+    height: 100%;
 }
 
 /*.scroll-container {*/
@@ -42,11 +29,10 @@ nav {
 .scroll-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     height: 100%;
-    width: 92%;
+    width: 87vw;
     position: relative;
-    margin: auto;
-}
+    margin-top: 10vh;
+    padding: 0 20px 10vh 20px; /* top right bottom left */}

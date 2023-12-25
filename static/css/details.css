@@ -2,12 +2,29 @@
     font-family: 'Inter-Bold';
     src: url('/static/css/fonts/Inter/static/Inter-Bold.ttf') format('truetype')
 }
+
 @font-face {
     font-family: 'Inter-Regular';
     src: url('/static/css/fonts/Inter/static/Inter-Regular.ttf') format('truetype')
 }
 
-.attention-button {
+.navbar-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #b9b9b9;
+    font-size: 20px;
+    font-family: 'CustomInter', sans-serif;
+    font-weight: 900;
+    word-wrap: break-word;
+    text-decoration: none;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.create-button,
+.connect-button,
+.drop-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,9 +33,21 @@
     height: 50px;
 
     font-size: 30px;
-    font-family: Inter-Bold, serif ;
+    font-family: Inter-Bold, serif;
+    color: black;
 
     border-radius: 10px;
+}
+
+.create-button {
     background: linear-gradient(90deg, #B8FFF2 0.46%, #83BCFF 100.14%);
+}
+
+.connect-button {
+    background: linear-gradient(90deg, #a252e5 0.46%, #e3543b 100.14%);
+}
+
+.drop-button {
+    background: linear-gradient(90deg, #ea2b9b 0.46%, #83BCFF 100.14%);
 
 }

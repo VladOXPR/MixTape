@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+<header>
+    <nav>
+        <div class="nav-container">
+
+            <div class="box">
+                <a href="/static" class="navbar-text" style="font-size: 18px;">BROWSE</a>
+            </div>
+
+            <div class="box">
+                <a href="create" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
+            </div>
+
+            <div class="box">
+                <a href="drop" class="navbar-text">DROP</a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="dashboard">
+
+        <a href="settings" class="profile-block"
+           style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
+            <div>
+                <p style="font-size: 20px">{{ user_profile.user.username }}</p>
+            </div>
+        </a>
+
+        <div class="projects-block">
+
+            {% for project in user_projects %}
+                <a href="workspace/{{ project.id }}" class="project">
+                    <div style="background: url({{ project.coverimg.url }}) center/cover no-repeat; width: 20%; height: 100%; margin: 5px">
+                        <img src="{{ project.coverimg }}"/>
+                    </div>
+                    <h4>{{ project.title }}</h4>
+                </a>
+
+            {% empty %}
+                <p>No current projects.</p>
+
+            {% endfor %}
+
+        </div>
+        <div style="display: flex; align-items: center;">
+            <a href="setup" class="attention-button">New Project</a>
+        </div>
+
+    </div>
+    <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px;">Logout</a>
+    <a href="friends" style="font-size: 30px;">Friends</a>
+</form>
+
+</html>

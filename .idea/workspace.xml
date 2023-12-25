@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="profile is added to friends list when user clicks connect">
-      <change afterPath="$PROJECT_DIR$/old_templates/browseOLD.html" afterDir="false" />
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature">
+      <change afterPath="$PROJECT_DIR$/old_templates/createOLD.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/old_templates/createOLD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/details.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/drop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/drop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +40,11 @@
       <list>
         <option value="jovanplavsic &lt;jovanplavsic05@gmail.com&gt;" />
       </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
@@ -76,7 +85,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "styling",
     "last_opened_file_path": "/Users/jovanplavsic/Desktop/MixTape/media",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -122,7 +131,7 @@
       <workItem from="1703405547600" duration="428000" />
       <workItem from="1703429347850" duration="960000" />
       <workItem from="1703436772194" duration="383000" />
-      <workItem from="1703437170811" duration="21732000" />
+      <workItem from="1703437170811" duration="30508000" />
     </task>
     <task id="LOCAL-00001" summary="Added drop page">
       <option name="closed" value="true" />
@@ -228,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703442807317</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature">
+      <option name="closed" value="true" />
+      <created>1703490611930</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703490611930</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +276,7 @@
     <MESSAGE value="organized code into javascript and css folders in static, added js code to file named chat.js," />
     <MESSAGE value="successfully connected chat.html to chat.js" />
     <MESSAGE value="profile is added to friends list when user clicks connect" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile is added to friends list when user clicks connect" />
+    <MESSAGE value="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature" />
   </component>
 </project>
