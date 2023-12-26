@@ -67,13 +67,14 @@
 }
 
 
-.circle {
+.notif_circle {
     position: absolute;
     right: 0;
     height: 80%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background: #676767;;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
