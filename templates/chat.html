@@ -7,34 +7,42 @@
     <title>Messages</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/chatstyles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+
 </head>
 
 <body>
 <header>
+    <div class="blur-gradient "></div>
     <nav>
-        <div class="nav-container">
 
-            <div class="box">
-                <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">BROWSE</a>
-            </div>
-
+        <div class="header-text-container">
+                <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px;">Browse</a>
         </div>
+
+
+        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="/media/threelines.png"
+                                                                                              style="height: 30px"></a>
     </nav>
 </header>
-<h2>{{ user_profile.user }} - > {{ friend_profile.user }}</h2>
-<div>
+{#<h2>{{ user_profile.user }} - > {{ friend_profile.user }}</h2>#}
+<div class="chat-container">
 <div class="chatbox" id="chat-body">
 
     {% for chat in chats %}
 
         {% if  chat.sender == user_profile %}
-            <div></div>
-            <div class="sender-chats"> {{ chat }} </div>
+            <div class="message-container">
+            <div class="message-sent"> {{ chat }} </div>
+            </div>
 
         {% elif chat.receiver == user_profile %}
-            <div class="receiver-chats"> {{ chat }} </div>
+           <div class="message-container">
+            <div class="message-received"> {{ chat }} </div>
+            </div>
 
 
         {% endif %}
@@ -44,14 +52,18 @@
     {% endfor %}
 </div>
 
-<form method="post" enctype="multipart/form-data" id="myform">
+</div>
+<footer>
+    <form method="post" enctype="multipart/form-data" class="chat-input" id="myform">
     {% csrf_token %}
 
     {{ form.body }}
 
-    <button type="submit" class="send-button">Send</button>
-</form>
-</div>
+    <button type="submit" class="send-button">
+        <img src="/media/send2.png" style="height: 100%;"/>
+    </button>
+</form></footer>
+
  <script>
         let sent_url = "{% url 'sent_msg' friend_object.username %}"
         let rec_url = "{% url 'rec_msg' friend_object.username %}"

@@ -15,6 +15,7 @@
 
 <body>
 <header>
+    <div class="blur-gradient "></div>
     <nav>
 
         <div class="header-text-container">
@@ -40,7 +41,12 @@
             {#            <p style="font-size: 20px">{{ user_profile.user.username }}</p>#}
         </div>
     </a>
-    <a href="friends" class="friends-block" style="font-size: 30px; color: white;"></a>
+
+    <a href="friends" class="friends-block" style="color: white;">
+        <img style="height: 80%; border-radius: 4px;" src="/media/blank-profile-picture.png"/>
+        <p style="font-size: 18px; margin-left: 10px; font-weight: normal">wanna collab?</p>
+        <div class="circle"><p>2</p></div>
+    </a>
 
 
     <div class="projects-block">
@@ -48,7 +54,7 @@
         {% for project in user_projects %}
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <img src="/media/play.png"/>
+                <img src="/media/play.png" style="height: 75%"/>
                 <h4>{{ project.title }}</h4>
             </a>
 
@@ -57,7 +63,7 @@
 
         {% endfor %}
     </div>
-
+    <div style=""></div>
 </div>
 <footer>
     <a href="setup" class="create-button">CREATE</a>

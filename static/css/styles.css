@@ -47,12 +47,12 @@ nav {
     line-height: normal;
 }
 
-.body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    padding-top: 50%;
-    background: url({{profile.profileimg.url}});
-}
+/*.body {*/
+/*    margin: 0;*/
+/*    font-family: Arial, sans-serif;*/
+/*    padding-top: 50%;*/
+/*    background: url({{profile.profileimg.url}});*/
+/*}*/
 
 .signin {
     width: 100%;
@@ -222,16 +222,16 @@ nav {
     font-size: 10px;
 }
 
-.chat-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 95%;
-    height: 90%;
-    border: 1px solid slateblue;
-    border-radius: 5px;
-    padding: 10px 10px;
+/*.chat-container{*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    width: 95%;*/
+/*    height: 90%;*/
+/*    border: 1px solid slateblue;*/
+/*    border-radius: 5px;*/
+/*    padding: 10px 10px;*/
 
-}
+/*}*/
 
 .message-received {
     grid-column: 1;  /* Position messages on the right side */

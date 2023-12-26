@@ -6,35 +6,37 @@
     <title>Friends list</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  ? do we even need tailwind  <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">-->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
 </head>
 <body>
 <header>
+    <div class="blur-gradient "></div>
     <nav>
-        <div class="nav-container">
 
-            <div class="box">
-                <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">BROWSE</a>
-            </div>
-
+        <div class="header-text-container">
+            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>
         </div>
+
+
+        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
+                                                                                              style="height: 30px"></a>
     </nav>
 </header>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+<div class="messages-board">
+    {% for friend in user_friends %}
+        <a href="chat/{{ friend.profile }}" class="project">
+            <img src="{{ friend.profile.profileimg.url }}" style="height: 100%"/>
+            <h3 style="font-size: 20px">{{ friend.profile }}</h3>
+        </a>
 
-     {% for friend in user_friends %}
-            <a href="chat/{{friend.profile}}" class="project">
-                 <h3 style="font-size: 20px">{{friend.profile}}</h3>
-            </a>
+    {% empty %}
+        <p>No friends added.</p>
 
+    {% endfor %}
+</div>
 
-            {% empty %}
-            <p>No friends added.</p>
-
-            {% endfor %}
-
-</form>
 </body>
 </html>

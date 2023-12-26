@@ -43,7 +43,7 @@ function sendChat(e) {
 
             let chatBody = document.getElementById("chat-body")
             let chatMessageBubble = document.createElement("div")
-            chatMessageBubble.classList.add("sender-chats")
+            chatMessageBubble.classList.add("message-sent")
             chatMessageBubble.innerText = data.msg
             chatBody.append(chatMessageBubble)
             document.getElementById("id_body").value = ""

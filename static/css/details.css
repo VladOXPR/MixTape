@@ -20,6 +20,7 @@
     text-decoration: none;
     margin-left: 5%;
     margin-right: 5%;
+    z-index: 2;
 }
 
 .create-button,
@@ -50,4 +51,74 @@
 .drop-button {
     background: linear-gradient(90deg, #ea2b9b 0.46%, #83BCFF 100.14%);
 
+}
+
+
+.blur-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background: linear-gradient(to bottom, black 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    filter: blur(5px); /* Adjust the blur amount as needed */
+    z-index: 2;
+}
+
+
+.circle {
+    position: absolute;
+    right: 0;
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #676767;;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.send-button {
+    width: 10%;
+    height: 115%;
+    background-color: #3c9eff;
+    border-radius: 5px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.message-received {
+    margin-right: auto;
+    background-color: #b13dff; /* Light gray background */
+    border-radius: 15px 15px 15px 0; /* Rounded corners on the right */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message-sent {
+    margin-left: auto;
+    background-color: #3d64ff; /* Slightly darker gray background */
+    border-radius: 15px 15px 0 15px; /* Rounded corners on the left */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Common styles for both types of messages */
+.message-sent, .message-received {
+    max-width: 50%; /* Limit message width to prevent overflow */
+    clear: both; /* Ensure messages start on a new line */
+    font-family: sans-serif;
+    font-size: 20px;
 }
