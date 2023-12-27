@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="fixed notification circle">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="replaced and configured signin page with online template">
+      <change afterPath="$PROJECT_DIR$/static/cssSignin/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/cssSignin/util.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/signin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/signinOLD.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,10 +102,11 @@
       <recent name="$PROJECT_DIR$/Template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/old_templates" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/static/css" />
-      <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -265,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703624160299</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="cleaned up nav bar, footers, and stranger profile page">
+      <option name="closed" value="true" />
+      <created>1703654573636</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1703654573636</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +310,8 @@
     <MESSAGE value="friends block sends to friends page, three lines log out" />
     <MESSAGE value="roughly styled create page, browse, chat, friends pages" />
     <MESSAGE value="fixed notification circle" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed notification circle" />
+    <MESSAGE value="cleaned up nav bar, footers, and stranger profile page" />
+    <MESSAGE value="replaced and configured signin page with online template" />
+    <option name="LAST_COMMIT_MESSAGE" value="replaced and configured signin page with online template" />
   </component>
 </project>
