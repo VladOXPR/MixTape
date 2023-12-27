@@ -27,32 +27,57 @@
 </header>
 
 <!-- Display the user's profile  -->
+{#<div class="dashboard">#}
+{#    <div class="stranger-profile-block">#}
+{#        <div style="background: url({{ profile.profileimg.url }}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">#}
+{#            <img width="90%" height="75%" src="{{ user_profile.profileimg.url }}"/>#}
+{#        </div>#}
+{#        <div>#}
+{#            <p><strong>Username:</strong> {{ user_profile.user.username }}</p>#}
+{##}
+{#            <textarea id="about" name="bio" rows="3" class="shadow-none bg-gray-100">{{ user_profile.bio }}</textarea>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{#    <div class="projects-block">#}
+{##}
+{#        {% for project in projects %}#}
+{#            <a href="workspace/{{ project.id }}" class="project">#}
+{#                <img src="{{ project.coverimg.url }}" style="height: 100%"/>#}
+{#                <img src="/media/play.png"/>#}
+{#                <h4>{{ project.title }}</h4>#}
+{#            </a>#}
+{#        {% empty %}#}
+{#            <p>No published projects.</p>#}
+{##}
+{#        {% endfor %}#}
+{##}
+{#    </div>#}
+{#</div>#}
 <div class="dashboard">
-    <div class="stranger-profile-block">
-        <div style="background: url({{ profile.profileimg.url }}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
-            <img width="90%" height="75%" src="{{ user_profile.profileimg.url }}"/>
-        </div>
+
+  <div class="profile-block" style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
+
         <div>
-            <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
-
-            <textarea id="about" name="bio" rows="3" class="shadow-none bg-gray-100">{{ user_profile.bio }}</textarea>
+                        <p style="font-size: 20px">{{ user_profile.user.username }}</p>
         </div>
-
     </div>
+
     <div class="projects-block">
 
         {% for project in projects %}
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <img src="/media/play.png"/>
+                <img src="/media/play.png" style="height: 75%"/>
                 <h4>{{ project.title }}</h4>
             </a>
+
         {% empty %}
-            <p>No published projects.</p>
+            <p>No current projects.</p>
 
         {% endfor %}
-
     </div>
+    <div style=""></div>
 </div>
 <footer>
         <a href="/chat/{{ user_object.username }}" class="connect-button">Connect</a>

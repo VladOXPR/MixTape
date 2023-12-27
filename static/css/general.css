@@ -10,14 +10,12 @@ header {
 
 nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 0.3fr; /* Three columns of equal width and a fourth column that is half the size */
     justify-content: center;
     align-items: center;
     overflow: auto;
     width: 100%;
     z-index: 3;
     background: linear-gradient(to bottom, black 30%, transparent 95%);
-
 }
 
 body {

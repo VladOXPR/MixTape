@@ -16,7 +16,7 @@
 <body>
 <header>
     <div class="blur-gradient "></div>
-    <nav>
+    <nav style="grid-template-columns: 1fr .7fr .5fr 0.3fr;">
 
         <div class="header-text-container">
             <a href="" class="navbar-text" style="font-size: 30px; color: #ffffff;">BROWSE</a>
@@ -36,7 +36,7 @@
 <div class="scroll-container">
     {% for profile in profiles reversed %}
         <a href="profile/{{ profile.user }}" class="public-block"
-           style="background: url({{ profile.profileimg.url }}) center/cover no-repeat;">create
+           style="background: url({{ profile.profileimg.url }}) center/cover no-repeat;">{{ profile.user }}
         </a>
     {% endfor %}
 </div>
