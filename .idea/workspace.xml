@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="replaced and configured signin page with online template">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="took animated login button from login template and applied to create button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/details.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cssSignin/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/cssSignin/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +283,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703659378108</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="took animated login button from login template and applied to create button">
+      <option name="closed" value="true" />
+      <created>1703660941520</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1703660941520</updated>
+    </task>
+    <task id="LOCAL-00021" summary="took animated login button from login template and applied to create button">
+      <option name="closed" value="true" />
+      <created>1703661116324</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1703661116324</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +336,7 @@
     <MESSAGE value="fixed notification circle" />
     <MESSAGE value="cleaned up nav bar, footers, and stranger profile page" />
     <MESSAGE value="replaced and configured signin page with online template" />
-    <option name="LAST_COMMIT_MESSAGE" value="replaced and configured signin page with online template" />
+    <MESSAGE value="took animated login button from login template and applied to create button" />
+    <option name="LAST_COMMIT_MESSAGE" value="took animated login button from login template and applied to create button" />
   </component>
 </project>

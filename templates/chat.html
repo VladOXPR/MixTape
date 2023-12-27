@@ -29,8 +29,8 @@
     </nav>
 </header>
 {#<h2>{{ user_profile.user }} - > {{ friend_profile.user }}</h2>#}
-<div class="chat-container">
-<div class="chatbox" id="chat-body">
+{#<div class="chat-container">#}
+<div class="chat-container" id="chat-body">
 
     {% for chat in chats %}
 
@@ -39,7 +39,7 @@
             <div class="message-sent"> {{ chat }} </div>
             </div>
 
-        {% elif chat.receiver == user_profile %}
+        {% else %}
            <div class="message-container">
             <div class="message-received"> {{ chat }} </div>
             </div>
@@ -52,7 +52,7 @@
     {% endfor %}
 </div>
 
-</div>
+{#</div>#}
 <footer>
     <form method="post" enctype="multipart/form-data" class="chat-input" id="myform">
     {% csrf_token %}

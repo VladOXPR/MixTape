@@ -42,10 +42,16 @@ function sendChat(e) {
             console.log("Sent Message:", result);
 
             let chatBody = document.getElementById("chat-body")
+            let chatMessageContainer = document.createElement("div")
+            chatMessageContainer.classList.add("message-container")
+
             let chatMessageBubble = document.createElement("div")
             chatMessageBubble.classList.add("message-sent")
+
             chatMessageBubble.innerText = data.msg
-            chatBody.append(chatMessageBubble)
+            chatMessageContainer.append(chatMessageBubble)
+
+            chatBody.append(chatMessageContainer)
             document.getElementById("id_body").value = ""
 
         } catch (error) {
@@ -77,10 +83,16 @@ function receiveMessage() {
                     console.log("There is no new chat")
                 } else {
                     let chatBody = document.getElementById("chat-body")
+                    let chatMessageContainer = document.createElement("div")
+                    chatMessageContainer.classList.add("message-container")
+
                     let chatMessageBubble = document.createElement("div")
-                    chatMessageBubble.classList.add("receiver-chats")
+                    chatMessageBubble.classList.add("message-received")
+
                     chatMessageBubble.innerText = lastMsg
-                    chatBody.append(chatMessageBubble)
+                    chatMessageContainer.append(chatMessageBubble)
+
+                    chatBody.append(chatMessageContainer)
                     document.getElementById("id_body").value = ""
 
                     console.log("Received Message:", lastMsg);

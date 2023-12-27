@@ -25,6 +25,7 @@
                                                                                               style="height: 30px"></a>
     </nav>
 </header>
+<div class="message-board-container">
 <div class="messages-board">
     {% for friend in user_friends %}
         <a href="chat/{{ friend.profile }}" class="project">
@@ -37,6 +38,6 @@
 
     {% endfor %}
 </div>
-
+</div>
 </body>
 </html>
