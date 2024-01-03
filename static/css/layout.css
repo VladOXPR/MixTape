@@ -22,12 +22,6 @@
     height: 100%;
 }
 
-/*.scroll-container {*/
-/*    height: 100%;*/
-/*    width: 92%;*/
-/*    position: relative;*/
-/*    margin: auto;*/
-/*}*/
 
 .scroll-container {
     display: flex;
