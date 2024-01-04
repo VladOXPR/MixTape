@@ -1,14 +1,21 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from .models import Profile, Project, Friend, Message
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
 import json
+from django.http import JsonResponse
 from django.utils.text import slugify
 from core.forms import ChatMessageForm
 from django.contrib import messages
 from django.db.models import Q
+from django.core.files.storage import default_storage, FileSystemStorage
+import os
+import cv2
+import base64
+from django.core import files
+
+TEMP_PROFILE_IMAGE_NAME = "temp_profile_image.png"
 
 
 @login_required(login_url='signin')
@@ -257,3 +264,63 @@ def test(request):
     return render(request, 'test.html',
                   {'profiles': profiles, 'user_profile': user_profile, 'user_projects': user_projects,
                    'all_projects': all_projects, 'some_projects': some_project})
+
+def save_temp_profile_image_from_base64String(imageString, user):
+    INCORRECT_PADDING_EXCEPTION = "Incorrect padding"
+    try:
+        if not os.path.exists(settings.TEMP):
+            os.mkdr(settings.Temp)
+        if not os.path.exists(settings.TEMP + "/" + str(user.pk)):
+            os.mkdir(settings.TEMP + "/" + str(user.pk))
+        url = os.path.join(f"{settings.TEMP}/{user.pk}", TEMP_PROFILE_IMAGE_NAME)
+        storage = FileSystemStorage(location=url)
+        image = base64.b64decode(imageString)
+        with storage.open('', 'wb') as destination:
+            destination.write(image)
+            destination.close()
+        return url
+    except Exception as e:
+        print(e)
+        if str(e) == INCORRECT_PADDING_EXCEPTION:
+            imageString += "=" * ((4 - len(imageString) % 4) % 4)
+            return save_temp_profile_image_from_base64String(imageString, user)
+    return None
+
+
+def crop_image(request, *args, **kwargs):
+    payload = {}
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    if request.POST and user.is_authenticated:
+        try:
+            imageString = request.POST.get('image')
+            url = save_temp_profile_image_from_base64String(imageString, user)
+            img = cv2.imread(url)
+
+            cropX = int(float(str(request.POST.get('cropX'))))
+            cropY = int(float(str(request.POST.get('cropY'))))
+            cropWidth = int(float(str(request.POST.get('cropWidth'))))
+            cropHeight = int(float(str(request.POST.get('cropHeight'))))
+
+            if cropX < 0:
+                cropX = 0
+            if cropY < 0:
+                cropY = 0
+            crop_img = img[cropY:cropY + cropHeight, cropX:cropX+cropWidth]
+
+            cv2.imwrite(url, crop_img)
+
+            profile.profileimg.delete()
+            profile.profileimg.save("profile_image.png", files.File(open(url, "rb")))
+            profile.save()
+
+            payload['result'] = "sucsess"
+            payload["cropped_profile_image"] = profile.profileimg.url
+
+            os.remove(url)
+
+        except Exception as e:
+            payload['result'] = "error"
+            payload['exception'] = str(e)
+
+    return HttpResponse(json.dumps(payload), content_type="application/json")

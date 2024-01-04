@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('create', views.create, name='create'),
     path('settings', views.settings, name='settings'),
+    path('cropImage', views.crop_image, name='crop_image'),
     path('setup', views.setup, name='setup'),
     path('workspace/<str:pk>', views.workspace, name='workspace'),
 

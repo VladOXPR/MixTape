@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
 
+    <link rel="stylesheet" href="{% static 'cropperjs-main/dist/cropper.min.css' %}"
+
 </head>
 <body>
 <header>
@@ -18,7 +20,7 @@
     <nav>
 
         <div class="header-text-container">
-                <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>
+            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>
         </div>
 
 
@@ -27,39 +29,99 @@
     </nav>
 </header>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-
-<div class="profile-block">
-
-    <div class="container">
-        <div class="left">
-
-            <div style="background: url({{profile.profileimg.url}}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
-                <img width="90%" height="75%" src="{{user_profile.profileimg.url}}"/>
-                <!-- Custom file input container -->
-                <div class="custom-file-input">
-                    <!-- Actual file input (hidden) -->
-                    <input type="file" name="image" value="" id="upload"/>
-                    <!-- Custom label -->
-                    <label for="upload">Edit Profile Pic</label>
-                </div>
-            </div>
-        </div>
-        <div class="right">
-            <label for=""> Name</label>
-            <input type="text" name="name" value="{{user_profile.name}}"
-                   class="shadow-none bg-gray-20">
-
-            <label for="about">Bio</label>
-            <textarea id="about" name="bio" rows="4"
-                      class="shadow-none bg-gray-20">{{user_profile.bio}}</textarea>
-
-            <button class="submit" type="submit">Save Changes</button>
+<div class="loading_spinner_container" id="id_loading_spinner" style="display: none;">
+    <div class="d-flex flex-row mx-auto flex-grow-1 justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
     </div>
 </div>
 
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="profile-block">
+
+        <div class="container">
+            <div class="left">
+
+                <div style="background: url({{ profile.profileimg.url }}) center/cover no-repeat; width: 100%; height: 100%; margin: 5px">
+                    <img width="90%" height="75%" src="{{ user_profile.profileimg.url }}"/>
+                    <!-- Custom file input container -->
+                    <div class="custom-file-input">
+                        <!-- Actual file input (hidden) -->
+                        <input type="file" name="image" value="" id="upload"/>
+                        <!-- Custom label -->
+                        <label for="upload">Edit Profile Pic</label>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <label for=""> Name</label>
+                <input type="text" name="name" value="{{ user_profile.name }}"
+                       class="shadow-none bg-gray-20">
+
+                <label for="about">Bio</label>
+                <textarea id="about" name="bio" rows="4"
+                          class="shadow-none bg-gray-20">{{ user_profile.bio }}</textarea>
+
+                <button class="submit" type="submit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
 </form>
+
+<sript type="module" src="{% static 'cropperjs-main/dist/cropper.min.js' %}"></sript>
+<script type="text/javascript">
+
+    var cropper;
+    var imageFile;
+    var base64ImageString;
+    var cropX;
+    var cropY;
+    var cropWidth;
+    var cropHeight;
+
+
+    function displayLoadingSpinner(isDisplayed) {
+        var spinner = document.getElementById("id_loading_spinner")
+        if (isDisplayed) {
+            spinner.style.display = "block"
+        } else {
+            spinner.style.display = "none"
+        }
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                {#disableImageOverlay()#}
+                var image = e.target.result
+                var imageField = document.getElementById('id_profile_image_display')
+                imageField.src = image
+                cropper = new Cropper(imageField, {
+                    aspectRatio: 1 / 1,
+                    crop(event) {
+                        console.log("CROP START")
+                        setImageCropProperties()
+                    }
+                })
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function setImageCropProperties(image, x, y, width, height){
+        imageFile = image
+        cropX = x
+        cropY = y
+        cropWidth = width
+        cropHeight = height
+    }
+</script>
 </body>
 </html>
