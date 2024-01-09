@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
 from django.utils.text import slugify
-from core.forms import ChatMessageForm, ImageForm
+from core.forms import ChatMessageForm, SettingsForm
 from django.contrib import messages
 from django.db.models import Q
 
@@ -40,20 +40,11 @@ def drop(request):
 @login_required(login_url='signin')
 def settings(request):
     user_profile = Profile.objects.get(user=request.user)
+    form = SettingsForm(request.POST or None, request.FILES or None, instance=user_profile)
 
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES, instance=user_profile)
-        print('request: ', request.FILES.get('profileimg'))
-
-        if form.is_valid():
-            user_profile.profileimg = request.FILES.get('profileimg')
-            user_profile.save()
-
-            return JsonResponse({'message': 'Image saved successfully'})
-        else:
-            return JsonResponse({'message': 'Form is not valid'}, status=400)
-    else:
-        form = ImageForm(instance=user_profile)
+    if form.is_valid():
+        form.save()
+        return JsonResponse({'message': 'works'})
 
     return render(request, 'settings.html', {'form': form, 'user_profile': user_profile})
 
@@ -108,7 +99,7 @@ def chat(request, pk):
     friend_object = Friend.objects.get(profile=friend_profile)
 
     is_friend = user_profile.friends.filter(pk=friend_profile.pk).exists()
-    print(is_friend)
+
     if not is_friend:
         user_profile.friends.add(friend_object)
 
@@ -123,6 +114,7 @@ def chat(request, pk):
         'chats': chats,
         'form': form
     }
+
     return render(request, 'chat.html', context)
 
 

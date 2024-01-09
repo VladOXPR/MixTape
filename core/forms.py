@@ -16,11 +16,20 @@ class ChatMessageForm(ModelForm):
         fields = ['body', ]
 
 
-class ImageForm(ModelForm):
+class SettingsForm(ModelForm):
+
     class Meta:
         model = Profile
-        fields = ['profileimg', ]
+        fields = ['profileimg', 'name', 'bio',]
 
-    def __init__(self, *args, **kwargs):
-        super(ImageForm, self).__init__(*args, **kwargs)
-        self.fields['profileimg'].label = 'file'
+        # widgets = {
+        #     'profileimg': forms.FileField(),
+        #     'name': forms.CharField(),
+        #     'bio': forms.Textarea(),
+        # }
+
+    # def __init__(self, *args, **kwargs):
+    #     super(SettingsForm, self).__init__(*args, **kwargs)
+    #     self.fields['profileimg'].label = ''
+
+

@@ -13,9 +13,9 @@ class Profile(models.Model):
     projects = models.ManyToManyField('Project', related_name='user_projects', blank=True)
     friends = models.ManyToManyField('Friend', related_name='user_friends', blank=True)
 
-    bio = models.TextField(blank=True)
-    profileimg = models.ImageField(upload_to='profile_images', default='blank-profile-picture.png')
+    profileimg = models.ImageField(upload_to='profile_images', default='/media/blank-profile-picture.png')
     name = models.CharField(max_length=100, blank=True)
+    bio = models.TextField(blank=True)
 
     def __str__(self):
         return self.user.username
