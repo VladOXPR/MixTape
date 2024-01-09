@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
 from django.utils.text import slugify
-from core.forms import ChatMessageForm
+from core.forms import ChatMessageForm, ImageForm
 from django.contrib import messages
 from django.db.models import Q
 
@@ -42,30 +42,47 @@ def settings(request):
     user_profile = Profile.objects.get(user=request.user)
 
     if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES, instance=user_profile)
+        print('request: ', request.FILES.get('profileimg'))
 
-        if request.FILES.get('image') == None:
-            image = user_profile.profileimg
-            bio = request.POST['bio']
-            name = request.POST['name']
-
-            user_profile.profileimg = image
-            user_profile.bio = bio
-            user_profile.name = name
+        if form.is_valid():
+            user_profile.profileimg = request.FILES.get('profileimg')
             user_profile.save()
 
-        if request.FILES.get('image') != None:
-            image = request.FILES.get('image')
-            bio = request.POST['bio']
-            name = request.POST['name']
+            return JsonResponse({'message': 'Image saved successfully'})
+        else:
+            return JsonResponse({'message': 'Form is not valid'}, status=400)
+    else:
+        form = ImageForm(instance=user_profile)
 
-            user_profile.profileimg = image
-            user_profile.bio = bio
-            user_profile.name = name
-            user_profile.save()
+    return render(request, 'settings.html', {'form': form, 'user_profile': user_profile})
 
-        return redirect('create')
 
-    return render(request, 'settings.html', {'user_profile': user_profile})
+# if request.method == 'POST':
+#
+#     if request.FILES.get('image') == None:
+#         image = user_profile.profileimg
+#         bio = request.POST['bio']
+#         name = request.POST['name']
+#
+#         user_profile.profileimg = image
+#         user_profile.bio = bio
+#         user_profile.name = name
+#         user_profile.save()
+#
+#     if request.FILES.get('image') != None:
+#         image = request.FILES.get('image')
+#         bio = request.POST['bio']
+#         name = request.POST['name']
+#
+#         user_profile.profileimg = image
+#         user_profile.bio = bio
+#         user_profile.name = name
+#         user_profile.save()
+#
+#     return redirect('create')
+
+# return render(request, 'settings.html', {'user_profile': user_profile, 'form': form})
 
 
 @login_required(login_url='signin')

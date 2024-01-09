@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from core.models import Message
+from core.models import Message, Profile
 
 
 class ChatMessageForm(ModelForm):
@@ -14,3 +14,13 @@ class ChatMessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ['body', ]
+
+
+class ImageForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profileimg', ]
+
+    def __init__(self, *args, **kwargs):
+        super(ImageForm, self).__init__(*args, **kwargs)
+        self.fields['profileimg'].label = 'file'
