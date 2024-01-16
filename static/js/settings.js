@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
     imageInput.addEventListener('change', () => {
-        console.log('clicked')
+        console.log('file chosen')
         const img_data = imageInput.files[0];
         const url = URL.createObjectURL(img_data);
 
@@ -35,30 +35,42 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         confirmBtn.addEventListener('click', () => {
             cropper.getCroppedCanvas().toBlob((blob) => {
-                console.log('clicked', blob);
-                const fd = new FormData();
-                fd.append('csrfmiddlewaretoken', csrf[0].value);
-                fd.append('profileimg', blob, 'pfp.png');
-                fd.append('name', nameInput.value);
-                fd.append('bio', bioInput.value);
-
-                $.ajax({
-                    type: 'POST',
-                    url: settingsForm.action,
-                    enctype: 'multipart/form-data',
-                    data: fd,
-                    success: function (response) {
-                        console.log('success', response)
-                    },
-                    error: function (error) {
-                        console.log('error', error)
-                    },
-
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                });
+                sendFormData(blob)
             });
-        });
+        }); //
     });
+
+    confirmBtn.addEventListener('click', () => {
+        sendFormData()
+    });
+
+
+    function sendFormData(blob = null) {
+        console.log('clicked', blob);
+        const fd = new FormData();
+        fd.append('csrfmiddlewaretoken', csrf[0].value);
+        if (blob) {
+            fd.append('profileimg', blob, 'pfp.png');
+        }
+        fd.append('name', nameInput.value);
+        fd.append('bio', bioInput.value);
+
+        $.ajax({
+            type: 'POST',
+            url: settingsForm.action,
+            enctype: 'multipart/form-data',
+            data: fd,
+            success: function (response) {
+                console.log('success', response)
+            },
+            error: function (error) {
+                console.log('error', error)
+            },
+
+            cache: false,
+            contentType: false,
+            processData: false,
+        });
+    }
+
 });
