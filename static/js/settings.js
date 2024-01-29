@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
     const settingsForm = document.getElementById('settings-form')
     const imageBox = document.getElementById('image-box')
     const confirmBtn = document.getElementById('confirm-btn')
@@ -9,9 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const nameInput = document.getElementById('id_name')
     const bioInput = document.getElementById('id_bio')
+    const projInput = document.getElementById('id_pub_proj')
 
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
+    // creates cropper function and submits data
     imageInput.addEventListener('change', () => {
         console.log('file chosen')
         const img_data = imageInput.files[0];
@@ -36,15 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
         confirmBtn.addEventListener('click', () => {
             cropper.getCroppedCanvas().toBlob((blob) => {
                 sendFormData(blob)
+                const newUrl = URL.createObjectURL(blob);
+                imageBox.innerHTML = '<img src="' + newUrl + '" id="image" style="height: 100%; width: 100%">';
             });
-        }); //
+            cropper.destroy()
+        });
     });
 
+    // submits data if no new image is chosen
     confirmBtn.addEventListener('click', () => {
         sendFormData()
     });
 
 
+    // ajax function that submits form data
     function sendFormData(blob = null) {
         console.log('clicked', blob);
         const fd = new FormData();
@@ -54,12 +60,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         fd.append('name', nameInput.value);
         fd.append('bio', bioInput.value);
+        fd.append('pub_proj', projInput.value)
 
         $.ajax({
             type: 'POST',
             url: settingsForm.action,
             enctype: 'multipart/form-data',
-            data: fd,
+            data: 'Make Public',
             success: function (response) {
                 console.log('success', response)
             },

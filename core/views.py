@@ -13,7 +13,6 @@ from django.db.models import Q
 
 @login_required(login_url='signin')
 def browse(request):
-    user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=request.user)
 
     profiles = Profile.objects.all()
@@ -23,10 +22,25 @@ def browse(request):
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
-    user_name = user_profile.name
     user_projects = user_profile.projects.all()
 
-    return render(request, 'create.html', {'user_profile': user_profile, 'user_projects': user_projects})
+    last_text = Message.objects.filter(receiver=user_profile).last()
+
+    if last_text:
+        last_text_user = Profile.objects.get(user=last_text.sender.user)
+    else:
+        last_text_user = None
+
+    unread = Message.objects.filter(seen=False, receiver=user_profile).count()
+
+    context = {
+        'user_profile': user_profile,
+        'user_projects': user_projects,
+        'last_text': last_text,
+        'last_text_user': last_text_user,
+        'unread': unread
+    }
+    return render(request, 'create.html', context)
 
 
 @login_required(login_url='signin')
@@ -49,33 +63,6 @@ def settings(request):
     return render(request, 'settings.html', {'form': form, 'user_profile': user_profile})
 
 
-# if request.method == 'POST':
-#
-#     if request.FILES.get('image') == None:
-#         image = user_profile.profileimg
-#         bio = request.POST['bio']
-#         name = request.POST['name']
-#
-#         user_profile.profileimg = image
-#         user_profile.bio = bio
-#         user_profile.name = name
-#         user_profile.save()
-#
-#     if request.FILES.get('image') != None:
-#         image = request.FILES.get('image')
-#         bio = request.POST['bio']
-#         name = request.POST['name']
-#
-#         user_profile.profileimg = image
-#         user_profile.bio = bio
-#         user_profile.name = name
-#         user_profile.save()
-#
-#     return redirect('create')
-
-# return render(request, 'settings.html', {'user_profile': user_profile, 'form': form})
-
-
 @login_required(login_url='signin')
 def publish(request):
     user_profile = Profile.objects.get(user=request.user)
@@ -87,8 +74,17 @@ def publish(request):
 def friends(request):
     user_profile = Profile.objects.get(user=request.user)
     users_friends = user_profile.friends.all()
+    chats = []
 
-    return render(request, 'friends.html', {'user_friends': users_friends})
+    for friend in users_friends:
+        latest_message = Message.objects.filter(
+            Q(sender=user_profile, receiver=friend.profile) | Q(sender=friend.profile, receiver=user_profile)).last()
+
+        if latest_message:
+            chats.append(latest_message)
+            print('>>>', latest_message.sender)
+
+    return render(request, 'friends.html', {'chats': chats})
 
 
 @login_required(login_url='signin')
@@ -103,15 +99,20 @@ def chat(request, pk):
     if not is_friend:
         user_profile.friends.add(friend_object)
 
-    chats = Message.objects.filter(
+    texts = Message.objects.filter(
         Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
     form = ChatMessageForm()
+
+    for text in texts:
+        if text.receiver == user_profile:
+            text.seen = True
+            text.save()
 
     context = {
         'friend_object': friend_user_object,
         'friend_profile': friend_profile,
         'user_profile': user_profile,
-        'chats': chats,
+        'texts': texts,
         'form': form
     }
 
@@ -139,6 +140,8 @@ def receivedMessage(request, pk):
     arr = []
     chats = Message.objects.filter(sender=friend_profile, receiver=user_profile)
     for chat in chats:
+        chat.seen = True
+        chat.save()
         arr.append(chat.body)
 
     return JsonResponse(arr, safe=False)

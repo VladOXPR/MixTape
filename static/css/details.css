@@ -60,8 +60,8 @@
     left: 0;
     width: 100%;
     height: 110%;
-    background: linear-gradient(to bottom, black 40%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    background: linear-gradient(to bottom, #141414 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #141414 40%, transparent 100%);
     filter: blur(5px); /* Adjust the blur amount as needed */
     z-index: 2;
 }
@@ -84,7 +84,7 @@
 .send-button {
     width: 10%;
     height: 115%;
-    background-color: #3c9eff;
+    background-color: #5aacff;
     border-radius: 5px;
     margin: 0 10px 0 10px;
     cursor: pointer;
@@ -102,7 +102,7 @@
 
 .message-received {
     margin-right: auto;
-    background-color: #b13dff; /* Light gray background */
+    background-color: #8d8d8d; /* Light gray background */
     border-radius: 15px 15px 15px 0; /* Rounded corners on the right */
     padding: 10px;
     margin-bottom: 10px;
@@ -110,7 +110,7 @@
 
 .message-sent {
     margin-left: auto;
-    background-color: #3d64ff; /* Slightly darker gray background */
+    background-color: #628ede; /* Slightly darker gray background */
     border-radius: 15px 15px 0 15px; /* Rounded corners on the left */
     padding: 10px;
     margin-bottom: 10px;
@@ -128,63 +128,63 @@
 /*Animated Button*/
 
 .container-login100-form-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 90%;
 }
 
 .wrap-login100-form-btn {
-  width: 100%;
-  display: block;
-  position: relative;
-  z-index: 1;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0 auto;
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .login100-form-bgbtn {
-  position: absolute;
-  z-index: -1;
-  width: 300%;
-  height: 50px;
-(90deg, #B8FFF2 0.46%, #83BCFF 100.14%)
-  background: #a64bf4;
-  background: -webkit-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-  background: -o-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-  background: -moz-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-  background: linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-  top: 0;
-  left: -100%;
+    position: absolute;
+    z-index: -1;
+    width: 300%;
+    height: 50px;
+(90 deg, #B8FFF2 0.46 %, #83BCFF 100.14 %) background: #a64bf4;
+    background: -webkit-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
+    background: -o-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
+    background: -moz-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
+    background: linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
+    top: 0;
+    left: -100%;
 
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
 }
 
 .login100-form-btn {
-  font-size: 20px;
-  color: #ffffff;
-  line-height: 1.2;
-  text-transform: uppercase;
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 1.2;
+    text-transform: uppercase;
 
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
 }
 
 .wrap-login100-form-btn:hover .login100-form-bgbtn {
-  left: 0;
+    left: 0;
 }
+

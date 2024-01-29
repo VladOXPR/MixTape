@@ -11,6 +11,7 @@ class Profile(models.Model):
     id_user = models.IntegerField()
 
     projects = models.ManyToManyField('Project', related_name='user_projects', blank=True)
+    pub_proj = models.ForeignKey('Project', blank=True, null=True, on_delete=models.CASCADE)
     friends = models.ManyToManyField('Friend', related_name='user_friends', blank=True)
 
     profileimg = models.ImageField(upload_to='profile_images', default='/media/blank-profile-picture.png')
@@ -43,6 +44,7 @@ class Message(models.Model):
     sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sender')
     receiver = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='recipient')
     seen = models.BooleanField(default=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.body

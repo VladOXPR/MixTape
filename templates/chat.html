@@ -20,28 +20,28 @@
     <nav>
 
         <div class="header-text-container">
-                <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px;">Browse</a>
+            <a href="/" class="navbar-text" style="padding-right: 10px; font-size: 30px;">Browse</a>
         </div>
 
 
-        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="/media/threelines.png"
-                                                                                              style="height: 30px"></a>
+        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img
+                src="/media/threelines.png"
+                style="height: 30px"></a>
     </nav>
 </header>
-{#<h2>{{ user_profile.user }} - > {{ friend_profile.user }}</h2>#}
-{#<div class="chat-container">#}
+
 <div class="chat-container" id="chat-body">
 
-    {% for chat in chats %}
+    {% for text in texts %}
 
-        {% if  chat.sender == user_profile %}
+        {% if  text.sender == user_profile %}
             <div class="message-container">
-            <div class="message-sent"> {{ chat }} </div>
+                <div class="message-sent"> {{ text }} </div>
             </div>
 
         {% else %}
-           <div class="message-container">
-            <div class="message-received"> {{ chat }} </div>
+            <div class="message-container">
+                <div class="message-received"> {{ text }} </div>
             </div>
 
 
@@ -52,23 +52,23 @@
     {% endfor %}
 </div>
 
-{#</div>#}
 <footer>
     <form method="post" enctype="multipart/form-data" class="chat-input" id="myform">
-    {% csrf_token %}
+        {% csrf_token %}
 
-    {{ form.body }}
+        {{ form.body }}
 
-    <button type="submit" class="send-button">
-        <img src="/media/send2.png" style="height: 100%;"/>
-    </button>
-</form></footer>
+        <button type="submit" class="send-button">
+            <img src="/media/send2.png" style="height: 100%;"/>
+        </button>
+    </form>
+</footer>
 
- <script>
-        let sent_url = "{% url 'sent_msg' friend_object.username %}"
-        let rec_url = "{% url 'rec_msg' friend_object.username %}"
-    </script>
-    <script src="{% static 'js/chat.js' %}"></script>
+<script>
+    let sent_url = "{% url 'sent_msg' friend_object.username %}"
+    let rec_url = "{% url 'rec_msg' friend_object.username %}"
+</script>
+<script src="{% static 'js/chat.js' %}"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from core.models import Message, Profile
+from core.models import Message, Profile, Project
 
 
 class ChatMessageForm(ModelForm):
@@ -17,10 +17,11 @@ class ChatMessageForm(ModelForm):
 
 
 class SettingsForm(ModelForm):
+    pub_proj = forms.ModelChoiceField(queryset=Project.objects.all(), empty_label="Select a project")
 
     class Meta:
         model = Profile
-        fields = ['profileimg', 'name', 'bio',]
+        fields = ['profileimg', 'name', 'bio', 'pub_proj']
 
         # widgets = {
         #     'profileimg': forms.FileField(),
@@ -31,5 +32,4 @@ class SettingsForm(ModelForm):
     # def __init__(self, *args, **kwargs):
     #     super(SettingsForm, self).__init__(*args, **kwargs)
     #     self.fields['profileimg'].label = ''
-
 

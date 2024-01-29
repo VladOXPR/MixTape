@@ -29,15 +29,22 @@
         <div class="header-text-container">
             <a href="drop" class="navbar-text">DROP</a>
         </div>
-        <div><img src="media/threelines.png" style="height: 30px"></div>
-
+        <a href="{% url 'logout' %}?next=/signin"><img src="media/threelines.png"
+                                                       style="height: 35px"></a>
     </nav>
 </header>
 <div class="scroll-container">
     {% for profile in profiles reversed %}
-        <a href="profile/{{ profile.user }}" class="public-block"
-           style="background: url({{ profile.profileimg.url }}) center/cover no-repeat;">{{ profile.user }}
-        </a>
+        <div class="public-block-container">
+            <a href="profile/{{ profile.user }}" class="profile-link" style="height: 100%; width: 100%;">
+                <img src="{{ profile.profileimg.url }}" class="public-block">
+            </a>
+            <div class="public-project-block">
+                <img src="/media/play.png" style="height: 90%"/>
+                <p>{{ profile.pub_proj.title }}</p>
+                <img src="{{ profile.pub_proj.coverimg.url }}"/>
+            </div>
+        </div>
     {% endfor %}
 </div>
 </body>
