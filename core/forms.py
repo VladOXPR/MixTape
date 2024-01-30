@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from core.models import Message, Profile, Project
+from core.models import Message, Profile, Project, Track
 
 
 class ChatMessageForm(ModelForm):
@@ -15,6 +15,21 @@ class ChatMessageForm(ModelForm):
         model = Message
         fields = ['body', ]
 
+class TrackForm(ModelForm):
+    mp3 = forms.FileField()
+
+    class Meta:
+        model = Track
+        fields = ['mp3', ]
+
+
+class ProjectForm(ModelForm):
+    coverimg = forms.ImageField()
+    title = forms.CharField()
+
+    class Meta:
+        model = Project
+        fields = ['coverimg', 'title', ]
 
 class SettingsForm(ModelForm):
     pub_proj = forms.ModelChoiceField(queryset=Project.objects.all(), empty_label="Select a project")

@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Workspace</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="nav-container">
+
+            <div class="box"></div>
+
+            <div class="box">
+                <a href="/create" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
+            </div>
+
+            <div class="box"></div>
+
+        </div>
+    </nav>
+</header>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="background: url({{user_project.coverimg.url}}) center/cover no-repeat; height: 20vh; margin: 5px">
+        <!-- Custom file input container -->
+
+        <!-- Actual file input (hidden) -->
+        <label for="upload">Edit Cover Image</label>
+        <input type="file" name="image" value="" id="upload"/>
+        <!-- Custom label -->
+        <button type="submit" class="custom-file-input">Submit</button>
+    </div>
+<label for="">Title</label>
+            <input type="text" name="title" value="{{user_project.title}}"
+                   class="shadow-none bg-gray-20">
+
+    <div class="project">
+        <p>play</p>
+    </div>
+    <div class="project">
+        <p>record</p>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <a href="/publish">
+            <button class="attention-button">Drop</button>
+        </a>
+    </div>
+    <pstyle style="font-size: 20px">workspace for project goes here</p>
+</body>
+</html>

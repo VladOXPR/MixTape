@@ -4,24 +4,47 @@
 <html lang="en">
 <head>
     <title>Workspace</title>
+    <style>
+        .content {
+            position: relative;
+        }
+
+        .modal {
+            display: block;
+            display: none;
+            position: relative;
+            margin-top: 20px;
+            background-color: #151515;
+            border-radius: 5px;
+            width: 100%;
+            max-height: 55vh;
+            overflow: auto;
+        }
+
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'cssdaw/general.css' %}">
+    <link rel="stylesheet" href="{% static 'cssdaw/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'cssdaw/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'cssdaw/details.css' %}">
+    <link rel="stylesheet" href="{% static 'cssdaw/blocks.css' %}">
+    <script src="{% static 'js/p5.js' %}"></script>
+    <script src="{% static 'js/p5.sound.js' %}"></script>
+{#    <script src="{% static 'js/tracks.js' %}"></script>#}
+    <script src="{% static 'js/recs.js' %}"></script>
 </head>
 <body>
 
 <header>
+    <div class="blur-gradient "></div>
     <nav>
         <div class="nav-container">
 
             <div class="box"></div>
 
             <div class="box">
-                <a href="/create" class="navbar-text" style="font-size: 30px; color: #000000;">CREATE</a>
+                <a href="/create" class="navbar-text" style="font-size: 30px; color: #FFF;">CREATE</a>
             </div>
 
             <div class="box"></div>
@@ -29,33 +52,44 @@
         </div>
     </nav>
 </header>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div style="background: url({{user_project.coverimg.url}}) center/cover no-repeat; height: 20vh; margin: 5px">
-        <!-- Custom file input container -->
 
-        <!-- Actual file input (hidden) -->
-        <label for="upload">Edit Cover Image</label>
-        <input type="file" name="image" value="" id="upload"/>
-        <!-- Custom label -->
-        <button type="submit" class="custom-file-input">Submit</button>
-    </div>
-<label for="">Title</label>
-            <input type="text" name="title" value="{{user_project.title}}"
-                   class="shadow-none bg-gray-20">
+<div class="dashboard" style="margin-top: 10vh;">
 
-    <div class="project">
-        <p>play</p>
-    </div>
-    <div class="project">
-        <p>record</p>
+    <form method="post" enctype="multipart/form-data">
+        <div style="background: url({{ user_project.coverimg.url }}) center/cover no-repeat; height: 20vh; margin: 5px">
+            {% csrf_token %}
+            {{ form2 }}
+            <label>Edit Cover Image</label>
+            <button type="submit" class="custom-file-input">Submit</button>
+        </div>
+    </form>
+
+    <!--        <div class="projects-block" id="vis">Audio File</div>-->
+
+    <div class="modal" id="codeModal">
+        {% for track in project_tracks %}
+            <div style="margin-bottom: 2vh;"></div>
+            <div id="vis-container-{{ track.id }}" class="projects-block" style="margin: 0 10px;"></div>
+            <script src="{% static 'js/tracks.js' %}"></script>
+            <script>
+                createVis({{ track.id }}, '{{ track.mp3.url }}');
+            </script>
+
+        {% endfor %}
+        <div style="margin-bottom: 2vh;"></div>
+        <div id="micVis" class="projects-block" style="margin: 0 10px;"></div>
+        <div style="margin-bottom: 2vh;"></div>
     </div>
 
-    <div style="display: flex; align-items: center;">
-        <a href="/publish">
-            <button class="attention-button">Drop</button>
-        </a>
-    </div>
-    <pstyle style="font-size: 20px">workspace for project goes here</p>
+    <script src="{% static 'js/modal.js' %}"></script>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form1 }}
+        <button>Add</button>
+    </form>
+</div>
+
 </body>
+
 </html>

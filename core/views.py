@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
 from django.utils.text import slugify
-from core.forms import ChatMessageForm, SettingsForm
+from core.forms import ChatMessageForm, SettingsForm, ProjectForm, TrackForm
 from django.contrib import messages
 from django.db.models import Q
 
@@ -22,7 +22,7 @@ def browse(request):
 @login_required(login_url='signin')
 def create(request):
     user_profile = Profile.objects.get(user=request.user)
-    user_projects = user_profile.projects.all()
+    user_projects = user_profile.project_set.all()
 
     last_text = Message.objects.filter(receiver=user_profile).last()
 
@@ -82,7 +82,6 @@ def friends(request):
 
         if latest_message:
             chats.append(latest_message)
-            print('>>>', latest_message.sender)
 
     return render(request, 'friends.html', {'chats': chats})
 
@@ -151,7 +150,7 @@ def receivedMessage(request, pk):
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
-    user_projects = user_profile.projects.all()
+    user_projects = user_profile.project_set.all()
 
     context = {
         'user_object': user_object,
@@ -164,29 +163,27 @@ def profile(request, pk):
 
 @login_required(login_url='signin')
 def workspace(request, pk):
-    user_project = Project.objects.get(id=pk)
+    user_project = Project.objects.get(id=pk)  # user_project is the object of a specific project under the user we are loggen in
+    project_tracks = user_project.track_set.all()
 
     if request.method == 'POST':
+        form1 = TrackForm(request.POST, request.FILES)
+        form2 = ProjectForm(request.POST, request.FILES, instance=user_project)
 
-        if request.FILES.get('image') == None:
-            image = user_project.coverimg
-            title = request.POST['title']
+        if form1.is_valid():
+            new_track = form1.save(commit=False)
+            new_track.project = user_project
+            new_track.save()
 
-            user_project.coverimg = image
-            user_project.title = title
-            user_project.save()
+        if form2.is_valid():
+            form2.save()
 
-        if request.FILES.get('image') != None:
-            image = request.FILES['image']
-            title = request.POST['title']
+        project_tracks = user_project.track_set.all()
+        print(project_tracks)
 
-            user_project.coverimg = image
-            user_project.title = title
-            user_project.save()
-
-        return redirect('create')
-
-    return render(request, 'workspace.html', {'user_project': user_project})
+    return render(request, 'workspace.html',
+                  {'user_project': user_project, 'project_tracks': project_tracks, 'form1': TrackForm,
+                   'form2': ProjectForm})
 
 
 @login_required(login_url='signin')
@@ -197,8 +194,8 @@ def setup(request):
 
         new_project = Project.objects.create(title=title)
         new_project.save()
+        user_profile.project_set.add(new_project)
 
-        user_profile.projects.add(new_project)
 
         return redirect(f'/workspace/{slugify(new_project.id)}')
 
