@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const nameInput = document.getElementById('id_name')
     const bioInput = document.getElementById('id_bio')
-    const projInput = document.getElementById('id_pub_proj')
 
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
@@ -60,13 +59,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         fd.append('name', nameInput.value);
         fd.append('bio', bioInput.value);
-        fd.append('pub_proj', projInput.value)
 
         $.ajax({
             type: 'POST',
             url: settingsForm.action,
             enctype: 'multipart/form-data',
-            data: 'Make Public',
+            data: fd,
+            headers: {
+                'X-CSRFToken': csrf[0].value,
+            },
             success: function (response) {
                 console.log('success', response)
             },

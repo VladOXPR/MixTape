@@ -57,8 +57,12 @@ def settings(request):
     form = SettingsForm(request.POST or None, request.FILES or None, instance=user_profile)
 
     if form.is_valid():
+        print('--- VALID FORM ---')
         form.save()
         return JsonResponse({'message': 'works'})
+    elif not form.is_valid():
+        print('--- not valid ---')
+        print(form.errors)
 
     return render(request, 'settings.html', {'form': form, 'user_profile': user_profile})
 

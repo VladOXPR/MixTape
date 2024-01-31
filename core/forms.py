@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from core.models import Message, Profile, Project, Track
+from core.models import Profile, Project, Track, Message
 
 
 class ChatMessageForm(ModelForm):
@@ -32,11 +32,10 @@ class ProjectForm(ModelForm):
         fields = ['coverimg', 'title', ]
 
 class SettingsForm(ModelForm):
-    pub_proj = forms.ModelChoiceField(queryset=Project.objects.all(), empty_label="Select a project")
 
     class Meta:
         model = Profile
-        fields = ['profileimg', 'name', 'bio', 'pub_proj']
+        fields = ['profileimg', 'name', 'bio', ]
 
         # widgets = {
         #     'profileimg': forms.FileField(),

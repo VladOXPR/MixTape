@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
 User = get_user_model()
 
@@ -10,8 +10,6 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
 
-    # projects = models.ManyToManyField('Project', related_name='user_projects', blank=True)
-    # pub_proj = models.ForeignKey('Project', blank=True, null=True, on_delete=models.CASCADE)
     friends = models.ManyToManyField('Friend', related_name='user_friends', blank=True)
 
     profileimg = models.ImageField(upload_to='profile_images', default='/media/blank-profile-picture.png')
@@ -56,6 +54,7 @@ class Message(models.Model):
 
     body = models.TextField()
     seen = models.BooleanField(default=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
