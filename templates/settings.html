@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
-
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
 </head>
 
 <body>
@@ -40,7 +40,9 @@
         <form action="" enctype="multipart/form-data" id="settings-form"
               style="padding-top:10px;">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.profileimg }}
+            {{ form.name }}
+            {{ form.bio }}
 
         </form>
         <button id="confirm-btn">Save Changes</button>

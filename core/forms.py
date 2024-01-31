@@ -37,11 +37,11 @@ class SettingsForm(ModelForm):
         model = Profile
         fields = ['profileimg', 'name', 'bio', ]
 
-        # widgets = {
-        #     'profileimg': forms.FileField(),
-        #     'name': forms.CharField(),
-        #     'bio': forms.Textarea(),
-        # }
+        widgets = {
+            'profileimg': forms.ClearableFileInput(attrs={'class': 'pfiform'}),
+            'name': forms.TextInput(attrs={'class': 'nameform'}),
+            'bio': forms.Textarea(attrs={'class': 'bioform'}),
+        }
 
     # def __init__(self, *args, **kwargs):
     #     super(SettingsForm, self).__init__(*args, **kwargs)

@@ -12,7 +12,7 @@ class Profile(models.Model):
 
     friends = models.ManyToManyField('Friend', related_name='user_friends', blank=True)
 
-    profileimg = models.ImageField(upload_to='profile_images', default='/media/blank-profile-picture.png')
+    profileimg = models.ImageField(upload_to='profile_images', default='blank-pfp.png')
     name = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
 
