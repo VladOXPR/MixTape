@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Allowed Hosts 3.21.52.4">
-      <change beforePath="$PROJECT_DIR$/mixtape/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mixtape/settings.py" afterDir="false" />
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Allowed Hosts 0.0.0.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706862708106</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Allowed Hosts 0.0.0.0">
+      <option name="closed" value="true" />
+      <created>1706863264436</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1706863264436</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +447,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="fixed migrations, made ManytoMany relationship between Profile and Project" />
     <MESSAGE value="semi functioning chat system" />
     <MESSAGE value="sends message and updates chat box from senders perspective using JSON" />
     <MESSAGE value="code cleanup" />
@@ -463,6 +471,7 @@
     <MESSAGE value="fixed favicon error, fixed default pfp bug" />
     <MESSAGE value="Allowed Hosts" />
     <MESSAGE value="Allowed Hosts 3.21.52.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Allowed Hosts 3.21.52.4" />
+    <MESSAGE value="Allowed Hosts 0.0.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allowed Hosts 0.0.0.0" />
   </component>
 </project>
