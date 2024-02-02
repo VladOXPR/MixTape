@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="fixed favicon error, fixed default pfp bug">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Allowed Hosts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mixtape/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mixtape/settings.py" afterDir="false" />
@@ -39,7 +39,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -387,7 +386,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706728743581</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Allowed Hosts">
+      <option name="closed" value="true" />
+      <created>1706849057987</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1706849057987</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Allowed Hosts">
+      <option name="closed" value="true" />
+      <created>1706849076447</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1706849076447</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,6 +448,7 @@
     <MESSAGE value="daw + cropper merge to main" />
     <MESSAGE value="cleared database and migrations, fixed cropper" />
     <MESSAGE value="fixed favicon error, fixed default pfp bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed favicon error, fixed default pfp bug" />
+    <MESSAGE value="Allowed Hosts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allowed Hosts" />
   </component>
 </project>
