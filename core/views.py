@@ -235,9 +235,6 @@ def signup(request):
             new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
             new_profile.save()
 
-            new_friend = Friend.objects.create(profile=new_profile)
-            new_friend.save()
-
             return redirect('')
 
 
