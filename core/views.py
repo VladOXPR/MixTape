@@ -77,7 +77,9 @@ def publish(request):
 @login_required(login_url='signin')
 def friends(request):
     user_profile = Profile.objects.get(user=request.user)
-    users_friends = user_profile.friends.all()
+    friendships = Friend.objects.filter(Q(sender=user_profile) | Q(receiver=user_profile))
+    user_friends = [] #!!!
+
     chats = []
 
     for friend in users_friends:
@@ -94,13 +96,14 @@ def friends(request):
 def chat(request, pk):
     friend_user_object = User.objects.get(username=pk)
     friend_profile = Profile.objects.get(user=friend_user_object)
-    user_profile = Profile.objects.get(user=request.user)
-    friend_object = Friend.objects.get(profile=friend_profile)
 
-    is_friend = user_profile.friends.filter(pk=friend_profile.pk).exists()
+    user_profile = Profile.objects.get(user=request.user)
+
+    is_friend = Friend.objects.filter(
+        Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile)).exists()
 
     if not is_friend:
-        user_profile.friends.add(friend_object)
+        Friend.objects.create(sender=user_profile, receiver=friend_profile)
 
     texts = Message.objects.filter(
         Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))

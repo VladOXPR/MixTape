@@ -10,8 +10,6 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
 
-    friends = models.ManyToManyField('Friend', related_name='user_friends', blank=True)
-
     profileimg = models.ImageField(upload_to='profile_images', default='blank-pfp.png')
     name = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
@@ -42,7 +40,8 @@ class Track(models.Model):
 
 
 class Friend(models.Model):
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    sender = models.OneToOneField(Profile, on_delete=models.CASCADE, related_name='request_sender', null=True)
+    receiver = models.OneToOneField(Profile, on_delete=models.CASCADE, related_name='request_receiver', null=True)
 
     def __str__(self):
         return self.profile.user.username
@@ -55,7 +54,6 @@ class Message(models.Model):
     body = models.TextField()
     seen = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return self.body
