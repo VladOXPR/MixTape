@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
-from .models import Profile, Project, Friend, Message
+from .models import Profile, Project, Message
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
