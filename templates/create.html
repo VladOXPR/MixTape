@@ -61,12 +61,8 @@
         {% for project in user_projects %}
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <img src="/media/play.png" style="height: 75%"/>
+                <img src="media/play.png" style="height: 75%"/>
                 <h4>{{ project.title }}</h4>
-                <form enctype="multipart/form-data" style="height: 150%; display: flex;" id="check">
-                    {% csrf_token %}
-                    <input type="checkbox" id="checkbox_{{ project.id }}" onclick="handleCheckboxClick(this.id)">
-                </form>
             </a>
 
         {% empty %}
@@ -85,41 +81,5 @@
         </div>
     </div>
 </footer>
-<script>
-
-    const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
-
-    function handleCheckboxClick(checkboxId) {
-        // Extract project ID from checkbox ID
-        var projectId = checkboxId.split('_')[1];
-        console.log("Checkbox clicked for project ID: " + projectId);
-
-        var update = {
-            id: projectId,
-            csrfmiddlewaretoken: csrf
-        };
-
-        $.ajax({
-            type: 'POST',
-            url: 'create',
-            contentType: 'application/json',
-            data: update,
-            headers: {
-                'X-CSRFToken': csrf
-            },
-            success: function (response) {
-                console.log('success', response)
-            },
-            error: function (error) {
-                console.log('error1', error)
-            },
-
-            {#cache: false,#}
-            {#contentType: false,#}
-            {#processData: false,#}
-        });
-    }
-
-</script>
 </body>
 </html>

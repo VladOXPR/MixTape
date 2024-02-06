@@ -25,7 +25,7 @@ class Project(models.Model):
 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=35, default='untitled')
-    coverimg = models.ImageField(upload_to='cover_images', default='blank-profile-picture.png')
+    coverimg = models.ImageField(upload_to='cover_images', default='blank-project.png')
 
     def __str__(self):
         return str(self.id)

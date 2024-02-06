@@ -83,7 +83,7 @@ def friends(request):
 
     for friend in friendships:
         latest_message = Message.objects.filter(
-            Q(sender=user_profile, receiver=friend.profile) | Q(sender=friend.profile, receiver=user_profile)).last()
+            Q(sender=user_profile, receiver=friend) | Q(sender=friend, receiver=user_profile)).last()
 
         if latest_message:
             chats.append(latest_message)
@@ -101,7 +101,7 @@ def chat(request, pk):
     is_friend = user_profile.friends.filter(user=friend_user_object).exists()
 
     if not is_friend:
-        user_profile.friends.add(friend_user_object)
+        user_profile.friends.add(friend_profile)
 
     texts = Message.objects.filter(
         Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
