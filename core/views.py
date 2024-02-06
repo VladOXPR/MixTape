@@ -77,12 +77,11 @@ def publish(request):
 @login_required(login_url='signin')
 def friends(request):
     user_profile = Profile.objects.get(user=request.user)
-    friendships = Friend.objects.filter(Q(sender=user_profile) | Q(receiver=user_profile))
-    user_friends = [] #!!!
+    friendships = user_profile.friends.all()
 
     chats = []
 
-    for friend in users_friends:
+    for friend in friendships:
         latest_message = Message.objects.filter(
             Q(sender=user_profile, receiver=friend.profile) | Q(sender=friend.profile, receiver=user_profile)).last()
 
@@ -99,11 +98,10 @@ def chat(request, pk):
 
     user_profile = Profile.objects.get(user=request.user)
 
-    is_friend = Friend.objects.filter(
-        Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile)).exists()
+    is_friend = user_profile.friends.filter(user=friend_user_object).exists()
 
     if not is_friend:
-        Friend.objects.create(sender=user_profile, receiver=friend_profile)
+        user_profile.friends.add(friend_user_object)
 
     texts = Message.objects.filter(
         Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
