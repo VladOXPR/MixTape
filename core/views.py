@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
-from .models import Profile, Project, Message
+from .models import Profile, Project, Message, Track
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
@@ -9,6 +9,7 @@ from django.utils.text import slugify
 from core.forms import ChatMessageForm, SettingsForm, ProjectForm, TrackForm
 from django.contrib import messages
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 
 
 @login_required(login_url='signin')
@@ -183,13 +184,9 @@ def workspace(request, pk):
         if form2.is_valid():
             form2.save()
 
-        project_tracks = user_project.track_set.all()
-        print(project_tracks)
-
     return render(request, 'workspace.html',
                   {'user_project': user_project, 'project_tracks': project_tracks, 'form1': TrackForm,
                    'form2': ProjectForm})
-
 
 @login_required(login_url='signin')
 def setup(request):

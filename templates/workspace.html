@@ -33,6 +33,7 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/recs.js' %}"></script>
+    <script src="{% static 'js/dropzone.js' %}"></script>
 </head>
 
 <body>
@@ -74,20 +75,31 @@
             <script>
                 createVis({{ track.id }}, '{{ track.mp3.url }}');
             </script>
-
         {% endfor %}
-        <div style="margin-bottom: 2vh;"></div>
+
         <div id="micVis" class="projects-block" style="margin: 0 10px;"></div>
-        <div style="margin-bottom: 2vh;"></div>
     </div>
 
     <script src="{% static 'js/modal.js' %}"></script>
 
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form1 }}
-        <button>Add</button>
-    </form>
+<!--    <form method="POST" enctype="multipart/form-data">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form1 }}-->
+<!--        <button>Add</button>-->
+<!--    </form>-->
+
+    <form id="TrackForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form1.as_p }}
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#id_mp3').change(function () {
+                    $('#TrackForm').submit();
+                });
+            });
+        </script>
 </div>
 
 </body>
