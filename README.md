@@ -8,4 +8,4 @@ After starting the server, visit http://127.0.0.1:8000/ in your browser to view 
 
 - Create an Artist Profile: Sign up and create your artist profile, showcasing your musical skills, genres, and past works.
 - Browse Other Artists: Look through the catalog of artists that need collaboration and find one that suits your style.
-- Start a Project: Initiate a new project, add your frind as a collaborator, work on the music project, record vocals, and share audio samples.
+- Start a Project: Initiate a new project, add your friend as a collaborator, work on the music project, record vocals, and share audio samples.
