@@ -22,18 +22,29 @@
     height: 100%;
 }
 
+.chat-container-parent {
+    position: relative; /* or 'absolute' if needed */
+    height: 100%; /* Take up full height of the body */
+    width: 100vw;
+    display: flex;
+    flex-direction: column-reverse; /* Makes items align from the bottom */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
 .chat-container {
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    bottom: 0;
+    position: absolute;
 
     width: 95%;
     min-height: 90vh;
-    overflow-y: auto;
+    overflow-y: scroll;
     z-index: 0;
 
     padding: 10vh 20px 10vh 20px; /* top right bottom left */
     border-radius: 5px;
-
 }
 
 .message-board-container {

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 
 </head>
 
@@ -30,29 +30,29 @@
                 style="height: 30px"></a>
     </nav>
 </header>
+<div class="chat-container-parent">
+    <div class="chat-container" id="chat-body">
 
-<div class="chat-container" id="chat-body">
+        {% for text in texts %}
 
-    {% for text in texts %}
+            {% if  text.sender == user_profile %}
+                <div class="message-container">
+                    <div class="message-sent"> {{ text }} </div>
+                </div>
 
-        {% if  text.sender == user_profile %}
-            <div class="message-container">
-                <div class="message-sent"> {{ text }} </div>
-            </div>
-
-        {% else %}
-            <div class="message-container">
-                <div class="message-received"> {{ text }} </div>
-            </div>
+            {% else %}
+                <div class="message-container">
+                    <div class="message-received"> {{ text }} </div>
+                </div>
 
 
-        {% endif %}
+            {% endif %}
 
-    {% empty %}<p>No messages yet.</p>
+        {% empty %}<p>No messages yet.</p>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
-
 <footer>
     <form method="post" enctype="multipart/form-data" class="chat-input" id="myform">
         {% csrf_token %}
