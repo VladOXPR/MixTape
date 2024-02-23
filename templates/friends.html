@@ -29,10 +29,11 @@
 <div class="message-board-container">
 <div class="messages-board">
     {% for chat in chats %}
-        <a href="chat/{{ chat.sender }}" class="chat-link">
-            <img src="{{ chat.sender.profileimg.url }}" style="height: 100%"/>
-            <h3 style="font-size: 20px">{{ chat.sender }}</h3>
-            <h3 style="font-size: 20px">{{ chat.body}}</h3>
+        <a href="chat/{{ chat.friend }}" class="chat-link">
+            <img src="{{ chat.friend.profileimg.url }}" style="height: 100%"/>
+            <div>
+            <h3 style="font-size: 25px; color: darkslategrey">{{ chat.friend }}</h3>
+            <h3 style="font-size: 20px">{{ chat.message.body}}</h3></div>
         </a>
 
     {% empty %}

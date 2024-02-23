@@ -41,7 +41,6 @@ class Track(models.Model):
         return str(self.id)
 
 
-
 class Message(models.Model):
     sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sender')
     receiver = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='recipient')

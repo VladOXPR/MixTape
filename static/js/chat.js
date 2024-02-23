@@ -17,91 +17,103 @@ function getCookie(name) {
 const csrftoken = getCookie('csrftoken');
 
 let form = document.getElementById("myform")
+
 form.addEventListener("submit", sendChat)
+form.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        event.preventDefault(); // Prevent the default action
+        form.dispatchEvent(new Event('submit')); // Programmatically trigger the form submission
+    }
+});
+
+
 
 function sendChat(e) {
-    e.preventDefault()
-    let chatMessage = document.getElementById("id_body").value
-    console.log(chatMessage)
+    if (e) e.preventDefault();
+    let chatMessage = document.getElementById("id_body").value;
+    console.log(chatMessage);
 
-    const data = {msg: chatMessage};
+    if (chatMessage) {
 
-    async function postJSON(data) {
-        try {
-            const response = await fetch(sent_url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    'X-CSRFToken': csrftoken
-                },
-                body: JSON.stringify(data),
-            });
+        const data = {msg: chatMessage};
 
-            const result = await response.json();
-            console.log("Sent Message:", result);
+        async function postJSON(data) {
+            try {
+                const response = await fetch(sent_url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        'X-CSRFToken': csrftoken
+                    },
+                    body: JSON.stringify(data),
+                });
 
-            let chatBody = document.getElementById("chat-body")
-            let chatMessageContainer = document.createElement("div")
-            chatMessageContainer.classList.add("message-container")
+                const result = await response.json();
+                console.log("Sent Message:", result);
 
-            let chatMessageBubble = document.createElement("div")
-            chatMessageBubble.classList.add("message-sent")
+                let chatBody = document.getElementById("chat-body")
+                let chatMessageContainer = document.createElement("div")
+                chatMessageContainer.classList.add("message-container")
 
-            chatMessageBubble.innerText = data.msg
-            chatMessageContainer.append(chatMessageBubble)
+                let chatMessageBubble = document.createElement("div")
+                chatMessageBubble.classList.add("message-sent")
 
-            chatBody.append(chatMessageContainer)
-            document.getElementById("id_body").value = ""
+                chatMessageBubble.innerText = data.msg
+                chatMessageContainer.append(chatMessageBubble)
 
-        } catch (error) {
-            console.error("Error:", error);
-            console.log("HTML Content:", await response.text());
+                chatBody.append(chatMessageContainer)
+                document.getElementById("id_body").value = ""
+
+            } catch (error) {
+                console.error("Error:", error);
+                console.log("HTML Content:", await response.text());
+            }
         }
-    }
 
-    postJSON(data);
+        postJSON(data);
+    }
 }
 
-setInterval(receiveMessage, 2000);
+let counter = 0;
 
-let counter = 0
-
-function receiveMessage() {
-
+// Modified receiveMessage function with an additional parameter
+function receiveMessage(updateDOM = true) {
     fetch(rec_url)
         .then(response => response.json())
         .then(data => {
-            console.log("Message Check:");
+            console.log("Message Check:", data[0]);
 
-            if (data.length === 0) {
-            } else {
+            if (data.length > 0 && updateDOM) {
+                let lastMsg = data[0]; // Assuming you want the first message in the array
 
-                let lastMsg = data[data.length - 1]
+                if (counter < data.length) {
+                    let chatBody = document.getElementById("chat-body");
+                    let chatMessageContainer = document.createElement("div");
+                    chatMessageContainer.classList.add("message-container");
 
-                if (counter === data.length) {
-                    console.log("There is no new chat")
-                } else {
-                    let chatBody = document.getElementById("chat-body")
-                    let chatMessageContainer = document.createElement("div")
-                    chatMessageContainer.classList.add("message-container")
+                    let chatMessageBubble = document.createElement("div");
+                    chatMessageBubble.classList.add("message-received");
 
-                    let chatMessageBubble = document.createElement("div")
-                    chatMessageBubble.classList.add("message-received")
+                    chatMessageBubble.innerText = lastMsg; // Assuming lastMsg is the message text
+                    chatMessageContainer.append(chatMessageBubble);
 
-                    chatMessageBubble.innerText = lastMsg
-                    chatMessageContainer.append(chatMessageBubble)
-
-                    chatBody.append(chatMessageContainer)
-                    document.getElementById("id_body").value = ""
-
-                    console.log("Received Message:", lastMsg);
-
+                    chatBody.append(chatMessageContainer);
+                    document.getElementById("id_body").value = "";
                 }
             }
 
-            counter = data.length
+            // Update counter regardless of whether messages are appended to the DOM
+            counter = data.length;
         })
         .catch(error => {
             console.error("Error:", error);
         });
 }
+
+// Call receiveMessage on page load without updating the DOM
+document.addEventListener("DOMContentLoaded", function() {
+    receiveMessage(false);
+});
+
+// Continue to call receiveMessage as before for regular updates
+setInterval(receiveMessage, 2500);

@@ -84,12 +84,20 @@ def friends(request):
 
     for friend in friendships:
         latest_message = Message.objects.filter(
-            Q(sender=user_profile, receiver=friend) | Q(sender=friend, receiver=user_profile)).last()
+            (Q(sender=user_profile, receiver=friend) | Q(sender=friend, receiver=user_profile)) & ~Q(sender=user_profile, receiver=user_profile)
+        ).order_by('-timestamp').first()  # Using 'order_by' to ensure the latest message is retrieved
 
         if latest_message:
-            chats.append(latest_message)
+            # Determine if the friend is the sender or receiver, then add them to the chat info
+            if latest_message.sender == user_profile:
+                chat_info = {'friend': latest_message.receiver, 'message': latest_message}
+            else:
+                chat_info = {'friend': latest_message.sender, 'message': latest_message}
+
+            chats.append(chat_info)
 
     return render(request, 'friends.html', {'chats': chats})
+
 
 
 @login_required(login_url='signin')
@@ -105,7 +113,8 @@ def chat(request, pk):
         user_profile.friends.add(friend_profile)
 
     texts = Message.objects.filter(
-        Q(sender=user_profile, receiver=friend_profile) | Q(sender=friend_profile, receiver=user_profile))
+        Q(sender=friend_profile, receiver=user_profile) | Q(sender=user_profile, receiver=friend_profile)).order_by('-timestamp').reverse()
+
     form = ChatMessageForm()
 
     for text in texts:
@@ -113,12 +122,13 @@ def chat(request, pk):
             text.seen = True
             text.save()
 
+
     context = {
         'friend_object': friend_user_object,
         'friend_profile': friend_profile,
         'user_profile': user_profile,
         'texts': texts,
-        'form': form
+        'form': form,
     }
 
     return render(request, 'chat.html', context)
@@ -143,7 +153,7 @@ def receivedMessage(request, pk):
     user_profile = Profile.objects.get(user=request.user)
 
     arr = []
-    chats = Message.objects.filter(sender=friend_profile, receiver=user_profile)
+    chats = Message.objects.filter(sender=friend_profile, receiver=user_profile).order_by('-timestamp')
     for chat in chats:
         chat.seen = True
         chat.save()
