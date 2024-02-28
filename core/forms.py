@@ -15,6 +15,7 @@ class ChatMessageForm(ModelForm):
         model = Message
         fields = ['body', ]
 
+
 class TrackForm(ModelForm):
     mp3 = forms.FileField()
 
@@ -31,8 +32,13 @@ class ProjectForm(ModelForm):
         model = Project
         fields = ['coverimg', 'title', ]
 
-class SettingsForm(ModelForm):
+        widgets = {
+            'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform'}),
+            'title': forms.TextInput(attrs={'class': 'titleform'}),
+        }
 
+
+class SettingsForm(ModelForm):
     class Meta:
         model = Profile
         fields = ['profileimg', 'name', 'bio', ]
@@ -42,8 +48,13 @@ class SettingsForm(ModelForm):
             'name': forms.TextInput(attrs={'class': 'nameform'}),
             'bio': forms.Textarea(attrs={'class': 'bioform'}),
         }
-
-    # def __init__(self, *args, **kwargs):
-    #     super(SettingsForm, self).__init__(*args, **kwargs)
-    #     self.fields['profileimg'].label = ''
+# class ProjectSettingsForm(ModelForm):
+#     class Meta:
+#         model = Project
+#         fields = ['title', 'coverimg']
+#
+#     widgets = {
+#         'coverimg': forms.ClearableFileInput(attrs={'class': 'ciform'}),
+#         'title': forms.TextInput(attrs={'class': 'titleform'}),
+#     }
 

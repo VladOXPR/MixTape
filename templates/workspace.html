@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="{% static 'css/cssdaw/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/cssdaw/details.css' %}">
     <link rel="stylesheet" href="{% static 'css/cssdaw/blocks.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/recs.js' %}"></script>
@@ -56,16 +57,23 @@
 
 <div class="dashboard" style="margin-top: 10vh;">
 
-    <form method="post" enctype="multipart/form-data">
-        <div style="background: url({{ user_project.coverimg.url }}) center/cover no-repeat; height: 20vh; margin: 5px">
-            {% csrf_token %}
-            {{ form2 }}
-            <label>Edit Cover Image</label>
-            <button type="submit" class="custom-file-input">Submit</button>
-        </div>
-    </form>
+    <div class="wksp-settings-container">
 
-    <!--        <div class="projects-block" id="vis">Audio File</div>-->
+        <div class="wksp-image-block">
+            <div id="image-box" style="max-width: 70vh; max-height: 50vh">
+                <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
+            </div>
+        </div>
+    <div class="form-container">
+        <form action="" enctype="multipart/form-data" id="project-form">
+            {% csrf_token %}
+            {{ form2.coverimg }}
+            {{ form2.title }}
+        </form>
+        <button class="custom-file-input" id="confirm-btn">Save Changes</button>
+    </div>
+
+    </div>
 
     <div class="modal" id="codeModal">
         {% for track in project_tracks %}
@@ -82,26 +90,34 @@
 
     <script src="{% static 'js/modal.js' %}"></script>
 
-<!--    <form method="POST" enctype="multipart/form-data">-->
-<!--        {% csrf_token %}-->
-<!--        {{ form1 }}-->
-<!--        <button>Add</button>-->
-<!--    </form>-->
+    <!--    <form method="POST" enctype="multipart/form-data">-->
+    <!--        {% csrf_token %}-->
+    <!--        {{ form1 }}-->
+    <!--        <button>Add</button>-->
+    <!--    </form>-->
 
     <form id="TrackForm" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form1.as_p }}
-        </form>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#id_mp3').change(function () {
-                    $('#TrackForm').submit();
-                });
+        {% csrf_token %}
+        {{ form1.as_p }}
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#id_mp3').change(function () {
+                $('#TrackForm').submit();
             });
-        </script>
-</div>
+        });
+    </script>
+</div> <!--??-->
 
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- cropper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+
+<!-- static -->
+<script src="{% static 'js/workspace.js' %}"></script>
 </body>
 
 </html>

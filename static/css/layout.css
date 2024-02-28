@@ -66,6 +66,7 @@
     justify-items: center;
 }
 
+
 .settings-image-container {
     width: 100%;
     height: auto;
@@ -110,4 +111,9 @@
 
 .profile-link {
     height: 90%;
+}
+
+.image-box {
+    max-width: 70vw;
+    max-height: 30vh;
 }

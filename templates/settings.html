@@ -31,14 +31,13 @@
 
 <div class="settings-container">
     <div class="settings-image-block">
-        <div id="image-box" style="max-width: 70vw; max-height: 50vh">
+        <div class="image-box" id="image-box" class="image-box">
             <img src="{{ user_profile.profileimg.url }}" id="image" style="height: 100%; width: 100%">
         </div>
     </div>
     <div id="settings-form-container">
 
-        <form action="" enctype="multipart/form-data" id="settings-form"
-              style="padding-top:10px;">
+        <form action="" enctype="multipart/form-data" id="settings-form" style="padding-top:10px;">
             {% csrf_token %}
             {{ form.profileimg }}
             {{ form.name }}

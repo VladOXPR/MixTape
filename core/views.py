@@ -84,7 +84,8 @@ def friends(request):
 
     for friend in friendships:
         latest_message = Message.objects.filter(
-            (Q(sender=user_profile, receiver=friend) | Q(sender=friend, receiver=user_profile)) & ~Q(sender=user_profile, receiver=user_profile)
+            (Q(sender=user_profile, receiver=friend) | Q(sender=friend, receiver=user_profile)) & ~Q(
+                sender=user_profile, receiver=user_profile)
         ).order_by('-timestamp').first()  # Using 'order_by' to ensure the latest message is retrieved
 
         if latest_message:
@@ -97,7 +98,6 @@ def friends(request):
             chats.append(chat_info)
 
     return render(request, 'friends.html', {'chats': chats})
-
 
 
 @login_required(login_url='signin')
@@ -113,7 +113,8 @@ def chat(request, pk):
         user_profile.friends.add(friend_profile)
 
     texts = Message.objects.filter(
-        Q(sender=friend_profile, receiver=user_profile) | Q(sender=user_profile, receiver=friend_profile)).order_by('-timestamp').reverse()
+        Q(sender=friend_profile, receiver=user_profile) | Q(sender=user_profile, receiver=friend_profile)).order_by(
+        '-timestamp').reverse()
 
     form = ChatMessageForm()
 
@@ -121,7 +122,6 @@ def chat(request, pk):
         if text.receiver == user_profile:
             text.seen = True
             text.save()
-
 
     context = {
         'friend_object': friend_user_object,
@@ -179,24 +179,32 @@ def profile(request, pk):
 
 @login_required(login_url='signin')
 def workspace(request, pk):
-    user_project = Project.objects.get(id=pk)  # user_project is the object of a specific project under the user we are loggen in
+    user_project = Project.objects.get(id=pk)  # user_project is the object of a specific project under the user we are logged in
     project_tracks = user_project.track_set.all()
+    form2 = ProjectForm(request.POST or None, request.FILES or None, instance=user_project)
+
+    if form2.is_valid():
+        print('--- VALID FORM ---')
+        form2.save()
+        return JsonResponse({'message': 'works'})
+    else:
+        print('--- not valid ---')
+        print(form2.errors)
 
     if request.method == 'POST':
         form1 = TrackForm(request.POST, request.FILES)
-        form2 = ProjectForm(request.POST, request.FILES, instance=user_project)
 
         if form1.is_valid():
             new_track = form1.save(commit=False)
             new_track.project = user_project
             new_track.save()
 
-        if form2.is_valid():
-            form2.save()
+
 
     return render(request, 'workspace.html',
                   {'user_project': user_project, 'project_tracks': project_tracks, 'form1': TrackForm,
-                   'form2': ProjectForm})
+                   'form2': form2})
+
 
 @login_required(login_url='signin')
 def setup(request):
@@ -207,7 +215,6 @@ def setup(request):
         new_project = Project.objects.create(title=title)
         new_project.save()
         user_profile.project_set.add(new_project)
-
 
         return redirect(f'/workspace/{slugify(new_project.id)}')
 

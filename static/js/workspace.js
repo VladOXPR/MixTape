@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-    const settingsForm = document.getElementById('settings-form')
+    const projectForm = document.getElementById('project-form')
     const imageBox = document.getElementById('image-box')
     const confirmBtn = document.getElementById('confirm-btn')
 
-    const imageInput = document.getElementById('id_profileimg')
-
-    const nameInput = document.getElementById('id_name')
-    const bioInput = document.getElementById('id_bio')
+    const imageInput = document.getElementById('id_coverimg')
+    const titleInput = document.getElementById('id_title')
 
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
@@ -17,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const img_data = imageInput.files[0];
         const url = URL.createObjectURL(img_data);
 
-        imageBox.innerHTML = '<img src="' + url + '" id="image" alt="/media/blank-profile-picture.png">';
+        imageBox.innerHTML = '<img src="' + url + '" id="image" alt="/media/blank-profile-picture.png" class="image-box">';
 
         const image = document.getElementById('image');
 
@@ -58,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const fd = new FormData();
         fd.append('csrfmiddlewaretoken', csrf[0].value);
         if (blob) {
-            fd.append('profileimg', blob, 'pfp.png');
+            fd.append('coverimg', blob, 'pfp.png');
         }
-        fd.append('name', nameInput.value);
-        fd.append('bio', bioInput.value);
+        fd.append('title', titleInput.value);
+
 
         $.ajax({
             type: 'POST',
-            url: settingsForm.action,
+            url: projectForm.action,
             enctype: 'multipart/form-data',
             data: fd,
             headers: {

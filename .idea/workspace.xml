@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="fixed friends display, double text glitch, press enter to send text">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="made chat start at the bottom on page load">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +152,7 @@
       <workItem from="1706804197658" duration="1219000" />
       <workItem from="1707233388892" duration="1416000" />
       <workItem from="1708632576370" duration="9498000" />
-      <workItem from="1708666254225" duration="816000" />
+      <workItem from="1708666254225" duration="5873000" />
     </task>
     <task id="LOCAL-00001" summary="Added drop page">
       <option name="closed" value="true" />
@@ -441,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708663307565</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="made chat start at the bottom on page load">
+      <option name="closed" value="true" />
+      <created>1708667200271</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708667200271</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +472,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="semi functioning chat system" />
     <MESSAGE value="sends message and updates chat box from senders perspective using JSON" />
     <MESSAGE value="code cleanup" />
     <MESSAGE value="merge attempt 1" />
@@ -488,6 +496,7 @@
     <MESSAGE value="clean up" />
     <MESSAGE value="no add button" />
     <MESSAGE value="fixed friends display, double text glitch, press enter to send text" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed friends display, double text glitch, press enter to send text" />
+    <MESSAGE value="made chat start at the bottom on page load" />
+    <option name="LAST_COMMIT_MESSAGE" value="made chat start at the bottom on page load" />
   </component>
 </project>
