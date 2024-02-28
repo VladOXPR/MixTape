@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmBtn = document.getElementById('confirm-btn')
 
     const imageInput = document.getElementById('id_profileimg')
-
     const nameInput = document.getElementById('id_name')
     const bioInput = document.getElementById('id_bio')
 
