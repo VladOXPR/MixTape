@@ -55,7 +55,7 @@ def drop(request):
 @login_required(login_url='signin')
 def settings(request):
     user_profile = Profile.objects.get(user=request.user)
-    form = SettingsForm(request.POST or None, request.FILES or None, instance=user_profile)
+    form = SettingsForm(request.POST or None, request.FILES or None, instance=user_profile, )
 
     if form.is_valid():
         print('--- VALID FORM ---')

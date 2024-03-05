@@ -40,6 +40,7 @@
         <form action="" enctype="multipart/form-data" id="settings-form" style="padding-top:10px;">
             {% csrf_token %}
             {{ form.profileimg }}
+            {{ form.fav_proj }}
             {{ form.name }}
             {{ form.bio }}
 

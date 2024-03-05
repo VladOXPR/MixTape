@@ -11,10 +11,12 @@ class Profile(models.Model):
     id_user = models.IntegerField()
 
     friends = models.ManyToManyField("self", blank=True)
+    fav_proj = models.ManyToManyField("Project", blank=True, related_name='favorite_project')
 
     profileimg = models.ImageField(upload_to='profile_images', default='blank-pfp.png')
     name = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
+
 
     def __str__(self):
         return self.user.username
@@ -28,7 +30,7 @@ class Project(models.Model):
     coverimg = models.ImageField(upload_to='cover_images', default='blank-project.png')
 
     def __str__(self):
-        return str(self.id)
+        return str(self.title)
 
 
 class Track(models.Model):

@@ -41,20 +41,22 @@ class ProjectForm(ModelForm):
 class SettingsForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['profileimg', 'name', 'bio', ]
+        fields = '__all__'
 
         widgets = {
             'profileimg': forms.ClearableFileInput(attrs={'class': 'pfiform'}),
             'name': forms.TextInput(attrs={'class': 'nameform'}),
             'bio': forms.Textarea(attrs={'class': 'bioform'}),
         }
-# class ProjectSettingsForm(ModelForm):
-#     class Meta:
-#         model = Project
-#         fields = ['title', 'coverimg']
-#
-#     widgets = {
-#         'coverimg': forms.ClearableFileInput(attrs={'class': 'ciform'}),
-#         'title': forms.TextInput(attrs={'class': 'titleform'}),
-#     }
+
+    def __init__(self,  *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['fav_proj'].queryset = Project.objects.none()
+
+        try:
+            if self.instance and self.instance.pk:
+                self.fields['fav_proj'].queryset = Project.objects.filter(profile=self.instance)
+        except (ValueError, TypeError):
+            pass
+
 
