@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageInput = document.getElementById('id_profileimg')
     const nameInput = document.getElementById('id_name')
     const bioInput = document.getElementById('id_bio')
+    const favProjInput = document.getElementById('id_fav_proj')
 
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         fd.append('name', nameInput.value);
         fd.append('bio', bioInput.value);
+        fd.append('fav_proj', favProjInput.value)
 
         $.ajax({
             type: 'POST',
