@@ -6,7 +6,7 @@ function createVis(trackId, mp3Url) {
         let volumeSlider;
         let timeSlider; // New time slider
         let isPlaying = false;
-        let canvasWidth = 339;
+        let canvasWidth;
 
         p.preload = function() {
             // Use preload for loading assets
@@ -14,6 +14,8 @@ function createVis(trackId, mp3Url) {
         };
 
         p.setup = function() {
+            canvasWidth = song.duration();
+
             p.createCanvas(canvasWidth, 100);
             peaks = song.getPeaks(10000);
 
@@ -66,12 +68,4 @@ function createVis(trackId, mp3Url) {
     };
 
     let myVis = new p5(vis, `vis-container-${trackId}`);
-}
-
-function deleteTrack(trackId) {
-    // Confirm deletion with the user (optional)
-    if (confirm('Are you sure you want to delete this track?')) {
-        // Call the deleteTrack function in your createVis function
-        deleteTrack(trackId);
-    }
 }
