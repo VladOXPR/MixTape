@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="added cropper to workspace and touched up settings cropper" />
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="styled sing-in and sign-up pages">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/signin.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +86,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -94,17 +98,17 @@
       <recent name="$PROJECT_DIR$/Template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates/signin-signup" />
       <recent name="$PROJECT_DIR$/static/css" />
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/old_templates" />
       <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-67fca87a943a-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.259" />
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -148,6 +152,14 @@
       <workItem from="1708632576370" duration="9498000" />
       <workItem from="1708666254225" duration="5873000" />
       <workItem from="1709065453409" duration="8197000" />
+      <workItem from="1709318344329" duration="1786000" />
+      <workItem from="1709353396728" duration="58000" />
+      <workItem from="1709353545928" duration="15000" />
+      <workItem from="1709353635161" duration="772000" />
+      <workItem from="1709564764497" duration="497000" />
+      <workItem from="1709584012457" duration="635000" />
+      <workItem from="1709599397611" duration="923000" />
+      <workItem from="1709600663125" duration="11014000" />
     </task>
     <task id="LOCAL-00001" summary="Added drop page">
       <option name="closed" value="true" />
@@ -461,7 +473,39 @@
       <option name="project" value="LOCAL" />
       <updated>1709139019136</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="added cropper to workspace and touched up settings cropper">
+      <option name="closed" value="true" />
+      <created>1709329709496</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1709329709496</updated>
+    </task>
+    <task id="LOCAL-00041" summary="very very rough favorite project option list">
+      <option name="closed" value="true" />
+      <created>1709624165544</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1709624165544</updated>
+    </task>
+    <task id="LOCAL-00042" summary="continued project list drop down">
+      <option name="closed" value="true" />
+      <created>1709744266480</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709744266480</updated>
+    </task>
+    <task id="LOCAL-00043" summary="styled sing-in and sign-up pages">
+      <option name="closed" value="true" />
+      <created>1709746977544</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1709746977544</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,9 +527,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="code cleanup" />
-    <MESSAGE value="merge attempt 1" />
-    <MESSAGE value="organized code into javascript and css folders in static, added js code to file named chat.js," />
     <MESSAGE value="successfully connected chat.html to chat.js" />
     <MESSAGE value="profile is added to friends list when user clicks connect" />
     <MESSAGE value="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature" />
@@ -508,6 +549,9 @@
     <MESSAGE value="fixed friends display, double text glitch, press enter to send text" />
     <MESSAGE value="made chat start at the bottom on page load" />
     <MESSAGE value="added cropper to workspace and touched up settings cropper" />
-    <option name="LAST_COMMIT_MESSAGE" value="added cropper to workspace and touched up settings cropper" />
+    <MESSAGE value="very very rough favorite project option list" />
+    <MESSAGE value="continued project list drop down" />
+    <MESSAGE value="styled sing-in and sign-up pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="styled sing-in and sign-up pages" />
   </component>
 </project>

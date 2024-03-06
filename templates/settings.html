@@ -28,8 +28,9 @@
                                                                                               style="height: 30px"></a>
     </nav>
 </header>
-
 <div class="settings-container">
+    <p style="color: white;">{{ user_profile.fav_proj }}</p>
+
     <div class="settings-image-block">
         <div class="image-box" id="image-box" class="image-box">
             <img src="{{ user_profile.profileimg.url }}" id="image" style="height: 100%; width: 100%">
@@ -40,6 +41,7 @@
         <form action="" enctype="multipart/form-data" id="settings-form" style="padding-top:10px;">
             {% csrf_token %}
             {{ form.profileimg }}
+            {{ form.fav_proj }}
             {{ form.name }}
             {{ form.bio }}
 

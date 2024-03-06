@@ -3,27 +3,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <link rel="stylesheet" href="{% static '/css/signin.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 </head>
 
 <body>
-<h1>Sign Up</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="username" name="username" placeholder="Username">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Sign Up">
-</form>
+<div class="container">
+    <div class="registration form">
+        <header>Signup</header>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="email" placeholder="Enter your Email" name="email">
+            <input type="username" placeholder="Create a Username" name="username">
+            <input type="password" placeholder="Create your password" name="password">
+            <button type="submit" class="button">Signup</button>
+        </form>
+        <div class="signup">
+        <span class="signup">Already have an account?
+            <a href="signin" class="redirect-button">Sign In</a>
+        </span>
+        </div>
+    </div>
+</div>
 </body>
-
-<a href='signin' class="redirect-button">Sign In</a>
-
 </html>
