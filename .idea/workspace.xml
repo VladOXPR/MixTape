@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="very very rough favorite project option list">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="continued project list drop down">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssSignin/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssSignin/util.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +162,7 @@
       <workItem from="1709564764497" duration="497000" />
       <workItem from="1709584012457" duration="635000" />
       <workItem from="1709599397611" duration="923000" />
-      <workItem from="1709600663125" duration="8203000" />
+      <workItem from="1709600663125" duration="10400000" />
     </task>
     <task id="LOCAL-00001" summary="Added drop page">
       <option name="closed" value="true" />
@@ -492,7 +492,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709624165544</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="continued project list drop down">
+      <option name="closed" value="true" />
+      <created>1709744266480</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709744266480</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +522,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="merge attempt 1" />
     <MESSAGE value="organized code into javascript and css folders in static, added js code to file named chat.js," />
     <MESSAGE value="successfully connected chat.html to chat.js" />
     <MESSAGE value="profile is added to friends list when user clicks connect" />
@@ -539,6 +546,7 @@
     <MESSAGE value="made chat start at the bottom on page load" />
     <MESSAGE value="added cropper to workspace and touched up settings cropper" />
     <MESSAGE value="very very rough favorite project option list" />
-    <option name="LAST_COMMIT_MESSAGE" value="very very rough favorite project option list" />
+    <MESSAGE value="continued project list drop down" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued project list drop down" />
   </component>
 </project>
