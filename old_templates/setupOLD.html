@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Up</title>
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+</head>
+
+<body>
+<header>
+    <div class="blur-gradient "></div>
+    <nav>
+
+        <div class="header-text-container">
+            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>
+        </div>
+
+
+        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
+                                                                                              style="height: 30px"></a>
+    </nav>
+</header>
+
+
+<div class="set-up-container">
+    <div class="setup-block">
+
+        <div class="wksp-image-block">
+            <div id="image-box" style="max-width: 10vh; max-height: 50vh">
+                <img src="media/blank-project.png" id="image" style="height: 100%; width: 100%">
+            </div>
+        </div>
+
+        <form method="post" enctype="multipart/form-data" class="set-up-form">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="title-form">
+            <button type="submit" class="setup-create">Create</button>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
