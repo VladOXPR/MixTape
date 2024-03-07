@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Track Lengths">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/cssdaw/general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/recs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/recs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
-    </list>
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Workspace Styling change" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +31,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="temp-1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -520,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709755464641</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Workspace Styling change">
+      <option name="closed" value="true" />
+      <created>1709843716366</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1709843716366</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +539,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="profile is added to friends list when user clicks connect" />
     <MESSAGE value="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature" />
     <MESSAGE value="friends block sends to friends page, three lines log out" />
     <MESSAGE value="roughly styled create page, browse, chat, friends pages" />
@@ -567,6 +563,7 @@
     <MESSAGE value="continued project list drop down" />
     <MESSAGE value="styled sing-in and sign-up pages" />
     <MESSAGE value="Track Lengths" />
-    <option name="LAST_COMMIT_MESSAGE" value="Track Lengths" />
+    <MESSAGE value="Workspace Styling change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Workspace Styling change" />
   </component>
 </project>
