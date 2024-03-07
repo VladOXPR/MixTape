@@ -90,3 +90,16 @@
     color: #b9b9b9;
     border: 2px #9ca3af;
 }
+
+.setup-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 75%;
+    height: 500px;
+    margin-top: 20vh;
+    border-radius: 10px;
+    gap: 2rem;
+    background-color: #1f3156;
+}
