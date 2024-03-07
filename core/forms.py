@@ -38,8 +38,6 @@ class ProjectForm(ModelForm):
         }
 
 class CreateProjectForm(ModelForm):
-    coverimg = forms.ImageField()
-    title = forms.CharField()
 
     class Meta:
         model = Project
