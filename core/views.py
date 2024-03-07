@@ -179,7 +179,8 @@ def profile(request, pk):
 
 @login_required(login_url='signin')
 def workspace(request, pk):
-    user_project = Project.objects.get(id=pk)  # user_project is the object of a specific project under the user we are logged in
+    user_project = Project.objects.get(
+        id=pk)  # user_project is the object of a specific project under the user we are logged in
     project_tracks = user_project.track_set.all()
     form2 = ProjectForm(request.POST or None, request.FILES or None, instance=user_project)
 
@@ -206,17 +207,24 @@ def workspace(request, pk):
 
 @login_required(login_url='signin')
 def setup(request):
-    if request.method == 'POST':
-        user_profile = Profile.objects.get(user=request.user)
-        title = request.POST['title']
+    user_profile = Profile.objects.get(user=request.user)
 
-        new_project = Project.objects.create(title=title)
+    form = ProjectForm(request.POST or None, request.FILES or None)
+
+    if form.is_valid():
+        print('--- VALID FORM ---')
+        new_project = form.save(commit=False)
         new_project.save()
-        user_profile.project_set.add(new_project)
+        new_project.profile.set([user_profile])
+        print(new_project)
+        return JsonResponse({'message': 'Project created successfully', 'redirect_url': f'/workspace/{slugify(new_project.id)}'})
 
-        return redirect(f'/workspace/{slugify(new_project.id)}')
+    else:
+        print('--- not valid ---')
+        print(form.errors)
+        print('------------------')
 
-    return render(request, 'setup.html')
+    return render(request, 'setup.html', {'form': form})
 
 
 def signup(request):

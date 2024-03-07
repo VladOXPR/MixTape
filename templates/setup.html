@@ -3,48 +3,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Settings</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <title>Set Up</title>
+    <link rel="stylesheet" href="{% static 'css/setup.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
 </head>
+
 <body>
-<header>
-    <nav>
-        <div class="nav-container">
+{#<header>#}
+{#    <div class="blur-gradient "></div>#}
+{#    <nav>#}
+{##}
+{#        <div class="header-text-container">#}
+{#            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>#}
+{#        </div>#}
+{##}
+{##}
+{#        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"#}
+{#                                                                                              style="height: 30px"></a>#}
+{#    </nav>#}
+{#</header>#}
 
-            <div class="box" style="display: flex; align-items: center;">
-                <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px; color: #000000;">CREATE</a>
+<div class="container">
+    <div class="login form">
+        <header>New Project</header>
+        <form action="" enctype="multipart/form-data" id="project-form">
+            {% csrf_token %}
+            <div class="wksp-image-block" id="image-box">
+                <div id="image-container" style="max-width: 10vh; max-height: 50vh">
+                    <img src="media/upload-icon.png" id="image" style="height: 100%; width: 100%">
+                </div>
             </div>
-
-        </div>
-    </nav>
-</header>
-
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-
-<div class="profile-block">
-
-    <div class="container">
-        <div class="left">
-            </div>
-        </div>
-        <div class="right">
-            <label for="">Title</label>
-
-            <input type="text" name="title" value=""
-                   class="shadow-none bg-gray-20">
-
-            <button class="submit" type="submit">Save Changes</button>
-        </div>
+            <input type="hidden" name="true_coverimg" id="true_coverimg">
+            {{ form.coverimg }}
+            {{ form.title }}
+            <button class="button" id="confirm-btn">CREATE</button>
+        </form>
     </div>
 </div>
 
-</form>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- cropper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+
+<!-- static -->
+<script src="{% static 'js/setup.js' %}"></script>
 </body>
 </html>

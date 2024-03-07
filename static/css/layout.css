@@ -117,3 +117,29 @@
     max-width: 70vw;
     max-height: 30vh;
 }
+
+.set-up-container {
+      position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 80%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+
+}
+
+.set-up-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 55%;
+    height: 100%;
+}
+
+.wksp-image {
+    width: 40%;
+    height: 100%;
+}
