@@ -6,24 +6,27 @@
     <meta charset="UTF-8">
     <title>Set Up</title>
     <link rel="stylesheet" href="{% static 'css/setup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
 </head>
 
 <body>
-{#<header>#}
-{#    <div class="blur-gradient "></div>#}
-{#    <nav>#}
-{##}
-{#        <div class="header-text-container">#}
-{#            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>#}
-{#        </div>#}
-{##}
-{##}
-{#        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"#}
-{#                                                                                              style="height: 30px"></a>#}
-{#    </nav>#}
-{#</header>#}
+<header>
+    <div class="blur-gradient "></div>
+    <nav>
+
+        <div class="header-text-container">
+            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>
+        </div>
+
+
+        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
+                                                                                              style="height: 30px"></a>
+    </nav>
+</header>
 
 <div class="container">
     <div class="login form">
