@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
 from django.utils.text import slugify
-from core.forms import ChatMessageForm, SettingsForm, ProjectForm, TrackForm
+from core.forms import ChatMessageForm, SettingsForm, CreateProjectForm, ProjectForm, TrackForm
 from django.contrib import messages
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
@@ -209,7 +209,7 @@ def workspace(request, pk):
 def setup(request):
     user_profile = Profile.objects.get(user=request.user)
 
-    form = ProjectForm(request.POST or None, request.FILES or None)
+    form = CreateProjectForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
         print('--- VALID FORM ---')

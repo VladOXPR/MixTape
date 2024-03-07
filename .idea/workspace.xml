@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Workspace Styling change">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="made new navbar css file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/setup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/setup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,7 @@
       <workItem from="1709584012457" duration="635000" />
       <workItem from="1709599397611" duration="923000" />
       <workItem from="1709600663125" duration="11014000" />
-      <workItem from="1709846951916" duration="325000" />
+      <workItem from="1709846951916" duration="1261000" />
     </task>
     <task id="LOCAL-00001" summary="Added drop page">
       <option name="closed" value="true" />
@@ -529,7 +530,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709844042577</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="made new navbar css file">
+      <option name="closed" value="true" />
+      <created>1709847572504</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1709847572504</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +560,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="creating final html templates, styling based on figma prototype, organizing css into files based on level of feature" />
     <MESSAGE value="friends block sends to friends page, three lines log out" />
     <MESSAGE value="roughly styled create page, browse, chat, friends pages" />
     <MESSAGE value="fixed notification circle" />
@@ -576,6 +584,7 @@
     <MESSAGE value="styled sing-in and sign-up pages" />
     <MESSAGE value="Track Lengths" />
     <MESSAGE value="Workspace Styling change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Workspace Styling change" />
+    <MESSAGE value="made new navbar css file" />
+    <option name="LAST_COMMIT_MESSAGE" value="made new navbar css file" />
   </component>
 </project>

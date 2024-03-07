@@ -37,6 +37,18 @@ class ProjectForm(ModelForm):
             'title': forms.TextInput(attrs={'class': 'titleform'}),
         }
 
+class CreateProjectForm(ModelForm):
+    coverimg = forms.ImageField()
+    title = forms.CharField()
+
+    class Meta:
+        model = Project
+        fields = ['coverimg', 'title', ]
+
+        widgets = {
+            'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform'}),
+            'title': forms.TextInput(attrs={'class': 'titleform'}),
+        }
 
 class SettingsForm(ModelForm):
     class Meta:
