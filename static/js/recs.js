@@ -7,7 +7,7 @@ let micVis = function(p) {
   let slider;
 
   p.setup = function() {
-    p.createCanvas(339, 100);
+    p.createCanvas(400, 100);
 
     mic = new p5.AudioIn();
     mic.start();
@@ -22,8 +22,6 @@ let micVis = function(p) {
     playButton = p.createButton("Play");
     playButton.mousePressed(playRecording);
     playButton.hide();
-
-    slider = p.createSlider(0, 1, 0.5, 0.01);
   };
 
   function vis() {
@@ -63,8 +61,7 @@ let micVis = function(p) {
   }
 
   p.draw = function() {
-    soundFile.setVolume(slider.value());
-    p.background(34, 34, 34);
+    p.background(30, 33, 36);
 
     if (state === 1) {
       rec();
@@ -103,6 +100,8 @@ let micVis = function(p) {
       playButton.html("Pause");
     }
   }
+
+
 };
 
 let myMicVis = new p5(micVis, 'micVis');

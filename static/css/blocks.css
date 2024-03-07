@@ -23,8 +23,8 @@
 .projects-block {
     width: 100%;
     flex-shrink: 0;
-    border-radius: 5px;
-    background: #232323;
+    border-radius: 10px;
+    background: #1E2124;
     border-color: #9ca3af;
     display: flex;
     flex-wrap: wrap;
@@ -38,7 +38,7 @@
     width: 94%;
     height: 50px;
     margin: 3%;
-    color: #b9b9b9;
+    color: #1E2124;
 }
 
 .public-block {

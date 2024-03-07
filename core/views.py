@@ -199,8 +199,6 @@ def workspace(request, pk):
             new_track.project = user_project
             new_track.save()
 
-
-
     return render(request, 'workspace.html',
                   {'user_project': user_project, 'project_tracks': project_tracks, 'form1': TrackForm,
                    'form2': form2})

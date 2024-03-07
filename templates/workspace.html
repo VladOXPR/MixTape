@@ -14,7 +14,7 @@
             display: none;
             position: relative;
             margin-top: 20px;
-            background-color: #151515;
+            background-color: #000000;
             border-radius: 5px;
             width: 100%;
             max-height: 55vh;
@@ -24,11 +24,11 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/cssdaw/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cssdaw/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cssdaw/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cssdaw/details.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cssdaw/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <script src="{% static 'js/p5.js' %}"></script>
@@ -60,7 +60,7 @@
     <div class="wksp-settings-container">
 
         <div class="wksp-image-block">
-            <div id="image-box" style="max-width: 70vh; max-height: 50vh">
+            <div id="image-box" style="max-width: 10vh; max-height: 10vh">
                 <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
             </div>
         </div>
@@ -77,15 +77,15 @@
 
     <div class="modal" id="codeModal">
         {% for track in project_tracks %}
-            <div style="margin-bottom: 2vh;"></div>
-            <div id="vis-container-{{ track.id }}" class="projects-block" style="margin: 0 10px;"></div>
+
+            <div id="vis-container-{{ track.id }}"></div>
             <script src="{% static 'js/tracks.js' %}"></script>
             <script>
                 createVis({{ track.id }}, '{{ track.mp3.url }}');
             </script>
         {% endfor %}
 
-        <div id="micVis" class="projects-block" style="margin: 0 10px;"></div>
+        <div id="micVis"></div>
     </div>
 
     <script src="{% static 'js/modal.js' %}"></script>
