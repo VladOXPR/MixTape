@@ -1,64 +1,57 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const projectForm = document.getElementById('project-form')
-    const imageBox = document.getElementById('image-box')
-    const confirmBtn = document.getElementById('confirm-btn')
+    const projectForm = document.getElementById('project-form');
+    const imageBox = document.getElementById('image-box');
+    const confirmBtn = document.getElementById('confirm-btn');
 
-    const imageInput = document.getElementById('id_coverimg')
-    const titleInput = document.getElementById('id_title')
+    const titleInput = document.getElementById('id_title');
+    const imageInput = document.getElementById('id_coverimg');
+    const csrf = document.getElementsByName('csrfmiddlewaretoken');
 
-    const csrf = document.getElementsByName('csrfmiddlewaretoken')
+    let cropper = null; // Initialize cropper to null
 
-    // creates cropper function and submits data
     imageInput.addEventListener('change', () => {
-        console.log('file chosen')
+        console.log('file chosen');
         const img_data = imageInput.files[0];
         const url = URL.createObjectURL(img_data);
 
-        imageBox.innerHTML = '<img src="' + url + '" id="image" alt="/media/blank-profile-picture.png" class="image-box">';
+        imageBox.innerHTML = `<img src="${url}" id="image" alt="/media/blank-profile-picture.png" class="image-box">`;
 
         const image = document.getElementById('image');
 
-        const cropper = new Cropper(image, {
+        // Initialize cropper if image is chosen
+        cropper = new Cropper(image, {
             aspectRatio: 1,
             zoomable: false,
             viewMode: 2,
-
             crop(event) {
-                console.log(event.detail.x);
-                console.log(event.detail.y);
-                console.log(event.detail.width);
-                console.log(event.detail.height);
-                console.log(event.detail.rotate);
-                console.log(event.detail.scaleX);
-                console.log(event.detail.scaleY);
+                console.log(event.detail);
             },
         });
-        confirmBtn.addEventListener('click', () => {
+    });
+
+    confirmBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (cropper) {
+            // If cropper is initialized, get the cropped image blob
             cropper.getCroppedCanvas().toBlob((blob) => {
-                sendFormData(blob)
-                const newUrl = URL.createObjectURL(blob);
-                imageBox.innerHTML = '<img src="' + newUrl + '" id="image" style="height: 100%; width: 100%">';
+                sendFormData(blob);
+                cropper.destroy();
+                cropper = null; // Reset cropper to null
             });
-            cropper.destroy()
-        });
+        } else {
+            // If no image was chosen for cropping, just send the form data
+            sendFormData();
+        }
     });
 
-    // submits data if no new image is chosen
-    confirmBtn.addEventListener('click', () => {
-        sendFormData()
-    });
-
-
-    // ajax function that submits form data
     function sendFormData(blob = null) {
         console.log('clicked', blob);
-        const fd = new FormData();
+        const fd = new FormData(projectForm);
         fd.append('csrfmiddlewaretoken', csrf[0].value);
         if (blob) {
             fd.append('coverimg', blob, 'pfp.png');
         }
         fd.append('title', titleInput.value);
-
 
         $.ajax({
             type: 'POST',
@@ -69,16 +62,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 'X-CSRFToken': csrf[0].value,
             },
             success: function (response) {
-                console.log('success', response)
+                console.log('success', response);
+                // Additional success logic here
             },
             error: function (error) {
-                console.log('error', error)
+                console.log('error', error);
+                // Error handling logic here
             },
-
             cache: false,
             contentType: false,
             processData: false,
         });
     }
-
 });
