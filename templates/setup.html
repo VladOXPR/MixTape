@@ -29,23 +29,24 @@
 </header>
 
 <div class="container">
-    <div class="set-up form">
-        <header>New Project</header>
-        <form action="" enctype="multipart/form-data" id="project-form" class="set-up-form">
-            {% csrf_token %}
+    <h1 style="color:black;">New Project</h1>
+    <form action="" enctype="multipart/form-data" id="project-form" class="set-up-form">
+        {% csrf_token %}
 
+        {{ form.coverimg }}
+        <div class="input-container">
             <div class="wksp-image-block" id="image-box">
                 <div id="image-container" style="max-width: 10vh; max-height: 50vh">
-                    <img src="media/upload-icon.png" id="image" style="height: 100%; width: 100%">
+                    <label for="id_coverimg" class="cviform-label">
+                        <img src="media/upload-icon.png" id="image"
+                             style="height: 100%; border: 5px dashed #000000;"></label>
                 </div>
             </div>
-            {{ form.coverimg }}
-            <label for="id_coverimg" class="cviform-label">Upload Image</label>
 
             {{ form.title }}
-            <button class="button" id="confirm-btn">CREATE</button>
-        </form>
-    </div>
+        </div>
+        <button class="button" id="confirm-btn">CREATE</button>
+    </form>
 </div>
 
 <!-- jquery -->

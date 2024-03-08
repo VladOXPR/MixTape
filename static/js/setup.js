@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
             cropper.getCroppedCanvas().toBlob((blob) => {
                 sendFormData(blob)
                 const newUrl = URL.createObjectURL(blob);
-                imageBox.innerHTML = '<img src="' + newUrl + '" id="image" style="height: 100%; width: 100%">';
             });
             cropper.destroy()
         });
