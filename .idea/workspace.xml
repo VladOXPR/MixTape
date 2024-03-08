@@ -6,7 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="completed set-up page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/blocks.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/chatstyles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/details.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/Inter-VariableFont_slnt,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/fonts/Inter/static/Inter-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/general.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/layout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cssdaw/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/workspace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +70,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="6f194cbb-e9ec-417a-9ab6-bf22f3f33db8" />
+        <option name="accountId" value="30c88d74-6f36-4f21-8bb7-a2712843f9d5" />
         <option name="url" value="https://github.com/VladOXPR/MixTape.git" />
       </UrlAndAccount>
     </option>
@@ -161,14 +182,6 @@
       <workItem from="1709600663125" duration="11014000" />
       <workItem from="1709846951916" duration="3190000" />
       <workItem from="1709852451447" duration="4282000" />
-    </task>
-    <task id="LOCAL-00002" summary="Added drop page">
-      <option name="closed" value="true" />
-      <created>1701320055781</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1701320055781</updated>
     </task>
     <task id="LOCAL-00003" summary="Added drop page">
       <option name="closed" value="true" />
@@ -554,7 +567,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709858364398</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="completed set-up page">
+      <option name="closed" value="true" />
+      <created>1709861868643</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1709861868643</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

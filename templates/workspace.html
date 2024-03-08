@@ -35,6 +35,8 @@
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/recs.js' %}"></script>
     <script src="{% static 'js/dropzone.js' %}"></script>
+    <script src="{% static 'js/tracks.js' %}"></script>
+
 </head>
 
 <body>
@@ -79,7 +81,6 @@
         {% for track in project_tracks %}
 
             <div id="vis-container-{{ track.id }}"></div>
-            <script src="{% static 'js/tracks.js' %}"></script>
             <script>
                 createVis({{ track.id }}, '{{ track.mp3.url }}');
             </script>
@@ -95,15 +96,7 @@
         {{ form1.mp3 }}
     </form>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#id_mp3').change(function () {
-                $('#TrackForm').submit();
-            });
-        });
-    </script>
-</div> <!--??-->
+</div>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
