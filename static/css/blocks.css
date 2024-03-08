@@ -103,3 +103,25 @@
     gap: 2rem;
     background-color: #1f3156;
 }
+
+.trackform {
+    display: none;
+}
+
+.trackform-label {
+    display: inline-block;
+    background-color: #ffffff; /* Green background */
+    color: #000000; /* White text */
+    padding: 10px 20px; /* Padding for size */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor changes to indicate clickable */
+    border-radius: 24px; /* Rounded corners */
+    font-size: 25px; /* Text size */
+    text-align: center; /* Center text */
+    height: 25px;
+    width: 250px;
+    font-family: 'Inter-Black', sans-serif;
+    font-weight: 900;
+    letter-spacing: -3px;
+    
+}

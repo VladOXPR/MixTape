@@ -17,11 +17,14 @@ class ChatMessageForm(ModelForm):
 
 
 class TrackForm(ModelForm):
-    mp3 = forms.FileField()
-
     class Meta:
         model = Track
         fields = ['mp3', ]
+
+        widgets = {
+            'mp3': forms.ClearableFileInput(attrs={'class': 'trackform'}),
+        }
+
 
 
 class ProjectForm(ModelForm):

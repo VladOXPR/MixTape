@@ -90,16 +90,11 @@
 
     <script src="{% static 'js/modal.js' %}"></script>
 
-    <!--    <form method="POST" enctype="multipart/form-data">-->
-    <!--        {% csrf_token %}-->
-    <!--        {{ form1 }}-->
-    <!--        <button>Add</button>-->
-    <!--    </form>-->
-
     <form id="TrackForm" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form1.as_p }}
+        {{ form1.mp3 }}
     </form>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -118,6 +113,11 @@
 
 <!-- static -->
 <script src="{% static 'js/workspace.js' %}"></script>
+
+<footer>
+    <label for="id_mp3" class="trackform-label">ADD TRACK</label>
+</footer>
+
 </body>
 
 </html>
