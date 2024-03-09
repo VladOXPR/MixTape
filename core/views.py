@@ -179,30 +179,44 @@ def profile(request, pk):
 
 @login_required(login_url='signin')
 def workspace(request, pk):
-    user_project = Project.objects.get(
-        id=pk)  # user_project is the object of a specific project under the user we are logged in
+    user_project = Project.objects.get(id=pk)
     project_tracks = user_project.track_set.all()
-    form2 = ProjectForm(request.POST or None, request.FILES or None, instance=user_project)
 
-    if form2.is_valid():
-        print('--- VALID FORM ---')
-        form2.save()
-        return JsonResponse({'message': 'works'})
-    else:
-        print('--- not valid ---')
-        print(form2.errors)
+    # Initialize form1 outside the POST check so it's available for the context
+    form1 = TrackForm()
 
     if request.method == 'POST':
-        form1 = TrackForm(request.POST, request.FILES)
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            # Determine which form is being submitted
+            form_type = request.POST.get('form_type')
 
-        if form1.is_valid():
-            new_track = form1.save(commit=False)
-            new_track.project = user_project
-            new_track.save()
+            if form_type == 'track':
+                form1 = TrackForm(request.POST, request.FILES)
+                if form1.is_valid():
+                    new_track = form1.save(commit=False)
+                    new_track.project = user_project
+                    new_track.save()
+                    return JsonResponse({'status': 'success', 'message': 'Track added successfully'})
+                else:
+                    return JsonResponse({'status': 'error', 'errors': form1.errors})
 
-    return render(request, 'workspace.html',
-                  {'user_project': user_project, 'project_tracks': project_tracks, 'form1': TrackForm,
-                   'form2': form2})
+            elif form_type == 'project':
+                form2 = ProjectForm(request.POST, request.FILES, instance=user_project)
+                if form2.is_valid():
+                    form2.save()
+                    return JsonResponse({'status': 'success', 'message': 'Project updated successfully'})
+                else:
+                    return JsonResponse({'status': 'error', 'errors': form2.errors})
+
+    else:
+        form2 = ProjectForm(instance=user_project)
+
+    return render(request, 'workspace.html', {
+        'user_project': user_project,
+        'project_tracks': project_tracks,
+        'form1': form1,
+        'form2': form2
+    })
 
 
 @login_required(login_url='signin')
