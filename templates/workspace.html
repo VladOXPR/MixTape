@@ -37,63 +37,65 @@
     <script src="{% static 'js/dropzone.js' %}"></script>
 </head>
 
+
 <body>
-<header>
-    <div class="blur-gradient "></div>
-    <nav>
-        <div class="nav-container">
 
-            <div class="box"></div>
+{#<header>#}
+{#    <div class="blur-gradient "></div>#}
+{#    <nav>#}
+{#        <div class="nav-container">#}
+{#            <div class="box"></div>#}
+{#            <div class="box">#}
+{#                <a href="/create" class="navbar-text" style="font-size: 30px; color: #FFF;">CREATE</a>#}
+{#            </div>#}
+{#            <div class="box"></div>#}
+{#        </div>#}
+{#    </nav>#}
+{#</header>#}
 
-            <div class="box">
-                <a href="/create" class="navbar-text" style="font-size: 30px; color: #FFF;">CREATE</a>
-            </div>
-
-            <div class="box"></div>
-
-        </div>
-    </nav>
-</header>
 
 <div class="dashboard" style="margin-top: 10vh;">
 
-    <div class="wksp-settings-container">
 
+    <div class="wksp-settings-container">
         <div class="wksp-image-block">
-            <div id="image-box" style="max-width: 10vh; max-height: 10vh">
-                <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
+            <div id="image-box" style="max-width: 17vh; max-height: 17vh; overflow: hidden; border-radius: 10px; float: right; margin-right: 10px;">
+                <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%; border-radius: 10px;">
             </div>
         </div>
-    <div class="form-container">
-        <form action="" enctype="multipart/form-data" id="project-form">
-            {% csrf_token %}
-            {{ form2.coverimg }}
-            {{ form2.title }}
-        </form>
-        <button class="custom-file-input" id="confirm-btn">Save Changes</button>
+
+
+        <div class="form-container">
+            <form action="" enctype="multipart/form-data" id="project-form">
+                {% csrf_token %}
+                {{ form2.coverimg }}
+                {{ form2.title }}
+            </form>
+            <button class="custom-file-input" id="confirm-btn">SAVE</button>
+        </div>
     </div>
 
-    </div>
 
     <div class="modal" id="codeModal">
         {% for track in project_tracks %}
-
             <div id="vis-container-{{ track.id }}"></div>
             <script src="{% static 'js/tracks.js' %}"></script>
             <script>
                 createVis({{ track.id }}, '{{ track.mp3.url }}');
             </script>
         {% endfor %}
-
         <div id="micVis"></div>
     </div>
 
+
     <script src="{% static 'js/modal.js' %}"></script>
+
 
     <form id="TrackForm" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form1.mp3 }}
     </form>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -103,9 +105,15 @@
             });
         });
     </script>
-</div> <!--??-->
 
-<!-- jquery -->
+
+
+    <label for="id_mp3" class="trackform-label" style="bottom: 0;">ADD TRACK</label>
+
+
+</div>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <!-- cropper -->
@@ -115,7 +123,18 @@
 <script src="{% static 'js/workspace.js' %}"></script>
 
 <footer>
-    <label for="id_mp3" class="trackform-label">ADD TRACK</label>
+
+    <nav>
+        <div class="nav-container">
+            <div class="box"></div>
+            <div class="box">
+                <a href="/create" class="navbar-text">
+                    <img src="media/threelines.png" style="height: 35px">
+                </a>
+            </div>
+            <div class="box"></div>
+        </div>
+    </nav>
 </footer>
 
 </body>

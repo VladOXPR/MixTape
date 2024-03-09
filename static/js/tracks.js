@@ -27,7 +27,7 @@ function createVis(trackId, mp3Url) {
         p.draw = function() {
             let currentTime = song.currentTime();
             let t = p.map(currentTime, 0, song.duration(), 0, p.width);
-            p.background(30, 33, 36);
+            p.background(0, 0, 0);
             p.stroke(255, 0, 0);
             p.line(t, 0, t, p.height);
             p.stroke(255);

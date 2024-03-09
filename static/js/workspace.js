@@ -2,10 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const projectForm = document.getElementById('project-form')
     const imageBox = document.getElementById('image-box')
     const confirmBtn = document.getElementById('confirm-btn')
-
     const imageInput = document.getElementById('id_coverimg')
     const titleInput = document.getElementById('id_title')
-
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
     // creates cropper function and submits data
