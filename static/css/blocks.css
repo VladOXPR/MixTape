@@ -25,7 +25,7 @@
     flex-shrink: 0;
     border-radius: 10px;
     background: #1E2124;
-    border-color: #9ca3af;
+    border: 1px solid #30363A;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -39,6 +39,7 @@
     height: 50px;
     margin: 3%;
     color: #1E2124;
+    border: 2px #758087;
 }
 
 .public-block {

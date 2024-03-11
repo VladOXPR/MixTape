@@ -28,44 +28,31 @@
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/recs.js' %}"></script>
-    <script src="{% static 'js/dropzone.js' %}"></script>
     <script src="{% static 'js/tracks.js' %}"></script>
 
 </head>
 
 <body>
+
 <header>
-    <div class="blur-gradient "></div>
-    <nav>
-        <div class="nav-container">
 
-            <div class="box"></div>
-
-            <div class="box">
-                <a href="/create" class="navbar-text" style="font-size: 30px; color: #FFF;">CREATE</a>
-            </div>
-
-            <div class="box"></div>
-
-        </div>
-    </nav>
 </header>
 
 <div class="dashboard" style="margin-top: 10vh;">
 
     <div class="wksp-settings-container">
-
         <div class="wksp-image-block">
             <div id="image-box" style="max-width: 10vh; max-height: 10vh">
                 <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
             </div>
         </div>
+    </div>
+
     <div class="form-container">
         <form action="" enctype="multipart/form-data" id="project-form">
             {% csrf_token %}
@@ -75,17 +62,13 @@
         <button class="custom-file-input" id="confirm-btn">Save Changes</button>
     </div>
 
-    </div>
-
     <div class="modal" id="codeModal">
         {% for track in project_tracks %}
-
             <div id="vis-container-{{ track.id }}"></div>
             <script>
                 createVis({{ track.id }}, '{{ track.mp3.url }}');
             </script>
         {% endfor %}
-
         <div id="micVis"></div>
     </div>
 
@@ -96,7 +79,12 @@
         {{ form1.mp3 }}
     </form>
 
+    <div>
+        <label for="id_mp3" class="trackform-label">ADD TRACK</label>
+    </div>
+
 </div>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -108,7 +96,26 @@
 <script src="{% static 'js/workspace.js' %}"></script>
 
 <footer>
-    <label for="id_mp3" class="trackform-label">ADD TRACK</label>
+    <nav style="grid-template-columns: 1fr 1fr 1fr;">
+
+        <div class="header-text-container">
+            <a href="/" class="navbar-text" style="font-size: 18px;">
+                <img src="/media/Browse_grey.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+                <img src="/media/Create_white.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/drop" class="navbar-text">
+                <img src="/media/Drop_grey.png" style="height: 35px">
+            </a>
+        </div>
+    </nav>
 </footer>
 
 </body>
