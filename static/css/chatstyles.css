@@ -92,7 +92,7 @@
     width: 40px;
     height: 40px;
     border: 1px solid silver;
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -398,7 +398,7 @@
 {
     width: 100px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #662d91;
     color: white;
     display: flex;
@@ -562,7 +562,7 @@
 /*    border: 1px solid silver;*/
 /*    padding: 10px;*/
 /*    outline: none;*/
-/*    border-radius: 5px;*/
+/*    border-radius: 10px;*/
 /*    font-size: 14px;*/
 /*}*/
 
