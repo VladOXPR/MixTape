@@ -184,11 +184,12 @@ def workspace(request, pk):
 
     # Initialize form1 outside the POST check so it's available for the context
     form1 = TrackForm()
+    form2 = ProjectForm(instance=user_project)
 
     if request.method == 'POST':
+        form_type = request.POST.get('form_type')
+
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-            # Determine which form is being submitted
-            form_type = request.POST.get('form_type')
 
             if form_type == 'track':
                 form1 = TrackForm(request.POST, request.FILES)
@@ -208,8 +209,12 @@ def workspace(request, pk):
                 else:
                     return JsonResponse({'status': 'error', 'errors': form2.errors})
 
-    else:
-        form2 = ProjectForm(instance=user_project)
+        else:
+            if form_type == 'delete_project':
+                user_project.delete()
+                return redirect('/create')
+
+
 
     return render(request, 'workspace.html', {
         'user_project': user_project,
@@ -231,7 +236,8 @@ def setup(request):
         new_project.save()
         new_project.profile.set([user_profile])
         print(new_project)
-        return JsonResponse({'message': 'Project created successfully', 'redirect_url': f'/workspace/{slugify(new_project.id)}'})
+        return JsonResponse(
+            {'message': 'Project created successfully', 'redirect_url': f'/workspace/{slugify(new_project.id)}'})
 
     else:
         print('--- not valid ---')
