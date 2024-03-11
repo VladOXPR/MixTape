@@ -136,7 +136,7 @@ h1 {
     padding: 10px 20px;
     border: none;
     cursor: pointer; /* Cursor changes to indicate clickable */
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 35px; /* Text size */
     text-align: center; /* Center text */
     height: 50px;
