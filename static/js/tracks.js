@@ -16,7 +16,7 @@ function createVis(trackId, mp3Url) {
 
         p.setup = function() {
             canvasWidth = song.duration();
-            p.createCanvas(canvasWidth*3, 100);
+            p.createCanvas(canvasWidth*3, 100);// Assign an id to the canvas
             peaks = song.getPeaks(canvasWidth);
             playButton = p.createButton("play");
             playButton.mousePressed(togglePlaying);
