@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="removed public block play button">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/chatstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/chatstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/details.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/setup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/setup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/recs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/recs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

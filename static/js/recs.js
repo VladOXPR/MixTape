@@ -5,9 +5,16 @@ let micVis = function (p) {
     let recButton;
     let state = 0;
     let slider;
+    let canvasWidth;
 
     p.setup = function () {
-        p.createCanvas(400, 100);
+        if (state === 2) {
+            canvasWidth = soundFile.duration();
+        } else {
+            canvasWidth = 370;
+        }
+
+        p.createCanvas(canvasWidth, 100);
         p.noFill()
 
         mic = new p5.AudioIn();
@@ -67,7 +74,7 @@ let micVis = function (p) {
         p.stroke(48, 54, 58); // Or choose another stroke color if desired
         p.strokeWeight(1)
         let cornerRadius = 15;
-        p.rect(1, 1, p.width, p.height, cornerRadius); // This creates the rounded rectangle
+        p.rect(1, 1, p.width-2, p.height-2, cornerRadius); // This creates the rounded rectangle
         // p.background(30, 33, 36);
 
         if (state === 1) {
