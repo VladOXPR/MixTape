@@ -149,24 +149,24 @@
     margin: 0 auto;
 }
 
-.login100-form-bgbtn {
-    position: absolute;
-    z-index: -1;
-    width: 300%;
-    height: 50px;
-(90 deg, #B8FFF2 0.46 %, #83BCFF 100.14 %) background: #a64bf4;
-    background: -webkit-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-    background: -o-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-    background: -moz-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-    background: linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);
-    top: 0;
-    left: -100%;
+/*.login100-form-bgbtn {*/
+/*    position: absolute;*/
+/*    z-index: -1;*/
+/*    width: 300%;*/
+/*    height: 50px;*/
+/*(90 deg, #B8FFF2 0.46 %, #83BCFF 100.14 %) background: #a64bf4;*/
+/*    background: -webkit-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
+/*    background: -o-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
+/*    background: -moz-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
+/*    background: linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
+/*    top: 0;*/
+/*    left: -100%;*/
 
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-}
+/*    -webkit-transition: all 0.4s;*/
+/*    -o-transition: all 0.4s;*/
+/*    -moz-transition: all 0.4s;*/
+/*    transition: all 0.4s;*/
+/*}*/
 
 .login100-form-btn {
     font-size: 20px;
@@ -221,7 +221,6 @@
     border-radius: 5px;
     border-color: gray;
     display: flex; /* Use flexbox to center the input field horizontally */
-    /*justify-content: center; !* Center the input field horizontally *!*/
     width: 87vw; /* Ensure the search bar container takes up full width of its parent */
     gap: 5%;
     padding-right: 5%;

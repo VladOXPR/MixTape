@@ -9,6 +9,9 @@ from django.utils.text import slugify
 from core.forms import ChatMessageForm, SettingsForm, CreateProjectForm, ProjectForm, TrackForm
 from django.contrib import messages
 from django.db.models import Q
+from colorthief import ColorThief
+import os
+from mixtape import settings as s
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -26,20 +29,26 @@ def create(request):
     user_projects = user_profile.project_set.all()
 
     last_text = Message.objects.filter(receiver=user_profile).last()
+    unread = Message.objects.filter(seen=False, receiver=user_profile).count()
 
     if last_text:
         last_text_user = Profile.objects.get(user=last_text.sender.user)
     else:
         last_text_user = None
 
-    unread = Message.objects.filter(seen=False, receiver=user_profile).count()
+
+    profile_image_path = user_profile.profileimg.url
+    profile_image_absolute_path = os.path.join(s.MEDIA_ROOT, profile_image_path.strip('/media'))
+    palette = ColorThief(profile_image_absolute_path).get_palette(color_count=2)
 
     context = {
         'user_profile': user_profile,
         'user_projects': user_projects,
         'last_text': last_text,
         'last_text_user': last_text_user,
-        'unread': unread
+        'unread': unread,
+        'color_start': f'rgb{palette[0]}',
+        'color_end': f'rgb{palette[1]}'
     }
     return render(request, 'create.html', context)
 
