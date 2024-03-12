@@ -216,3 +216,25 @@
     background-color: #0056b3;
 }
 
+.search-bar {
+    height: 30px;
+    border-radius: 5px;
+    border-color: gray;
+    display: flex; /* Use flexbox to center the input field horizontally */
+    /*justify-content: center; !* Center the input field horizontally *!*/
+    width: 87vw; /* Ensure the search bar container takes up full width of its parent */
+    gap: 5%;
+    padding-right: 5%;
+}
+.search-bar input[type="search"] {
+    width: 85%;               /* Set the width to 70% of its parent container */
+    border: 5px #30363A;   /* Set the border color to grey */
+    opacity: 0.5;             /* Make the input field semi-transparent */
+    padding: 10px;            /* Add some padding inside the search box for better text visibility */
+    margin: 0 auto;           /* Center the search box within its parent container */
+    display: block;           /* Make sure the input field is a block-level element to respect width and margin */
+    background-color: #ffffff; /* Ensure the background is transparent */
+    color: black;
+    border-radius: 5px;
+    left: 0;
+}

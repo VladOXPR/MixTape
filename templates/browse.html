@@ -17,9 +17,12 @@
 <body>
 <header>
     <div class="blur-gradient "></div>
-    <nav style="grid-template-columns: 1fr .7fr .5fr 0.3fr;">
-        <a href="{% url 'logout' %}?next=/signin"><img src="media/threelines.png"
-                                                       style="height: 35px"></a>
+    <nav>
+      <div class="search-bar">
+          <input type="search">
+          <div style="width: 15%; display: flex; justify-content: center">
+          <img src="media/search.png" style="height: 100%; aspect-ratio: 1/1;"></div>
+      </div>
     </nav>
 </header>
 <div class="scroll-container">
