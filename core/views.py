@@ -39,16 +39,16 @@ def create(request):
 
     profile_image_path = user_profile.profileimg.url
     profile_image_absolute_path = os.path.join(s.MEDIA_ROOT, profile_image_path.strip('/media'))
-    palette = ColorThief(profile_image_absolute_path).get_palette(color_count=2)
-
+    palette = ColorThief(profile_image_absolute_path).get_palette(color_count=2, quality=7)
+    print(palette)
     context = {
         'user_profile': user_profile,
         'user_projects': user_projects,
         'last_text': last_text,
         'last_text_user': last_text_user,
         'unread': unread,
-        'color_start': f'rgb{palette[0]}',
-        'color_end': f'rgb{palette[1]}'
+        'color_start': f'rgb{palette[1]}',
+        'color_end': f'rgb{palette[0]}'
     }
     return render(request, 'create.html', context)
 
@@ -67,7 +67,6 @@ def settings(request):
     form = SettingsForm(request.POST or None, request.FILES or None, instance=user_profile)
 
     if form.is_valid():
-        print('--- VALID FORM ---')
         form.save()
         return JsonResponse({'message': 'works'})
     elif not form.is_valid():
