@@ -47,8 +47,9 @@ def create(request):
         'last_text': last_text,
         'last_text_user': last_text_user,
         'unread': unread,
-        'color_start': f'rgb{palette[1]}',
-        'color_end': f'rgb{palette[0]}'
+        'color_0': f'rgb{palette[0]}',
+        'color_1': f'rgb{palette[1]}',
+        'color_2': f'rgb{palette[2]}'
     }
     return render(request, 'create.html', context)
 
