@@ -35,45 +35,37 @@
 </head>
 
 <body>
-<header>
+<header style="height: 5vh;">
     <div class="blur-gradient "></div>
-    <nav>
-      <div class="search-bar">
-          <a href="/friends">
-             <img src="/media/bell.png" style="height: 100%; aspect-ratio: 1/1;">
-      </div>
-    </nav>
+        <div style="width: 100vw; height: 5vh; z-index: 3;">
+
+                <a href="/friends" class="bell-link">
+
+                    <div class="corner-block">
+                        <p>{{ unread }}</p>
+                    </div>
+
+                </a>
+
+        </div>
 </header>
+
 <div class="dashboard">
 
-    <a href="settings" class="profile-block"
-       style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
+    <a href="settings" class="profile-block" style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
         <div>
-            <p style="font-size: 20px">{{ user_profile.user.username }}</p>
+            <p style="font-size: 20px;">{{ user_profile.user.username }}</p>
         </div>
     </a>
 
-    <a href="friends" class="friends-block" style="color: white;">
-        {% if last_text %}
-            <img style="height: 100%; border-radius: 10px;" src="{{ last_text_user.profileimg.url }}">
-            <p style="font-size: 18px; margin-left: 10px; font-weight: normal">{{ last_text.body }}</p>
-            <div class="notif_circle" style="font-size: 30px;"><p>{{ unread }}</p></div>
-        {% else %}
-            <p style="font-size: 18px; margin-left: 10px; font-weight: normal">no new messages</p>
-            <div class="notif_circle" style="font-size: 30px;"><p>0</p></div>
-        {% endif %}
-    </a>
-
-
-
 
     {% for project in user_projects %}
-        <div class="projects-block", >
-        <a href="workspace/{{ project.id }}" class="project">
-            <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-            <img src="media/play.png" style="height: 75%"/>
-            <h4 style="color: white">{{ project.title }}</h4>
-        </a>
+        <div class="projects-block" ,>
+            <a href="workspace/{{ project.id }}" class="project">
+                <img src="{{ project.coverimg.url }}" style="height: 100%"/>
+                <img src="media/play.png" style="height: 75%"/>
+                <h4 style="color: white">{{ project.title }}</h4>
+            </a>
         </div>
     {% empty %}
         <p>No current projects.</p>
