@@ -16,26 +16,6 @@
 
 <body>
 
-<header>
-    <nav style="grid-template-columns: .8fr .8fr 1fr 0.3fr;">
-
-        <div class="header-text-container">
-            <a href="/" class="navbar-text" style="font-size: 18px;">BROWSE</a>
-        </div>
-
-        <div class="header-text-container">
-            <a href="create" class="navbar-text" style="font-size: 18px;" >CREATE</a>
-        </div>
-
-        <div class="header-text-container">
-            <a href="drop" class="navbar-text" style="font-size: 30px; color: #ffffff;">DROP</a>
-        </div>
-        <div><a href="{% url 'logout' %}?next=/signin"><img src="media/threelines.png"
-                                                       style="height: 35px"></a></div>
-
-    </nav>
-</header>
-
 <p>No current projects.</p>
 <!--<div class="projects-block">-->
 
@@ -56,7 +36,25 @@
 
 
 <footer>
-        <div class="drop-button">DROP</div>
+    <nav style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="header-text-container">
+            <a href="/" class="navbar-text" style="font-size: 18px;">
+                <img src="/media/Browse_grey.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+                <img src="/media/Create_white.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="drop" class="navbar-text">
+                <img src="/media/Drop_grey.png" style="height: 35px">
+            </a>
+        </div>
+    </nav>
 </footer>
 </body>
 
