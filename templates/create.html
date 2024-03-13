@@ -13,6 +13,25 @@
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <style>
+        .login100-form-bgbtn {
+            position: absolute;
+            z-index: -1;
+            width: 300%;
+            height: 50px;
+            background: #a64bf4;
+            background: -webkit-linear-gradient(right, {{ color_0 }}, {{ color_1 }}, {{ color_0 }}, {{ color_1 }});
+            background: -o-linear-gradient(right, {{ color_0 }}, {{ color_1 }}, {{ color_0 }}, {{ color_1 }});
+            background: -moz-linear-gradient(right, {{ color_0 }}, {{ color_1 }}, {{ color_0 }}, {{ color_1 }});
+            background: linear-gradient(to right, {{ color_0 }}, {{ color_1 }}, {{ color_0 }}, {{ color_1 }});
+            top: 0;
+            left: -100%;
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+    </style>
 </head>
 
 <body>

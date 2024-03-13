@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         fd.append('name', nameInput.value);
         fd.append('bio', bioInput.value);
-        fd.append('fav_proj', favProjInput.value)
+        // fd.append('fav_proj', favProjInput.value)
 
         $.ajax({
             type: 'POST',
