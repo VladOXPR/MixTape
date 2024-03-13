@@ -11,17 +11,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
-    // creates cropper function and submits data
+    let cropper = null; // Initialize cropper variable
+
     imageInput.addEventListener('change', () => {
         console.log('file chosen')
         const img_data = imageInput.files[0];
         const url = URL.createObjectURL(img_data);
 
         imageBox.innerHTML = '<img src="' + url + '" id="image" alt="/media/blank-profile-picture.png">';
-
         const image = document.getElementById('image');
 
-        const cropper = new Cropper(image, {
+        if (cropper !== null) {
+            cropper.destroy(); // Destroy the previous cropper instance if exists
+        }
+
+        cropper = new Cropper(image, {
             aspectRatio: 1,
             zoomable: false,
             viewMode: 2,
@@ -36,23 +40,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(event.detail.scaleY);
             },
         });
-        confirmBtn.addEventListener('click', () => {
+    });
+
+    // Combined event listener for the confirm button
+    confirmBtn.addEventListener('click', () => {
+        if (cropper) {
             cropper.getCroppedCanvas().toBlob((blob) => {
-                sendFormData(blob)
+                sendFormData(blob); // Send the cropped image blob
                 const newUrl = URL.createObjectURL(blob);
                 imageBox.innerHTML = '<img src="' + newUrl + '" id="image" style="height: 100%; width: 100%">';
+                cropper.destroy(); // Destroy cropper after use
+                cropper = null; // Reset the cropper variable
             });
-            cropper.destroy()
-        });
+        } else {
+            sendFormData(); // Send form data without a new image
+        }
     });
 
-    // submits data if no new image is chosen
-    confirmBtn.addEventListener('click', () => {
-        sendFormData()
-    });
-
-
-    // ajax function that submits form data
     function sendFormData(blob = null) {
         console.log('clicked', blob);
         const fd = new FormData();
@@ -73,12 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 'X-CSRFToken': csrf[0].value,
             },
             success: function (response) {
-                console.log('success', response)
+                console.log('success', response);
             },
             error: function (error) {
-                console.log('error', error)
+                console.log('error', error);
             },
-
             cache: false,
             contentType: false,
             processData: false,
