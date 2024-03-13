@@ -2,60 +2,83 @@ function createVis(trackId, mp3Url) {
     let vis = function (p) {
         let song;
         let peaks;
-        let isPlaying = false; // This is now used only for initialization
         let canvasWidth;
+        let isDragging = false;
+        let triangleSize = 10;
+        let dragPosition = 0;
+
 
         p.preload = function () {
             song = p.loadSound(mp3Url);
         };
 
+
         p.setup = function () {
             canvasWidth = song.duration();
             p.createCanvas(canvasWidth * 3, 100);
             peaks = song.getPeaks(canvasWidth * 10);
-            console.log(peaks);
-
-            // Additional setup for rounded corners effect
-            p.noFill(); // Ensure the rounded rectangle doesn't have a fill
+            p.noFill();
         };
 
-        p.draw = function () {
-            let currentTime = song.currentTime();
-            let t = p.map(currentTime, 0, song.duration(), 0, p.width);
 
-            // Draw background with rounded corners
+        p.draw = function () {
+            let currentTime = isDragging ? dragPosition : song.currentTime();
+            let t = p.map(currentTime, 0, song.duration(), 0, p.width);
+            let cornerRadius = 15;
+
             p.background(0);
             p.fill(0);
             p.stroke(48, 54, 58);
             p.strokeWeight(1);
-            let cornerRadius = 15;
-            p.rect(1, 1, p.width-2, p.height-2, cornerRadius); // Rounded rectangle
-
-            // Drawing the visualization
-            p.strokeWeight(1);
+            p.rect(1, 1, p.width-2, p.height-2, cornerRadius);
             p.stroke(255, 0, 0);
             p.line(t, 0, t, p.height);
+            p.triangle(t - triangleSize, 0, t + triangleSize, 0, t, triangleSize);
             p.stroke(255);
-
             for (let i = 0; i < peaks.length; i++) {
                 let x = p.map(i, 0, peaks.length, 0, p.width);
                 p.line(x, p.height / 2 + peaks[i] * 40, x, p.height / 2 - peaks[i] * 40);
             }
         };
 
+
+        p.mousePressed = function () {
+            let currentTime = isDragging ? dragPosition : song.currentTime();
+            let t = p.map(currentTime, 0, song.duration(), 0, p.width);
+            if (p.mouseX >= t - triangleSize && p.mouseX <= t + triangleSize && p.mouseY <= 2 * triangleSize) {
+                isDragging = true;
+                return false;
+            }
+        };
+
+
+        p.mouseDragged = function () {
+            if (isDragging) {
+                dragPosition = p.map(p.mouseX, 0, p.width, 0, song.duration());
+                dragPosition = p.constrain(dragPosition, 0, song.duration());
+                song.jump(dragPosition);
+            }
+        };
+
+
+        p.mouseReleased = function () {
+            isDragging = false;
+        };
+
+
         p.mouseClicked = function () {
-            if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
-                // Ensures the function only triggers when clicking inside the canvas
+            if (!isDragging) {
                 if (song.isPlaying()) {
                     song.pause();
-                    p.noLoop();
                 } else {
                     song.play();
-                    p.loop();
                 }
             }
         };
     };
+
+
+
 
     let myVis = new p5(vis, `vis-container-${trackId}`);
 }

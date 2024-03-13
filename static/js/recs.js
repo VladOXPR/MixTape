@@ -54,7 +54,7 @@ let micVis = function (p) {
         p.stroke(255);
         p.noFill();
 
-        if (vol > 0.01) {
+        if (vol > 0.003) {
           var wave = fft.waveform();
           p.beginShape();
           for (var i = 0; i < p.width; i++) {

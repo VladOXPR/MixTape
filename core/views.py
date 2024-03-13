@@ -39,7 +39,7 @@ def create(request):
     # creates color palette based on pfp
     profile_image_path = user_profile.profileimg.url
     profile_image_absolute_path = os.path.join(s.MEDIA_ROOT, profile_image_path.strip('/media'))
-    palette = ColorThief(profile_image_absolute_path).get_palette(color_count=2, quality=7)
+
 
     context = {
         'user_profile': user_profile,
@@ -47,9 +47,6 @@ def create(request):
         'last_text': last_text,
         'last_text_user': last_text_user,
         'unread': unread,
-        'color_0': f'rgb{palette[0]}',
-        'color_1': f'rgb{palette[1]}',
-        'color_2': f'rgb{palette[2]}'
     }
     return render(request, 'create.html', context)
 
