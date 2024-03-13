@@ -5,7 +5,7 @@
     padding-top: 75%; /* 4:3 aspect ratio, adjust as needed */
     position: relative;
     border-radius: 10px;
-    margin-top: 3vh;
+    margin-top: 8vh;
 }
 
 
@@ -126,3 +126,49 @@
     font-weight: 900;
     letter-spacing: -3px;
 }
+
+.title-input {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;        /* Removes the default border */
+    outline: none;
+    font-size: 35px;       /* Sets the font size to 35 pixels */
+    font-weight: bold;
+    width: 100%;           /* Sets the width to 100% of its parent container */
+    box-sizing: border-box;
+    letter-spacing: -2px;
+}
+
+.imgform {
+    display: none;
+}
+
+.imgform-label {
+    display: inline-block;
+    background-color: #ffffff; /* Green background */
+    color: #000000; /* White text */
+    padding: 10px 20px; /* Padding for size */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor changes to indicate clickable */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 25px; /* Text size */
+    text-align: center; /* Center text */
+    height: 25px;
+    width: 150px;
+    font-family: 'Inter-Black', sans-serif;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.proj_info_block {
+    display: flex; /* Enables flexbox layout */
+    width: 100%; /* Sets the width to fill 100% of the viewport width */
+    max-width: 100vw;
+}
+
+.proj_info_column {
+    flex: 1; /* Each column will take up an equal amount of space */
+}
+
+
+

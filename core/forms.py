@@ -26,22 +26,18 @@ class TrackForm(ModelForm):
         }
 
 
-
 class ProjectForm(ModelForm):
-    coverimg = forms.ImageField()
-    title = forms.CharField()
-
     class Meta:
         model = Project
         fields = ['coverimg', 'title', ]
 
         widgets = {
-            'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform'}),
+            'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform', 'class': 'imgform'}),
             'title': forms.TextInput(attrs={'class': 'titleform'}),
         }
+
 
 class CreateProjectForm(ModelForm):
-
     class Meta:
         model = Project
         fields = ['coverimg', 'title', ]
@@ -50,6 +46,7 @@ class CreateProjectForm(ModelForm):
             'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform'}),
             'title': forms.TextInput(attrs={'class': 'titleform'}),
         }
+
 
 class SettingsForm(ModelForm):
     class Meta:
@@ -62,7 +59,7 @@ class SettingsForm(ModelForm):
             'bio': forms.Textarea(attrs={'class': 'bioform'}),
         }
 
-    def __init__(self,  *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['fav_proj'].queryset = Project.objects.none()
 
@@ -71,5 +68,3 @@ class SettingsForm(ModelForm):
                 self.fields['fav_proj'].queryset = Project.objects.filter(profile=self.instance)
         except (ValueError, TypeError):
             pass
-
-

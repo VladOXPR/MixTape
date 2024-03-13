@@ -4,8 +4,8 @@ let micVis = function (p) {
     let playButton;
     let recButton;
     let state = 0;
-    let slider;
     let canvasWidth;
+    let fft;
 
     p.setup = function () {
         if (state === 2) {
@@ -19,6 +19,8 @@ let micVis = function (p) {
 
         mic = new p5.AudioIn();
         mic.start();
+        fft = new p5.FFT(0.8, 2048);
+        fft.setInput(mic);
 
         recorder = new p5.SoundRecorder();
         recorder.setInput(mic);
@@ -47,25 +49,25 @@ let micVis = function (p) {
     }
 
     function rec() {
-        let vol = mic.getLevel();
-        volhistory.push(vol);
+        let vol = mic.getLevel(); // Get the current volume
+        p.clear();
         p.stroke(255);
         p.noFill();
-        p.beginShape();
 
-        for (let i = 0; i < volhistory.length; i++) {
-            let y = p.map(volhistory[i] * 5, 0, 1, p.height / 2, 0);
-            p.vertex(i, y);
+        if (vol > 0.01) {
+          var wave = fft.waveform();
+          p.beginShape();
+          for (var i = 0; i < p.width; i++) {
+            var index = p.floor(p.map(i, 0, p.width, 0, wave.length));
+            var x = i;
+            var y = wave[index] * 400 + p.height / 2; // Adjust the multiplier as needed
+            p.vertex(x, y);
+          }
+          p.endShape();
+        } else {
+          // Draw a simple horizontal line in the middle of the canvas when no sound above threshold is detected
+          p.line(0, p.height / 2, p.width, p.height / 2);
         }
-
-        p.endShape();
-
-        if (volhistory.length > p.width - 50) {
-            volhistory.splice(0, 1);
-        }
-
-        p.stroke(255, 0, 0);
-        p.line(volhistory.length, 0, volhistory.length, p.height);
     }
 
     p.draw = function () {
