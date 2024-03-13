@@ -256,7 +256,7 @@
 
 .corner-block {
     position: absolute; /* Position relative to bell-link */
-    bottom: 0; /* Align to the bottom */
+    top: 0; /* Align to the bottom */
     right: 0; /* Align to the left */
     width: 60%; /* Or adjust to your preference */
     height: 60%; /* Or adjust to your preference */
@@ -270,5 +270,5 @@
 .corner-block p {
     margin: 0; /* Remove default margin to help with centering */
     text-align: center;
-    color: red;
+    color: #FF4F00;
 }
