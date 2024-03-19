@@ -69,11 +69,17 @@
 
     {% for project in user_projects %}
         <div class="projects-block", >
-        <a href="workspace/{{ project.id }}" class="project">
-            <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-            <img src="media/play.png" style="height: 75%"/>
-            <h4 style="color: white">{{ project.title }}</h4>
-        </a>
+            <a href="workspace/{{ project.id }}" class="project">
+                <img src="{{ project.coverimg.url }}" style="height: 100%"/>
+                <img src="media/play.png" style="height: 75%"/>
+                <h4 style="color: white">{{ project.title }}</h4>
+            </a>
+            <form method="POST" enctype="multipart/form-data" action="">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="delete_project"/>
+                <input type="submit" value="Delete Project"
+                       onclick="return confirm('Are you sure you want to delete this project?');"/>
+            </form>
         </div>
     {% empty %}
         <p>No current projects.</p>
@@ -82,11 +88,8 @@
 
     <div style=""></div>
 
-    <div class="container-login100-form-btn">
-        <div class="wrap-login100-form-btn">
-            <div class="login100-form-bgbtn"></div>
-            <a href="setup" class="login100-form-btn" style="color: black;">CREATE
-            </a>
+
+            <a href="setup" class="trackform-label" style="color: black;">CREATE</a>
         </div>
     </div>
 </div>

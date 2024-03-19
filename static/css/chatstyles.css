@@ -104,7 +104,7 @@
 .icons-container .bg{
     width: 25px;
     height: 25px;
-    background-color: #662d91;
+    background-color: #ffffff;
     color: white;
     position: absolute;
     border-radius: 50%;
@@ -256,7 +256,7 @@
     height: 30px;
     border-radius: 50%;
     font-size: 13px;
-    background-color: #662d91;
+    background-color: #ffffff;
     color: white;
     display: flex;
     align-items: center;
@@ -399,7 +399,7 @@
     width: 100px;
     height: 40px;
     border-radius: 10px;
-    background-color: #662d91;
+    background-color: #ffffff;
     color: white;
     display: flex;
     align-items: center;

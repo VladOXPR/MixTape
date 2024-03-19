@@ -41,7 +41,7 @@
 }
 
 .create-button {
-    background: linear-gradient(90deg, #B8FFF2 0.46%, #83BCFF 100.14%);
+    background: linear-gradient(90deg, #B8FFF2 0.46%, #ffffff 100.14%);
 }
 
 .connect-button {
@@ -190,7 +190,7 @@
 }
 
 .bioform{
-    border: #6d28d9;
+    border: #ffffff;
     border-width: thin;
 }
 
