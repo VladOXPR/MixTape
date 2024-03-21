@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Daw ruler almost working. &#10;Daw styling almost done">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Daw play button and mute canvas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/setup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/setup.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,14 +162,6 @@
       <workItem from="1709846951916" duration="3190000" />
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
-    </task>
-    <task id="LOCAL-00012" summary="successfully connected chat.html to chat.js">
-      <option name="closed" value="true" />
-      <created>1703438597027</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1703438597027</updated>
     </task>
     <task id="LOCAL-00013" summary="profile is added to friends list when user clicks connect">
       <option name="closed" value="true" />
@@ -558,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710883965391</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Daw play button and mute canvas">
+      <option name="closed" value="true" />
+      <created>1711043814107</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1711043814107</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +577,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="not sure" />
     <MESSAGE value="daw + cropper merge to main" />
     <MESSAGE value="cleared database and migrations, fixed cropper" />
     <MESSAGE value="fixed favicon error, fixed default pfp bug" />
@@ -605,6 +601,7 @@
     <MESSAGE value="updated nav bar for drop page" />
     <MESSAGE value="add 3.129.67.227" />
     <MESSAGE value="Daw ruler almost working. &#10;Daw styling almost done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Daw ruler almost working. &#10;Daw styling almost done" />
+    <MESSAGE value="Daw play button and mute canvas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Daw play button and mute canvas" />
   </component>
 </project>
