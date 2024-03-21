@@ -239,17 +239,17 @@
     left: 0;
 }
 
-.delete-proj {
+.project-icons {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%; /* Set a specific width */
+    width: 10%; /* Set a specific width */
     height: 100%; /* And height for the label */
     position: relative; /* For positioning the image or other content relative to the label */
     overflow: hidden; /* Prevents content from going out of bounds */
 }
 
-.delete-proj img {
+.project-icons img {
   max-height: 50%;
   max-width: 100%; /* Ensures the image does not exceed the label's bounds */
   height: auto;

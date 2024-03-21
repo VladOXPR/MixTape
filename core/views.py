@@ -37,24 +37,24 @@ def create(request):
         last_text_user = None
 
     if request.method == 'POST':
+        # retrieve type of POST and project id from hidden inputs
         form_type = request.POST.get('form_type')
-        if form_type == 'delete_project':
-            # Retrieve the project ID from the POST data
-            project_id = request.POST.get('project_id')
-            if project_id:
-                # Fetch the project to delete, ensuring it belongs to the user
-                user_project = get_object_or_404(user_projects, id=project_id)
-                # Delete the fetched project
-                user_project.delete()
-                # Optionally, redirect to a success page or the project list page
-        elif form_type == 'favorite_project':
-            user_project = get_object_or_404(user_projects, id=request)
+        project_id = request.POST.get('project_id')
 
+        if form_type == 'delete_project':
+
+            selected_project = get_object_or_404(user_projects, id=project_id)
+            selected_project.delete()
+            return redirect('create')
+
+        elif form_type == 'favorite_project':
+            selected_project = get_object_or_404(user_projects, id=project_id)
+            user_profile.fav_proj = selected_project
+            user_profile.save()
 
     # creates color palette based on pfp
     profile_image_path = user_profile.profileimg.url
     profile_image_absolute_path = os.path.join(s.MEDIA_ROOT, profile_image_path.strip('/media'))
-
 
     context = {
         'user_profile': user_profile,
@@ -234,8 +234,6 @@ def workspace(request, pk):
             if form_type == 'delete_project':
                 user_project.delete()
                 return redirect('/create')
-
-
 
     return render(request, 'workspace.html', {
         'user_project': user_project,
