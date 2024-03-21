@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from .models import Profile, Project, Message, Track
 from django.contrib.auth.decorators import login_required
@@ -47,6 +47,9 @@ def create(request):
                 # Delete the fetched project
                 user_project.delete()
                 # Optionally, redirect to a success page or the project list page
+        elif form_type == 'favorite_project':
+            user_project = get_object_or_404(user_projects, id=request)
+
 
     # creates color palette based on pfp
     profile_image_path = user_profile.profileimg.url
