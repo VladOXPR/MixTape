@@ -40,7 +40,6 @@ def create(request):
         # retrieve type of POST and project id from hidden inputs
         form_type = request.POST.get('form_type')
         project_id = request.POST.get('project_id')
-
         if form_type == 'delete_project':
 
             selected_project = get_object_or_404(user_projects, id=project_id)
