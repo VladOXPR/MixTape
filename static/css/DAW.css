@@ -1,0 +1,145 @@
+*{
+    margin: 0px
+}
+
+body{
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.modal {
+    display: flex;
+    background-color: #000000;
+    overflow: auto;
+}
+
+.project-card {
+    display: flex;
+}
+
+.left-panel,
+.right-panel {
+    flex: 1;
+}
+
+.left-panel {
+    background-color: #000000;
+}
+
+.right-panel {
+    background-color: #000000;
+}
+
+.coverimg-container {
+    display: none;
+}
+
+.search-bar {
+    height: 30px;
+    border-radius: 5px;
+    border-color: gray;
+    display: flex; /* Use flexbox to center the input field horizontally */
+    width: 87vw; /* Ensure the search bar container takes up full width of its parent */
+    gap: 5%;
+    padding-right: 5%;
+}
+
+.custom-file-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 3px;
+    display: inline-block;
+}
+
+.trackform {
+    display: none;
+}
+
+.trackform-label {
+    display: inline-block;
+    background-color: #ffffff; /* Green background */
+    color: #000000; /* White text */
+    padding: 10px 20px; /* Padding for size */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor changes to indicate clickable */
+    border-radius: 24px; /* Rounded corners */
+    font-size: 25px; /* Text size */
+    text-align: center; /* Center text */
+    height: 25px;
+    width: 60%;
+    font-family: 'Inter-Black', sans-serif;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.header-text-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+}
+
+.header-text-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #b9b9b9;
+    font-size: 20px;
+    font-family: 'CustomInter', sans-serif;
+    font-weight: 900;
+    word-wrap: break-word;
+    text-decoration: none;
+    margin-left: 5%;
+    margin-right: 5%;
+    z-index: 2;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    top: 0;
+    z-index: 3;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.title-input {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;        /* Removes the default border */
+    outline: none;
+    font-size: 35px;       /* Sets the font size to 35 pixels */
+    font-weight: bold;
+    width: 100%;           /* Sets the width to 100% of its parent container */
+    box-sizing: border-box;
+    letter-spacing: -2px;
+}
+
+.daw {
+    display: flex;
+}
+
+.daw-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+

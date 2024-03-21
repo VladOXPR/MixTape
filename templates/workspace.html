@@ -6,52 +6,13 @@
 <html lang="en">
 <head>
     <title>Workspace</title>
-    <style>
-        .content {
-            position: relative;
-        }
-
-        .modal {
-
-            display: none;
-            position: relative;
-            margin-top: 20px;
-            background-color: #000000;
-            width: 100%;
-            max-height: 55vh;
-            overflow: auto;
-        }
-
-        .card {
-          display: flex;
-        }
-
-        .left-panel,
-        .right-panel {
-          flex: 1;
-        }
-
-        .left-panel {
-          background-color: #000000;
-        }
-
-        .right-panel {
-          background-color: #000000;
-        }
-
-        .coverimg-container {
-            display: none;
-        }
-
-
-
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+{#    <link rel="stylesheet" href="{% static 'css/general.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/layout.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/details.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/DAW.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <script src="{% static 'js/p5.js' %}"></script>
@@ -63,18 +24,18 @@
 
 <body>
 
-<header>
-    <div class="blur-gradient "></div>
-    <nav>
-        <div class="search-bar">
-            <a href="/friends">
-                 <img src="/media/bell.png" style="height: 100%; aspect-ratio: 1/1;">
-            </a>
-        </div>
-    </nav>
-</header>
+    <header>
+        <div class="blur-gradient "></div>
+        <nav>
+            <div class="search-bar">
+                <a href="/friends">
+                     <img src="/media/bell.png" style="height: 100%; aspect-ratio: 1/1;">
+                </a>
+            </div>
+        </nav>
+    </header>
 
-<div class="dashboard" style="margin-top: 10vh;">
+
     <form method="POST" enctype="multipart/form-data" action="">
         {% csrf_token %}
         <input type="hidden" name="form_type" value="delete_project"/>
@@ -83,7 +44,7 @@
     </form>
 
 
-    <div class="card">
+    <div class="project-card">
         <div class="left-panel">
             <div class="form-container">
                 <form action="" enctype="multipart/form-data" id="project-form">
@@ -98,27 +59,36 @@
         </div>
 
         <div class="right-panel">
-
-                    <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
-
+            <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
         </div>
     </div>
 
-
-    <div class="modal" id="codeModal">
-        <div id="ruler-container"></div>
-
-        <script>
-            createRuler();
-        </script>
-
-        {% for track in project_tracks %}
-            <div id="vis-container-{{ track.id }}"></div>
+    <div class="daw">
+        <div class="daw-controls">
+            <div id="control-container"></div>
             <script>
-                createVis({{ track.id }}, '{{ track.mp3.url }}');
+                controlVis();
             </script>
-        {% endfor %}
-        <div id="micVis"></div>
+
+            {% for track in project_tracks %}
+                <div id="mute-container-{{ track.id }}"></div>
+            {% endfor %}
+        </div>
+
+        <div class="modal" id="codeModal">
+            <div id="ruler-container"></div>
+            <script>
+                createRuler();
+            </script>
+
+            {% for track in project_tracks %}
+                <div id="vis-container-{{ track.id }}"></div>
+                <script>
+                    createVis({{ track.id }}, '{{ track.mp3.url }}');
+                </script>
+            {% endfor %}
+            <div id="micVis"></div>
+        </div>
     </div>
 
     <script src="{% static 'js/modal.js' %}"></script>
@@ -132,7 +102,7 @@
         <label for="id_mp3" class="trackform-label">ADD TRACK</label>
     </div>
 
-</div>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -144,24 +114,18 @@
 <script src="{% static 'js/workspace.js' %}"></script>
 
 <footer>
-    <nav style="grid-template-columns: 1fr 1fr 1fr;">
-        <div class="header-text-container">
-            <a href="/" class="navbar-text" style="font-size: 18px;">
-                <img src="/media/Browse_grey.png" style="height: 25px">
-            </a>
-        </div>
+    <nav>
+        <a href="/" class="navbar-text" style="font-size: 18px;">
+            <img src="/media/Browse_grey.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_white.png" style="height: 25px">
-            </a>
-        </div>
+        <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+            <img src="/media/Create_white.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="/drop" class="navbar-text">
-                <img src="/media/Drop_grey.png" style="height: 25px">
-            </a>
-        </div>
+        <a href="/drop" class="navbar-text">
+            <img src="/media/Drop_grey.png" style="height: 25px">
+        </a>
     </nav>
 </footer>
 
