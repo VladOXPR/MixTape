@@ -144,3 +144,14 @@
     width: 40%;
     height: 100%;
 }
+
+
+.notif-bar {
+    height: 30px;
+    border-radius: 5px;
+    border-color: gray;
+    display: flex; /* Use flexbox to center the input field horizontally */
+    width: 87vw; /* Ensure the search bar container takes up full width of its parent */
+    gap: 5%;
+    padding-right: 5%;
+}

@@ -32,7 +32,7 @@ class ProjectForm(ModelForm):
         fields = ['coverimg', 'title', ]
 
         widgets = {
-            'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform', 'class': 'imgform'}),
+            'coverimg': forms.ClearableFileInput(attrs={'class': 'cviform'}),
             'title': forms.TextInput(attrs={'class': 'titleform'}),
         }
 
