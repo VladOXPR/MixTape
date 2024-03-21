@@ -1,7 +1,22 @@
 let visInstances = [];
 let posX = 0;
+let posM = 0;
 
 function createVis(trackId, mp3Url) {
+    let mute = function (p) {
+        p.setup = function () {
+            p.createCanvas(52, 100); // Creates mute canvas
+        };
+        p.draw = function () {
+            p.background(0);
+            p.fill(216,220,220);
+            p.stroke(216,220,220);
+            p.strokeWeight(1);
+            p.rect(1, 1, p.width - 2, p.height - 2, 3); // Creates rounded corners
+        }
+    }
+
+
     let vis = function (p) {
         p.preload = function () {
             p.song = p.loadSound(mp3Url);
@@ -10,7 +25,7 @@ function createVis(trackId, mp3Url) {
         p.setup = function () {
             p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
             p.createCanvas(p.canvasWidth * 3, 100); // Creates canvas
-            p.peaks = p.song.getPeaks(p.canvasWidth * 10); // Gets the data pf the peaks to visually map out the song
+            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data pf the peaks to visually map out the song
             p.noFill();
         };
 
@@ -21,6 +36,15 @@ function createVis(trackId, mp3Url) {
             p.strokeWeight(1);
             p.rect(1, 1, p.width - 2, p.height - 2, 10);
 
+            // The forloop draws out the visual
+            p.stroke(255);
+            if (p.peaks) {
+                for (let i = 0; i < p.peaks.length; i++) {
+                    let x = p.map(i, 0, p.peaks.length, 0, p.width);
+                    p.line(x, p.height / 2 + p.peaks[i] * 40, x, p.height / 2 - p.peaks[i] * 40);
+                }
+            }
+
             if (p.song.isPlaying()) {
                 posX = p.map(p.song.currentTime(), 0, p.song.duration(), 0, p.width);
                 p.stroke(255, 79, 0);
@@ -29,39 +53,20 @@ function createVis(trackId, mp3Url) {
                 p.stroke(255, 79, 0);
                 p.line(posX, 0, posX, p.height);
             }
-
-            p.stroke(255);
-
-            // The forloop draws out the visual
-            if (p.peaks) {
-                for (let i = 0; i < p.peaks.length; i++) {
-                    let x = p.map(i, 0, p.peaks.length, 0, p.width);
-                    p.line(x, p.height / 2 + p.peaks[i] * 40, x, p.height / 2 - p.peaks[i] * 40);
-                }
-            }
-        };
-
-        p.mouseClicked = function () {
-            let posM = p.map(posX, 0, p.width, 0, p.song.duration());
-
-            if (p.song.isPlaying()) {
-                p.song.pause();
-            } else {
-                p.song.play();
-                p.song.jump(posM);
-            }
         };
     };
 
     let myVis = new p5(vis, `vis-container-${trackId}`);
+    let myMute = new p5(mute, `mute-container-${trackId}`);
     visInstances.push(myVis);
 }
 
+
 function createRuler() {
     let ruler = function (p) {
-
         p.setup = function () {
-            p.createCanvas(400, 30);
+            let containerWidth = document.getElementById('codeModal').offsetWidth;
+            p.createCanvas(containerWidth, 28);
             p.noFill();
         };
 
@@ -70,7 +75,7 @@ function createRuler() {
             p.fill(30, 33, 36);
             p.stroke(30, 33, 36);
             p.strokeWeight(1);
-            p.rect(1, 1, p.width - 2, p.height - 2, 10);
+            p.rect(1, 1, p.width - 2, p.height - 2, 3);
 
             let posL = posX
 
@@ -88,15 +93,14 @@ function createRuler() {
         };
 
         function drawPolygon(p, posX, posY, size) {
-            p.push(); // Start a new drawing state
-            p.translate(posX, posY); // Move the origin to posX, posY
+            p.push();
+            p.translate(posX, posY);
             p.rotate(p.PI);
 
-            p.fill(160, 49, 0); // Fill with orange color (RGB)
-            p.stroke(160, 49, 0); // Outline color slightly darker than the fill
+            p.fill(160, 49, 0);
+            p.stroke(160, 49, 0);
             p.strokeWeight(2);
 
-            // Define the polygon vertices
             let points = [
                 p.createVector(0, -size / 2), // Top vertex
                 p.createVector(size / 2, 0), // Top-right vertex
@@ -106,21 +110,63 @@ function createRuler() {
             ];
 
             p.beginShape();
-            // Top of polygon
             p.vertex(points[0].x, points[0].y);
-            // Right side of polygon
+
             for (let i = 1; i < points.length; i++) {
                 p.vertex(points[i].x, points[i].y);
             }
-            // Closing the shape by connecting back to the top
+
             p.vertex(points[0].x, points[0].y);
             p.endShape(p.CLOSE);
-
             p.pop();
         }
     };
 
     let myRuler = new p5(ruler, `ruler-container`);
+}
+
+function controlVis() {
+    let control = function (p) {
+        let isPlaying = true;
+        let playImg, pauseImg;
+
+        p.preload = function () {
+            playImg = p.loadImage('/media/daw_play.png'); // Loads play image
+            pauseImg = p.loadImage('/media/daw_pause.png'); // Loads pause image
+        };
+
+        p.setup = function () {
+            p.createCanvas(52, 28);
+            p.imageMode(p.CENTER); // Ensures images are drawn centered on their coordinates
+        };
+
+        p.draw = function () {
+            p.background(0);
+            let img = isPlaying ? playImg : pauseImg; // Choose the image based on the playing state
+            p.image(img, p.width / 2, p.height / 2); // Center the image
+        };
+
+        p.mouseClicked = function () {
+            if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
+                isPlaying = !isPlaying;
+                togglePlayPauseAll(!isPlaying);
+            }
+        };
+
+        function togglePlayPauseAll(play) {
+            visInstances.forEach(vis => {
+                posM = vis.map(posX, 0, vis.width, 0, vis.song.duration());
+                if (play && !vis.song.isPlaying()) {
+                    vis.song.play();
+                    vis.song.jump(posM);
+                } else if (!play && vis.song.isPlaying()) {
+                    vis.song.pause();
+                }
+            });
+        }
+    };
+
+    new p5(control, 'control-container');
 }
 
 
