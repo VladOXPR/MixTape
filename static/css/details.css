@@ -41,7 +41,7 @@
 }
 
 .create-button {
-    background: linear-gradient(90deg, #B8FFF2 0.46%, #83BCFF 100.14%);
+    background: linear-gradient(90deg, #B8FFF2 0.46%, #ffffff 100.14%);
 }
 
 .connect-button {
@@ -189,8 +189,8 @@
     left: 0;
 }
 
-.bioform {
-    border: #6d28d9;
+.bioform{
+    border: #ffffff;
     border-width: thin;
 }
 
@@ -212,7 +212,7 @@
     cursor: pointer;
 }
 
-.setup-create:hover {
+.setup-create:hover{
     background-color: #0056b3;
 }
 
@@ -225,50 +225,15 @@
     gap: 5%;
     padding-right: 5%;
 }
-
 .search-bar input[type="search"] {
-    width: 85%; /* Set the width to 70% of its parent container */
-    border: 5px #30363A; /* Set the border color to grey */
-    opacity: 0.5; /* Make the input field semi-transparent */
-    padding: 10px; /* Add some padding inside the search box for better text visibility */
-    margin: 0 auto; /* Center the search box within its parent container */
-    display: block; /* Make sure the input field is a block-level element to respect width and margin */
+    width: 85%;               /* Set the width to 70% of its parent container */
+    border: 5px #30363A;   /* Set the border color to grey */
+    opacity: 0.5;             /* Make the input field semi-transparent */
+    padding: 10px;            /* Add some padding inside the search box for better text visibility */
+    margin: 0 auto;           /* Center the search box within its parent container */
+    display: block;           /* Make sure the input field is a block-level element to respect width and margin */
     background-color: #ffffff; /* Ensure the background is transparent */
     color: black;
     border-radius: 5px;
     left: 0;
-}
-
-.bell-link {
-    display: inline-block;
-    padding: 20px;
-    margin-top: 15px;
-    margin-left: 10px;
-    background-image: url('/media/bell.png');
-    background-size: contain; /* Ensures the image fits within the link, maintaining its aspect ratio */
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    text-decoration: none;
-    position: relative; /* Make this a positioning context for absolute children */
-    z-index: 5;
-}
-
-.corner-block {
-    position: absolute; /* Position relative to bell-link */
-    top: 0; /* Align to the bottom */
-    right: 0; /* Align to the left */
-    width: 60%; /* Or adjust to your preference */
-    height: 60%; /* Or adjust to your preference */
-    background-color: #000000; /* Example color */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.corner-block p {
-    margin: 0; /* Remove default margin to help with centering */
-    text-align: center;
-    color: #FF4F00;
 }

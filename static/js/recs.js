@@ -54,7 +54,7 @@ let micVis = function (p) {
         p.stroke(255);
         p.noFill();
 
-        if (vol > 0.01) {
+        if (vol > 0.003) {
           var wave = fft.waveform();
           p.beginShape();
           for (var i = 0; i < p.width; i++) {
@@ -75,8 +75,7 @@ let micVis = function (p) {
         p.fill(0); // Match the fill to your background color
         p.stroke(48, 54, 58); // Or choose another stroke color if desired
         p.strokeWeight(1)
-        let cornerRadius = 15;
-        p.rect(1, 1, p.width-2, p.height-2, cornerRadius); // This creates the rounded rectangle
+        p.rect(1, 1, p.width-2, p.height-2, 10); // This creates the rounded rectangle
         // p.background(30, 33, 36);
 
         if (state === 1) {

@@ -12,16 +12,38 @@
         }
 
         .modal {
-            display: block;
+
             display: none;
             position: relative;
             margin-top: 20px;
             background-color: #000000;
-            border-radius: 10px;
             width: 100%;
             max-height: 55vh;
             overflow: auto;
         }
+
+        .card {
+          display: flex;
+        }
+
+        .left-panel,
+        .right-panel {
+          flex: 1;
+        }
+
+        .left-panel {
+          background-color: #000000;
+        }
+
+        .right-panel {
+          background-color: #000000;
+        }
+
+        .coverimg-container {
+            display: none;
+        }
+
+
 
     </style>
     <meta charset="UTF-8">
@@ -60,28 +82,36 @@
                onclick="return confirm('Are you sure you want to delete this project?');"/>
     </form>
 
-    <div class="wksp-settings-container">
-        <div class="wksp-image-block">
-            <div id="image-box" style="max-width: 10vh; max-height: 10vh">
-                <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
+
+    <div class="card">
+        <div class="left-panel">
+            <div class="form-container">
+                <form action="" enctype="multipart/form-data" id="project-form">
+                    {% csrf_token %}
+                    {% render_field form2.title class+='title-input' %}
+                    <div class="coverimg-container">
+                        {{ form2.coverimg }}
+                    </div>
+                </form>
+                <button class="custom-file-input" id="confirm-btn">Save Changes</button>
             </div>
+        </div>
+
+        <div class="right-panel">
+
+                    <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
+
         </div>
     </div>
 
-    <div class="form-container">
-        <form action="" enctype="multipart/form-data" id="project-form">
-            {% csrf_token %}
-            {{ form2.coverimg }}
-            {% render_field form2.title class+='title-input' %}
-        </form>
-        <button class="custom-file-input" id="confirm-btn">Save Changes</button>
-    </div>
-
-    <div>
-        <label for="id_coverimg" class="imgform-label">CHOOSE</label>
-    </div>
 
     <div class="modal" id="codeModal">
+        <div id="ruler-container"></div>
+
+        <script>
+            createRuler();
+        </script>
+
         {% for track in project_tracks %}
             <div id="vis-container-{{ track.id }}"></div>
             <script>
@@ -117,19 +147,19 @@
     <nav style="grid-template-columns: 1fr 1fr 1fr;">
         <div class="header-text-container">
             <a href="/" class="navbar-text" style="font-size: 18px;">
-                <img src="/media/Browse_grey.png" style="height: 35px">
+                <img src="/media/Browse_grey.png" style="height: 25px">
             </a>
         </div>
 
         <div class="header-text-container">
             <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_white.png" style="height: 35px">
+                <img src="/media/Create_white.png" style="height: 25px">
             </a>
         </div>
 
         <div class="header-text-container">
             <a href="/drop" class="navbar-text">
-                <img src="/media/Drop_grey.png" style="height: 35px">
+                <img src="/media/Drop_grey.png" style="height: 25px">
             </a>
         </div>
     </nav>
