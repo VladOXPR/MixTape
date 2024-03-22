@@ -274,3 +274,14 @@
     text-align: center;
     color: #FF4F00;
 }
+
+
+.daw {
+    height: 100%;
+    width: 50%;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+}

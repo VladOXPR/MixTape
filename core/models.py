@@ -27,6 +27,9 @@ class Project(models.Model):
     title = models.CharField(max_length=35, default='untitled')
     coverimg = models.ImageField(upload_to='cover_images', default='blank-project.png')
 
+    def get_first_track(self):
+        return self.track_set.first()
+
     def __str__(self):
         return str(self.title)
 

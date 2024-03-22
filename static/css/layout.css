@@ -111,7 +111,22 @@
 }
 
 .profile-link {
-    height: 90%;
+    height: 100%;
+}
+
+.public-name {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: left;
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    z-index: 10;
 }
 
 .image-box {
@@ -120,15 +135,15 @@
 }
 
 .set-up-container {
-      position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  max-width: 430px;
-  width: 80%;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 430px;
+    width: 80%;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 
 }
 
