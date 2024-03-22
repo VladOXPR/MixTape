@@ -4,18 +4,36 @@ let posM = 0;
 let x = true;
 
 function createVis(trackId, mp3Url) {
+    let isMuted = false;
     let mute = function (p) {
+        let isOriginalColor = true; // This variable tracks the state of the background color
+
         p.setup = function () {
             p.createCanvas(52, 100); // Creates mute canvas
         };
+
         p.draw = function () {
-            p.background(0);
-            p.fill(216,220,220);
-            p.stroke(216,220,220);
+            // Use the isOriginalColor variable to determine the background color
+            if (isOriginalColor) {
+                p.fill(216,220,220);
+                p.stroke(216,220,220); // Original background color
+            } else {
+                p.fill(30, 33, 36);
+                p.stroke(30, 33, 36); // Alternative background color
+            }
+
             p.strokeWeight(1);
             p.rect(1, 1, p.width - 2, p.height - 2, 3); // Creates rounded corners
-        }
-    }
+        };
+
+        p.mouseClicked = function () {
+            if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
+                isOriginalColor = !isOriginalColor;
+                isMuted = !isMuted;
+            }
+        };
+    };
+
 
 
     let vis = function (p) {
@@ -26,7 +44,7 @@ function createVis(trackId, mp3Url) {
         p.setup = function () {
             p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
             p.createCanvas(p.canvasWidth * 3, 100); // Creates canvas
-            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data pf the peaks to visually map out the song
+            p.peaks = p.song.getPeaks(p.canvasWidth * 0.9); // Gets the data pf the peaks to visually map out the song
             p.noFill();
         };
 
@@ -38,13 +56,20 @@ function createVis(trackId, mp3Url) {
             p.rect(1, 1, p.width - 2, p.height - 2, 10);
 
             // The forloop draws out the visual
-            p.stroke(255);
+            if (isMuted) {
+                p.stroke(74, 79, 84); // Example muted color
+            } else {
+                p.stroke(255); // Default color
+            }
+
             if (p.peaks) {
                 for (let i = 0; i < p.peaks.length; i++) {
                     let x = p.map(i, 0, p.peaks.length, 0, p.width);
                     p.line(x, p.height / 2 + p.peaks[i] * 40, x, p.height / 2 - p.peaks[i] * 40);
                 }
             }
+
+            p.song.setVolume(isMuted ? 0 : 1);
 
             if (p.song.isPlaying()) {
                 posX = p.map(p.song.currentTime(), 0, p.song.duration(), 0, p.width);
@@ -89,7 +114,6 @@ function createRuler() {
         p.mouseDragged = function () {
             visInstances.forEach(vis => {
                 if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
-
                     if (!wasPlaying && vis.song.isPlaying()) {
                         wasPlaying = true;
                         vis.song.pause();
@@ -102,7 +126,6 @@ function createRuler() {
 
         p.mouseReleased = function () {
             visInstances.forEach(vis => {
-
                 let posM = vis.map(posX, 0, vis.width, 0, vis.song.duration());
 
                 if (wasPlaying) {
