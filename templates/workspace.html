@@ -8,10 +8,6 @@
     <title>Workspace</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <link rel="stylesheet" href="{% static 'css/general.css' %}">#}
-{#    <link rel="stylesheet" href="{% static 'css/layout.css' %}">#}
-{#    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">#}
-{#    <link rel="stylesheet" href="{% static 'css/details.css' %}">#}
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/DAW.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
@@ -65,6 +61,8 @@
     </div>
 
     <div class="daw">
+        <div class="vertical-line"></div>
+
         <div class="daw-controls">
             <div id="control-container"></div>
             <script>
@@ -75,6 +73,8 @@
                 <div id="mute-container-{{ track.id }}"></div>
             {% endfor %}
         </div>
+
+        <div class="vertical-line"></div>
 
         <div class="modal" id="codeModal">
             <div id="ruler-container"></div>
