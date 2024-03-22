@@ -1,6 +1,7 @@
 let visInstances = [];
 let posX = 0;
 let posM = 0;
+let x = true;
 
 function createVis(trackId, mp3Url) {
     let mute = function (p) {
@@ -83,14 +84,35 @@ function createRuler() {
             drawPolygon(p, posX, p.height / 2, 20);
         };
 
+        let wasPlaying = false;
+
         p.mouseDragged = function () {
-            if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
-                posX = p.constrain(p.mouseX, 0, p.width);
-                return true
-            } else {
-                return false
-            }
+            visInstances.forEach(vis => {
+                if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
+
+                    if (!wasPlaying && vis.song.isPlaying()) {
+                        wasPlaying = true;
+                        vis.song.pause();
+                    }
+
+                    posX = p.constrain(p.mouseX, 0, p.width);
+                }
+            });
         };
+
+        p.mouseReleased = function () {
+            visInstances.forEach(vis => {
+
+                let posM = vis.map(posX, 0, vis.width, 0, vis.song.duration());
+
+                if (wasPlaying) {
+                    vis.song.play();
+                    vis.song.jump(posM);
+                    wasPlaying = false;
+                }
+            });
+        };
+
 
         function drawPolygon(p, posX, posY, size) {
             p.push();
@@ -168,5 +190,4 @@ function controlVis() {
 
     new p5(control, 'control-container');
 }
-
 
