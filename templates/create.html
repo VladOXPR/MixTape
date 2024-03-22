@@ -19,14 +19,14 @@
 <body>
 
 <header>
-    <div class="blur-gradient "></div>
-    <nav>
-        <div class="search-bar">
-            <a href="/friends">
-                <img src="/media/bell.png" style="height: 100%; aspect-ratio: 1/1;">
-            </a>
-        </div>
-    </nav>
+    <div style="width: 100vw; height: 5vh; z-index: 3;">
+        <a href="/friends" class="bell-link">
+
+            <div class="corner-block">
+                <p>{{ unread }}</p>
+            </div>
+        </a>
+    </div>
 </header>
 
 <div class="dashboard">
@@ -36,24 +36,6 @@
         <div>
             <p style="font-size: 20px">{{ user_profile.user.username }}</p>
         </div>
-    </a>
-    <div class="favorite-project-block">
-        {% if user_profile.fav_proj %}
-            <p>Favorite Project: {{ user_profile.fav_proj.title }}</p>
-        {% else %}
-            <p>Favorite Project: None</p>
-        {% endif %}
-    </div>
-
-    {#notification block#}
-    <a href="friends" class="friends-block" style="color: white;">
-        {% if last_text %}
-            <img style="height: 100%; border-radius: 10px;" src="{{ last_text_user.profileimg.url }}">
-            <p style="font-size: 18px; margin-left: 10px; font-weight: normal">{{ last_text.body }}</p>
-            <div class="notif_circle" style="font-size: 30px;"><p>{{ unread }}</p></div>
-        {% else %}
-            <div class="notif_circle" style="font-size: 30px;"><p>0</p></div>
-        {% endif %}
     </a>
 
 

@@ -149,24 +149,6 @@
     margin: 0 auto;
 }
 
-/*.login100-form-bgbtn {*/
-/*    position: absolute;*/
-/*    z-index: -1;*/
-/*    width: 300%;*/
-/*    height: 50px;*/
-/*(90 deg, #B8FFF2 0.46 %, #83BCFF 100.14 %) background: #a64bf4;*/
-/*    background: -webkit-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
-/*    background: -o-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
-/*    background: -moz-linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
-/*    background: linear-gradient(right, #B8FFF2, #83BCFF, #B8FFF2, #83BCFF);*/
-/*    top: 0;*/
-/*    left: -100%;*/
-
-/*    -webkit-transition: all 0.4s;*/
-/*    -o-transition: all 0.4s;*/
-/*    -moz-transition: all 0.4s;*/
-/*    transition: all 0.4s;*/
-/*}*/
 
 .login100-form-btn {
     font-size: 20px;
@@ -256,4 +238,39 @@
   width: auto;
   display: block;
   margin: auto; /* Centers the image within the label */
+}
+
+
+.bell-link {
+    display: inline-block;
+    padding: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-image: url('/media/bell.png');
+    background-size: contain; /* Ensures the image fits within the link, maintaining its aspect ratio */
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    text-decoration: none;
+    position: relative; /* Make this a positioning context for absolute children */
+    z-index: 5;
+}
+
+.corner-block {
+    position: absolute; /* Position relative to bell-link */
+    top: 0; /* Align to the bottom */
+    right: 0; /* Align to the left */
+    width: 60%; /* Or adjust to your preference */
+    height: 60%; /* Or adjust to your preference */
+    background-color: #000000; /* Example color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corner-block p {
+    margin: 0; /* Remove default margin to help with centering */
+    text-align: center;
+    color: #FF4F00;
 }
