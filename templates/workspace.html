@@ -42,21 +42,25 @@
 
 
     <div class="project-card">
-        <div class="left-panel">
-            <div class="form-container">
-                <form action="" enctype="multipart/form-data" id="project-form">
-                    {% csrf_token %}
-                    {% render_field form2.title class+='title-input' %}
-                    <div class="coverimg-container">
-                        {{ form2.coverimg }}
-                    </div>
-                </form>
-                <button class="custom-file-input" id="confirm-btn">Save Changes</button>
+        <div class="panel-container">
+            <div class="left-panel">
+                <div class="form-container">
+                    <form action="" enctype="multipart/form-data" id="project-form">
+                        {% csrf_token %}
+                        {% render_field form2.title class+='title-input' %}
+                        <div class="coverimg-container">
+                            {{ form2.coverimg }}
+                        </div>
+                    </form>
+                    <button class="custom-file-input" id="confirm-btn">Save Changes</button>
+                </div>
             </div>
         </div>
 
-        <div class="right-panel">
-            <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
+        <div class="panel-container">
+            <div class="right-panel">
+                <img src="{{ user_project.coverimg.url }}" id="image" style="height: 100%; width: 100%">
+            </div>
         </div>
     </div>
 
@@ -116,15 +120,15 @@
 
 <footer>
     <nav>
-        <a href="/" class="navbar-text" style="font-size: 18px;">
+        <a href="/">
             <img src="/media/Browse_grey.png" style="height: 25px">
         </a>
 
-        <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+        <a href="/create">
             <img src="/media/Create_white.png" style="height: 25px">
         </a>
 
-        <a href="/drop" class="navbar-text">
+        <a href="/drop">
             <img src="/media/Drop_grey.png" style="height: 25px">
         </a>
     </nav>
