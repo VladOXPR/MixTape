@@ -28,6 +28,12 @@ footer {
     flex: 1;
 }
 
+.modal-header {
+    position: sticky;
+    top: 0;
+    background: #000000;
+}
+
 .project-card {
     display: flex;
 }

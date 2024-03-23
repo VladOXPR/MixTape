@@ -7,6 +7,7 @@
     <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Daw cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/DAW.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/DAW.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,14 +164,6 @@
       <workItem from="1709846951916" duration="3190000" />
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
-    </task>
-    <task id="LOCAL-00016" summary="roughly styled create page, browse, chat, friends pages">
-      <option name="closed" value="true" />
-      <created>1703624032468</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1703624032468</updated>
     </task>
     <task id="LOCAL-00017" summary="fixed notification circle">
       <option name="closed" value="true" />
@@ -556,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711144036639</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Daw cleanup">
+      <option name="closed" value="true" />
+      <created>1711228332474</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1711228332474</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

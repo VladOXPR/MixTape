@@ -62,24 +62,27 @@
         </div>
     </div>
 
-    <div class="modal" id="codeModal">
-        <div class="daw">
-            <div class="vertical-line"></div>
+    <div class="daw">
+        <div class="vertical-line"></div>
 
-            <div class="daw-controls">
-                <div id="control-container"></div>
-                <script>
-                    controlVis();
-                </script>
+        <div class="daw-controls">
+            <div id="control-container"></div>
+            <script>
+                controlVis();
+            </script>
 
-                {% for track in project_tracks %}
-                    <div id="mute-container-{{ track.id }}"></div>
-                {% endfor %}
+            {% for track in project_tracks %}
+                <div id="mute-container-{{ track.id }}"></div>
+            {% endfor %}
+        </div>
+
+        <div class="vertical-line"></div>
+
+        <div class="modal" id="codeModal">
+
+            <div class="modal-header">
+                <div id="ruler-container"></div>
             </div>
-
-            <div class="vertical-line"></div>
-
-            <div id="ruler-container"></div>
             <script>
                 createRuler();
             </script>
@@ -93,7 +96,6 @@
             <div id="micVis"></div>
         </div>
     </div>
-
 
     <script src="{% static 'js/modal.js' %}"></script>
 
