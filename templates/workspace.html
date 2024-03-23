@@ -15,7 +15,6 @@
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/recs.js' %}"></script>
     <script src="{% static 'js/tracks.js' %}"></script>
-
 </head>
 
 <body>
@@ -63,23 +62,23 @@
         </div>
     </div>
 
-    <div class="daw">
-        <div class="vertical-line"></div>
+    <div class="modal" id="codeModal">
+        <div class="daw">
+            <div class="vertical-line"></div>
 
-        <div class="daw-controls">
-            <div id="control-container"></div>
-            <script>
-                controlVis();
-            </script>
+            <div class="daw-controls">
+                <div id="control-container"></div>
+                <script>
+                    controlVis();
+                </script>
 
-            {% for track in project_tracks %}
-                <div id="mute-container-{{ track.id }}"></div>
-            {% endfor %}
-        </div>
+                {% for track in project_tracks %}
+                    <div id="mute-container-{{ track.id }}"></div>
+                {% endfor %}
+            </div>
 
-        <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
 
-        <div class="modal" id="codeModal">
             <div id="ruler-container"></div>
             <script>
                 createRuler();
@@ -94,6 +93,7 @@
             <div id="micVis"></div>
         </div>
     </div>
+
 
     <script src="{% static 'js/modal.js' %}"></script>
 
