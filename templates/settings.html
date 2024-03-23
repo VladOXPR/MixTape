@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -8,46 +9,49 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 </head>
 
 <body>
-<header>
-    <div class="blur-gradient "></div>
-    <nav>
-
-        <div class="header-text-container">
-            <a href="create" class="navbar-text" style="padding-right: 10px; font-size: 30px;">CREATE</a>
-        </div>
-        <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
-                                                                                              style="height: 30px"></a>
-    </nav>
-</header>
+<a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
+                                                                                      style="height: 30px"></a>
 <div class="settings-container">
-    <p style="color: white;">{{ user_profile.fav_proj }}</p>
+    <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form" style="padding-top:10px;">
+        {% csrf_token %}
+        <div class="settings-block-container" style="position: relative; width: fit-content; margin-top: 8vh;">
+            {% render_field form.name class+="settings-name" %}
+            <img src="{{ user_profile.profileimg.url }}" class="public-block"
+                 style="width: 100%; filter: brightness(75%)">
 
-    <div class="settings-image-block">
-        <div class="image-box" id="image-box" class="image-box">
-            <img src="{{ user_profile.profileimg.url }}" id="image" style="height: 100%; width: 100%">
+            <div class="bio-and-music-block" id="bio-text">
+                {% render_field form.bio class+="settings-bio" %}
+
+                <div class="daw">
+                    <div class="modal" id="codeModal">
+                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
+                        {% with user_profile.fav_proj.get_first_track as first_track %}
+                            {% if first_track %}
+                                <script>
+                                    createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
+                                </script>
+                            {% else %}
+                                <p>No tracks available</p>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="settings-form-container">
-
-        <form action="" enctype="multipart/form-data" id="settings-form" style="padding-top:10px;">
-            {% csrf_token %}
-            {{ form.profileimg }}
-            {{ form.fav_proj }}
-            {{ form.name }}
-            {{ form.bio }}
-
-        </form>
-        <button id="confirm-btn">Save Changes</button>
-    </div>
+        {% render_field form.profileimg class+="settings-pfp" id+="settings-pfp"%}
+        <label for="settings-pfp" class="pfpform-label">
+            <img src="media/upload-icon.png" id="image"
+                 style="height: 100%; border: 5px dashed #000000;"></label>
+    </form>
+    <button id="confirm-btn">Save Changes</button>
 </div>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
