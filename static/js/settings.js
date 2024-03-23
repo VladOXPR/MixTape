@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageInput = document.getElementById('id_profileimg')
     const nameInput = document.getElementById('id_name')
     const bioInput = document.getElementById('id_bio')
-    const favProjInput = document.getElementById('id_fav_proj')
 
     const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
@@ -44,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Combined event listener for the confirm button
     confirmBtn.addEventListener('click', () => {
+        console.log('saved changes')
         if (cropper) {
             cropper.getCroppedCanvas().toBlob((blob) => {
                 sendFormData(blob); // Send the cropped image blob

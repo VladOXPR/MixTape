@@ -54,17 +54,8 @@ class SettingsForm(ModelForm):
         fields = ['profileimg', 'name', 'bio', ]
 
         widgets = {
-            'profileimg': forms.ClearableFileInput(attrs={'class': 'pfiform'}),
-            'name': forms.TextInput(attrs={'class': 'nameform'}),
-            'bio': forms.Textarea(attrs={'class': 'bioform'}),
+            'profileimg': forms.FileInput(),
+            'name': forms.TextInput(),
+            'bio': forms.Textarea(),
         }
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     self.fields['fav_proj'].queryset = Project.objects.none()
-    #
-    #     try:
-    #         if self.instance and self.instance.pk:
-    #             self.fields['fav_proj'].queryset = Project.objects.filter(profile=self.instance)
-    #     except (ValueError, TypeError):
-    #         pass

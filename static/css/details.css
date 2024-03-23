@@ -204,7 +204,7 @@
 }
 
 .search-bar {
-    height: 30px;
+    height: 3.5vh;
     border-radius: 5px;
     border-color: gray;
     display: flex; /* Use flexbox to center the input field horizontally */

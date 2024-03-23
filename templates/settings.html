@@ -9,49 +9,80 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/settings.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 </head>
 
 <body>
-<a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
-                                                                                      style="height: 30px"></a>
+
 <div class="settings-container">
+    <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
+                                                                                          style="height: 30px"></a>
+
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form" style="padding-top:10px;">
         {% csrf_token %}
-        <div class="settings-block-container" style="position: relative; width: fit-content; margin-top: 8vh;">
-            {% render_field form.name class+="settings-name" %}
-            <img src="{{ user_profile.profileimg.url }}" class="public-block"
-                 style="width: 100%; filter: brightness(75%)">
 
-            <div class="bio-and-music-block" id="bio-text">
-                {% render_field form.bio class+="settings-bio" %}
+        <img src="{{ user_profile.profileimg.url }}" class="public-block"
+             style="width: 100%; filter: brightness(75%)">
 
-                <div class="daw">
-                    <div class="modal" id="codeModal">
-                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
-                        {% with user_profile.fav_proj.get_first_track as first_track %}
-                            {% if first_track %}
-                                <script>
-                                    createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                                </script>
-                            {% else %}
-                                <p>No tracks available</p>
-                            {% endif %}
-                        {% endwith %}
-                    </div>
+        {% render_field form.name class+="settings-name" %}
+
+        <div class="bio-and-music-block" id="bio-text">
+            {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
+
+            <div class="daw">
+                <div class="modal" id="codeModal">
+                    {% with user_profile.fav_proj.get_first_track as first_track %}
+                        {% if first_track %}
+                            <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
+                            <script>
+                                createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
+                            </script>
+
+                        {% else %}
+                            <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;">
+                                <p>No track selected</p>
+                            </div>
+
+                        {% endif %}
+                    {% endwith %}
                 </div>
             </div>
         </div>
-        {% render_field form.profileimg class+="settings-pfp" id+="settings-pfp"%}
-        <label for="settings-pfp" class="pfpform-label">
-            <img src="media/upload-icon.png" id="image"
-                 style="height: 100%; border: 5px dashed #000000;"></label>
+
+        {% render_field form.profileimg class+="settings-pfp" %}
+        {#        <label for="id_profileimg" class="pfpform-label">#}
+        {#            <img src="media/upload-icon.png" id="image"#}
+        {#                 style="height: 20%; border: 5px dashed #000000;"></label>#}
+
     </form>
-    <button id="confirm-btn">Save Changes</button>
+    <button class="save-changes" id="confirm-btn">Save Changes</button>
 </div>
 
+<footer>
+    <nav style="grid-template-columns: 1fr 1fr 1fr;">
+
+        <div class="header-text-container">
+            <a href="/" class="navbar-text" style="font-size: 18px;">
+                <img src="/media/Browse_grey.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+                <img src="/media/Create_white.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/drop" class="navbar-text">
+                <img src="/media/Drop_grey.png" style="height: 35px">
+            </a>
+        </div>
+    </nav>
+</footer>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
