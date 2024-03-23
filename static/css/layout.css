@@ -8,7 +8,7 @@
     width: 87vw;
 
     gap: 15px;
-    padding: 0 20px 10vh 20px; /* top right bottom left */
+    padding: 0 20px 18vh 20px; /* top right bottom left */
 
     z-index: 0;
     max-height: 90vh;
@@ -91,6 +91,17 @@
     height: 100%;
 }
 
+.private-name {
+    top: 0;
+    left: 0;
+    color: white;
+    text-align: left;
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    z-index: 10;
+}
+
 .public-name {
     position: absolute;
     margin-top: 10px;
@@ -146,4 +157,12 @@
     width: 87vw; /* Ensure the search bar container takes up full width of its parent */
     gap: 5%;
     padding-right: 5%;
+}
+
+.secondary-footer {
+    position: fixed;
+    bottom: 10vh; /* Height of your main footer so it sits above it */
+    padding: 10px 0;
+    text-align: center;
+    z-index: 100; /* Ensure it's above the dashboard content */
 }

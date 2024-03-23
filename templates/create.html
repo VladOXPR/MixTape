@@ -17,49 +17,50 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
+    <script src="{% static 'js/textAdjustment.js' %}"></script>
+
 </head>
 
 <body>
 
 <header>
-    <div style="width: 100vw; height: 5vh; z-index: 3;">
+    <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
+        <p class="private-name">{{ user_profile.name }}</p>
+        <div style="width: auto"></div>
         <a href="/friends" class="bell-link">
-
             <div class="corner-block">
                 <p>{{ unread }}</p>
             </div>
         </a>
     </div>
 </header>
-
 <div class="dashboard">
 
-        <div class="public-block-container" style="position: relative; width: fit-content; margin-top: 8vh;">
-            <a href="settings" class="profile-link">
-                <p class="public-name">{{ user_profile.name }}</p>
-                <img src="{{ user_profile.profileimg.url }}" class="public-block"
-                     style="width: 100%; filter: brightness(75%)">
+    <div class="public-block-container" style="position: relative; width: fit-content; margin-top: 9vh;">
+        <a href="settings" class="profile-link">
+            <img src="{{ user_profile.profileimg.url }}" class="public-block"
+                 style="width: 100%; filter: brightness(75%)">
 
-                <div class="bio-and-music-block" id="bio-text">
-                    <p>{{ user_profile.bio }}</p>
+            <div class="bio-and-music-block" id="bio-text">
+                <p>{{ user_profile.bio }}</p>
 
-                    <div class="daw">
-                        <div class="modal" id="codeModal">
-                            <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
-                            {% with user_profile.fav_proj.get_first_track as first_track %}
-                                {% if first_track %}
-                                    <script>
-                                        createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                                    </script>
-                                {% else %}
-                                    <p>No tracks available</p>
-                                {% endif %}
-                            {% endwith %}
-                        </div>
+                <div class="daw">
+                    <div class="modal" id="codeModal">
+                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
+                        {% with user_profile.fav_proj.get_first_track as first_track %}
+                            {% if first_track %}
+                                <script>
+                                    createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
+                                </script>
+                            {% endif %}
+                        {% endwith %}
                     </div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
+    </div>
+
+    <p class="project-heading">Projects</p>
 
     {#working projects#}
     {% for project in user_projects %}
@@ -98,13 +99,9 @@
         <p>No current projects.</p>
     {% endfor %}
 
-
-    <div style=""></div>
-
-
+</div>
+<div class="secondary-footer">
     <a href="setup" class="trackform-label" style="color: black;">CREATE</a>
-</div>
-</div>
 </div>
 <footer>
     <nav style="grid-template-columns: 1fr 1fr 1fr;">
