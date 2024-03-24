@@ -26,11 +26,12 @@ function createVis(trackId, mp3Url) {
             p.rect(1, 1, p.width - 2, p.height - 2, 3); // Creates rounded corners
         };
 
-        p.mouseClicked = function () {
+        p.touchStarted = function () {
             if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
                 isOriginalColor = !isOriginalColor;
                 isMuted = !isMuted;
             }
+            return false; // Prevent default
         };
     };
 
@@ -111,7 +112,7 @@ function createRuler() {
 
         let wasPlaying = false;
 
-        p.mouseDragged = function () {
+        p.touchMoved = function () {
             visInstances.forEach(vis => {
                 if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
                     if (!wasPlaying && vis.song.isPlaying()) {
@@ -122,9 +123,10 @@ function createRuler() {
                     posX = p.constrain(p.mouseX, 0, p.width);
                 }
             });
+            return false; // Prevent default
         };
 
-        p.mouseReleased = function () {
+        p.touchEnded = function () {
             visInstances.forEach(vis => {
                 let posM = vis.map(posX, 0, vis.width, 0, vis.song.duration());
 
@@ -134,8 +136,8 @@ function createRuler() {
                     wasPlaying = false;
                 }
             });
+            return false; // Prevent default
         };
-
 
         function drawPolygon(p, posX, posY, size) {
             p.push();
@@ -191,11 +193,12 @@ function controlVis() {
             p.image(img, p.width / 2, p.height / 2); // Center the image
         };
 
-        p.mouseClicked = function () {
+        p.touchStarted = function () {
             if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
                 isPlaying = !isPlaying;
                 togglePlayPauseAll(!isPlaying);
             }
+            return false; // Prevent default
         };
 
         function togglePlayPauseAll(play) {

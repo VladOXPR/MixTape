@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Daw cleanup">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="ruler sticks to top of modal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/DAW.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/DAW.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,14 +162,6 @@
       <workItem from="1709846951916" duration="3190000" />
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
-    </task>
-    <task id="LOCAL-00017" summary="fixed notification circle">
-      <option name="closed" value="true" />
-      <created>1703624160299</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1703624160299</updated>
     </task>
     <task id="LOCAL-00018" summary="cleaned up nav bar, footers, and stranger profile page">
       <option name="closed" value="true" />
@@ -557,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711228332474</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="ruler sticks to top of modal">
+      <option name="closed" value="true" />
+      <created>1711230429850</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1711230429850</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +577,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="clean up" />
     <MESSAGE value="no add button" />
     <MESSAGE value="fixed friends display, double text glitch, press enter to send text" />
     <MESSAGE value="made chat start at the bottom on page load" />
@@ -604,6 +601,7 @@
     <MESSAGE value="Ruler works with single track" />
     <MESSAGE value="Make full screen in browser" />
     <MESSAGE value="Daw cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Daw cleanup" />
+    <MESSAGE value="ruler sticks to top of modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="ruler sticks to top of modal" />
   </component>
 </project>
