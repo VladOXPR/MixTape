@@ -101,6 +101,13 @@
             adjustFontSize('bio-text-{{ profile.id_user }}', 'id_bio-{{ profile.id_user }}');
         {% endfor %}
     });
+
+    window.onload = function () {
+        {% for profile in profiles %}
+            adjustFontSize('bio-text-{{ profile.id_user }}', 'id_bio-{{ profile.id_user }}');
+        {% endfor %}
+    };
+
 </script>
 
 </body>

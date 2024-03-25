@@ -17,6 +17,7 @@ function adjustFontSize() {
 }
 
 // Initial adjust and readjust on window resize
+window.onload = adjustFontSize;
 document.addEventListener('DOMContentLoaded', adjustFontSize);
 window.addEventListener('resize', adjustFontSize);
 
