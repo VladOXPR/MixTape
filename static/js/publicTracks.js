@@ -11,7 +11,7 @@ function createVis(trackId, mp3Url) {
       p.setup = function() {
         p.canvasWidth = barry.duration();
         p.createCanvas(p.canvasWidth, 50);
-        peaks = barry.getPeaks(p.canvasWidth / 3.5);
+        peaks = barry.getPeaks(p.canvasWidth / 2);
         barry.loop();
       };
 
@@ -29,7 +29,7 @@ function createVis(trackId, mp3Url) {
           if (i <= currentIndex) {
             p.stroke(255); // White for peaks that the playback has reached
           } else {
-            p.stroke(255); // Grey for peaks not yet reached by playback
+            p.stroke(0); // Grey for peaks not yet reached by playback
           }
 
           let x = p.map(i, 0, peaks.length, 0, p.width);
