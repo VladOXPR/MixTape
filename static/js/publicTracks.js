@@ -37,7 +37,7 @@ function createVis(trackId, mp3Url) {
         }
       };
 
-      p.mousePressed = function() {
+      p.mouseClicked= function() {
         if (barry.isPlaying()) {
           barry.pause();
         } else {
