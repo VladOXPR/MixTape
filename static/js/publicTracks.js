@@ -1,6 +1,3 @@
-let visInstances = [];
-let posX = 0;
-let x = true;
 
 function createVis(trackId, mp3Url) {
     let vis = function (p) {

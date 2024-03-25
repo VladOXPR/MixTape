@@ -211,4 +211,3 @@ function controlVis() {
 
     new p5(control, 'control-container');
 }
-
