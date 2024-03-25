@@ -23,7 +23,7 @@
 
 <div class="settings-container">
 
-    <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form" style="padding-top:10px;">
+    <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
         <div class="image-container" id="image-box">
             <img src="{{ user_profile.profileimg.url }}"  id="image-box" class="public-block"
