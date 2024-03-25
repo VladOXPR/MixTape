@@ -193,7 +193,7 @@
 .bell-link {
     display: inline-block;
     right: 0;
-    padding: 20px;
+    padding: 17px;
     background-image: url('/media/bell.png');
     background-size: contain; /* Ensures the image fits within the link, maintaining its aspect ratio */
     background-repeat: no-repeat;

@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Public vis plays backgroung black">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="dynamic font size in settings bio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/8a83c8978f1b376321fde613d460e88d.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Drop_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Account_grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/Drop_white.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Account_white.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/bell_notify.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/send2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/send_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/threelines.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/trash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/waveform1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/details.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/settings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/drop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/drop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,15 +182,7 @@
       <workItem from="1709846951916" duration="3190000" />
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
-      <workItem from="1711398554902" duration="4931000" />
-    </task>
-    <task id="LOCAL-00024" summary="cropper improved / backup">
-      <option name="closed" value="true" />
-      <created>1705436000994</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1705436000994</updated>
+      <workItem from="1711398554902" duration="10815000" />
     </task>
     <task id="LOCAL-00025" summary="cropper improved / backup">
       <option name="closed" value="true" />
@@ -559,7 +568,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711353024310</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="dynamic font size in settings bio">
+      <option name="closed" value="true" />
+      <created>1711403813054</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1711403813054</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +598,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="continued project list drop down" />
     <MESSAGE value="styled sing-in and sign-up pages" />
     <MESSAGE value="Track Lengths" />
     <MESSAGE value="Workspace Styling change" />
@@ -606,6 +622,7 @@
     <MESSAGE value="Public vis" />
     <MESSAGE value="Public vis plays" />
     <MESSAGE value="Public vis plays backgroung black" />
-    <option name="LAST_COMMIT_MESSAGE" value="Public vis plays backgroung black" />
+    <MESSAGE value="dynamic font size in settings bio" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynamic font size in settings bio" />
   </component>
 </project>

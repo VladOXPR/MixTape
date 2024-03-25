@@ -65,29 +65,36 @@
                 <h4 style="color: white">{{ project.title }}</h4>
             </a>
 
-            {# Favorite function #}
-            <form method="POST" enctype="multipart/form-data" action="" style="display: none;">
-                {% csrf_token %}
-                <input type="hidden" name="form_type" value="favorite_project"/>
-                <input type="hidden" name="project_id" value="{{ project.id }}"/>
-                <input type="submit" value="Favorite Project" id="favorite-proj-{{ project.id }}"/>
-            </form>
-            <label for="favorite-proj-{{ project.id }}" class="project-icons">
-                <img src="/media/heart.png" alt="Favorite">
-            </label>
+            <div class="button-container">
+                {# Favorite function #}
+                <form method="POST" enctype="multipart/form-data" action="" style="display: none;">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_type" value="favorite_project"/>
+                    <input type="hidden" name="project_id" value="{{ project.id }}"/>
+                    <input type="submit" value="Favorite Project" id="favorite-proj-{{ project.id }}"/>
+                </form>
 
-            {# Delete function #}
-            <form method="POST" enctype="multipart/form-data" action="">
-                {% csrf_token %}
-                <input type="hidden" name="form_type" value="delete_project"/>
-                <input type="hidden" name="project_id" value="{{ project.id }}"/>
-                <input type="submit" value="Delete Project" style="display: none;" id="delete-proj-{{ project.id }}"
-                       onclick="return confirm('Are you sure you want to delete {{ project.title }} project?');"/>
-            </form>
-            <label for="delete-proj-{{ project.id }}" class="project-icons">
-                <img src="/media/trash.png" alt="Delete">
-            </label>
+                <label for="favorite-proj-{{ project.id }}" class="project-icons" style="height: 70%; width: 45%">
+                    {% if project.id == user_profile.fav_proj.id %}
+                        <img src="/media/heart_orange.png" alt="Not Favorite">
+                    {% else %}
+                        <img src="/media/heart_grey.png" alt="Favorite">
+                    {% endif %}
+                </label>
 
+                {# Delete function #}
+                <form method="POST" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_type" value="delete_project"/>
+                    <input type="hidden" name="project_id" value="{{ project.id }}"/>
+                    <input type="submit" value="Delete Project" style="display: none;" id="delete-proj-{{ project.id }}"
+                           onclick="return confirm('Are you sure you want to delete {{ project.title }} project?');"/>
+                </form>
+
+                <label for="delete-proj-{{ project.id }}" class="project-icons" style="height: 55%; width: 45%">
+                    <img src="/media/delete.png" alt="Delete">
+                </label>
+            </div>
         </div>
     {% empty %}
         <p>No current projects.</p>
@@ -113,7 +120,7 @@
 
         <div class="header-text-container">
             <a href="settings" class="navbar-text">
-                <img src="/media/Drop_grey.png" style="height: 35px">
+                <img src="/media/Account_grey.png" style="height: 35px">
             </a>
         </div>
     </nav>

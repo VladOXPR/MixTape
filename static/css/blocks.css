@@ -34,7 +34,7 @@
 }
 
 .project {
-    width: 70%;
+    width: 65%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -42,6 +42,16 @@
     margin: 3%;
     color: #1E2124;
     border: 2px #758087;
+}
+
+.button-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8%;
+    margin-right: 4%;
 }
 
 .public-block {
@@ -53,6 +63,7 @@
     background: url(<path-to-image>);
     border-color: #9ca3af;
 }
+
 
 .bio-and-music-block {
     position: absolute;
@@ -70,7 +81,7 @@
     height: 100%;
     color: white;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 10%;
     margin-top: 0;
 }
 
