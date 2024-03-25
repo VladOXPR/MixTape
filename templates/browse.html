@@ -38,18 +38,17 @@
                 <img src="{{ profile.profileimg.url }}" class="public-block"
                      style="width: 100%; filter: brightness(75%)">
 
-                <div class="bio-and-music-block" id="bio-text">
-                    <p>{{ profile.bio }}</p>
+                <div class="bio-and-music-block" id="bio-text-{{ profile.id_user }}">
+                    <p id="id_bio-{{ profile.id_user }}">{{ profile.bio }}</p>
 
-                            <div id="vis-container-{{ profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
-                            {% with profile.fav_proj.get_first_track as first_track %}
-                                {% if first_track %}
-                                    <script>
-                                        createVis({{ profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                                    </script>
-                                {% endif %}
-                            {% endwith %}
-
+                    <div id="vis-container-{{ profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
+                    {% with profile.fav_proj.get_first_track as first_track %}
+                        {% if first_track %}
+                            <script>
+                                createVis({{ profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
+                            </script>
+                        {% endif %}
+                    {% endwith %}
                 </div>
             </a>
         </div>
@@ -72,12 +71,38 @@
         </div>
 
         <div class="header-text-container">
-            <a href="/drop" class="navbar-text">
+            <a href="/settings" class="navbar-text">
                 <img src="/media/Drop_grey.png" style="height: 35px">
             </a>
         </div>
     </nav>
 </footer>
+<script>
+    function adjustFontSize(containerId, textId) {
+        const container = document.getElementById(containerId);
+        const text = document.getElementById(textId);
+
+        let fontSize = 10; // Starting font size
+        text.style.fontSize = fontSize + 'px';
+
+        // Increase font size until it no longer fits
+        while (text.scrollWidth <= container.offsetWidth && text.scrollHeight <= container.offsetHeight) {
+            fontSize++;
+            text.style.fontSize = fontSize + 'px';
+        }
+
+        // Once it overflows, revert to the last fitting size
+        fontSize--;
+        text.style.fontSize = fontSize + 'px';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        {% for profile in profiles %}
+            adjustFontSize('bio-text-{{ profile.id_user }}', 'id_bio-{{ profile.id_user }}');
+        {% endfor %}
+    });
+</script>
+
 </body>
 
 </html>

@@ -1,0 +1,100 @@
+.chat-container-parent {
+    position: relative; /* or 'absolute' if needed */
+    height: 100%; /* Take up full height of the body */
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse; /* Makes items align from the bottom */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+.chat-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    bottom: 0;
+    position: absolute;
+
+    width: 93%;
+    min-height: 90vh;
+    overflow-y: scroll;
+    z-index: 0;
+
+    padding: 10vh 0 20vh 0; /* top right bottom left */
+    border-radius: 10px;
+}
+
+.chat-input {
+    display: flex;
+    height: 60%;
+    width: 90%;
+    background: none;
+    border-radius: 25px;
+    border: 1px solid #818181
+}
+
+.chat-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 94%;
+    height: 100px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    color: #b9b9b9;
+    border: 2px #9ca3af;
+}
+
+.message-board-container {
+    width: 95%;
+    height: 100%;
+    display;
+    flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.message-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.message-received {
+    margin-right: auto;
+    background: #1E2124;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #adadad;
+}
+
+
+.message-sent {
+    margin-left: auto;
+    background: #DCDCDC;
+    border: 1px solid #959595;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.message-sent, .message-received {
+    max-width: 50%; /* Limit message width to prevent overflow */
+    clear: both; /* Ensure messages start on a new line */
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.send-button {
+    width: 10%;
+    height: 115%;
+    background-color: #5aacff;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

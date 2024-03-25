@@ -9,46 +9,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 </head>
 
 <body>
-<header>
-    <nav class="nav-container">
-
-    </nav>
-</header>
-
 <div class="dashboard">
 
-    <div class="profile-block" style="background: url({{ user_profile.profileimg.url }}) center/cover no-repeat;">
-
-        <div>
-            <p style="font-size: 20px">{{ user_profile.user.username }}</p>
+    <div class="image-block">
+        <img src="{{ user_profile.profileimg.url }}">
+    </div>
+    <div class="other">
+        <p class="public-name">{{ user_profile.name }}</p>
+        <div class="bio-container">
+            <p id="id_bio-{{ user_profile.id_user }}">{{ user_profile.bio }}</p>
         </div>
+
+        {% with user_profile.fav_proj as project %}
+            {% if project %}
+                <div class="project-block">
+                    <div class="project">
+                        <img src="{{ project.coverimg.url }}" style="height: 100%"/>
+                        <h4>{{ project.title }}</h4>
+                    </div>
+                </div>
+
+            {% else %}
+                <p>No Public Projects</p>
+            {% endif %}
+        {% endwith %}
+
+        <hr>
+
     </div>
-
-    <div class="projects-block">
-
-        {% for project in projects %}
-            <a href="workspace/{{ project.id }}" class="project">
-                <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <img src="/media/play.png" style="height: 75%"/>
-                <h4>{{ project.title }}</h4>
-            </a>
-
-        {% empty %}
-            <p>No current projects.</p>
-
-        {% endfor %}
+    <div class="secondary-footer">
+        <a href="setup" class="trackform-label" style="color: black;">CONNECT</a>
     </div>
-    <div style=""></div>
-</div>
-<footer>
-    <a href="/chat/{{ user_object.username }}" class="trackform-label">CONNECT</a>
-</footer>
+    <footer>
+        <nav style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="header-text-container">
+                <a href="/" class="navbar-text" style="font-size: 18px;">
+                    <img src="/media/Browse_grey.png" style="height: 35px">
+                </a>
+            </div>
+
+            <div class="header-text-container">
+                <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+                    <img src="/media/Create_white.png" style="height: 35px">
+                </a>
+            </div>
+
+            <div class="header-text-container">
+                <a href="/settings" class="navbar-text">
+                    <img src="/media/Drop_grey.png" style="height: 35px">
+                </a>
+            </div>
+        </nav>
+    </footer>
 </body>
 </html>

@@ -42,21 +42,17 @@
                  style="width: 100%; filter: brightness(75%)">
 
             <div class="bio-and-music-block" id="bio-text">
-                <p>{{ user_profile.bio }}</p>
+                <p id="id_bio">{{ user_profile.bio }}</p>
 
-                <div class="daw">
-                    <div class="modal" id="codeModal">
-                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
-                        {% with user_profile.fav_proj.get_first_track as first_track %}
-                            {% if first_track %}
-                                <script>
-                                    createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                                </script>
+                        <div id="vis-container" style="height: 100%; width: 50%;">
+                            {% if user_profile.fav_proj %}
+                                <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
+                            {% else %}
+                                <p>no project selected</p>
                             {% endif %}
-                        {% endwith %}
+                        </div>
                     </div>
-                </div>
-            </div>
+
         </a>
     </div>
 
@@ -67,7 +63,6 @@
         <div class="projects-block">
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <img src="media/play.png" style="height: 75%"/>
                 <h4 style="color: white">{{ project.title }}</h4>
             </a>
 
@@ -118,7 +113,7 @@
         </div>
 
         <div class="header-text-container">
-            <a href="drop" class="navbar-text">
+            <a href="settings" class="navbar-text">
                 <img src="/media/Drop_grey.png" style="height: 35px">
             </a>
         </div>

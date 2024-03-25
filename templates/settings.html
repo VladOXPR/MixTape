@@ -16,7 +16,6 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
-    <script src="{% static 'js/textAdjustment.js' %}"></script>
 </head>
 
 <body>
@@ -25,8 +24,9 @@
 
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
-        <div class="image-container" id="image-box">
-            <img src="{{ user_profile.profileimg.url }}"  id="image-box" class="public-block"
+        {% render_field form.profileimg class+="settings-pfp" %}
+        <label for="id_profileimg" class="image-container" id="image-box">
+            <img src="{{ user_profile.profileimg.url }}" id="image-box" class="public-block"
                  style="width: 100%; filter: brightness(75%)">
 
             {% render_field form.name class+="settings-name" %}
@@ -34,28 +34,18 @@
             <div class="bio-and-music-block" id="bio-text">
                 {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
 
-                {% with user_profile.fav_proj.get_first_track as first_track %}
-                    {% if first_track %}
-                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
-                        <script>
-                            createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                        </script>
 
-                    {% else %}
-                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;">
-                            <p>No track selected</p>
-                        </div>
-
+                <div id="vis-container" style="height: 100%; width: 50%;">
+                    {% if user_profile.fav_proj %}
+                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
+                        {% else %}
+                        <p>no project selected</p>
                     {% endif %}
-                {% endwith %}
+                </div>
+
+
             </div>
-        </div>
-        <div class="thin-block">
-            {% render_field form.profileimg class+="settings-pfp" %}
-            <label for="id_profileimg" class="pfpform-label">
-                <p>Click to Change Profile Picture</p>
-            </label>
-        </div>
+        </label>
     </form>
 
     <button id="confirm-btn" style="display: none;"></button>
@@ -77,18 +67,46 @@
 
         <div class="header-text-container">
             <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_white.png" style="height: 35px">
+                <img src="/media/Create_grey.png" style="height: 35px">
             </a>
         </div>
 
         <div class="header-text-container">
-            <a href="/drop" class="navbar-text">
-                <img src="/media/Drop_grey.png" style="height: 35px">
+            <a href="/settings" class="navbar-text">
+                <img src="/media/Drop_white.png" style="height: 35px">
             </a>
         </div>
     </nav>
 </footer>
+<script>
+    function adjustTextareaFontSize(textareaId) {
+        const textarea = document.getElementById(textareaId);
+        let fontSize = parseInt(window.getComputedStyle(textarea).fontSize);
 
+        // Function to adjust the font size
+        const adjust = () => {
+            // Reset font size and check if the textarea is overflowing
+            textarea.style.fontSize = `${fontSize}px`;
+            const isOverflowing = textarea.scrollHeight > textarea.clientHeight || textarea.scrollWidth > textarea.clientWidth;
+
+            // Decrease font size if overflowing
+            while (isOverflowing && fontSize > 1) {
+                fontSize--;
+                textarea.style.fontSize = `${fontSize}px`;
+            }
+        };
+
+        // Initial adjust
+        adjust();
+
+        // Adjust on input
+        textarea.addEventListener('input', adjust);
+    }
+
+    // Call the function with the ID of your textarea
+    document.addEventListener('DOMContentLoaded', adjustFontSize('id_bio'));
+
+</script>
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 

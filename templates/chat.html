@@ -9,9 +9,8 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">\
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 
 </head>
@@ -19,10 +18,9 @@
 <body>
 <header>
     <div class="blur-gradient "></div>
-    <nav>
-
-    </nav>
+    <nav></nav>
 </header>
+
 <div class="chat-container-parent">
     <div class="chat-container" id="chat-body">
 
@@ -46,18 +44,40 @@
         {% endfor %}
     </div>
 </div>
-<footer>
+
+<div class="secondary-footer">
     <form method="post" enctype="multipart/form-data" class="chat-input" id="myform">
         {% csrf_token %}
 
         {{ form.body }}
 
         <button type="submit" class="send-button">
-            <img src="/media/send2.png" style="height: 100%;"/>
+            <img src="/media/send2.png" style="height: 50px;"/>
         </button>
     </form>
-</footer>
+</div>
+<footer>
+    <nav style="grid-template-columns: 1fr 1fr 1fr;">
 
+        <div class="header-text-container">
+            <a href="/" class="navbar-text" style="font-size: 18px;">
+                <img src="/media/Browse_white.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+                <img src="/media/Create_grey.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/settings" class="navbar-text">
+                <img src="/media/Drop_grey.png" style="height: 35px">
+            </a>
+        </div>
+    </nav>
+</footer>
 <script>
     let sent_url = "{% url 'sent_msg' friend_object.username %}"
     let rec_url = "{% url 'rec_msg' friend_object.username %}"

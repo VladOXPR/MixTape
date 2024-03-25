@@ -9,7 +9,7 @@
 }
 
 
-.friends-block{
+.friends-block {
     width: 100%;
     height: 100px;
     flex-shrink: 0;
@@ -58,20 +58,28 @@
     position: absolute;
     bottom: 0;
     height: 25%;
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     border-color: black;
+    gap: 5%;
 }
 
-.bio-and-music-block p{
+.bio-and-music-block p {
     width: 50%;
     height: 100%;
     color: white;
     text-align: left;
-    margin-left: 10px;
     margin-bottom: 10px;
     margin-top: 0;
+}
+
+.vis-container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .messages-board {
@@ -85,22 +93,6 @@
     flex-shrink: 0;
 }
 
-.chat-input {
-    display: flex;
-    height: 60%;
-}
-
-.chat-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 94%;
-    height: 100px;
-    margin-bottom: 2%;
-    margin-top: 2%;
-    color: #b9b9b9;
-    border: 2px #9ca3af;
-}
 
 .setup-block {
     display: flex;
@@ -134,18 +126,16 @@
     font-family: 'Inter-Black', sans-serif;
     font-weight: 900;
     letter-spacing: -3px;
-
-
 }
 
 .title-input {
     background-color: #000000;
     color: #ffffff;
-    border: none;        /* Removes the default border */
+    border: none; /* Removes the default border */
     outline: none;
-    font-size: 35px;       /* Sets the font size to 35 pixels */
+    font-size: 35px; /* Sets the font size to 35 pixels */
     font-weight: bold;
-    width: 100%;           /* Sets the width to 100% of its parent container */
+    width: 100%; /* Sets the width to 100% of its parent container */
     box-sizing: border-box;
     letter-spacing: -2px;
 }
