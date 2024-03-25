@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="ruler sticks to top of modal">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="dynamic text glitch fixed">
+      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,94 +162,6 @@
       <workItem from="1709846951916" duration="3190000" />
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
-    </task>
-    <task id="LOCAL-00018" summary="cleaned up nav bar, footers, and stranger profile page">
-      <option name="closed" value="true" />
-      <created>1703654573636</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1703654573636</updated>
-    </task>
-    <task id="LOCAL-00019" summary="replaced and configured signin page with online template">
-      <option name="closed" value="true" />
-      <created>1703659378108</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1703659378108</updated>
-    </task>
-    <task id="LOCAL-00020" summary="took animated login button from login template and applied to create button">
-      <option name="closed" value="true" />
-      <created>1703660941520</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1703660941520</updated>
-    </task>
-    <task id="LOCAL-00021" summary="took animated login button from login template and applied to create button">
-      <option name="closed" value="true" />
-      <created>1703661116324</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1703661116324</updated>
-    </task>
-    <task id="LOCAL-00022" summary="crop attempt 2: successful, not styled">
-      <option name="closed" value="true" />
-      <created>1704824372356</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1704824372356</updated>
-    </task>
-    <task id="LOCAL-00023" summary="cropper improved / backup">
-      <option name="closed" value="true" />
-      <created>1705435957108</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1705435957108</updated>
-    </task>
-    <task id="LOCAL-00024" summary="cropper improved / backup">
-      <option name="closed" value="true" />
-      <created>1705436000994</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1705436000994</updated>
-    </task>
-    <task id="LOCAL-00025" summary="cropper improved / backup">
-      <option name="closed" value="true" />
-      <created>1705437478845</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1705437478845</updated>
-    </task>
-    <task id="LOCAL-00026" summary="not sure">
-      <option name="closed" value="true" />
-      <created>1706563943726</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1706563943726</updated>
-    </task>
-    <task id="LOCAL-00027" summary="daw + cropper merge to main">
-      <option name="closed" value="true" />
-      <created>1706651572559</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1706651572559</updated>
-    </task>
-    <task id="LOCAL-00028" summary="daw + cropper merge to main">
-      <option name="closed" value="true" />
-      <created>1706651610192</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1706651610192</updated>
     </task>
     <task id="LOCAL-00029" summary="cleared database and migrations, fixed cropper">
       <option name="closed" value="true" />
@@ -555,7 +467,95 @@
       <option name="project" value="LOCAL" />
       <updated>1711230429850</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="work on settings page">
+      <option name="closed" value="true" />
+      <created>1711336596227</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1711336596227</updated>
+    </task>
+    <task id="LOCAL-00068" summary="slight settings block margin adjustment">
+      <option name="closed" value="true" />
+      <created>1711336776829</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1711336776829</updated>
+    </task>
+    <task id="LOCAL-00069" summary="settings cropper fixed to new ui">
+      <option name="closed" value="true" />
+      <created>1711337968499</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1711337968499</updated>
+    </task>
+    <task id="LOCAL-00070" summary="dynamic text size for profile blocks to fill container">
+      <option name="closed" value="true" />
+      <created>1711340167861</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1711340167861</updated>
+    </task>
+    <task id="LOCAL-00071" summary="project page done">
+      <option name="closed" value="true" />
+      <created>1711344182817</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1711344182817</updated>
+    </task>
+    <task id="LOCAL-00072" summary="browse visualiser changed to gif">
+      <option name="closed" value="true" />
+      <created>1711345290087</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1711345290087</updated>
+    </task>
+    <task id="LOCAL-00073" summary="work on settings page, moved settings to third nav item">
+      <option name="closed" value="true" />
+      <created>1711346824159</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1711346824159</updated>
+    </task>
+    <task id="LOCAL-00074" summary="settings clean-up">
+      <option name="closed" value="true" />
+      <created>1711347592191</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1711347592191</updated>
+    </task>
+    <task id="LOCAL-00075" summary="browse revert back to visualizer, work on chat">
+      <option name="closed" value="true" />
+      <created>1711348681091</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1711348681091</updated>
+    </task>
+    <task id="LOCAL-00076" summary="chat styling complete">
+      <option name="closed" value="true" />
+      <created>1711351245720</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1711351245720</updated>
+    </task>
+    <task id="LOCAL-00077" summary="dynamic text glitch fixed">
+      <option name="closed" value="true" />
+      <created>1711352523948</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1711352523948</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,17 +577,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="no add button" />
-    <MESSAGE value="fixed friends display, double text glitch, press enter to send text" />
-    <MESSAGE value="made chat start at the bottom on page load" />
-    <MESSAGE value="added cropper to workspace and touched up settings cropper" />
-    <MESSAGE value="very very rough favorite project option list" />
-    <MESSAGE value="continued project list drop down" />
-    <MESSAGE value="styled sing-in and sign-up pages" />
-    <MESSAGE value="Track Lengths" />
-    <MESSAGE value="Workspace Styling change" />
-    <MESSAGE value="made new navbar css file" />
-    <MESSAGE value="made create project form" />
     <MESSAGE value="set-up page styling, cropper stopped uploading image" />
     <MESSAGE value="ADD TRACK button" />
     <MESSAGE value="rounded track blocks" />
@@ -602,6 +591,17 @@
     <MESSAGE value="Make full screen in browser" />
     <MESSAGE value="Daw cleanup" />
     <MESSAGE value="ruler sticks to top of modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="ruler sticks to top of modal" />
+    <MESSAGE value="work on settings page" />
+    <MESSAGE value="slight settings block margin adjustment" />
+    <MESSAGE value="settings cropper fixed to new ui" />
+    <MESSAGE value="dynamic text size for profile blocks to fill container" />
+    <MESSAGE value="project page done" />
+    <MESSAGE value="browse visualiser changed to gif" />
+    <MESSAGE value="work on settings page, moved settings to third nav item" />
+    <MESSAGE value="settings clean-up" />
+    <MESSAGE value="browse revert back to visualizer, work on chat" />
+    <MESSAGE value="chat styling complete" />
+    <MESSAGE value="dynamic text glitch fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynamic text glitch fixed" />
   </component>
 </project>

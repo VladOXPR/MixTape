@@ -52,7 +52,7 @@ footer {
     height: 10vh;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: -2px;
     background-color: #000000;
 }
 

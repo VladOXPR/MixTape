@@ -70,12 +70,16 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    height: 100%;
-    width: 87vw;
+
     position: relative;
     margin-top: 9vh;
     padding: 0 20px 10vh 20px; /* top right bottom left */
     z-index: 0;
+
+    width: 87vw;
+    overflow-y: auto;
+    max-height: 90vh;
+
 }
 
 .public-block-container {
