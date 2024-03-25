@@ -15,8 +15,8 @@
 
 .settings-container {
     width: 87vw;
-    height: 90vh;
-    margin-top: 9vh;
+    height: 100vh;
+    margin-top: 6vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +90,7 @@
 
     color: white;
     text-align: left;
+    font-family: Inter-Bold, sans-serif;
 }
 
 .settings-name {
@@ -177,4 +178,12 @@
     font-size: 20px;
     font-family: "Inter-Medium", sans-serif;
     color: #c93f3f;
+}
+
+.edit-heading {
+    font-family: 'Inter-Medium', sans-serif;
+    text-align: left;
+    font-size: 30px;
+    width: 100%;
+    margin: 0 0 2vh 0;
 }

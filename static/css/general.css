@@ -71,3 +71,13 @@ p {
 li {
     list-style-type: none;
 }
+
+input[type="text"]:focus {
+    outline: none;
+    border: none;
+}
+
+textarea:focus {
+    outline: none;
+    border: none;
+}
