@@ -38,5 +38,8 @@
     bottom: 10vh; /* Height of your main footer so it sits above it */
     padding: 10px 0;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 100; /* Ensure it's above the dashboard content */
 }

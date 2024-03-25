@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">\
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/chat.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 
@@ -46,14 +47,14 @@
 </div>
 
 <div class="secondary-footer">
-    <form method="post" enctype="multipart/form-data" class="chat-input" id="myform">
+    <form method="post" enctype="multipart/form-data" class="text-form" id="myform">
         {% csrf_token %}
 
-        {{ form.body }}
+        <div class="chat-form-container">
+            {% render_field form.body id="id_body" class="chat-input" %}
+            <button type="submit" class="send-button">SEND</button>
+        </div>
 
-        <button type="submit" class="send-button">
-            <img src="/media/send2.png" style="height: 50px;"/>
-        </button>
     </form>
 </div>
 <footer>

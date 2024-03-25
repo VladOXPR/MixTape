@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('/static/css/fonts/Inter/static/Inter-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('/static/css/fonts/Inter/static/Inter-Regular.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url('/static/css/fonts/Inter/static/Inter-Regular.ttf') format('truetype')
+}
+
 header {
     display: flex;
     justify-content: center;
