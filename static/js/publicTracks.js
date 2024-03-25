@@ -18,7 +18,6 @@ function createVis(trackId, mp3Url) {
             p.noFill();
         };
 
-
         p.draw = function () {
             p.clear();
             p.fill(0);

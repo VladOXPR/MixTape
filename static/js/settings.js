@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             success: function (response) {
                 console.log('success', response);
+                window.location.reload(true);
             },
             error: function (error) {
                 console.log('error', error);
