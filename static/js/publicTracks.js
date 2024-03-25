@@ -11,16 +11,14 @@ function createVis(trackId, mp3Url) {
       p.setup = function() {
         p.canvasWidth = barry.duration();
         p.createCanvas(p.canvasWidth, 50);
-        peaks = barry.getPeaks(p.canvasWidth);
+        peaks = barry.getPeaks(p.canvasWidth / 3.5);
         barry.loop();
       };
 
       p.draw = function() {
         p.clear();
-        p.fill(30, 33, 36);
-        p.stroke(48, 54, 58);
         p.strokeWeight(1);
-        p.rect(1, 1, p.width - 2, p.height - 2, 10);
+
         p.stroke(255);
 
         // Determine the current index in the peaks array
@@ -31,10 +29,11 @@ function createVis(trackId, mp3Url) {
           if (i <= currentIndex) {
             p.stroke(255); // White for peaks that the playback has reached
           } else {
-            p.stroke(128); // Grey for peaks not yet reached by playback
+            p.stroke(255); // Grey for peaks not yet reached by playback
           }
 
-          p.line(i, p.height / 2 + peaks[i] * 50, i, p.height / 2 - peaks[i] * 50);
+          let x = p.map(i, 0, peaks.length, 0, p.width);
+          p.line(x, p.height / 2 + peaks[i] * 40, x, p.height / 2 - peaks[i] * 40);
         }
       };
 

@@ -43,8 +43,8 @@ function createVis(trackId, mp3Url) {
 
         p.setup = function () {
             p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
-            p.createCanvas(p.canvasWidth, 100); // Creates canvas
-            p.peaks = p.song.getPeaks(p.canvasWidth / 3); // Gets the data pf the peaks to visually map out the song
+            p.createCanvas(p.canvasWidth * 3, 100); // Creates canvas
+            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data pf the peaks to visually map out the song
             p.noFill();
         };
 
