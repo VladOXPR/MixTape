@@ -41,9 +41,7 @@
                 <div class="bio-and-music-block" id="bio-text">
                     <p>{{ profile.bio }}</p>
 
-                    <div class="daw">
-                        <div class="modal" id="codeModal">
-                            <div id="vis-container-{{ profile.fav_proj.id }}" style="height: 100%;"></div>
+                            <div id="vis-container-{{ profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
                             {% with profile.fav_proj.get_first_track as first_track %}
                                 {% if first_track %}
                                     <script>
@@ -51,8 +49,6 @@
                                     </script>
                                 {% endif %}
                             {% endwith %}
-                        </div>
-                    </div>
 
                 </div>
             </a>

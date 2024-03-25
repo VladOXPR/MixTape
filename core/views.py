@@ -80,7 +80,10 @@ def settings(request):
 
     if form.is_valid():
         form.save()
-        return JsonResponse({'message': 'works'})
+        messages.success(request, 'Your settings have been updated.')
+        form = SettingsForm()
+        return redirect('settings')
+
     elif not form.is_valid():
         print('--- not valid ---')
         print(form.errors)

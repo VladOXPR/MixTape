@@ -13,54 +13,59 @@
     <link rel="stylesheet" href="{% static 'css/settings.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <script src="{% static 'js/p5.js' %}"></script>
+    <script src="{% static 'js/p5.sound.js' %}"></script>
+    <script src="{% static 'js/publicTracks.js' %}"></script>
+    <script src="{% static 'js/textAdjustment.js' %}"></script>
 </head>
 
 <body>
 
 <div class="settings-container">
-    <a href="{% url 'logout' %}?next=/signin" style="font-size: 30px; color: white;"><img src="media/threelines.png"
-                                                                                          style="height: 30px"></a>
 
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form" style="padding-top:10px;">
         {% csrf_token %}
+        <div class="image-container" id="image-box">
+            <img src="{{ user_profile.profileimg.url }}"  id="image-box" class="public-block"
+                 style="width: 100%; filter: brightness(75%)">
 
-        <img src="{{ user_profile.profileimg.url }}" class="public-block"
-             style="width: 100%; filter: brightness(75%)">
+            {% render_field form.name class+="settings-name" %}
 
-        {% render_field form.name class+="settings-name" %}
+            <div class="bio-and-music-block" id="bio-text">
+                {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
 
-        <div class="bio-and-music-block" id="bio-text">
-            {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
+                {% with user_profile.fav_proj.get_first_track as first_track %}
+                    {% if first_track %}
+                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
+                        <script>
+                            createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
+                        </script>
 
-            <div class="daw">
-                <div class="modal" id="codeModal">
-                    {% with user_profile.fav_proj.get_first_track as first_track %}
-                        {% if first_track %}
-                            <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;"></div>
-                            <script>
-                                createVis({{ user_profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                            </script>
+                    {% else %}
+                        <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;">
+                            <p>No track selected</p>
+                        </div>
 
-                        {% else %}
-                            <div id="vis-container-{{ user_profile.fav_proj.id }}" style="height: 100%;">
-                                <p>No track selected</p>
-                            </div>
-
-                        {% endif %}
-                    {% endwith %}
-                </div>
+                    {% endif %}
+                {% endwith %}
             </div>
         </div>
-
-        {% render_field form.profileimg class+="settings-pfp" %}
-        {#        <label for="id_profileimg" class="pfpform-label">#}
-        {#            <img src="media/upload-icon.png" id="image"#}
-        {#                 style="height: 20%; border: 5px dashed #000000;"></label>#}
-
+        <div class="thin-block">
+            {% render_field form.profileimg class+="settings-pfp" %}
+            <label for="id_profileimg" class="pfpform-label">
+                <p>Click to Change Profile Picture</p>
+            </label>
+        </div>
     </form>
-    <button class="save-changes" id="confirm-btn">Save Changes</button>
-</div>
 
+    <button id="confirm-btn" style="display: none;"></button>
+    <label for="confirm-btn" class="thin-block save-changes">Save Changes</label>
+
+    <a href="{% url 'logout' %}?next=/signin" class="thin-block log-out">
+        <p>Log Out</p>
+        <img src="media/threelines.png" style="height: 20px; aspect-ratio: auto;"></a>
+
+</div>
 <footer>
     <nav style="grid-template-columns: 1fr 1fr 1fr;">
 
