@@ -16,7 +16,6 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
-    <script src="{% static 'js/textAdjustment.js' %}"></script>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
         <div class="image-container" id="image-box">
-            <img src="{{ user_profile.profileimg.url }}"  id="image-box" class="public-block"
+            <img src="{{ user_profile.profileimg.url }}" id="image-box" class="public-block"
                  style="width: 100%; filter: brightness(75%)">
 
             {% render_field form.name class+="settings-name" %}
@@ -88,7 +87,35 @@
         </div>
     </nav>
 </footer>
+<script>
+    function adjustTextareaFontSize(textareaId) {
+        const textarea = document.getElementById(textareaId);
+        let fontSize = parseInt(window.getComputedStyle(textarea).fontSize);
 
+        // Function to adjust the font size
+        const adjust = () => {
+            // Reset font size and check if the textarea is overflowing
+            textarea.style.fontSize = `${fontSize}px`;
+            const isOverflowing = textarea.scrollHeight > textarea.clientHeight || textarea.scrollWidth > textarea.clientWidth;
+
+            // Decrease font size if overflowing
+            while (isOverflowing && fontSize > 1) {
+                fontSize--;
+                textarea.style.fontSize = `${fontSize}px`;
+            }
+        };
+
+        // Initial adjust
+        adjust();
+
+        // Adjust on input
+        textarea.addEventListener('input', adjust);
+    }
+
+    // Call the function with the ID of your textarea
+document.addEventListener('DOMContentLoaded', adjustFontSize('id_bio'));
+
+</script>
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 

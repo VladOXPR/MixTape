@@ -42,7 +42,7 @@
                  style="width: 100%; filter: brightness(75%)">
 
             <div class="bio-and-music-block" id="bio-text">
-                <p>{{ user_profile.bio }}</p>
+                <p id="id_bio">{{ user_profile.bio }}</p>
 
                 <div class="daw">
                     <div class="modal" id="codeModal">
@@ -67,7 +67,6 @@
         <div class="projects-block">
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <img src="media/play.png" style="height: 75%"/>
                 <h4 style="color: white">{{ project.title }}</h4>
             </a>
 
