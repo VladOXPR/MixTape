@@ -26,12 +26,11 @@ function createVis(trackId, mp3Url) {
             p.rect(1, 1, p.width - 2, p.height - 2, 3); // Creates rounded corners
         };
 
-        p.touchStarted = function () {
+        p.mouseClicked = function () {
             if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
                 isOriginalColor = !isOriginalColor;
                 isMuted = !isMuted;
             }
-            return false; // Prevent default
         };
     };
 
@@ -45,7 +44,7 @@ function createVis(trackId, mp3Url) {
         p.setup = function () {
             p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
             p.createCanvas(p.canvasWidth * 3, 100); // Creates canvas
-            p.peaks = p.song.getPeaks(p.canvasWidth * 0.9); // Gets the data pf the peaks to visually map out the song
+            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data pf the peaks to visually map out the song
             p.noFill();
         };
 
@@ -69,8 +68,6 @@ function createVis(trackId, mp3Url) {
                     p.line(x, p.height / 2 + p.peaks[i] * 40, x, p.height / 2 - p.peaks[i] * 40);
                 }
             }
-
-            p.song.setVolume(isMuted ? 0 : 1);
 
             if (p.song.isPlaying()) {
                 posX = p.map(p.song.currentTime(), 0, p.song.duration(), 0, p.width);
@@ -112,7 +109,7 @@ function createRuler() {
 
         let wasPlaying = false;
 
-        p.touchMoved = function () {
+        p.mouseDragged = function () {
             visInstances.forEach(vis => {
                 if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
                     if (!wasPlaying && vis.song.isPlaying()) {
@@ -123,10 +120,9 @@ function createRuler() {
                     posX = p.constrain(p.mouseX, 0, p.width);
                 }
             });
-            return false; // Prevent default
         };
 
-        p.touchEnded = function () {
+        p.mouseReleased = function () {
             visInstances.forEach(vis => {
                 let posM = vis.map(posX, 0, vis.width, 0, vis.song.duration());
 
@@ -136,8 +132,8 @@ function createRuler() {
                     wasPlaying = false;
                 }
             });
-            return false; // Prevent default
         };
+
 
         function drawPolygon(p, posX, posY, size) {
             p.push();
@@ -193,12 +189,11 @@ function controlVis() {
             p.image(img, p.width / 2, p.height / 2); // Center the image
         };
 
-        p.touchStarted = function () {
+        p.mouseClicked = function () {
             if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
                 isPlaying = !isPlaying;
                 togglePlayPauseAll(!isPlaying);
             }
-            return false; // Prevent default
         };
 
         function togglePlayPauseAll(play) {
@@ -216,4 +211,3 @@ function controlVis() {
 
     new p5(control, 'control-container');
 }
-
