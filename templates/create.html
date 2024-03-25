@@ -44,15 +44,14 @@
             <div class="bio-and-music-block" id="bio-text">
                 <p id="id_bio">{{ user_profile.bio }}</p>
 
-                        <div id="vis-container" style="height: 100%; width: 50%;">
-                            {% if user_profile.fav_proj %}
-                                <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
-                            {% else %}
-                                <p>no project selected</p>
-                            {% endif %}
-                        </div>
-                    </div>
-
+                <div id="vis-container" style="height: 100%; width: 50%;">
+                    {% if user_profile.fav_proj %}
+                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
+                    {% else %}
+                        <p>no project selected</p>
+                    {% endif %}
+                </div>
+            </div>
         </a>
     </div>
 

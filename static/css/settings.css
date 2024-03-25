@@ -22,6 +22,7 @@
     align-items: center;
     justify-items: center;
 }
+
 .settings-image-container {
     width: 100%;
     height: auto;
@@ -88,7 +89,7 @@
     backdrop-filter: blur(5px);
     background-color: rgba(0, 0, 0, 0.5);
 
-    color: white;
+    color: #A3B0C5;
     text-align: left;
     font-family: Inter-Bold, sans-serif;
 }
@@ -148,7 +149,7 @@
     max-height: 40vh;
 }
 
-.image-container:hover{
+.image-container:hover {
     cursor: pointer;
 }
 
@@ -162,10 +163,23 @@
     justify-content: center;
 }
 
-.save-changes {
+.minor-buttons {
+    width: 25%;
+    height: 25px;
+    background: #1E2023;
+    color: #758087;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 5% 0;
     font-family: "Inter-Medium", sans-serif;
+    font-size: 75%;
 
+}
+
+.confirm-btn {
+    position: absolute;
 }
 
 .log-out {

@@ -34,12 +34,13 @@
 
             <div class="bio-and-music-block" id="bio-text">
                 {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
+                {#                <p class="settings-bio" id="id_bio">{{ user_profile.bio }}</p>#}
 
 
                 <div id="vis-container" style="height: 100%; width: 50%;">
                     {% if user_profile.fav_proj %}
                         <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
-                        {% else %}
+                    {% else %}
                         <p>no project selected</p>
                     {% endif %}
                 </div>
@@ -48,13 +49,14 @@
             </div>
         </label>
     </form>
-
-    <button id="confirm-btn" style="display: none;"></button>
-    <label for="confirm-btn" class="thin-block save-changes">Save Changes</label>
-
-    <a href="{% url 'logout' %}?next=/signin" class="thin-block log-out">
+    <div style="width: 100%;">
+        <button id="confirm-btn" style="display: none;"></button>
+        <label for="confirm-btn" class="minor-buttons confirm-btn">Save Changes</label>
+    </div>
+    <a href="{% url 'logout' %}?next=/signin" class="minor-buttons log-out"
+       onclick="return confirm('Are you sure you want to Log Out?');">
         <p>Log Out</p>
-        <img src="media/threelines.png" style="height: 20px; aspect-ratio: auto;"></a>
+    </a>
 
 </div>
 <footer>
@@ -80,32 +82,36 @@
     </nav>
 </footer>
 <script>
-    function adjustTextareaFontSize(textareaId) {
-        const textarea = document.getElementById(textareaId);
-        let fontSize = parseInt(window.getComputedStyle(textarea).fontSize);
+    document.addEventListener('DOMContentLoaded', function () {
+        const textarea = document.getElementById('id_bio'); // Assuming this is the correct ID
+        adjustFontSizeToFit(textarea);
 
-        // Function to adjust the font size
-        const adjust = () => {
-            // Reset font size and check if the textarea is overflowing
-            textarea.style.fontSize = `${fontSize}px`;
-            const isOverflowing = textarea.scrollHeight > textarea.clientHeight || textarea.scrollWidth > textarea.clientWidth;
+        // Also adjust the font size on input
+        textarea.addEventListener('input', function () {
+            adjustFontSizeToFit(textarea);
+        });
+    });
 
-            // Decrease font size if overflowing
-            while (isOverflowing && fontSize > 1) {
-                fontSize--;
-                textarea.style.fontSize = `${fontSize}px`;
-            }
-        };
+    function adjustFontSizeToFit(element) {
+        console.log("adjusting...")
+        const maxHeight = element.offsetHeight; // The maximum height the textarea should have
+        let fontSize = parseInt(window.getComputedStyle(element).getPropertyValue('font-size'), 10);
+        element.style.overflowY = 'hidden'; // Prevent scrollbar from affecting calculations
 
-        // Initial adjust
-        adjust();
+        console.log(element.scrollHeight, maxHeight, fontSize)
+        // Initially, try increasing the font size
+        while (element.scrollHeight <= maxHeight) {
+            fontSize++;
+            element.style.fontSize = fontSize + 'px';
+        }
 
-        // Adjust on input
-        textarea.addEventListener('input', adjust);
+        // Once we've found that increasing causes overflow, step back one fontSize to stay within bounds
+        if (element.scrollHeight > maxHeight) {
+            fontSize--;
+            element.style.fontSize = fontSize + 'px';
+        }
     }
 
-    // Call the function with the ID of your textarea
-    document.addEventListener('DOMContentLoaded', adjustFontSize('id_bio'));
 
 </script>
 <!-- jquery -->
