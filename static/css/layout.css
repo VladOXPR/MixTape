@@ -48,16 +48,6 @@
     border-radius: 10px;
 }
 
-.message-board-container {
-    width: 95%;
-    height: 100%;
-    display;
-    flex;
-    align-items: center;
-    justify-items: center;
-}
-
-
 .info-container {
     width: 80%;
     display: flex;

@@ -21,7 +21,11 @@
 <body>
 
 <div class="settings-container">
-    <p class="edit-heading">Click To Edit</p>
+    <div style="display: flex; width: 100%; justify-content: center; text-align: center;"><p class="edit-heading">Click To Edit</p>
+        <a href="{% url 'logout' %}" class="minor-buttons log-out"
+           onclick="return confirm('Are you sure you want to Log Out?');">
+            <p>Log Out</p>
+        </a></div>
 
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
@@ -49,10 +53,6 @@
         <button id="confirm-btn" style="display: none;"></button>
         <label for="confirm-btn" class="minor-buttons confirm-btn">Save Changes</label>
     </div>
-    <a href="{% url 'logout' %}" class="minor-buttons log-out"
-       onclick="return confirm('Are you sure you want to Log Out?');">
-        <p>Log Out</p>
-    </a>
 
 </div>
 <footer>

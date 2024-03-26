@@ -8,30 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
-    <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" >
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/friends.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 </head>
 <body>
-<header>
-    <div class="blur-gradient "></div>
-</header>
 <div class="message-board-container">
-<div class="messages-board">
-    {% for chat in chats %}
-        <a href="chat/{{ chat.friend }}" class="chat-link">
-            <img src="{{ chat.friend.profileimg.url }}" style="height: 100%"/>
-            <div>
-            <h3 style="font-size: 25px; color: darkslategrey">{{ chat.friend }}</h3>
-            <h3 style="font-size: 20px">{{ chat.message.body}}</h3></div>
-        </a>
+    <div class="messages-board">
+        {% for chat in chats %}
+            <a href="chat/{{ chat.friend }}" class="chat-link">
+                <img src="{{ chat.friend.profileimg.url }}" style="height: 100%; border-radius: 5px;"/>
+                <div>
+                    <p style="font-size: 120%; font-family: 'Inter-Regular', sans-serif; color: #ffffff;">{{ chat.friend }}</p>
+                    <p style="font-size: 95%; font-family: 'Inter-Regular', sans-serif; color: #b9b9b9;">{{ chat.message.body }}</p>
+                </div>
+            </a>
 
-    {% empty %}
-        <p>No friends added.</p>
+        {% empty %}
+            <p>No friends added.</p>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
-</div>
+<footer>
+    <nav style="grid-template-columns: 1fr 1fr 1fr;">
+
+        <div class="header-text-container">
+            <a href="/" class="navbar-text" style="font-size: 18px;">
+                <img src="/media/Browse_white.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
+                <img src="/media/Create_grey.png" style="height: 35px">
+            </a>
+        </div>
+
+        <div class="header-text-container">
+            <a href="/settings" class="navbar-text">
+                <img src="/media/Account_grey.png" style="height: 35px">
+            </a>
+        </div>
+    </nav>
+</footer>
 </body>
 </html>

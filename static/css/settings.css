@@ -166,7 +166,6 @@
 }
 
 .minor-buttons {
-    width: 25%;
     height: 25px;
     background: #1E2023;
     color: #758087;
@@ -174,7 +173,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5% 0;
+    /*margin: 5% 0;*/
     font-family: "Inter-Medium", sans-serif;
     font-size: 75%;
 
@@ -182,12 +181,14 @@
 
 .confirm-btn {
     position: absolute;
+    width: 30%;
+    margin-top: 10px;
+
 }
 
 .log-out {
-    position: absolute;
-    bottom: 10vh;
     gap: 5%;
+    width: 40%;
 }
 
 .log-out p {
