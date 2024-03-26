@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import logout
 from django.contrib.auth.models import User, auth
 from .models import Profile, Project, Message, Track
 from django.contrib.auth.decorators import login_required
@@ -9,10 +10,8 @@ from django.utils.text import slugify
 from core.forms import ChatMessageForm, SettingsForm, CreateProjectForm, ProjectForm, TrackForm
 from django.contrib import messages
 from django.db.models import Q
-from colorthief import ColorThief
 import os
 from mixtape import settings as s
-from django.views.decorators.csrf import csrf_exempt
 
 
 @login_required(login_url='signin')
@@ -313,9 +312,14 @@ def signin(request):
             return redirect('create')
         else:
             messages.info(request, 'Credentials Invalid')
-            return redirect('')
+            return redirect('signin')
     else:
-        return render(request, 'signin.html')
+        return render(request, 'login.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('signin')
 
 
 def test(request):
