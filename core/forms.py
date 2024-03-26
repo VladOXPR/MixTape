@@ -1,6 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
 from django.forms import ModelForm
-from core.models import Profile, Project, Track, Message
+from core.models import User, Profile, Project, Track, Message
 
 
 class ChatMessageForm(ModelForm):
@@ -59,3 +60,8 @@ class SettingsForm(ModelForm):
             'bio': forms.Textarea(),
         }
 
+
+class SignInForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password', ]

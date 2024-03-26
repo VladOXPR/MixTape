@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             success: function (response) {
                 console.log('success', response)
                 if (response.redirect_url) {
-                    // Redirect to the given URL
                     window.location.href = response.redirect_url;
                 }
             },

@@ -1,13 +1,14 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import logout
+from django.views.decorators.http import require_POST
+from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.models import User, auth
 from .models import Profile, Project, Message, Track
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
 from django.utils.text import slugify
-from core.forms import ChatMessageForm, SettingsForm, CreateProjectForm, ProjectForm, TrackForm
+from core.forms import ChatMessageForm, SettingsForm, CreateProjectForm, ProjectForm, TrackForm, SignInForm
 from django.contrib import messages
 from django.db.models import Q
 import os
@@ -251,7 +252,6 @@ def setup(request):
     form = CreateProjectForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
-        print('--- VALID FORM ---')
         new_project = form.save(commit=False)
         new_project.save()
         new_project.profile.set([user_profile])
@@ -260,9 +260,7 @@ def setup(request):
             {'message': 'Project created successfully', 'redirect_url': f'/workspace/{slugify(new_project.id)}'})
 
     else:
-        print('--- not valid ---')
         print(form.errors)
-        print('------------------')
 
     return render(request, 'setup.html', {'form': form})
 
@@ -302,19 +300,18 @@ def signup(request):
 
 def signin(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = auth.authenticate(username=username, password=password)
-
-        if user is not None:
+        form = SignInForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
             auth.login(request, user)
-            return redirect('create')
+            return JsonResponse({'message': 'Signed in successfully', 'redirect_url': '/create'})
         else:
-            messages.info(request, 'Credentials Invalid')
-            return redirect('signin')
+            errors = form.errors.as_json()
+            non_field_errors = form.non_field_errors()  # Grab non-field errors
+            return JsonResponse({'message': 'Invalid credentials', 'errors': errors, 'non_field_errors': list(non_field_errors)}, status=400)
     else:
-        return render(request, 'login.html')
+        form = SignInForm()
+    return render(request, "login.html", {'form': form})
 
 
 def logout_view(request):

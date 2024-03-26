@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,23 +8,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <link rel="stylesheet" type="text/css" href="../static/css/signin.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <script src="{% static 'js/login.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="container">
-    <div class="login form">
-        <header>Login</header>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <input type="username" placeholder="Enter your username" name="username">
-            <input type="password" placeholder="Enter your password" name="password">
-            <button type="submit" class="button">Login</button>
-        </form>
-        <div class="signup">
+    <div class="wrong-cred" id="loginError">
+        <p>Wrong credentials. Try again.</p>
+    </div>
+
+    <div class="login-container">
+        <div class="login form">
+            <header>Login</header>
+
+            <form action="" enctype="multipart/form-data" id="loginForm" class="settings-form">
+                {% csrf_token %}
+                {% render_field form.username placeholder="username" %}
+                {% render_field form.password placeholder="password" %}
+            </form>
+            <button id="button" class="button">Login</button>
+
+
+            <div class="signup">
         <span class="signup">Don't have an account?
-         <a href="signup">Signup</a>
+            <a href="signup">Signup</a>
         </span>
+            </div>
         </div>
     </div>
 </div>
