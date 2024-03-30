@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
 from django.utils.text import slugify
-from core.forms import ChatMessageForm, SettingsForm, CreateProjectForm, ProjectForm, TrackForm, SignInForm
+from core.forms import SignInForm, SettingsForm, ChatMessageForm, CreateProjectForm, ProjectForm, TrackForm, SignUpForm
 from django.contrib import messages
 from django.db.models import Q
 import os
@@ -267,35 +267,61 @@ def setup(request):
 
 def signup(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        username = request.POST['username']
-        password = request.POST['password']
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            print('form is valid')
+            user = form.save()
+            user_login = authenticate(username=user.username, password=form.cleaned_data['password1'])
+            print(user)
+            print(user_login)
 
-        if User.objects.filter(email=email).exists():
-            messages.info(request, 'Email Taken')
-            return redirect('signup')
+            Profile.objects.create(user=user)
+            login(request, user_login)
 
-        elif User.objects.filter(username=username).exists():
-            messages.info(request, 'Username Taken')
-            return redirect('signup')
+            return JsonResponse({'message': 'Registered successfully', 'redirect_url': '/create'})
 
         else:
-            user = User.objects.create_user(email=email, username=username, password=password)
-            user.save()
-
-            # Log user in and redirect to creates page
-            user_login = auth.authenticate(username=username, password=password)
-            auth.login(request, user_login)
-
-            user_model = User.objects.get(username=username)
-            new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
-            new_profile.save()
-
-            return redirect('')
-
+            # Handle form errors
+            errors = form.errors.as_json()
+            return JsonResponse({'message': 'Registration failed', 'errors': errors}, status=400)
 
     else:
-        return render(request, 'signup.html')
+        form = SignUpForm()
+
+    return render(request, "signup.html", {'form': form})
+# def signup(request):
+#     if request.method == 'POST':
+#         email = request.POST['email']
+#         username = request.POST['username']
+#         password = request.POST['password']
+#
+#         if User.objects.filter(email=email).exists():
+#             messages.info(request, 'Email Taken')
+#             return redirect('signup')
+#
+#         elif User.objects.filter(username=username).exists():
+#             messages.info(request, 'Username Taken')
+#             return redirect('signup')
+#
+#         else:
+#             user = User.objects.create_user(email=email, username=username, password=password)
+#             user.save()
+#
+#             # Log user in and redirect to creates page
+#             user_login = auth.authenticate(username=username, password=password)
+#             auth.login(request, user_login)
+#
+#             user_model = User.objects.get(username=username)
+#             new_profile = Profile.objects.create(user=user_model)
+#             new_profile.save()
+#
+#             return redirect('create')
+#
+#
+#     else:
+#         return render(request, 'signup.html')
+
+
 
 
 def signin(request):
@@ -308,7 +334,9 @@ def signin(request):
         else:
             errors = form.errors.as_json()
             non_field_errors = form.non_field_errors()  # Grab non-field errors
-            return JsonResponse({'message': 'Invalid credentials', 'errors': errors, 'non_field_errors': list(non_field_errors)}, status=400)
+            return JsonResponse(
+                {'message': 'Invalid credentials', 'errors': errors, 'non_field_errors': list(non_field_errors)},
+                status=400)
     else:
         form = SignInForm()
     return render(request, "login.html", {'form': form})

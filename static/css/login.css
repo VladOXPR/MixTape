@@ -38,19 +38,33 @@ body {
     padding: 2rem;
 }
 
+
+
 .wrong-cred {
-    width: 100%;
+    width: 80%;
+    max-width: 430px;
     height: 50px;
-    margin-top: 63%;
 
     display: none;
     justify-content: center;
     align-items: center;
 
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     background: #FF4F00;
     color: #5F1D00;
     border-radius: 10px;
     font-size: 110%;
+}
+
+.login-error {
+        top: 25%;
+}
+
+.signup-error {
+        top: 19%;
 }
 
 .form header {

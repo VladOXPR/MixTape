@@ -17,8 +17,6 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
-    <script src="{% static 'js/textAdjustment.js' %}"></script>
-
 </head>
 
 <body>
@@ -43,7 +41,6 @@
 
             <div class="bio-and-music-block" id="bio-text">
                 <p id="id_bio">{{ user_profile.bio }}</p>
-
                 <div id="vis-container" style="height: 100%; width: 50%;">
                     {% if user_profile.fav_proj %}
                         <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
@@ -125,5 +122,6 @@
         </div>
     </nav>
 </footer>
+<script src="{% static 'js/dynamicText.js' %}" async></script>
 </body>
 </html>

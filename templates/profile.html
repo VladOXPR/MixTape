@@ -23,7 +23,7 @@
     <div class="other">
         <p class="public-name">{{ user_profile.name }}</p>
         <div class="bio-container">
-            <p id="id_bio-{{ user_profile.id_user }}">{{ user_profile.bio }}</p>
+            <p id="id_bio-{{ user_profile.user.id }}">{{ user_profile.bio }}</p>
         </div>
 
         {% with user_profile.fav_proj as project %}

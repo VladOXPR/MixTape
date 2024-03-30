@@ -1,20 +1,20 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+#.4cMybDbeWT9HR_
 
 User = get_user_model()
 
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_user = models.IntegerField()
 
-    friends = models.ManyToManyField("self", blank=True)
-    fav_proj = models.ForeignKey("Project", blank=True, null=True, on_delete=models.SET_NULL,
-                                 related_name='favorite_project')
+    # friends = models.ManyToManyField("self", blank=True)
+    # fav_proj = models.ForeignKey("Project", blank=True, null=True, on_delete=models.SET_NULL,
+    #                              related_name='favorite_project')
 
     profileimg = models.ImageField(upload_to='profile_images', default='blank-pfp.png')
     name = models.CharField(max_length=100, blank=True)
-    bio = models.TextField(blank=True)
+    bio = models.TextField(blank=True, default="")
 
     def __str__(self):
         return self.user.username

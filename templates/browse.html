@@ -16,7 +16,7 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
-    <script src="{% static 'js/textAdjustment.js' %}"></script>
+    {#    <script src="{% static 'js/textAdjustment.js' %}"></script>#}
 </head>
 
 <body>
@@ -38,8 +38,8 @@
                 <img src="{{ profile.profileimg.url }}" class="public-block"
                      style="width: 100%; filter: brightness(75%)">
 
-                <div class="bio-and-music-block" id="bio-text-{{ profile.id_user }}">
-                    <p id="id_bio-{{ profile.id_user }}">{{ profile.bio }}</p>
+                <div class="bio-and-music-block" id="bio-text-{{ profile.user.id }}">
+                    <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>
 
                     <div id="vis-container-{{ profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
                     {% with profile.fav_proj.get_first_track as first_track %}
@@ -83,12 +83,23 @@
         const text = document.getElementById(textId);
 
         let fontSize = 10; // Starting font size
+        const maxFontSize = 36; // Maximum font size
+        const minFontSize = 10; // Minimum font size
         text.style.fontSize = fontSize + 'px';
 
         // Increase font size until it no longer fits
-        while (text.scrollWidth <= container.offsetWidth && text.scrollHeight <= container.offsetHeight) {
+        while (text.scrollWidth <= container.offsetWidth &&
+        text.scrollHeight <= container.offsetHeight &&
+        fontSize <= maxFontSize) {
             fontSize++;
-            text.style.fontSize = fontSize + 'px';
+            text.style.fontSize = `${fontSize}px`;
+        }
+
+        if (fontSize > minFontSize) fontSize--;
+        text.style.fontSize = `${fontSize}px`;
+
+        if (fontSize < minFontSize) {
+            text.style.fontSize = `${minFontSize}px`;
         }
 
         // Once it overflows, revert to the last fitting size
@@ -98,15 +109,10 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         {% for profile in profiles %}
-            adjustFontSize('bio-text-{{ profile.id_user }}', 'id_bio-{{ profile.id_user }}');
+            adjustFontSize('bio-text-{{ profile.user.id }}', 'id_bio-{{ profile.user.id }}');
         {% endfor %}
     });
 
-    window.onload = function () {
-        {% for profile in profiles %}
-            adjustFontSize('bio-text-{{ profile.id_user }}', 'id_bio-{{ profile.id_user }}');
-        {% endfor %}
-    };
 
 </script>
 

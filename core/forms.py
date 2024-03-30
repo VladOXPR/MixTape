@@ -1,7 +1,8 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.forms import ModelForm
 from core.models import User, Profile, Project, Track, Message
+from django.core.exceptions import ValidationError
 
 
 class ChatMessageForm(ModelForm):
@@ -65,3 +66,25 @@ class SignInForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password', ]
+
+
+class SignUpForm(UserCreationForm):
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Enter your Email'}), required=True)
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Create your password'}))
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1']
+
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        # Remove password2 field
+        del self.fields['password2']
+
+    def save(self, commit=True):
+        user = super(SignUpForm, self).save(commit=False)
+        user.email = self.cleaned_data["email"]
+        user.set_password(self.cleaned_data["password1"])
+        if commit:
+            user.save()
+        return user

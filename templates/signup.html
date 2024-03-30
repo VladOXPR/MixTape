@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,23 +10,33 @@
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static '/css/login.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <script src="{% static 'js/signup.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body>
 <div class="container">
-    <div class="registration form">
-        <header>Signup</header>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <input type="email" placeholder="Enter your Email" name="email">
-            <input type="username" placeholder="Create a Username" name="username">
-            <input type="password" placeholder="Create your password" name="password">
-            <button type="submit" class="button">Signup</button>
-        </form>
-        <div class="signup">
+    <div class="wrong-cred signup-error" id="loginError">
+        <p>Wrong credentials. Try again.</p>
+    </div>
+    <div class="login-container">
+        <div class="registration form">
+            <header>Signup</header>
+                        <form action="" enctype="multipart/form-data" id="signUpForm" class="settings-form">
+                            {% csrf_token %}
+                            {% render_field form.email placeholder="Enter your Email" %}
+                            {% render_field form.username placeholder="Create a Username" %}
+                            {% render_field form.password1 placeholder="Create your password" id="id_password" %}
+                        </form>
+                        <button id="button" class="button">Signup</button>
+
+            <div class="signup">
         <span class="signup">Already have an account?
+            <br>
             <a href="signin" class="redirect-button">Sign In</a>
         </span>
+            </div>
         </div>
     </div>
 </div>
