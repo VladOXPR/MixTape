@@ -10,9 +10,9 @@
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/browse.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'Mixtape_logo.png' %}">
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
@@ -20,102 +20,130 @@
 </head>
 
 <body>
-<header>
-    <div class="blur-gradient "></div>
-    <nav>
-        <div class="search-bar">
-            <input type="search">
-            <div style="width: 12%; display: flex; justify-content: center">
-                <img src="media/search.png" style="height: 100%; width: auto; aspect-ratio: 1/1;"></div>
-        </div>
-    </nav>
-</header>
-<div class="scroll-container">
-    {% for profile in profiles reversed %}
-        <div class="public-block-container" style="position: relative; width: fit-content;">
-            <a href="profile/{{ profile.user }}" class="profile-link">
-                <p class="public-name">{{ profile.name }}</p>
-                <img src="{{ profile.profileimg.url }}" class="public-block"
-                     style="width: 100%; filter: brightness(75%)">
+    <header>
+        <div class="blur-gradient "></div>
 
-                <div class="bio-and-music-block" id="bio-text-{{ profile.user.id }}">
-                    <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>
+        <nav>
+            <div class="search-bar">
+                <input type="search">
 
-                    <div id="vis-container-{{ profile.fav_proj.id }}" style="height: 100%; width: 50%;"></div>
-                    {% with profile.fav_proj.get_first_track as first_track %}
-                        {% if first_track %}
-                            <script>
-                                createVis({{ profile.fav_proj.id }}, '{{ first_track.mp3.url }}');
-                            </script>
-                        {% endif %}
-                    {% endwith %}
+                <div style="width: 12%; display: flex; justify-content: center">
+                    <img src="media/search.png" style="height: 100%; width: auto; aspect-ratio: 1/1;">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="scroll-container">
+        {% for profile in profiles reversed %}
+            <a href="profile/{{ profile.user }}">
+                <div class="profile-block" style="background-image: url('{{ profile.profileimg.url }}'); border-radius: 10px;">
+                    <div class="name-block">
+                        <div style="font-size: 25px;">{{ profile.name }}</div>
+                    </div>
+
+                    <div class="blur-block">
+                        <div class="blur-top">
+                            <div class="top-left">
+                                <div id="bio-text-{{ profile.user.id }}">
+                                    <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>
+                                </div>
+                            </div>
+
+                            <div class="top-right"></div>
+                        </div>
+
+                        <div class="blur-bottom">
+                            <div class="bottom-left">
+                                Song Cover
+                            </div>
+
+                            <div class="bottom-mid"></div>
+
+                            <div class="bottom-right">
+                                Play button
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </a>
-        </div>
-    {% endfor %}
-</div>
-
-<footer>
-    <nav style="grid-template-columns: 1fr 1fr 1fr;">
-
-        <div class="header-text-container">
-            <a href="/" class="navbar-text" style="font-size: 18px;">
-                <img src="/media/Browse_white.png" style="height: 35px">
-            </a>
-        </div>
-
-        <div class="header-text-container">
-            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_grey.png" style="height: 35px">
-            </a>
-        </div>
-
-        <div class="header-text-container">
-            <a href="/settings" class="navbar-text">
-                <img src="/media/Account_grey.png" style="height: 35px">
-            </a>
-        </div>
-    </nav>
-</footer>
-<script>
-    function adjustFontSize(containerId, textId) {
-        const container = document.getElementById(containerId);
-        const text = document.getElementById(textId);
-
-        let fontSize = 10; // Starting font size
-        const maxFontSize = 36; // Maximum font size
-        const minFontSize = 10; // Minimum font size
-        text.style.fontSize = fontSize + 'px';
-
-        // Increase font size until it no longer fits
-        while (text.scrollWidth <= container.offsetWidth &&
-        text.scrollHeight <= container.offsetHeight &&
-        fontSize <= maxFontSize) {
-            fontSize++;
-            text.style.fontSize = `${fontSize}px`;
-        }
-
-        if (fontSize > minFontSize) fontSize--;
-        text.style.fontSize = `${fontSize}px`;
-
-        if (fontSize < minFontSize) {
-            text.style.fontSize = `${minFontSize}px`;
-        }
-
-        // Once it overflows, revert to the last fitting size
-        fontSize--;
-        text.style.fontSize = fontSize + 'px';
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        {% for profile in profiles %}
-            adjustFontSize('bio-text-{{ profile.user.id }}', 'id_bio-{{ profile.user.id }}');
+{#            <div class="public-block-container" style="position: relative; width: fit-content;">#}
+{#                <a href="profile/{{ profile.user }}" class="profile-link">#}
+{##}
+{#                    <p class="public-name">{{ profile.name }}</p>#}
+{##}
+{#                    <img src="{{ profile.profileimg.url }}" class="public-block"#}
+{#                         style="width: 100%; filter: brightness(75%)">#}
+{##}
+{##}
+{#                        <div class="bio-and-music-block" id="bio-text-{{ profile.user.id }}">#}
+{#                            <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>#}
+{##}
+{#                            {% with profile.fav_proj.get_first_track as first_track %}#}
+{#                                {% if first_track %}#}
+{#                                    <script>#}
+{#                                        createVis({{ profile.fav_proj.id }}, '{{ first_track.mp3.url }}');#}
+{#                                    </script>#}
+{#                                {% endif %}#}
+{#                            {% endwith %}#}
+{#                        </div>#}
+{#                </a>#}
+{#            </div>#}
         {% endfor %}
-    });
+    </div>
 
+    <footer>
+        <div class="nav2">
+            <a href="/">
+                <img src="/media/Browse_white.png" style="height: 25px">
+            </a>
 
-</script>
+            <a href="/create">
+                <img src="/media/Create_grey.png" style="height: 25px">
+            </a>
 
+            <a href="/settings">
+                <img src="/media/Account_grey.png" style="height: 25px">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function adjustFontSize(containerId, textId) {
+            const container = document.getElementById(containerId);
+            const text = document.getElementById(textId);
+
+            let fontSize = 16; // Starting font size
+            const maxFontSize = 16; // Maximum font size
+            const minFontSize = 10; // Minimum font size
+            text.style.fontSize = fontSize + 'px';
+
+            // Increase font size until it no longer fits
+            while (text.scrollWidth <= container.offsetWidth &&
+            text.scrollHeight <= container.offsetHeight &&
+            fontSize <= maxFontSize) {
+                fontSize++;
+                text.style.fontSize = `${fontSize}px`;
+            }
+
+            if (fontSize > minFontSize) fontSize--;
+            text.style.fontSize = `${fontSize}px`;
+
+            if (fontSize < minFontSize) {
+                text.style.fontSize = `${minFontSize}px`;
+            }
+
+            // Once it overflows, revert to the last fitting size
+            fontSize--;
+            text.style.fontSize = fontSize + 'px';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            {% for profile in profiles %}
+                adjustFontSize('bio-text-{{ profile.user.id }}', 'id_bio-{{ profile.user.id }}');
+            {% endfor %}
+        });
+    </script>
 </body>
 
 </html>

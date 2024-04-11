@@ -59,7 +59,7 @@
         <div class="projects-block">
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <p style="color: white">{{ project.title }}</p>
+                <h4 style="color: white">{{ project.title }}</h4>
             </a>
 
             <div class="button-container">
@@ -88,40 +88,33 @@
                            onclick="return confirm('Are you sure you want to delete {{ project.title }} project?');"/>
                 </form>
 
-                <label for="delete-proj-{{ project.id }}" class="project-icons" style="height: 55%; width: 45%">
-                    <img src="/media/delete.png" alt="Delete">
-                </label>
             </div>
         </div>
     {% empty %}
         <p>No current projects.</p>
     {% endfor %}
 
+    <div class="addtrack-container">
+        <a href="setup" class="trackform-label" style="color: black;"></a>
+    </div>
 </div>
-<div class="secondary-footer">
-    <a href="setup" class="trackform-label" style="color: black;">CREATE</a>
-</div>
+
 <footer>
-    <nav style="grid-template-columns: 1fr 1fr 1fr;">
-        <div class="header-text-container">
-            <a href="/" class="navbar-text" style="font-size: 18px;">
-                <img src="/media/Browse_grey.png" style="height: 35px">
-            </a>
-        </div>
+    <div class="nav2">
+        <a href="/">
+            <img src="/media/Browse_grey.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_white.png" style="height: 35px">
-            </a>
-        </div>
+        <a href="/create">
+            <img src="/media/Create_white.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="settings" class="navbar-text">
-                <img src="/media/Account_grey.png" style="height: 35px">
-            </a>
-        </div>
-    </nav>
+        <a href="/settings">
+            <img src="/media/Account_grey.png" style="height: 25px">
+        </a>
+    </div>
 </footer>
+
 <script src="{% static 'js/dynamicText.js' %}" async></script>
 </body>
 </html>
