@@ -42,9 +42,10 @@ function createVis(trackId, mp3Url) {
         };
 
         p.setup = function () {
-            p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
-            p.createCanvas(p.canvasWidth * 3, 100); // Creates canvas
-            p.peaks = p.song.getPeaks(p.canvasWidth * 100); // Gets the data pf the peaks to visually map out the song
+            p.canvasWidth = document.getElementById('codeModal').offsetWidth;
+            // p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
+            p.createCanvas(p.canvasWidth-1, 100); // Creates canvas
+            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data pf the peaks to visually map out the song
             p.noFill();
         };
 
@@ -92,7 +93,7 @@ function createRuler() {
     let ruler = function (p) {
         p.setup = function () {
             let containerWidth = document.getElementById('codeModal').offsetWidth;
-            p.createCanvas(containerWidth, 28);
+            p.createCanvas(containerWidth-1, 28);
             p.noFill();
         };
 
@@ -225,8 +226,8 @@ let micVis = function (p) {
     let finalPosX = 0;
 
     p.setup = function() {
-        let containerWidth = document.getElementById('codeModal').offsetWidth;
-        p.createCanvas(containerWidth, 100); // Set a fixed canvas size
+        p.canvasWidth = document.getElementById('codeModal').offsetWidth;
+        p.createCanvas(p.canvasWidth-55, 100); // Set a fixed canvas size
         mic = new p5.AudioIn();
         mic.start();
         recorder = new p5.SoundRecorder();
