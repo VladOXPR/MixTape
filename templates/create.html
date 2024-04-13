@@ -32,25 +32,25 @@
         </a>
     </div>
 </header>
-<div class="dashboard">
+<div class="dashboard" style="margin-top: 5rem;">
 
-    <div class="public-block-container" style="position: relative; width: fit-content; margin-top: 9vh;">
-        <a href="settings" class="profile-link">
-            <img src="{{ user_profile.profileimg.url }}" class="public-block"
-                 style="width: 100%; filter: brightness(75%)">
+<!--    <div class="public-block-container" style="position: relative; width: fit-content; margin-top: 9vh;">-->
+<!--        <a href="settings" class="profile-link">-->
+<!--            <img src="{{ user_profile.profileimg.url }}" class="public-block"-->
+<!--                 style="width: 100%; filter: brightness(75%)">-->
 
-            <div class="bio-and-music-block" id="bio-text">
-                <p id="id_bio">{{ user_profile.bio }}</p>
-                <div id="vis-container" style="height: 100%; width: 50%;">
-                    {% if user_profile.fav_proj %}
-                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
-                    {% else %}
-                        <p>no project selected</p>
-                    {% endif %}
-                </div>
-            </div>
-        </a>
-    </div>
+<!--            <div class="bio-and-music-block" id="bio-text">-->
+<!--                <p id="id_bio">{{ user_profile.bio }}</p>-->
+<!--                <div id="vis-container" style="height: 100%; width: 50%;">-->
+<!--                    {% if user_profile.fav_proj %}-->
+<!--                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">-->
+<!--                    {% else %}-->
+<!--                        <p>no project selected</p>-->
+<!--                    {% endif %}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
 
     <p class="project-heading">Projects</p>
 

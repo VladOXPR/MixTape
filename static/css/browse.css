@@ -16,7 +16,7 @@
     width: 100%;
     height: 100%;
     background: inherit; /* Inherit the background of the parent */
-    filter: brightness(75%); /* Dim the background by reducing brightness */
+    filter: brightness(80%); /* Dim the background by reducing brightness */
     z-index: 0;
 }
 
@@ -29,7 +29,7 @@
     display: flex;
     height: auto;
     margin-bottom: 7rem;
-    padding: 10px;
+    padding: 1rem;
 }
 
 .blur-block {
@@ -45,17 +45,17 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    heght: auto;
+    height: auto;
 }
 
 .top-left {
     width: 100%;
-    heght: auto;
+    height: auto;
 }
 
 .top-right {
     width: 100%;
-    heght: auto;
+    height: auto;
 }
 
 .blur-bottom {
@@ -66,19 +66,18 @@
 
 .bottom-left {
     width: 100%;
-    heght: auto;
-    background: #4ca0af;
+    height: auto;
 }
 
 .bottom-mid {
     width: 100%;
-    heght: auto;
+    height: auto;
 }
 
 .bottom-right {
     width: 100%;
-    heght: auto;
-    background: #4ca0af;
+    height: auto;
+    justify-content: flex-end;
 }
 
 

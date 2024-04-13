@@ -19,8 +19,10 @@ from mixtape import settings as s
 def browse(request):
     user_profile = Profile.objects.get(user=request.user)
 
+    unread = Message.objects.filter(seen=False, receiver=user_profile).count()
+
     profiles = Profile.objects.all()
-    return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles})
+    return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles, 'unread': unread,})
 
 
 @login_required(login_url='signin')
