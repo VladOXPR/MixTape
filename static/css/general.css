@@ -57,7 +57,7 @@ footer {
     width: 100%;
     text-align: center;
     padding-bottom: 4vh;
-    padding-top: 4vh;/* Adds space inside the footer at the bottom */
+    padding-top: 2vh;/* Adds space inside the footer at the bottom */
     box-sizing: border-box;
     background: black;
 }

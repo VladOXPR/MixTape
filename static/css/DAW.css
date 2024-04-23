@@ -183,5 +183,62 @@ nav {
     border-radius: 3px;
 }
 
+.frinds-list {
+    background: #14FF00;
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
 
+/* Reset checkbox appearance */
+.dropdown-toggle {
+    display: none;
+}
 
+/* Style for dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the button (label) */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu when checkbox is checked */
+.dropdown-toggle:checked + .dropdown-content {
+    display: block;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}

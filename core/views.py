@@ -206,8 +206,9 @@ def profile(request, pk):
 def workspace(request, pk):
     user_project = Project.objects.get(id=pk)
     project_tracks = user_project.track_set.all()
+    user_profile = Profile.objects.get(user=request.user)
+    friendships = user_profile.friends.all()
 
-    # Initialize form1 outside the POST check so it's available for the context
     form1 = TrackForm()
     form2 = ProjectForm(instance=user_project)
 
@@ -243,7 +244,8 @@ def workspace(request, pk):
         'user_project': user_project,
         'project_tracks': project_tracks,
         'form1': form1,
-        'form2': form2
+        'form2': form2,
+        'friendships': friendships,
     })
 
 

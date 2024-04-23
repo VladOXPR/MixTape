@@ -49,8 +49,10 @@
         {% for profile in profiles reversed %}
             <a href="profile/{{ profile.user }}">
                 <div class="profile-block" style="background-image: url('{{ profile.profileimg.url }}'); border-radius: 10px;">
-                    <div class="name-block">
-                        <div style="font-size: 25px;">{{ profile.name }}</div>
+                    <div class="top-block">
+                        <div class="name-block">
+                            <div style="font-size: 25px;">{{ profile.name }}</div>
+                        </div>
                     </div>
 
                     <div class="blur-block">
@@ -91,28 +93,6 @@
                     </div>
                 </div>
             </a>
-{#            <div class="public-block-container" style="position: relative; width: fit-content;">#}
-{#                <a href="profile/{{ profile.user }}" class="profile-link">#}
-{##}
-{#                    <p class="public-name">{{ profile.name }}</p>#}
-{##}
-{#                    <img src="{{ profile.profileimg.url }}" class="public-block"#}
-{#                         style="width: 100%; filter: brightness(75%)">#}
-{##}
-{##}
-{#                        <div class="bio-and-music-block" id="bio-text-{{ profile.user.id }}">#}
-{#                            <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>#}
-{##}
-{#                            {% with profile.fav_proj.get_first_track as first_track %}#}
-{#                                {% if first_track %}#}
-{#                                    <script>#}
-{#                                        createVis({{ profile.fav_proj.id }}, '{{ first_track.mp3.url }}');#}
-{#                                    </script>#}
-{#                                {% endif %}#}
-{#                            {% endwith %}#}
-{#                        </div>#}
-{#                </a>#}
-{#            </div>#}
         {% endfor %}
     </div>
 

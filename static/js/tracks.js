@@ -34,8 +34,6 @@ function createVis(trackId, mp3Url) {
         };
     };
 
-
-
     let vis = function (p) {
         p.preload = function () {
             p.song = p.loadSound(mp3Url);

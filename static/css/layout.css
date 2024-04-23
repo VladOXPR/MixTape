@@ -62,10 +62,9 @@
 
     position: relative;
     margin-top: 9vh;
-    padding: 0 20px 10vh 20px; /* top right bottom left */
+    padding: 0 35px 10vh 35px; /* top right bottom left */
     z-index: 0;
 
-    width: 87vw;
     overflow-y: auto;
     max-height: 90vh;
 

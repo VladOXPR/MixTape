@@ -36,6 +36,20 @@
                         <input type="submit" value="Delete Project"
                                onclick="return confirm('Are you sure you want to delete this project?');"/>
                     </form>
+
+                    <div class="dropdown">
+                        <label for="dropdown-checkbox" class="dropbtn">Collab</label>
+                        <input type="checkbox" id="dropdown-checkbox" class="dropdown-toggle">
+                        <div class="dropdown-content">
+                            {% for friend in friendships %}
+                                <a href="/chat/{{ friend }}">
+                                    <div class="frinds-list">
+                                        {{ friend }}
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,8 +107,6 @@
     <div>
         <label for="id_mp3" class="trackform-label"></label>
     </div>
-
-
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
