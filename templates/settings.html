@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <script src="{% static 'js/p5.js' %}"></script>
@@ -20,12 +21,22 @@
 
 <body>
 
-<div class="settings-container">
-    <div style="display: flex; width: 100%; justify-content: center; text-align: center;"><p class="edit-heading">Click To Edit</p>
+<header>
+    <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
+        <p class="private-name">Edit Profile</p>
         <a href="{% url 'logout' %}" class="minor-buttons log-out"
            onclick="return confirm('Are you sure you want to Log Out?');">
             <p>Log Out</p>
-        </a></div>
+        </a>
+    </div>
+</header>
+
+<div class="scroll-container">
+<!--    <div style="display: flex; width: 100%; justify-content: center; text-align: center;"><p class="edit-heading">Profile Settings</p>-->
+<!--        <a href="{% url 'logout' %}" class="minor-buttons log-out"-->
+<!--           onclick="return confirm('Are you sure you want to Log Out?');">-->
+<!--            <p>Log Out</p>-->
+<!--        </a></div>-->
 
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
@@ -38,20 +49,12 @@
 
             <div class="bio-and-music-block" id="bio-text">
                 {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
-
-                <div id="vis-container" style="height: 100%; width: 50%;">
-                    {% if user_profile.fav_proj %}
-                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
-                    {% else %}
-                        <p>no project selected</p>
-                    {% endif %}
-                </div>
             </div>
         </label>
     </form>
     <div style="width: 100%;">
         <button id="confirm-btn" style="display: none;"></button>
-        <label for="confirm-btn" class="minor-buttons confirm-btn">Save Changes</label>
+        <label for="confirm-btn" class="minor-buttons confirm-btn" style="background: #1E2023;">Save Changes</label>
     </div>
 
 </div>
@@ -84,7 +87,7 @@
     function adjustFontSizeToFit(element) {
         console.log("adjusting...")
         const maxHeight = element.offsetHeight; // The maximum height the textarea should have
-        let fontSize = parseInt(window.getComputedStyle(element).getPropertyValue('font-size'), 10);
+        let fontSize = 16;
         element.style.overflowY = 'hidden'; // Prevent scrollbar from affecting calculations
 
         console.log(element.scrollHeight, maxHeight, fontSize)
@@ -100,8 +103,6 @@
             element.style.fontSize = fontSize + 'px';
         }
     }
-
-
 </script>
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

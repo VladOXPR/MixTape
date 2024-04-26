@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@
 
 <header>
     <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
-        <p class="private-name">{{ user_profile.name }}</p>
+        <p class="private-name">Workspace</p>
         <div style="width: auto"></div>
         <a href="/friends" class="bell-link">
             <div class="corner-block">
@@ -34,9 +35,9 @@
     </div>
 </header>
 
-<div class="scroll-container" style="margin-top: 5rem;">
+<div class="scroll-container">
     <a href="/settings">
-        <div class="profile-block" style="background-image: url('{{ user_profile.profileimg.url }}'); border-radius: 10px;">
+        <div class="profile-block" style="background-image: url('{{ user_profile.profileimg.url }}'); border-radius: 10px; cursor: pointer;">
             <div class="top-block">
                 <div class="name-block">
                     <div style="font-size: 25px;">{{ user_profile.name }}</div>
@@ -46,9 +47,7 @@
             <div class="blur-block">
                 <div class="blur-top">
                     <div class="top-left" style="padding-top: 1rem; padding-left: 1rem;">
-                        <div id="bio-text" >
-                            <p id="id_bio">{{ user_profile.bio }}</p>
-                        </div>
+                        <p id="id_bio" style="font-size: 15px;">{{ user_profile.bio }}</p>
                     </div>
 
                     <div class="top-right"></div>
@@ -56,7 +55,7 @@
 
                 <div class="blur-bottom">
                     <div class="bottom-left">
-                        {% with profile.fav_proj as project %}
+                        {% with user_profile.fav_proj as project %}
                             {% if project %}
                                 <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">
                             {% else %}
@@ -68,10 +67,10 @@
                     <div class="bottom-mid"></div>
 
                     <div class="bottom-right" style="margin-bottom: 1rem;">
-                        {% with profile.fav_proj as project %}
+                        {% with user_profile.fav_proj as project %}
                             {% if project %}
                                 <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>
-                                <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ profile.name }}</div>
+                                <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ user_profile.name }}</div>
                             {% else %}
 
                             {% endif %}
@@ -82,25 +81,7 @@
         </div>
     </a>
 
-<!--    <div class="public-block-container" style="position: relative; width: fit-content; margin-top: 9vh;">-->
-<!--        <a href="settings" class="profile-link">-->
-<!--            <img src="{{ user_profile.profileimg.url }}" class="public-block"-->
-<!--                 style="width: 100%; filter: brightness(75%)">-->
-
-<!--            <div class="bio-and-music-block" id="bio-text">-->
-<!--                <p id="id_bio">{{ user_profile.bio }}</p>-->
-<!--                <div id="vis-container" style="height: 100%; width: 50%;">-->
-<!--                    {% if user_profile.fav_proj %}-->
-<!--                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">-->
-<!--                    {% else %}-->
-<!--                        <p>no project selected</p>-->
-<!--                    {% endif %}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </a>-->
-<!--    </div>-->
-
-    <p class="project-heading">Projects</p>
+    <p style="font-size: 20px; margin-top: 10px">Projects</p>
 
     {#working projects#}
     {% for project in user_projects %}
@@ -164,5 +145,6 @@
 </footer>
 
 <script src="{% static 'js/dynamicText.js' %}" async></script>
+
 </body>
 </html>

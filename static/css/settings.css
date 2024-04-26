@@ -167,7 +167,7 @@
 
 .minor-buttons {
     height: 25px;
-    background: #1E2023;
+    background: #FF4F00;
     color: #758087;
     border-radius: 15px;
     display: flex;
@@ -189,12 +189,13 @@
 .log-out {
     gap: 5%;
     width: 40%;
+    height: 30px;
 }
 
 .log-out p {
     font-size: 20px;
     font-family: "Inter-Medium", sans-serif;
-    color: #c93f3f;
+    color: #5F1D00;
 }
 
 .edit-heading {

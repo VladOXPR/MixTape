@@ -54,3 +54,9 @@ class Message(models.Model):
 
     def __str__(self):
         return self.body
+
+class Invite(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.project

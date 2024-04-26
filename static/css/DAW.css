@@ -150,7 +150,7 @@ nav {
     color: #ffffff;
     border: none; /* Removes the default border */
     outline: none;
-    font-size: 35px; /* Sets the font size to 35 pixels */
+    font-size: 25px; /* Sets the font size to 35 pixels */
     font-weight: bold;
     width: 100%; /* Sets the width to 100% of its parent container */
     box-sizing: border-box;
