@@ -20,30 +20,23 @@
 </head>
 
 <body>
-{#    <header>#}
-{#        <div class="blur-gradient "></div>#}
-{##}
-{#        <nav>#}
-{#            <div class="search-bar">#}
-{#                <input type="search">#}
-{##}
-{#                <div style="width: 12%; display: flex; justify-content: center">#}
-{#                    <img src="media/search.png" style="height: 100%; width: auto; aspect-ratio: 1/1;">#}
-{#                </div>#}
-{#            </div>#}
-{#        </nav>#}
-{#    </header>#}
-    <header>
-        <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
-            <p class="private-name">Connect</p>
+
+<header>
+    <div class="header-block">
+        <div class="header-left">
+            <p style="font-size: 25px;">Connect</p>
+        </div>
+
+        <div class="header-right">
             <div style="width: auto"></div>
-            <a href="/friends" class="bell-link">
+            <a href="/friends" class="bell-link" style="margin-right: 25px;">
                 <div class="corner-block">
                     <p>{{ unread }}</p>
                 </div>
             </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <div class="scroll-container">
         {% for profile in profiles reversed %}

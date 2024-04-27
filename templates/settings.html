@@ -22,12 +22,17 @@
 <body>
 
 <header>
-    <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
-        <p class="private-name">Edit Profile</p>
-        <a href="{% url 'logout' %}" class="minor-buttons log-out"
-           onclick="return confirm('Are you sure you want to Log Out?');">
-            <p>Log Out</p>
-        </a>
+    <div class="header-block">
+        <div class="header-left">
+            <p style="font-size: 25px;">Edit Profile</p>
+        </div>
+
+        <div class="header-right">
+            <a href="{% url 'logout' %}" class="minor-buttons log-out"
+               onclick="return confirm('Are you sure you want to Log Out?');">
+                <p>LOG OUT</p>
+            </a>
+        </div>
     </div>
 </header>
 

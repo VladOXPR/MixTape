@@ -13,6 +13,15 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
 </head>
 <body>
+
+<header>
+    <div class="header-block">
+        <div class="header-left">
+            <p style="font-size: 25px;">Friends</p>
+        </div>
+    </div>
+</header>
+
 <div class="message-board-container">
     <div class="messages-board">
         {% for chat in chats %}
@@ -28,11 +37,7 @@
             <p>No friends added.</p>
         {% endfor %}
 
-        {% for collab in collabs %}
-            <div style="background: #14FF00;">hi</div>
-        {% empty %}
-            <p></p>
-        {% endfor %}
+
     </div>
 </div>
     <footer>

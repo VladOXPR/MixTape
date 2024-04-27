@@ -24,16 +24,22 @@
 <body>
 
 <header>
-    <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
-        <p class="private-name">Workspace</p>
-        <div style="width: auto"></div>
-        <a href="/friends" class="bell-link">
-            <div class="corner-block">
-                <p>{{ unread }}</p>
-            </div>
-        </a>
+    <div class="header-block">
+        <div class="header-left">
+            <p style="font-size: 25px;">Workspace</p>
+        </div>
+
+        <div class="header-right">
+            <div style="width: auto"></div>
+            <a href="/friends" class="bell-link" style="margin-right: 25px;">
+                <div class="corner-block">
+                    <p>{{ unread }}</p>
+                </div>
+            </a>
+        </div>
     </div>
 </header>
+
 
 <div class="scroll-container">
     <a href="/settings">

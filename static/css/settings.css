@@ -110,9 +110,9 @@
 
     color: white;
     text-align: left;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 900;
-    letter-spacing: -3px;
+    letter-spacing: -1px;
 }
 
 .settings-pfp {
@@ -188,13 +188,12 @@
 
 .log-out {
     gap: 5%;
-    width: 40%;
-    height: 30px;
+    width: 60%;
 }
 
 .log-out p {
-    font-size: 20px;
-    font-family: "Inter-Medium", sans-serif;
+    font-size: 13px;
+    font-family: 'Inter-Bold', sans-serif;
     color: #5F1D00;
 }
 

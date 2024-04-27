@@ -193,7 +193,7 @@
 .bell-link {
     display: inline-block;
     right: 0;
-    padding: 17px;
+    padding: 13px;
     background-image: url('/media/bell.png');
     background-size: contain; /* Ensures the image fits within the link, maintaining its aspect ratio */
     background-repeat: no-repeat;
@@ -202,6 +202,7 @@
     text-decoration: none;
     position: absolute; /* Make this a positioning context for absolute children */
     z-index: 5;
+    scale: 90%;
 }
 
 .corner-block {
@@ -211,7 +212,7 @@
     width: 60%; /* Or adjust to your preference */
     height: 60%; /* Or adjust to your preference */
     background-color: #000000; /* Example color */
-    border-radius: 50%;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,7 +222,7 @@
     margin: 0; /* Remove default margin to help with centering */
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     color: #FF4F00;
 }
 
