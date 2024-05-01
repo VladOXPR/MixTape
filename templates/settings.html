@@ -37,11 +37,8 @@
 </header>
 
 <div class="scroll-container">
-<!--    <div style="display: flex; width: 100%; justify-content: center; text-align: center;"><p class="edit-heading">Profile Settings</p>-->
-<!--        <a href="{% url 'logout' %}" class="minor-buttons log-out"-->
-<!--           onclick="return confirm('Are you sure you want to Log Out?');">-->
-<!--            <p>Log Out</p>-->
-<!--        </a></div>-->
+    <div class="profile-block">
+    </div>
 
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
@@ -55,6 +52,7 @@
             <div class="bio-and-music-block" id="bio-text">
                 {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
             </div>
+
         </label>
     </form>
     <div style="width: 100%;">
