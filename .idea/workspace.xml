@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Daw top margin fix">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Favicon update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/workspace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/DAW.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/DAW.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,14 +171,6 @@
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
       <workItem from="1711398554902" duration="42373000" />
-    </task>
-    <task id="LOCAL-00041" summary="very very rough favorite project option list">
-      <option name="closed" value="true" />
-      <created>1709624165544</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1709624165544</updated>
     </task>
     <task id="LOCAL-00042" summary="continued project list drop down">
       <option name="closed" value="true" />
@@ -569,7 +556,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714598741598</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Favicon update">
+      <option name="closed" value="true" />
+      <created>1714647663232</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1714647663232</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +586,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="Make full screen in browser" />
     <MESSAGE value="Daw cleanup" />
     <MESSAGE value="ruler sticks to top of modal" />
     <MESSAGE value="touch screen test" />
@@ -616,7 +610,8 @@
     <MESSAGE value="Another UI cleanup/ nav cleanup" />
     <MESSAGE value="UI cleanup, DB cleanup" />
     <MESSAGE value="Daw top margin fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Daw top margin fix" />
+    <MESSAGE value="Favicon update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Favicon update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

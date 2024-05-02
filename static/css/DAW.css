@@ -184,6 +184,18 @@ nav {
     border-radius: 3px;
 }
 
+#play-button {
+    background-color: white;
+    width: 52px;
+    height: 28px;
+    cursor: pointer;
+    border: none;
+    background-image: url('/media/daw_play.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+}
+
 .frinds-list {
     background: #14FF00;
     position: relative;

@@ -169,36 +169,24 @@ function createRuler() {
     let myRuler = new p5(ruler, `ruler-container`);
 }
 
+let playButton;
+
 function controlVis() {
     let control = function (p) {
-        let isPlaying = true;
-        let playImg, pauseImg;
-
-        p.preload = function () {
-            playImg = p.loadImage('/media/daw_play.png'); // Loads play image
-            pauseImg = p.loadImage('/media/daw_pause.png'); // Loads pause image
-        };
+        let isPlaying = false;
 
         p.setup = function () {
-            p.createCanvas(52, 28);
-            p.imageMode(p.CENTER); // Ensures images are drawn centered on their coordinates
-        };
-
-        p.draw = function () {
-            p.background(0);
-            let img = isPlaying ? playImg : pauseImg; // Choose the image based on the playing state
-            p.image(img, p.width / 2, p.height / 2); // Center the image
-        };
-
-        p.mouseClicked = function () {
-            if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
-                isPlaying = !isPlaying;
-                togglePlayPauseAll(!isPlaying);
-            }
+            playButton = p.createButton('');
+            playButton.id('play-button');
+            playButton.parent('play-container');
+            playButton.mousePressed(() => {
+                isPlaying = !isPlaying; // Toggle the playing state
+                togglePlayPauseAll(isPlaying, playButton, p); // Pass the current state and button to function
+            });
         };
     };
 
-    new p5(control, 'control-container');
+    new p5(control);
 }
 
 function togglePlayPauseAll(play) {
@@ -211,6 +199,12 @@ function togglePlayPauseAll(play) {
             vis.song.pause();
         }
     });
+
+    if (play) {
+        playButton.style('background-image', 'url("/media/daw_pause.png")');  // When music plays, show pause
+    } else {
+        playButton.style('background-image', 'url("/media/daw_play.png")');  // When music pauses, show play
+    }
 }
 
 let micVis = function (p) {
@@ -235,7 +229,7 @@ let micVis = function (p) {
 
         recButton = p.createButton('');
         recButton.id('record-button');
-        recButton.parent('button-container');
+        recButton.parent('record-container');
         recButton.mousePressed(p.toggleRecording);
     };
 
