@@ -6,7 +6,7 @@
 <head>
     <title>Workspace</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/DAW.css' %}">
@@ -59,7 +59,7 @@
         </div>
 
         <div class="panel-container">
-            <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
+            <form action="" enctype="multipart/form-data" id="settings-form">
                 {% csrf_token %}
                 {% render_field form.profileimg class+="settings-pfp" %}
                 <label for="id_coverimg" class="image-container" id="image-box">

@@ -6,7 +6,7 @@
 <head>
     <title>Sign In</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" type="text/css" href="../static/css/login.css">
@@ -23,7 +23,10 @@
 
     <div class="login-container">
         <div class="login form">
-            <header>Login</header>
+            <div style="display: flex; justify-content: center;">
+                <img src="{% static 'favicon.png' %}" style="width: 10rem; margin-bottom: 2rem;">
+            </div>
+<!--            <header>Login</header>-->
 
             <form action="" enctype="multipart/form-data" id="loginForm" class="settings-form">
                 {% csrf_token %}

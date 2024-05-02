@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cropper = new Cropper(image, {
             aspectRatio: 1,
             zoomable: false,
-            viewMode: 4,
+            viewMode: 1,
             crop(event) {
                 console.log(event.detail);
             },
