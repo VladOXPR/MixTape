@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Favicon update">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="play button now button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/DAW.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/DAW.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/drop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/drop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,14 +180,6 @@
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
       <workItem from="1711398554902" duration="42373000" />
-    </task>
-    <task id="LOCAL-00042" summary="continued project list drop down">
-      <option name="closed" value="true" />
-      <created>1709744266480</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1709744266480</updated>
     </task>
     <task id="LOCAL-00043" summary="styled sing-in and sign-up pages">
       <option name="closed" value="true" />
@@ -564,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714647663232</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="play button now button">
+      <option name="closed" value="true" />
+      <created>1714652013596</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1714652013596</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +595,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="Daw cleanup" />
     <MESSAGE value="ruler sticks to top of modal" />
     <MESSAGE value="touch screen test" />
     <MESSAGE value="update commit" />
@@ -611,7 +619,8 @@
     <MESSAGE value="UI cleanup, DB cleanup" />
     <MESSAGE value="Daw top margin fix" />
     <MESSAGE value="Favicon update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Favicon update" />
+    <MESSAGE value="play button now button" />
+    <option name="LAST_COMMIT_MESSAGE" value="play button now button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
