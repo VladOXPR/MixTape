@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -8,10 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <script src="{% static 'js/p5.js' %}"></script>
@@ -22,44 +25,77 @@
 <body>
 
 <header>
-    <div style="width: 87vw; height: 10vh; z-index: 3; display: flex; position: relative; align-items: center; ">
-        <p class="private-name">{{ user_profile.name }}</p>
-        <div style="width: auto"></div>
-        <a href="/friends" class="bell-link">
-            <div class="corner-block">
-                <p>{{ unread }}</p>
-            </div>
-        </a>
+    <div class="header-block">
+        <div class="header-left">
+            <p style="font-size: 25px;">Workspace</p>
+        </div>
+
+        <div class="header-right">
+            <div style="width: auto"></div>
+            <a href="/friends" class="bell-link" style="margin-right: 25px;">
+                <div class="corner-block">
+                    <p>{{ unread }}</p>
+                </div>
+            </a>
+        </div>
     </div>
 </header>
-<div class="dashboard">
 
-    <div class="public-block-container" style="position: relative; width: fit-content; margin-top: 9vh;">
-        <a href="settings" class="profile-link">
-            <img src="{{ user_profile.profileimg.url }}" class="public-block"
-                 style="width: 100%; filter: brightness(75%)">
 
-            <div class="bio-and-music-block" id="bio-text">
-                <p id="id_bio">{{ user_profile.bio }}</p>
-                <div id="vis-container" style="height: 100%; width: 50%;">
-                    {% if user_profile.fav_proj %}
-                        <img src="/media/waveform.png" style="height: 110%; position: absolute; right: 0;">
-                    {% else %}
-                        <p>no project selected</p>
-                    {% endif %}
+<div class="scroll-container">
+    <a href="/settings">
+        <div class="profile-block" style="background-image: url('{{ user_profile.profileimg.url }}'); border-radius: 10px; cursor: pointer;">
+            <div class="top-block">
+                <div class="name-block">
+                    <div style="font-size: 25px;">{{ user_profile.name }}</div>
                 </div>
             </div>
-        </a>
-    </div>
 
-    <p class="project-heading">Projects</p>
+            <div class="blur-block">
+                <div class="blur-top">
+                    <div class="top-left" style="padding-top: 1rem; padding-left: 1rem;">
+                        <p id="id_bio" style="font-size: 15px;">{{ user_profile.bio }}</p>
+                    </div>
+
+                    <div class="top-right"></div>
+                </div>
+
+                <div class="blur-bottom">
+                    <div class="bottom-left">
+                        {% with user_profile.fav_proj as project %}
+                            {% if project %}
+                                <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">
+                            {% else %}
+                                <p></p>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <div class="bottom-mid"></div>
+
+                    <div class="bottom-right" style="margin-bottom: 1rem;">
+                        {% with user_profile.fav_proj as project %}
+                            {% if project %}
+                                <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>
+                                <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ user_profile.name }}</div>
+                            {% else %}
+
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <p style="font-size: 20px; margin-top: 10px">Projects</p>
 
     {#working projects#}
     {% for project in user_projects %}
         <div class="projects-block">
             <a href="workspace/{{ project.id }}" class="project">
                 <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <p style="color: white">{{ project.title }}</p>
+                <h4 style="color: white">{{ project.title }}</h4>
             </a>
 
             <div class="button-container">
@@ -88,40 +124,34 @@
                            onclick="return confirm('Are you sure you want to delete {{ project.title }} project?');"/>
                 </form>
 
-                <label for="delete-proj-{{ project.id }}" class="project-icons" style="height: 55%; width: 45%">
-                    <img src="/media/delete.png" alt="Delete">
-                </label>
             </div>
         </div>
     {% empty %}
-        <p>No current projects.</p>
+
     {% endfor %}
 
+    <div class="addtrack-container">
+        <a href="setup" class="trackform-label" style="color: black;"></a>
+    </div>
 </div>
-<div class="secondary-footer">
-    <a href="setup" class="trackform-label" style="color: black;">CREATE</a>
-</div>
+
 <footer>
-    <nav style="grid-template-columns: 1fr 1fr 1fr;">
-        <div class="header-text-container">
-            <a href="/" class="navbar-text" style="font-size: 18px;">
-                <img src="/media/Browse_grey.png" style="height: 35px">
-            </a>
-        </div>
+    <div class="nav2">
+        <a href="/">
+            <img src="/media/Browse_grey.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_white.png" style="height: 35px">
-            </a>
-        </div>
+        <a href="/create">
+            <img src="/media/Create_white.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="settings" class="navbar-text">
-                <img src="/media/Account_grey.png" style="height: 35px">
-            </a>
-        </div>
-    </nav>
+        <a href="/settings">
+            <img src="/media/Account_grey.png" style="height: 25px">
+        </a>
+    </div>
 </footer>
+
 <script src="{% static 'js/dynamicText.js' %}" async></script>
+
 </body>
 </html>

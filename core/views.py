@@ -19,8 +19,10 @@ from mixtape import settings as s
 def browse(request):
     user_profile = Profile.objects.get(user=request.user)
 
+    unread = Message.objects.filter(seen=False, receiver=user_profile).count()
+
     profiles = Profile.objects.all()
-    return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles})
+    return render(request, 'browse.html', {'user_profile': user_profile, 'profiles': profiles, 'unread': unread,})
 
 
 @login_required(login_url='signin')
@@ -30,6 +32,7 @@ def create(request):
 
     last_text = Message.objects.filter(receiver=user_profile).last()
     unread = Message.objects.filter(seen=False, receiver=user_profile).count()
+
 
     if last_text:
         last_text_user = Profile.objects.get(user=last_text.sender.user)
@@ -104,6 +107,7 @@ def friends(request):
     friendships = user_profile.friends.all()
 
     chats = []
+    collabs = [1, 2, 3]
 
     for friend in friendships:
         latest_message = Message.objects.filter(
@@ -120,7 +124,7 @@ def friends(request):
 
             chats.append(chat_info)
 
-    return render(request, 'friends.html', {'chats': chats})
+    return render(request, 'friends.html', {'chats': chats, 'collabs': collabs})
 
 
 @login_required(login_url='signin')
@@ -204,8 +208,9 @@ def profile(request, pk):
 def workspace(request, pk):
     user_project = Project.objects.get(id=pk)
     project_tracks = user_project.track_set.all()
+    user_profile = Profile.objects.get(user=request.user)
+    friendships = user_profile.friends.all()
 
-    # Initialize form1 outside the POST check so it's available for the context
     form1 = TrackForm()
     form2 = ProjectForm(instance=user_project)
 
@@ -241,7 +246,8 @@ def workspace(request, pk):
         'user_project': user_project,
         'project_tracks': project_tracks,
         'form1': form1,
-        'form2': form2
+        'form2': form2,
+        'friendships': friendships,
     })
 
 
@@ -289,40 +295,6 @@ def signup(request):
         form = SignUpForm()
 
     return render(request, "signup.html", {'form': form})
-# def signup(request):
-#     if request.method == 'POST':
-#         email = request.POST['email']
-#         username = request.POST['username']
-#         password = request.POST['password']
-#
-#         if User.objects.filter(email=email).exists():
-#             messages.info(request, 'Email Taken')
-#             return redirect('signup')
-#
-#         elif User.objects.filter(username=username).exists():
-#             messages.info(request, 'Username Taken')
-#             return redirect('signup')
-#
-#         else:
-#             user = User.objects.create_user(email=email, username=username, password=password)
-#             user.save()
-#
-#             # Log user in and redirect to creates page
-#             user_login = auth.authenticate(username=username, password=password)
-#             auth.login(request, user_login)
-#
-#             user_model = User.objects.get(username=username)
-#             new_profile = Profile.objects.create(user=user_model)
-#             new_profile.save()
-#
-#             return redirect('create')
-#
-#
-#     else:
-#         return render(request, 'signup.html')
-
-
-
 
 def signin(request):
     if request.method == 'POST':

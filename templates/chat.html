@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/general.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/chat.css' %}">
@@ -17,10 +18,6 @@
 </head>
 
 <body>
-<header>
-    <div class="blur-gradient "></div>
-    <nav></nav>
-</header>
 
 <div class="chat-container-parent">
     <div class="chat-container" id="chat-body">
@@ -36,7 +33,6 @@
                 <div class="message-container">
                     <div class="message-received"> {{ text }} </div>
                 </div>
-
 
             {% endif %}
 
@@ -58,26 +54,19 @@
     </form>
 </div>
 <footer>
-    <nav style="grid-template-columns: 1fr 1fr 1fr;">
+    <div class="nav2">
+        <a href="/">
+            <img src="/media/Browse_white.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="/" class="navbar-text" style="font-size: 18px;">
-                <img src="/media/Browse_white.png" style="height: 35px">
-            </a>
-        </div>
+        <a href="/create">
+            <img src="/media/Create_grey.png" style="height: 25px">
+        </a>
 
-        <div class="header-text-container">
-            <a href="/create" class="navbar-text" style="font-size: 30px; color: #ffffff;">
-                <img src="/media/Create_grey.png" style="height: 35px">
-            </a>
-        </div>
-
-        <div class="header-text-container">
-            <a href="/settings" class="navbar-text">
-                <img src="/media/Account_grey.png" style="height: 35px">
-            </a>
-        </div>
-    </nav>
+        <a href="/settings">
+            <img src="/media/Account_grey.png" style="height: 25px">
+        </a>
+    </div>
 </footer>
 <script>
     let sent_url = "{% url 'sent_msg' friend_object.username %}"

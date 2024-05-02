@@ -1,12 +1,13 @@
 * {
-    margin: 0px
+    margin: 0px;
+    max-width: 500px;
 }
 
 body {
     background: #000000;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     min-height: 100vh;
 }
 
@@ -36,6 +37,9 @@ footer {
 
 .project-card {
     display: flex;
+    margin-right: 8vw;
+    margin-left: 8vw;
+    margin-top: 2rem;
 }
 
 .panel-container {
@@ -46,14 +50,13 @@ footer {
 
 .left-panel, .right-panel {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: #000000;
     color: #FFFFFF; /* For contrast */
     display: flex;
     justify-content: center; /* Center content horizontally */
+    height: auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .coverimg-container {
@@ -75,8 +78,9 @@ footer {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin: 3px;
     display: inline-block;
+    border: none;
+    border-radius: 9px;
 }
 
 .trackform {
@@ -84,20 +88,18 @@ footer {
 }
 
 .trackform-label {
-    display: inline-block;
-    background-color: #ffffff; /* Green background */
-    color: #000000; /* White text */
-    padding: 10px 20px; /* Padding for size */
-    border: none; /* No border */
-    cursor: pointer; /* Cursor changes to indicate clickable */
-    border-radius: 24px; /* Rounded corners */
-    font-size: 25px; /* Text size */
-    text-align: center; /* Center text */
-    height: 25px;
-    width: 60%;
-    font-family: 'Inter-Black', sans-serif;
-    font-weight: 900;
-    letter-spacing: -3px;
+    display: flex;
+    background-image: url('/media/addtrack.png');
+    background-color: #ffffff;
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the background image */
+    color: #000000;
+    height: 41px;
+    width: 41px;
+    border-radius: 8px;
+    margin-left: 7.5px;
+    margin-top: 4px;
 }
 
 .header-text-container {
@@ -149,11 +151,11 @@ nav {
     color: #ffffff;
     border: none; /* Removes the default border */
     outline: none;
-    font-size: 35px; /* Sets the font size to 35 pixels */
+    font-size: 25px; /* Sets the font size to 35 pixels */
     font-weight: bold;
     width: 100%; /* Sets the width to 100% of its parent container */
     box-sizing: border-box;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
 }
 
 .daw {
@@ -170,5 +172,119 @@ nav {
     height: 100%; /* Adjust height as needed */
 }
 
+#record-button {
+    background-color: white;
+    width: 52px;
+    height: 100px;
+    cursor: pointer;
+    border: none;
+    background-image: url('/media/rec.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+}
 
+#play-button {
+    background-color: white;
+    width: 52px;
+    height: 28px;
+    cursor: pointer;
+    border: none;
+    background-image: url('/media/daw_play.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+}
 
+.frinds-list {
+    background: #14FF00;
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
+
+/* Reset checkbox appearance */
+.dropdown-toggle {
+    display: none;
+}
+
+/* Style for dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the button (label) */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu when checkbox is checked */
+.dropdown-toggle:checked + .dropdown-content {
+    display: block;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+.save {
+    background-color: #D9D9D9;
+    border-color: #758087;
+    border-radius: 20px 0px 0px 20px;
+    color: #000000;
+    font-family: 'Inter-Bold', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: -0.5px;
+    padding: 5px;
+    width: 65px;
+}
+
+.delete {
+    background-color: #FF4F00;
+    border-color: #5F1D00;
+    border-radius: 0px 20px 20px 0px;
+    color: #5F1D00;
+    font-family: 'Inter-Bold', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: -0.5px;
+    padding: 5px;
+    width: 65px;
+}
+
+.button-block {
+    display: flex;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: 7px;
+}

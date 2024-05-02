@@ -23,6 +23,28 @@ header {
     z-index: 3;
 }
 
+.header-block {
+    display: flex;
+    width: 100%;
+    margin-right: 30px;
+    margin-left: 30px;
+    justify-content: space-around;
+}
+
+.header-left {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 3.3vh;
+}
+
+.header-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 3.3vh;
+}
+
 nav {
     display: grid;
     justify-content: center;
@@ -32,6 +54,11 @@ nav {
     z-index: 3;
     background: linear-gradient(to bottom, black 30%, transparent 95%);
     height: 100%;
+}
+
+.nav2 {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 body {
@@ -46,26 +73,28 @@ body {
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    width: 100%;
     position: fixed;
-    bottom: -2px;
-    background-color: #000000;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 4vh;
+    padding-top: 2vh;/* Adds space inside the footer at the bottom */
+    box-sizing: border-box;
+    background: black;
 }
-
 
 a {
     text-decoration: none;
     font-family: 'Inter-Bold', sans-serif;
-    color: black;
+    color: white;
 }
 
 p {
     font-family: 'Inter-Bold', sans-serif;
     text-decoration: none;
+    margin: 0px;
+    color: #E4E4E4;
 }
 
 li {
