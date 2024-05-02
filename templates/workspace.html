@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'css/DAW.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'Mixtape_logo.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
@@ -58,9 +58,17 @@
         </div>
 
         <div class="panel-container">
-            <div class="right-panel">
-                <img src="{{ user_project.coverimg.url }}" id="image" style="height: auto; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px;">
-            </div>
+            <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
+                {% csrf_token %}
+                {% render_field form.profileimg class+="settings-pfp" %}
+                <label for="id_coverimg" class="image-container" id="image-box">
+                    <img src="{{ user_project.coverimg.url }}" id="image-box" class="public-block"
+                         style="width: 100%; border-radius: 10px;">
+                </label>
+            </form>
+<!--            <div class="right-panel">-->
+<!--                <img src="{{ user_project.coverimg.url }}" id="image" style="height: auto; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px;">-->
+<!--            </div>-->
         </div>
     </div>
 

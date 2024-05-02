@@ -37,9 +37,6 @@
 </header>
 
 <div class="scroll-container">
-    <div class="profile-block">
-    </div>
-
     <form action="" enctype="multipart/form-data" id="settings-form" class="settings-form">
         {% csrf_token %}
         {% render_field form.profileimg class+="settings-pfp" %}
