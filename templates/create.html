@@ -107,7 +107,7 @@
                     <input type="submit" value="Favorite Project" id="favorite-proj-{{ project.id }}"/>
                 </form>
 
-                <label for="favorite-proj-{{ project.id }}" class="project-icons" style="height: 70%; width: 45%">
+                <label for="favorite-proj-{{ project.id }}" class="project-icons" style="height: 3rem; width: 2rem">
                     {% if project.id == user_profile.fav_proj.id %}
                         <img src="/media/heart_orange.png" alt="Not Favorite">
                     {% else %}
