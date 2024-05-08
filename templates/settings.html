@@ -41,6 +41,7 @@
         {% csrf_token %}
         {% render_field form.profileimg class+="settings-pfp" %}
         <label for="id_profileimg" class="image-container" id="image-box">
+
             <img src="{{ user_profile.profileimg.url }}" id="image-box" class="public-block"
                  style="width: 100%; filter: brightness(75%)">
 

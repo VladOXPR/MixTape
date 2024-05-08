@@ -169,6 +169,7 @@
 .minor-buttons {
     height: 25px;
     background: #FF4F00;
+    border-color: #5F1D00;
     color: #758087;
     border-radius: 15px;
     display: flex;
@@ -181,7 +182,7 @@
 }
 
 .confirm-btn {
-    position: absolute;
+    position: relative;
     width: 30%;
     margin-top: 10px;
 

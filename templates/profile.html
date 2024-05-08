@@ -21,6 +21,7 @@
     <div class="image-block">
         <img src="{{ user_profile.profileimg.url }}">
     </div>
+
     <div class="other">
         <p class="public-name">{{ user_profile.name }}</p>
         <div class="bio-container">
@@ -35,32 +36,15 @@
                         <h4>{{ project.title }}</h4>
                     </div>
                 </div>
-
-            {% else %}
-                <p>No Public Projects</p>
             {% endif %}
         {% endwith %}
 
     </div>
 
-    <div class="secondary-footer">
-        <a href="/chat/{{ user_object.username }}" class="trackform-label" style="color: black;">Connect</a>
-    </div>
+
 
     <footer>
-        <div class="nav2">
-            <a href="/">
-                <img src="/media/Browse_white.png" style="height: 25px">
-            </a>
-
-            <a href="/create">
-                <img src="/media/Create_grey.png" style="height: 25px">
-            </a>
-
-            <a href="/settings">
-                <img src="/media/Account_grey.png" style="height: 25px">
-            </a>
-        </div>
+            <a href="/chat/{{ user_object.username }}" class="trackform-label" style="color: black;">Connect</a>
     </footer>
 </body>
 </html>

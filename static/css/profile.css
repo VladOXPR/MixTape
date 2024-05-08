@@ -13,30 +13,22 @@
 }
 
 .image-block {
-    width: 100%;
-    height: auto;
-    flex-shrink: 0;
+    width: 100%; /* Adjust width as needed */
+    height: 15rem; /* Fixed height */
     position: relative;
-}
-
-.image-block:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30%; /* Adjust the height of the blur effect */
-    background: linear-gradient(transparent, black);
-    pointer-events: none; /* Allows clicks to pass through */
+    overflow: hidden; /* Ensures the image is cropped */
 }
 
 .image-block img {
-    width: 100%;
+    width: 100%; /* Ensures the image covers the width */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* This will cover the area and crop the image */
+    object-position: center center; /* Adjusts the position of the image */
 }
 
 .other {
     width: 87vw;
-    margin-top: 1vh;
+    margin-top: 3vh;
 
     display: flex;
     flex-direction: column;
