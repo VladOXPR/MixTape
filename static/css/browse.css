@@ -29,7 +29,7 @@
     filter: brightness(80%); /* Dim the background by reducing brightness */
     z-index: 0;
     backdrop-filter: blur(30px); /* Apply blur effect for browsers */
-    webkit-backdrop-filter: blur(30px); /* Apply blur effect for Safari */
+    -webkit-backdrop-filter: blur(30px); /* Apply blur effect for Safari */
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
 

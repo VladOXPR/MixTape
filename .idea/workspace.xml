@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="blur for ios, profile block smaller">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="browse blur UI update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/browse.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/browse.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/create.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/create.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,14 +169,6 @@
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
       <workItem from="1711398554902" duration="42373000" />
-    </task>
-    <task id="LOCAL-00050" summary="ADD TRACK button">
-      <option name="closed" value="true" />
-      <created>1709968679365</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1709968679366</updated>
     </task>
     <task id="LOCAL-00051" summary="ADD TRACK button">
       <option name="closed" value="true" />
@@ -566,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715200308050</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="browse blur UI update">
+      <option name="closed" value="true" />
+      <created>1715415723499</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1715415723499</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +584,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="styled favorite and delete functions" />
     <MESSAGE value="100% hackerproof firewall bombastic not hackable (added a log out view)" />
     <MESSAGE value="log in page complete" />
     <MESSAGE value="friends page cleanup" />
@@ -613,7 +608,8 @@
     <MESSAGE value="confirmation remove for login" />
     <MESSAGE value="Profile/login page cleanup" />
     <MESSAGE value="blur for ios, profile block smaller" />
-    <option name="LAST_COMMIT_MESSAGE" value="blur for ios, profile block smaller" />
+    <MESSAGE value="browse blur UI update" />
+    <option name="LAST_COMMIT_MESSAGE" value="browse blur UI update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
