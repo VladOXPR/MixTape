@@ -81,7 +81,9 @@ footer {
     padding-bottom: 4vh;
     padding-top: 2vh;/* Adds space inside the footer at the bottom */
     box-sizing: border-box;
-    background: black;
+    backdrop-filter: blur(30px); /* Apply blur effect for browsers */
+    webkit-backdrop-filter: blur(30px); /* Apply blur effect for Safari */
+    background: rgba(0, 0, 0, 0.5);
 }
 
 a {

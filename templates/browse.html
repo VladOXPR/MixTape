@@ -42,46 +42,50 @@
     <div class="scroll-container">
         {% for profile in profiles reversed %}
             <a href="profile/{{ profile.user }}">
-                <div class="profile-block" style="background-image: url('{{ profile.profileimg.url }}'); border-radius: 10px;">
-<!--                    <div class="top-block">-->
-                        <div class="name-block">
-                            <div style="font-size: 25px;">{{ profile.name }}</div>
+                <div class="img-gradient-block" style="background-image: url('{{ profile.profileimg.url }}'); border-radius: 10px;">
+                    <div class="profile-block" style="background-image: url('{{ profile.profileimg.url }}'); border-radius: 10px;">
+                        <div class="top-block">
+                            <div class="name-block">
+                                <div style="font-size: 25px;">{{ profile.name }}</div>
+                            </div>
                         </div>
-<!--                    </div>-->
 
-                    <div class="blur-block">
-                        <div class="blur-top">
-                            <div class="top-left" style="padding-top: 1rem; padding-left: 1rem;">
-                                <div id="bio-text-{{ profile.user.id }}">
-                                    <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>
+                        <div class="blur-block">
+                            <div class="blur-top">
+                                <div class="top-left" style="padding-top: 1rem; padding-left: 1rem;">
+                                    <div id="bio-text-{{ profile.user.id }}">
+                                        <p id="id_bio-{{ profile.user.id }}">{{ profile.bio }}</p>
+                                    </div>
                                 </div>
+
+                                <div class="top-right"></div>
                             </div>
 
-                            <div class="top-right"></div>
-                        </div>
+                            <div class="blur-bottom">
+                                <div class="bottom-left">
+                                    {% with profile.fav_proj as project %}
+                                        {% if project %}
+                                            <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">
+                                        {% else %}
+                                            <p></p>
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
 
-                        <div class="blur-bottom">
-                            <div class="bottom-left">
-                                {% with profile.fav_proj as project %}
-                                    {% if project %}
-                                        <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">
-                                    {% else %}
-                                        <p></p>
-                                    {% endif %}
-                                {% endwith %}
-                            </div>
+                                <div class="bottom-mid">
+                                    {% with profile.fav_proj as project %}
+                                        {% if project %}
+                                            <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>
+                                            <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ profile.name }}</div>
+                                        {% else %}
 
-                            <div class="bottom-mid"></div>
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
 
-                            <div class="bottom-right" style="margin-bottom: 1rem;">
-                                {% with profile.fav_proj as project %}
-                                    {% if project %}
-                                        <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>
-                                        <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ profile.name }}</div>
-                                    {% else %}
+                                <div class="bottom-right">
 
-                                    {% endif %}
-                                {% endwith %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,6 +93,7 @@
             </a>
         {% endfor %}
     </div>
+
 
     <footer>
         <div class="nav2">

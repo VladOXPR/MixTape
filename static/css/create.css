@@ -102,3 +102,10 @@
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
+
+.cash-block {
+    position: absolute;
+    background-color: #FFF
+    width: 100px;
+    height: 100px;
+}

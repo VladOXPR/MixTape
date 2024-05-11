@@ -60,30 +60,30 @@
                     <div class="top-right"></div>
                 </div>
 
-                <div class="blur-bottom">
-                    <div class="bottom-left">
-                        {% with user_profile.fav_proj as project %}
-                            {% if project %}
-                                <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">
-                            {% else %}
-                                <p></p>
-                            {% endif %}
-                        {% endwith %}
-                    </div>
+<!--                <div class="blur-bottom">-->
+<!--                    <div class="bottom-left">-->
+<!--                        {% with user_profile.fav_proj as project %}-->
+<!--                            {% if project %}-->
+<!--                                <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">-->
+<!--                            {% else %}-->
+<!--                                <p></p>-->
+<!--                            {% endif %}-->
+<!--                        {% endwith %}-->
+<!--                    </div>-->
 
-                    <div class="bottom-mid"></div>
+<!--                    <div class="bottom-mid"></div>-->
 
-                    <div class="bottom-right" style="margin-bottom: 1rem;">
-                        {% with user_profile.fav_proj as project %}
-                            {% if project %}
-                                <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>
-                                <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ user_profile.name }}</div>
-                            {% else %}
+<!--                    <div class="bottom-right" style="margin-bottom: 1rem;">-->
+<!--                        {% with user_profile.fav_proj as project %}-->
+<!--                            {% if project %}-->
+<!--                                <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>-->
+<!--                                <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ user_profile.name }}</div>-->
+<!--                            {% else %}-->
 
-                            {% endif %}
-                        {% endwith %}
-                    </div>
-                </div>
+<!--                            {% endif %}-->
+<!--                        {% endwith %}-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </a>
@@ -132,6 +132,9 @@
 
     <div class="addtrack-container">
         <a href="setup" class="trackform-label" style="color: black;"></a>
+    </div>
+
+    <div class="cash-block">
     </div>
 </div>
 
