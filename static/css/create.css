@@ -55,8 +55,10 @@
 }
 
 .top-right {
+    display: flex;
     width: 100%;
     height: auto;
+    justify-content: flex-end;
 }
 
 .blur-bottom {
