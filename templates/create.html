@@ -28,7 +28,7 @@
 <header>
     <div class="header-block">
         <div class="header-left">
-            <p style="font-size: 25px;">Workspace</p>
+            <p style="font-size: 25px; color: white;">Workspace</p>
         </div>
 
         <div class="header-right">
@@ -43,7 +43,7 @@
 </header>
 
 
-<div class="scroll-container">
+<div class="scroll-container" style="margin-bottom: 12rem;">
     <a href="/settings">
         <div class="profile-block" style="background-image: url('{{ user_profile.profileimg.url }}'); border-radius: 10px; cursor: pointer;">
             <div class="name-block">
@@ -53,7 +53,7 @@
             <div class="blur-block">
                 <div class="blur-top">
                     <div class="top-left" style="padding-top: 1rem; padding-left: 1rem;">
-                        <p id="id_bio" style="font-size: 15px;">{{ user_profile.bio }}</p>
+                        <p id="id_bio" style="font-size: 15px; color: #C9C9C9;">{{ user_profile.bio }}</p>
                     </div>
 
                     <div class="top-right">
@@ -112,20 +112,17 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
 
-    <div class="addtrack-container">
-        <a href="setup" class="trackform-label" style="color: black;"></a>
-    </div>
-
-    <div class="cash-block">
+        <div class="addtrack-container">
+            <a href="setup" class="trackform-label" style="color: black;"></a>
+        </div>
     </div>
 </div>
 
 <footer style="margin: none; padding-bottom: 0vh; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); padding-top: 0vh;">
     <hr style="background-color: #1E2023; margin: 0px;">
 
-    <div style="background-color: #0C0C0D; width: 100%; height: 15rem; display: flex; flex-direction: column;">
+    <div style="background-color: #0C0C0D; width: 100%; height: 12rem; display: flex; flex-direction: column;">
         <div style="font-family: 'Inter-Bold', sans-serif;
                     font-size: 20px;
                     padding: 30px;

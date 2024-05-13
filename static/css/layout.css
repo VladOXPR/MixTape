@@ -62,7 +62,8 @@
 
     position: relative;
     margin-top: 10vh;
-    padding: 0 30px 10vh 30px; /* top right bottom left */
+    margin-bottom: 4rem;
+    padding: 0 30px 1rem 30px; /* top right bottom left */
     z-index: 0;
 
     overflow-y: auto;
