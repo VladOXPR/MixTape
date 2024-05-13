@@ -13,7 +13,6 @@
 }
 
 .projects-block {
-    width: 100%;
     flex-shrink: 0;
     border-radius: 10px;
     background: #1E2124;
@@ -22,6 +21,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .project {

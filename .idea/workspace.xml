@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="create profile UI fix">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="nav ajdust for blur">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Account_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Account_grey.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Browse_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Browse_grey.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Browse_white.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Browse_white.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Create_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/Create_grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/DAW.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/DAW.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/blocks.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/blocks.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/browse.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/browse.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/create.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/create.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/setup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/setup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/recs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/recs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +183,6 @@
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
       <workItem from="1711398554902" duration="42373000" />
-    </task>
-    <task id="LOCAL-00054" summary="removed public block play button">
-      <option name="closed" value="true" />
-      <created>1710195513979</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1710195513979</updated>
     </task>
     <task id="LOCAL-00055" summary="rec frame fix">
       <option name="closed" value="true" />
@@ -569,7 +568,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715420520384</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="nav ajdust for blur">
+      <option name="closed" value="true" />
+      <created>1715544938356</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1715544938356</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +598,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="friends page cleanup" />
     <MESSAGE value="Daw fix" />
     <MESSAGE value="Daw UI cleanup" />
     <MESSAGE value="browse restyle" />
@@ -616,7 +622,8 @@
     <MESSAGE value="browse blur UI update" />
     <MESSAGE value="webkit fix" />
     <MESSAGE value="create profile UI fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="create profile UI fix" />
+    <MESSAGE value="nav ajdust for blur" />
+    <option name="LAST_COMMIT_MESSAGE" value="nav ajdust for blur" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

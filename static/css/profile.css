@@ -13,10 +13,14 @@
 }
 
 .image-block {
-    width: 100%; /* Adjust width as needed */
-    height: 15rem; /* Fixed height */
+    width: 90%; /* Adjust width as needed */
+    height: 20rem; /* Fixed height */
     position: relative;
     overflow: hidden; /* Ensures the image is cropped */
+    background-size: cover; /* Ensures the background image covers the entire element */
+    background-position: center; /* Centers the background image */
+    overflow: hidden;
+    margin: 1rem;
 }
 
 .image-block img {

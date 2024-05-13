@@ -16,7 +16,7 @@
     max-width: 75%;
     width: 100%;
     background: #fff;
-    border-radius: 7px;
+    border-radius: 15px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -49,19 +49,10 @@ h1 {
     color: #fff;
     background: #1f1f1f;
 
-    width: 80%;
-    height: 80px;
-
-    margin-left: 10%;
-    margin-right: 10%;
-    border-radius: 7px;
-
-    font-size: 2rem;
-    font-weight: 500;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
     letter-spacing: 1px;
-    margin-top: .5rem;
-    cursor: pointer;
-    transition: 0.4s;
 }
 
 .form input.button:hover {
@@ -105,10 +96,10 @@ h1 {
 
 
 .titleform {
-    width: 600px;
-    height: 100px;
+    width: 100%px;
+    height: 50px;
     padding: 0 15px;
-    font-size: 35px;
+    font-size: 20px;
     margin-bottom: 1.3rem;
     border: 1px solid #ddd;
     border-radius: 6px;

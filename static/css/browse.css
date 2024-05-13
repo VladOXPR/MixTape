@@ -85,11 +85,11 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .bottom-left {
-    width: 100%;
+    width: auto;
     height: auto;
 }
 

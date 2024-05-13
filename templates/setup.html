@@ -18,7 +18,7 @@
 
 <body>
 <div class="container">
-    <h1 style="color:black;">New Project</h1>
+    <h1 style="color:black; font-size: 25px; font-family: 'Inter-Bold', sans-serif;">New Project</h1>
     <form action="" enctype="multipart/form-data" id="project-form" class="set-up-form">
         {% csrf_token %}
 
@@ -32,7 +32,7 @@
 
             {{ form.title }}
         </div>
-        <button class="button" id="confirm-btn">CREATE</button>
+        <button class="button" style="font-size: 20px;" id="confirm-btn">CREATE</button>
     </form>
 </div>
 

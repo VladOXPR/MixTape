@@ -16,35 +16,34 @@
 </head>
 
 <body>
-<div class="dashboard">
+    <div class="dashboard">
 
-    <div class="image-block">
-        <img src="{{ user_profile.profileimg.url }}">
-    </div>
-
-    <div class="other">
-        <p class="public-name">{{ user_profile.name }}</p>
-        <div class="bio-container">
-            <p id="id_bio-{{ user_profile.user.id }}">{{ user_profile.bio }}</p>
+        <div class="image-block" style="background-image: url('{{ user_profile.profileimg.url }}'); border-radius: 10px;">
         </div>
 
-        {% with user_profile.fav_proj as project %}
-            {% if project %}
-                <div class="project-block">
-                    <div class="project">
-                        <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                        <h4>{{ project.title }}</h4>
+        <div class="other">
+            <p class="public-name" style="margin-top: -1.5rem;">{{ user_profile.name }}</p>
+            <div class="bio-container">
+                <p id="id_bio-{{ user_profile.user.id }}">{{ user_profile.bio }}</p>
+            </div>
+
+            {% with user_profile.fav_proj as project %}
+                {% if project %}
+                    <div class="project-block">
+                        <div class="project">
+                            <img src="{{ project.coverimg.url }}" style="height: 100%; border-radius: 5px;"/>
+                            <h4>{{ project.title }}</h4>
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-        {% endwith %}
+                {% endif %}
+            {% endwith %}
 
-    </div>
+        </div>
 
-
-
-    <footer>
+        <footer>
             <a href="/chat/{{ user_object.username }}" class="trackform-label" style="color: black;">Connect</a>
-    </footer>
+        </footer>
+    </div>
 </body>
+
 </html>
