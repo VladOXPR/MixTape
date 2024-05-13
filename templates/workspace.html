@@ -36,8 +36,7 @@
                         <form method="POST" enctype="multipart/form-data" action="">
                             {% csrf_token %}
                             <input type="hidden" name="form_type" value="delete_project"/>
-                            <input class="delete" type="submit" value="DELETE"
-                                   onclick="return confirm('Are you sure you want to delete this project?');"/>
+                            <input class="delete" type="submit" value="DELETE"/>
                         </form>
                     </div>
 
@@ -118,9 +117,11 @@
         {{ form1.mp3 }}
     </form>
 
-    <div>
+    <div style="background: #0C0C0D; padding-bottom: 0.5rem;">
         <label for="id_mp3" class="trackform-label"></label>
     </div>
+
+    <hr style="background-color: #1E2023; margin: 0px;">
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

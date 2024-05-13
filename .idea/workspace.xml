@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Icon">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="UI cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/workspace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/setup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/setup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blank-project.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/blank-project.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/browse.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/browse.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/setup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/setup.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,110 +172,6 @@
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
       <workItem from="1711398554902" duration="42373000" />
-    </task>
-    <task id="LOCAL-00044" summary="Track Lengths">
-      <option name="closed" value="true" />
-      <created>1709755464641</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1709755464641</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Workspace Styling change">
-      <option name="closed" value="true" />
-      <created>1709843716366</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1709843716366</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Workspace Styling change">
-      <option name="closed" value="true" />
-      <created>1709844042577</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1709844042577</updated>
-    </task>
-    <task id="LOCAL-00047" summary="made new navbar css file">
-      <option name="closed" value="true" />
-      <created>1709847572504</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1709847572504</updated>
-    </task>
-    <task id="LOCAL-00048" summary="made create project form">
-      <option name="closed" value="true" />
-      <created>1709848412115</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1709848412115</updated>
-    </task>
-    <task id="LOCAL-00049" summary="set-up page styling, cropper stopped uploading image">
-      <option name="closed" value="true" />
-      <created>1709857300412</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1709857300412</updated>
-    </task>
-    <task id="LOCAL-00050" summary="ADD TRACK button">
-      <option name="closed" value="true" />
-      <created>1709968679365</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1709968679366</updated>
-    </task>
-    <task id="LOCAL-00051" summary="ADD TRACK button">
-      <option name="closed" value="true" />
-      <created>1709968830667</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1709968830667</updated>
-    </task>
-    <task id="LOCAL-00052" summary="ADD TRACK button">
-      <option name="closed" value="true" />
-      <created>1710182360318</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1710182360319</updated>
-    </task>
-    <task id="LOCAL-00053" summary="rounded track blocks">
-      <option name="closed" value="true" />
-      <created>1710195334103</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1710195334103</updated>
-    </task>
-    <task id="LOCAL-00054" summary="removed public block play button">
-      <option name="closed" value="true" />
-      <created>1710195513979</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1710195513979</updated>
-    </task>
-    <task id="LOCAL-00055" summary="rec frame fix">
-      <option name="closed" value="true" />
-      <created>1710200987262</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1710200987262</updated>
-    </task>
-    <task id="LOCAL-00056" summary="rec frame fix">
-      <option name="closed" value="true" />
-      <created>1710201740489</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1710201740489</updated>
     </task>
     <task id="LOCAL-00057" summary="settings form fixed">
       <option name="closed" value="true" />
@@ -571,7 +461,111 @@
       <option name="project" value="LOCAL" />
       <updated>1714654170454</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="commit">
+      <option name="closed" value="true" />
+      <created>1714657321202</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1714657321202</updated>
+    </task>
+    <task id="LOCAL-00094" summary="heart fix 1">
+      <option name="closed" value="true" />
+      <created>1714721743277</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1714721743277</updated>
+    </task>
+    <task id="LOCAL-00095" summary="confirmation remove">
+      <option name="closed" value="true" />
+      <created>1714982974066</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1714982974066</updated>
+    </task>
+    <task id="LOCAL-00096" summary="confirmation remove for login">
+      <option name="closed" value="true" />
+      <created>1714983998167</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1714983998167</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Profile/login page cleanup">
+      <option name="closed" value="true" />
+      <created>1715127507360</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1715127507360</updated>
+    </task>
+    <task id="LOCAL-00098" summary="blur for ios, profile block smaller">
+      <option name="closed" value="true" />
+      <created>1715200308050</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1715200308050</updated>
+    </task>
+    <task id="LOCAL-00099" summary="browse blur UI update">
+      <option name="closed" value="true" />
+      <created>1715415723499</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1715415723499</updated>
+    </task>
+    <task id="LOCAL-00100" summary="webkit fix">
+      <option name="closed" value="true" />
+      <created>1715416076843</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1715416076843</updated>
+    </task>
+    <task id="LOCAL-00101" summary="create profile UI fix">
+      <option name="closed" value="true" />
+      <created>1715420444986</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1715420444986</updated>
+    </task>
+    <task id="LOCAL-00102" summary="create profile UI fix">
+      <option name="closed" value="true" />
+      <created>1715420520384</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1715420520384</updated>
+    </task>
+    <task id="LOCAL-00103" summary="nav ajdust for blur">
+      <option name="closed" value="true" />
+      <created>1715544938356</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1715544938356</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Home page update, setup fix, friends UI cleanup">
+      <option name="closed" value="true" />
+      <created>1715588884221</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1715588884221</updated>
+    </task>
+    <task id="LOCAL-00105" summary="UI cleanup">
+      <option name="closed" value="true" />
+      <created>1715615510285</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1715615510285</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,17 +587,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="touch screen test" />
-    <MESSAGE value="update commit" />
-    <MESSAGE value="Public vis" />
-    <MESSAGE value="Public vis plays" />
-    <MESSAGE value="Public vis plays backgroung black" />
-    <MESSAGE value="dynamic font size in settings bio" />
-    <MESSAGE value="styled favorite and delete functions" />
-    <MESSAGE value="100% hackerproof firewall bombastic not hackable (added a log out view)" />
-    <MESSAGE value="log in page complete" />
-    <MESSAGE value="friends page cleanup" />
-    <MESSAGE value="Daw fix" />
     <MESSAGE value="Daw UI cleanup" />
     <MESSAGE value="browse restyle" />
     <MESSAGE value="Daw modal cleanup" />
@@ -611,14 +594,25 @@
     <MESSAGE value="browse, fav song cover, DB cleanup" />
     <MESSAGE value="Friends nav fix" />
     <MESSAGE value="Collab dropdown" />
-    <MESSAGE value="UI cleanup" />
     <MESSAGE value="Another UI cleanup/ nav cleanup" />
     <MESSAGE value="UI cleanup, DB cleanup" />
     <MESSAGE value="Daw top margin fix" />
     <MESSAGE value="Favicon update" />
     <MESSAGE value="play button now button" />
     <MESSAGE value="Icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Icon" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="heart fix 1" />
+    <MESSAGE value="confirmation remove" />
+    <MESSAGE value="confirmation remove for login" />
+    <MESSAGE value="Profile/login page cleanup" />
+    <MESSAGE value="blur for ios, profile block smaller" />
+    <MESSAGE value="browse blur UI update" />
+    <MESSAGE value="webkit fix" />
+    <MESSAGE value="create profile UI fix" />
+    <MESSAGE value="nav ajdust for blur" />
+    <MESSAGE value="Home page update, setup fix, friends UI cleanup" />
+    <MESSAGE value="UI cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

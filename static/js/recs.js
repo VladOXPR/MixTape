@@ -71,8 +71,8 @@ let micVis = function (p) {
     }
 
     p.draw = function () {
-        p.background(0); // You might need to adjust this to match your desired background
-        p.fill(0); // Match the fill to your background color
+        p.background(255); // You might need to adjust this to match your desired background
+        p.fill(255); // Match the fill to your background color
         p.stroke(48, 54, 58); // Or choose another stroke color if desired
         p.strokeWeight(1)
         p.rect(1, 1, p.width-2, p.height-2, 10); // This creates the rounded rectangle

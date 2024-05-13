@@ -1,3 +1,23 @@
+.img-gradient-block {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-size: cover; /* Ensures the background image covers the entire element */
+    background-position: center; /* Centers the background image */
+    overflow: hidden;
+
+}
+
+.blur {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    backdrop-filter: blur(20px); /* Apply blur effect for browsers */
+    -webkit-backdrop-filter: blur(20px);
+}
+
 .profile-block {
     position: relative;
     width: 100%;
@@ -6,6 +26,7 @@
     background-size: cover; /* Ensures the background image covers the entire element */
     background-position: center; /* Centers the background image */
     overflow: hidden; /* Ensure the pseudo-element respects the div's border-radius */
+/*    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);*/
 }
 
 .profile-block::before {
@@ -15,12 +36,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: inherit; /* Inherit the background of the parent */
+    background: inherit;
     filter: brightness(80%); /* Dim the background by reducing brightness */
     z-index: 0;
 }
 
-.profile-block > * {
+.profile-block > * { /* or any desired color */
     position: relative;
     z-index: 1;
 }
@@ -38,10 +59,9 @@
 .blur-block {
     display: flex;
     flex-direction: column;
-    aspect-ratio: 2 / 1;
-    backdrop-filter: blur(10px); /* Apply blur effect */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 }
+
 
 .blur-top {
     display: flex;
@@ -53,6 +73,7 @@
 .top-left {
     width: 100%;
     height: auto;
+    margin-bottom: 1rem;
 }
 
 .top-right {
@@ -64,10 +85,12 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    height: 100%;
 }
 
 .bottom-left {
-    width: 100%;
+    width: auto;
     height: auto;
 }
 

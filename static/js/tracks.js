@@ -48,7 +48,7 @@ function createVis(trackId, mp3Url) {
         };
 
         p.draw = function () {
-            p.background(0);
+            p.background(12, 12, 13);
             p.fill(0);
             p.stroke(48, 54, 58);
             p.strokeWeight(1);
@@ -96,7 +96,7 @@ function createRuler() {
         };
 
         p.draw = function () {
-            p.background(0);
+            p.background(12, 12, 13);
             p.fill(30, 33, 36);
             p.stroke(30, 33, 36);
             p.strokeWeight(1);
@@ -234,7 +234,7 @@ let micVis = function (p) {
     };
 
     p.draw = function() {
-        p.background(0);
+        p.background(12, 12, 13);
         let currentTime = 0;
         let width = isRecording ? posX - initialPosX : finalPosX - initialPosX; // Example scaling, adjust as needed
         p.fill(0); // Fill color for the "growing" rectangle

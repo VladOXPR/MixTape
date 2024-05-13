@@ -29,8 +29,7 @@
         </div>
 
         <div class="header-right">
-            <a href="{% url 'logout' %}" class="minor-buttons log-out"
-               onclick="return confirm('Are you sure you want to Log Out?');">
+            <a href="{% url 'logout' %}" class="minor-buttons log-out">
                 <p>LOG OUT</p>
             </a>
         </div>
@@ -42,6 +41,7 @@
         {% csrf_token %}
         {% render_field form.profileimg class+="settings-pfp" %}
         <label for="id_profileimg" class="image-container" id="image-box">
+
             <img src="{{ user_profile.profileimg.url }}" id="image-box" class="public-block"
                  style="width: 100%; filter: brightness(75%)">
 

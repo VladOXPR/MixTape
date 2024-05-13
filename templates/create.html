@@ -20,6 +20,7 @@
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
     <script src="{% static 'js/publicTracks.js' %}"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
 <header>
     <div class="header-block">
         <div class="header-left">
-            <p style="font-size: 25px;">Workspace</p>
+            <p style="font-size: 25px; color: white;">Workspace</p>
         </div>
 
         <div class="header-right">
@@ -42,44 +43,27 @@
 </header>
 
 
-<div class="scroll-container">
+<div class="scroll-container" style="margin-bottom: 12rem;">
     <a href="/settings">
         <div class="profile-block" style="background-image: url('{{ user_profile.profileimg.url }}'); border-radius: 10px; cursor: pointer;">
-            <div class="top-block">
-                <div class="name-block">
-                    <div style="font-size: 25px;">{{ user_profile.name }}</div>
-                </div>
+            <div class="name-block">
+                <div style="font-size: 25px;">{{ user_profile.name }}</div>
             </div>
 
             <div class="blur-block">
                 <div class="blur-top">
                     <div class="top-left" style="padding-top: 1rem; padding-left: 1rem;">
-                        <p id="id_bio" style="font-size: 15px;">{{ user_profile.bio }}</p>
+                        <p id="id_bio" style="font-size: 15px; color: #C9C9C9;">{{ user_profile.bio }}</p>
                     </div>
 
-                    <div class="top-right"></div>
-                </div>
-
-                <div class="blur-bottom">
-                    <div class="bottom-left">
+                    <div class="top-right">
                         {% with user_profile.fav_proj as project %}
                             {% if project %}
-                                <img src="{{ project.coverimg.url }}" style="height: 75px; width: 75px; margin: 1rem; border-radius: 10px">
-                            {% else %}
-                                <p></p>
-                            {% endif %}
-                        {% endwith %}
-                    </div>
-
-                    <div class="bottom-mid"></div>
-
-                    <div class="bottom-right" style="margin-bottom: 1rem;">
-                        {% with user_profile.fav_proj as project %}
-                            {% if project %}
-                                <div style="margin: 0; margin-top: 1rem; font-size: 15px;">{{ project.title }}</div>
-                                <div style="margin: 0; margin-top: 0.3rem; color: #758087; font-size: 10px;">{{ user_profile.name }}</div>
-                            {% else %}
-
+                                <img src="{{ project.coverimg.url }}" style="height: 75px;
+                                                                            width: 75px;
+                                                                            margin: 1rem;
+                                                                            border-radius: 10px;
+                                                                            box-shadow: 0px 0px 20px 20px rgba(0,0,0,0.5);">
                             {% endif %}
                         {% endwith %}
                     </div>
@@ -91,51 +75,70 @@
     <p style="font-size: 20px; margin-top: 10px">Projects</p>
 
     {#working projects#}
-    {% for project in user_projects %}
-        <div class="projects-block">
-            <a href="workspace/{{ project.id }}" class="project">
-                <img src="{{ project.coverimg.url }}" style="height: 100%"/>
-                <h4 style="color: white">{{ project.title }}</h4>
-            </a>
+    <div class="modal" id="codeModal">
+        {% for project in user_projects %}
+            <div class="projects-block">
+                <a href="workspace/{{ project.id }}" class="project">
+                    <img src="{{ project.coverimg.url }}" style="height: 100%; border-radius: 5px;"/>
+                    <h4 style="color: white">{{ project.title }}</h4>
+                </a>
 
-            <div class="button-container">
-                {# Favorite function #}
-                <form method="POST" enctype="multipart/form-data" action="" style="display: none;">
-                    {% csrf_token %}
-                    <input type="hidden" name="form_type" value="favorite_project"/>
-                    <input type="hidden" name="project_id" value="{{ project.id }}"/>
-                    <input type="submit" value="Favorite Project" id="favorite-proj-{{ project.id }}"/>
-                </form>
+                <div class="button-container">
+                    {# Favorite function #}
+                    <form method="POST" enctype="multipart/form-data" action="" style="display: none;">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="favorite_project"/>
+                        <input type="hidden" name="project_id" value="{{ project.id }}"/>
+                        <input type="submit" value="Favorite Project" id="favorite-proj-{{ project.id }}"/>
+                    </form>
 
-                <label for="favorite-proj-{{ project.id }}" class="project-icons" style="height: 70%; width: 45%">
-                    {% if project.id == user_profile.fav_proj.id %}
-                        <img src="/media/heart_orange.png" alt="Not Favorite">
-                    {% else %}
-                        <img src="/media/heart_grey.png" alt="Favorite">
-                    {% endif %}
-                </label>
+                    <label for="favorite-proj-{{ project.id }}" class="project-icons" style="height: 3rem; width: 2rem">
+                        {% if project.id == user_profile.fav_proj.id %}
+                            <img src="/media/heart_orange.png" alt="Not Favorite">
+                        {% else %}
+                            <img src="/media/heart_grey.png" alt="Favorite">
+                        {% endif %}
+                    </label>
 
-                {# Delete function #}
-                <form method="POST" enctype="multipart/form-data" action="">
-                    {% csrf_token %}
-                    <input type="hidden" name="form_type" value="delete_project"/>
-                    <input type="hidden" name="project_id" value="{{ project.id }}"/>
-                    <input type="submit" value="Delete Project" style="display: none;" id="delete-proj-{{ project.id }}"
-                           onclick="return confirm('Are you sure you want to delete {{ project.title }} project?');"/>
-                </form>
+                    {# Delete function #}
+                    <form method="POST" enctype="multipart/form-data" action="">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="delete_project"/>
+                        <input type="hidden" name="project_id" value="{{ project.id }}"/>
+                        <input type="submit" value="Delete Project" style="display: none;" id="delete-proj-{{ project.id }}"
+                               onclick="return confirm('Are you sure you want to delete {{ project.title }} project?');"/>
+                    </form>
 
+                </div>
             </div>
+        {% endfor %}
+
+        <div class="addtrack-container">
+            <a href="setup" class="trackform-label" style="color: black;"></a>
         </div>
-    {% empty %}
-
-    {% endfor %}
-
-    <div class="addtrack-container">
-        <a href="setup" class="trackform-label" style="color: black;"></a>
     </div>
 </div>
 
-<footer>
+<footer style="margin: none; padding-bottom: 0vh; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); padding-top: 0vh;">
+    <hr style="background-color: #1E2023; margin: 0px;">
+
+    <div style="background-color: #0C0C0D; width: 100%; height: 12rem; display: flex; flex-direction: column;">
+        <div style="font-family: 'Inter-Bold', sans-serif;
+                    font-size: 20px;
+                    padding: 30px;
+                    padding-bottom: 5px;
+                    padding-top: 20px;
+                    display: flex;">Cash</div>
+        <div style="font-family: 'Inter-Medium', sans-serif;
+                    font-size: 15px;
+                    padding: 30px;
+                    padding-top: 5px;
+                    display: flex;
+                    color: #C9C9C9;">$0.00</div>
+    </div>
+</footer>
+
+<footer style="background: rgba(0, 0, 0, 0);">
     <div class="nav2">
         <a href="/">
             <img src="/media/Browse_grey.png" style="height: 25px">
