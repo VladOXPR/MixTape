@@ -41,17 +41,17 @@
         {% csrf_token %}
         {% render_field form.profileimg class+="settings-pfp" %}
         <label for="id_profileimg" class="image-container" id="image-box">
-
             <img src="{{ user_profile.profileimg.url }}" id="image-box" class="public-block"
-                 style="width: 100%; filter: brightness(75%)">
-
-            {% render_field form.name class+="settings-name" %}
-
-            <div class="bio-and-music-block" id="bio-text">
-                {% render_field form.bio class+="settings-bio" rows="auto" cols="auto" %}
-            </div>
-
+             style="width: 100%; filter: brightness(75%)">
         </label>
+
+        <div class="name-block">
+            {% render_field form.name class+="settings-name" %}
+        </div>
+
+        <div class="bio-block">
+            {% render_field form.bio cols="auto" %}
+        </div>
     </form>
     <div style="width: 100%;">
         <button id="confirm-btn" style="display: none;"></button>

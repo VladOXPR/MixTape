@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="UI cleanup">
+    <list default="true" id="7a75e420-e72f-4d20-97bc-b3dfb3c80f67" name="Changes" comment="Daw ajax fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/tracks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/workspace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/workspace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/workspace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/settings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,14 +170,6 @@
       <workItem from="1709852451447" duration="4282000" />
       <workItem from="1710125845144" duration="8729000" />
       <workItem from="1711398554902" duration="42373000" />
-    </task>
-    <task id="LOCAL-00058" summary="updated nav bar for drop page">
-      <option name="closed" value="true" />
-      <created>1710353224973</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1710353224973</updated>
     </task>
     <task id="LOCAL-00059" summary="add 3.129.67.227">
       <option name="closed" value="true" />
@@ -564,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715631649126</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Daw ajax fix">
+      <option name="closed" value="true" />
+      <created>1715652365741</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1715652365741</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +585,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/MixTape" />
     </ignored-roots>
-    <MESSAGE value="Daw UI cleanup" />
     <MESSAGE value="browse restyle" />
     <MESSAGE value="Daw modal cleanup" />
     <MESSAGE value="Footer nav resize fix" />
@@ -611,7 +609,8 @@
     <MESSAGE value="nav ajdust for blur" />
     <MESSAGE value="Home page update, setup fix, friends UI cleanup" />
     <MESSAGE value="UI cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI cleanup" />
+    <MESSAGE value="Daw ajax fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Daw ajax fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
