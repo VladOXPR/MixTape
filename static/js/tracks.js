@@ -43,7 +43,7 @@ function createVis(trackId, mp3Url) {
             p.canvasWidth = document.getElementById('codeModal').offsetWidth;
             // p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
             p.createCanvas(p.canvasWidth-1, 100); // Creates canvas
-            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data pf the peaks to visually map out the song
+            p.peaks = p.song.getPeaks(p.canvasWidth); // Gets the data of the peaks to visually map out the song
             p.noFill();
         };
 
@@ -243,29 +243,28 @@ let micVis = function (p) {
         p.rect(initialPosX, 1, width, p.height - 2, 10);
 
         if (isRecording) {
-//            if (volhistory.length < width) {
-//                let vol = mic.getLevel();
-//                volhistory.push(vol); // Add new volume data at intervals matching posX updates
-//            }
-//
-//            p.stroke(255);
-//
-//            p.beginShape();
-//            for (let i = 0; i < volhistory.length; i++) {
-//                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
-//                let y = p.map(volhistory[i] * 20, 0, 1, p.height / 2, 0);
-//                p.vertex(x, y);
-//            }
-//            p.endShape();
-//
-//            p.beginShape();
-//            for (let i = 0; i < volhistory.length; i++) {
-//                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
-//                let y = p.map(volhistory[i] * 20, 0, 1, p.height / 2, p.height); // Mirror mapping
-//                p.vertex(x, y);
-//            }
-//            p.endShape();
+            if (volhistory.length < width) {
+               let vol = mic.getLevel();
+               volhistory.push(vol); // Add new volume data at intervals matching posX updates
+            }
 
+            p.stroke(255);
+
+            p.beginShape();
+            for (let i = 0; i < volhistory.length; i++) {
+                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
+                p.line(x, p.height / 2 + volhistory[i] * 45, x, p.height / 2 - volhistory[i] * 45);
+            }
+            p.endShape();
+        } else {
+            p.stroke(255);
+
+            p.beginShape();
+            for (let i = 0; i < volhistory.length; i++) {
+                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
+                p.line(x, p.height / 2 + volhistory[i] * 45, x, p.height / 2 - volhistory[i] * 45);
+            }
+            p.endShape();
         }
 
         p.stroke(255, 79, 0);
@@ -284,13 +283,13 @@ let micVis = function (p) {
 
     p.record = function() {
         if (!isRecording) {
+            volhistory = [];
             p.userStartAudio();
             recorder.record(soundFile);
             isRecording = true;
             startTime = window.performance.now();
             recButton.html(''); // Update button text
             initialPosX = posX;
-
             togglePlayPauseAll(true);
         }
     };
@@ -300,8 +299,7 @@ let micVis = function (p) {
             recorder.stop();
             isRecording = false;
             recordedTime += (window.performance.now() - startTime) / 3000; // Update recordedTime
-            recButton.html(''); // Update button text back to 'Record'
-            volhistory = [];
+            recButton.html(''); // Update button text back to 'Record';
             finalPosX = posX;
 
             togglePlayPauseAll(false);

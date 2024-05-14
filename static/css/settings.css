@@ -21,6 +21,7 @@
     flex-direction: column;
     align-items: center;
     justify-items: center;
+    gap: 2rem;
 }
 
 .settings-image-container {
@@ -58,61 +59,51 @@
 }
 
 .public-block {
+    position: relative;
     display: flex;
     width: 100%;
     height: auto;
     flex-shrink: 0;
     border-radius: 10px;
-    background: url(<path-to-image>);
     border-color: #9ca3af;
-}
-
-.bio-and-music-block {
-    position: absolute;
-    bottom: 0;
-    height: 25%;
-    width: 90%;
-
-    display: flex;
-    align-items: center;
-    border-color: black;
-    gap: 5%;
 }
 
 
 .settings-bio {
-    width: 50%;
-
-    border: none;
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.5);
-
+    display: flex;
+    position: relative;
+    font-family: 'Inter-Medium', sans-serif;
     font-size: 15px;
-    color: #E4E4E4;
-    text-align: left;
-    font-family: 'Inter-Bold', sans-serif;
-    padding: 6px;
-    margin-bottom: 5rem;
+    border-color: white;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 50%;
+    height: 50%;
 }
 
 .settings-name {
-    position: absolute;
-    top: 0;
-    width: 90%;
-    z-index: 10;
-    margin-top: 10px;
-
-    border: none;
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.5);
-
+    display: flex;
+    position: relative;
+    font-family: 'Inter-Medium', sans-serif;
+    font-size: 15px;
+    border-color: white;
+    background: black;
     color: white;
-    text-align: left;
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: -1px;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+}
+
+.name-block {
+    display: flex;
+    position: relative;
+}
+
+.bio-block {
+    position: relative;
+    display: flex;
 }
 
 .settings-pfp {
@@ -206,13 +197,9 @@
     margin: 0 0 2vh 0;
 }
 
-.name-block {
-    position: relative;
-}
-
-.bio-block {
-    position: relative;
+.tittle {
     display: flex;
-    width: 100%;
-    height: auto;
+    position: relative;
+    font-family: 'Inter-Bold', sans-serif;
+    font-size: 20px;
 }
