@@ -243,28 +243,29 @@ let micVis = function (p) {
         p.rect(initialPosX, 1, width, p.height - 2, 10);
 
         if (isRecording) {
-            if (volhistory.length < width) {
-                let vol = mic.getLevel();
-                volhistory.push(vol); // Add new volume data at intervals matching posX updates
-            }
+//            if (volhistory.length < width) {
+//                let vol = mic.getLevel();
+//                volhistory.push(vol); // Add new volume data at intervals matching posX updates
+//            }
+//
+//            p.stroke(255);
+//
+//            p.beginShape();
+//            for (let i = 0; i < volhistory.length; i++) {
+//                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
+//                let y = p.map(volhistory[i] * 20, 0, 1, p.height / 2, 0);
+//                p.vertex(x, y);
+//            }
+//            p.endShape();
+//
+//            p.beginShape();
+//            for (let i = 0; i < volhistory.length; i++) {
+//                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
+//                let y = p.map(volhistory[i] * 20, 0, 1, p.height / 2, p.height); // Mirror mapping
+//                p.vertex(x, y);
+//            }
+//            p.endShape();
 
-            p.stroke(255);
-
-            p.beginShape();
-            for (let i = 0; i < volhistory.length; i++) {
-                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
-                let y = p.map(volhistory[i] * 20, 0, 1, p.height / 2, 0);
-                p.vertex(x, y);
-            }
-            p.endShape();
-
-            p.beginShape();
-            for (let i = 0; i < volhistory.length; i++) {
-                let x = p.map(i, 0, volhistory.length, initialPosX, initialPosX + width);
-                let y = p.map(volhistory[i] * 20, 0, 1, p.height / 2, p.height); // Mirror mapping
-                p.vertex(x, y);
-            }
-            p.endShape();
         }
 
         p.stroke(255, 79, 0);

@@ -84,13 +84,25 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('track chosen');
 
         const modal = document.getElementById('codeModal')
+        const controls = document.getElementById('codeControls')
         let newTrack = document.createElement('div');
+        let newMute = document.createElement('div');
 
         let trackId = 'temp';
         newTrack.id = `vis-container-${trackId}`;
+        newMute.id = `mute-container-${trackId}`;
 
-        const lastChild = modal.children[modal.children.length - 1];
-        modal.insertBefore(newTrack, lastChild);
+        const lastTrack = modal.children[modal.children.length - 1];
+        modal.insertBefore(newTrack, lastTrack);
+
+        const lastMute = controls.children[controls.children.length - 1];
+        controls.insertBefore(newMute, lastMute);
+
+        const trackText = document.getElementById('trackText');
+
+        if (trackText) {
+            trackText.parentNode.removeChild(trackText);
+        }
 
         // modal.append(newTrack)
         console.log(mp3Input.value)
@@ -127,5 +139,4 @@ document.addEventListener('DOMContentLoaded', function () {
             processData: false,
         });
     })
-
 });

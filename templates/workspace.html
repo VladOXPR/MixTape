@@ -75,7 +75,7 @@
     <div class="daw">
         <div class="vertical-line"></div>
 
-        <div class="daw-controls">
+        <div class="daw-controls" id="codeControls">
             <div id="play-container"></div>
             <script>
                 controlVis();
@@ -104,7 +104,13 @@
                     createVis({{ track.id }}, '{{ track.mp3.url }}');
                 </script>
             {% empty %}
-                <div style="color: #FFF; position: absolute; font-family: 'Inter-Bold', sans-serif; font-weight: bold; font-size: 20px; padding-top: 2.5rem; padding-left: 10vw">Add track to start recording</div>
+                <div style="color: #FFF;
+                            position: absolute;
+                            font-family: 'Inter-Bold', sans-serif;
+                            font-weight: bold;
+                            font-size: 20px;
+                            padding-top: 2.5rem;
+                            padding-left: 10vw" id="trackText">Add track to start recording</div>
             {% endfor %}
             <div id="micVis"></div>
         </div>
