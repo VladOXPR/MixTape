@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css">
     <script src="{% static 'js/p5.js' %}"></script>
     <script src="{% static 'js/p5.sound.js' %}"></script>
-    <script src="{% static 'js/tracks.js' %}"></script>
+    <script src="{% static 'js/DAW.js' %}"></script>
 </head>
 
 <body>
@@ -66,9 +66,6 @@
                          style="width: 100%; border-radius: 10px;">
                 </label>
             </form>
-<!--            <div class="right-panel">-->
-<!--                <img src="{{ user_project.coverimg.url }}" id="image" style="height: auto; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px;">-->
-<!--            </div>-->
         </div>
     </div>
 
@@ -126,6 +123,8 @@
     <div style="background: #0C0C0D; padding-bottom: 0.5rem; border-bottom: 2px solid #1E2023;">
         <label for="id_mp3" class="trackform-label"></label>
     </div>
+
+<!--    <div id="memoVis"></div>-->
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

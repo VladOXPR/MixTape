@@ -17,7 +17,7 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding-bottom: 4vh; /* Adds space inside the footer at the bottom */
+    padding-bottom: 4vh;
     box-sizing: border-box;
 }
 
@@ -43,17 +43,17 @@ footer {
 }
 
 .panel-container {
-    width: 50vw; /* Set the width of the square */
-    height: 50vw; /* Set the height of the square */
-    position: relative; /* Needed for positioning content inside */
+    width: 50vw;
+    height: 50vw;
+    position: relative;
 }
 
 .left-panel, .right-panel {
     position: absolute;
     background-color: #000000;
-    color: #FFFFFF; /* For contrast */
+    color: #FFFFFF;
     display: flex;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
     height: auto;
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -67,8 +67,8 @@ footer {
     height: 30px;
     border-radius: 5px;
     border-color: gray;
-    display: flex; /* Use flexbox to center the input field horizontally */
-    width: 87vw; /* Ensure the search bar container takes up full width of its parent */
+    display: flex;
+    width: 87vw;
     gap: 5%;
     padding-right: 5%;
 }
@@ -91,9 +91,9 @@ footer {
     display: flex;
     background-image: url('/media/addtrack.png');
     background-color: #ffffff;
-    background-size: cover; /* Resize the background image to cover the entire container */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-position: center; /* Center the background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: #000000;
     height: 41px;
     width: 41px;
@@ -175,13 +175,14 @@ nav {
 #record-button {
     background-color: white;
     width: 52px;
-    height: 100px;
+    height: 50px;
     cursor: pointer;
     border: none;
     background-image: url('/media/rec.png');
     background-size: cover;
     background-position: center;
     border-radius: 3px;
+    display: inline-block;
 }
 
 #play-button {
