@@ -9,7 +9,7 @@ function createVis(trackId, mp3Url) {
         let isOriginalColor = true; // This variable tracks the state of the background color
 
         p.setup = function () {
-            p.createCanvas(52, 50);
+            p.createCanvas(52, 100);
         };
 
         p.draw = function () {
@@ -41,9 +41,9 @@ function createVis(trackId, mp3Url) {
         };
 
         p.setup = function () {
-            p.canvasWidth = document.getElementById('codeModal').offsetWidth;
             // p.canvasWidth = p.song.duration(); // Makes the canvas width proportional to the length of the song
-            p.createCanvas(p.canvasWidth-1, 50);
+            p.canvasWidth = document.getElementById('codeModal').offsetWidth;
+            p.createCanvas(p.canvasWidth-1, 100);
             p.peaks = p.song.getPeaks(p.canvasWidth / 1.5); // Gets the data of the peaks to visually map out the song
             p.noFill();
         };
@@ -228,7 +228,7 @@ let micVis = function (p) {
 
     p.setup = function() {
         p.canvasWidth = document.getElementById('codeModal').offsetWidth;
-        p.createCanvas(p.canvasWidth-55, 50); // Set a fixed canvas size
+        p.createCanvas(p.canvasWidth-55, 100); // Set a fixed canvas size
         mic = new p5.AudioIn();
         mic.start();
         recorder = new p5.SoundRecorder();

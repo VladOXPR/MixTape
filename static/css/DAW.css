@@ -160,6 +160,7 @@ nav {
 
 .daw {
     display: flex;
+    border-bottom: 2px solid #1E2023;
 }
 
 .daw-controls {
@@ -175,7 +176,7 @@ nav {
 #record-button {
     background-color: white;
     width: 52px;
-    height: 50px;
+    height: 100px;
     cursor: pointer;
     border: none;
     background-image: url('/media/rec.png');
