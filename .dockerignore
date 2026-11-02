@@ -1,0 +1,12 @@
+.git
+.idea
+.venv
+**/__pycache__
+*.pyc
+media
+MixtapeWebView
+old_templates
+node_modules
+get-pip.py
+db.sqlite3
+your_database.db
